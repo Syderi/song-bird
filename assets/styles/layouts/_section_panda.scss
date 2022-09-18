@@ -1,0 +1,52 @@
+.wrapper__section-panda {
+    height: 700px;
+    background: url('../../../assets/img/png/GiantPanda.png');
+    background-repeat: no-repeat;
+    background-position: 0 -80px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 220px;
+    // background-color: red;
+}
+
+
+.panda__content{
+    width: 500px;
+    // margin-left: calc(50% - 500.31px/2 + 330.15px);
+}
+
+.panda__button{
+    margin-left: 105px;
+}
+
+.panda__caption {
+    position: relative;
+    padding-top: 86px;
+    
+    height: 486px;
+
+    @include font($size: 10.65rem,$height: 75%, $weight: 500);
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-white-text;
+z-index: 1;
+        span {
+            color: $color-favorite;
+        };
+    &::before {
+        content: '';
+        position: absolute;
+        top: 12px;
+        left: -73px;
+        display: block;
+        width: 465px;
+        height: 465px;
+        background: $color-default;
+        border-radius: 50%;
+        z-index: -1;
+    };
+}
+
+.panda__button {
+margin-top: 60px;
+}
