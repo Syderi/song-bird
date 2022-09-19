@@ -11,7 +11,9 @@
     
     background: $color-default;
     border-radius: 25px;
-
+    &_rectangle {
+        border-radius: 5px;
+    }
 }
 
 
