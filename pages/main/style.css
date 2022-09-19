@@ -490,6 +490,13 @@ h5 {
   margin-top: 60px;
 }
 
+.wrapper__main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .backstage {
   display: flex;
   justify-content: space-between;
@@ -530,6 +537,7 @@ h5 {
 }
 
 .slider__cards {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -546,16 +554,24 @@ h5 {
 }
 
 .slider__card__wrapper {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 6px 10px 10px 12px;
 }
 
 .slider__card__img {
+  position: relative;
   padding-top: 7px;
-  width: 40px;
+  width: 48px;
   height: 40px;
-  padding-bottom: 9px;
+}
+.slider__card__img img {
+  position: absolute;
+  right: 0px;
+  top: 1px;
+  width: 48px;
+  height: 40px;
 }
 
 .slider__card__title {
@@ -568,4 +584,53 @@ h5 {
   font-style: normal;
   font-weight: 300;
   line-height: 120%;
+}
+
+.slider__arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+}
+
+.slider__arrow_left {
+  position: absolute;
+  top: 50%;
+  left: -82px;
+  transform: translateY(-42px);
+}
+
+.slider__arrow_right {
+  position: absolute;
+  top: 50%;
+  right: -82px;
+  transform: translateY(-42px);
+}
+
+.main__button {
+  margin: 62px 0px 100px;
+}
+
+.main__bacgraund__img__flower {
+  position: absolute;
+  top: 15px;
+  right: 0px;
+  z-index: -1;
+}
+
+.main__bacgraund__img__palm {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: -1;
+}
+
+.main__bacgraund__img__strelitzia {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  z-index: -1;
 }/*# sourceMappingURL=style.css.map */
