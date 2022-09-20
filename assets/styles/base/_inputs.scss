@@ -1,19 +1,39 @@
-
-
 .input {
-    width: 228px;
-    height: 42px;
-    border-radius: 2px;
-    border: 0.7px solid $color-input;
+  width: 228px;
+  height: 42px;
+  border-radius: 2px;
+  border: 0.7px solid $color-input;
+  color: $color-placeholder;
+  background: $color-footer-bg;
+  @include font($size: 1.6rem, $height: 140%, $weight: 400);
+  padding: 10px 7px 10px 10px;
+  &:focus,
+  &:active,
+  &:hover {
+    outline: none;
+    border: 0.7px solid $color-focus;
+  }
+  &::placeholder {
     color: $color-placeholder;
-    background: $color-footer-bg;
+  }
+}
+
+.donate__cash {
+  @include font($size: 1.6rem, $height: 140%, $weight: 400);
+  width: 268px;
+  padding: 14px 9px;
+  border: 1px solid $color-input;
+  border-radius: 2px;
+  color: $color-input;
+  background-color: transparent;
+  &::placeholder {
     @include font($size: 1.6rem, $height: 140%, $weight: 400);
-    padding: 10px 7px 10px 10px;
-    &:focus, &:active, &:hover{
-        outline: none;
-        border: 0.7px solid $color-focus;
-    }
-    &::placeholder {
-        color: $color-placeholder;
-      }
+    color: $color-input;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
