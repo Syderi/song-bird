@@ -27,10 +27,11 @@ h2 {
 }
 
 // h3 {
-//     @include font($size: 2.4rem, $height: 3.4rem);
-//     @include media-mobile {
-//         @include font($height: 3.1rem, $size: 2.1rem);
-//     }
+//     margin: 0;
+//     @include font($size: 3.6rem, $height: 130%, $weight:400);
+//     // @include media-mobile {
+//     //     @include font($height: 3.1rem, $size: 2.1rem);
+//     // }
 // }
 
 h4 {
@@ -50,3 +51,8 @@ h5 {
 //     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
 //     border-radius: 10px;
 // }
+
+a {
+    text-decoration: none;
+    margin: 0;
+}

@@ -1,0 +1,81 @@
+.wrapper__donate {
+  height: 1482px;
+  padding: 40px 220px 180px;
+  background: $color-donade-bg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $color-white-text;
+}
+
+// .donate__title{
+
+// }
+
+.donate__text {
+  margin-top: 10px;
+  @include font($size: 1.6rem, $height: 2.24rem, $weight: 500);
+
+  /* subtitle */
+}
+
+.donate__info {
+  margin-top: 45px;
+  align-self: flex-start;
+  color: $color-frend-title;
+}
+
+.donate__card {
+  width: 1160px;
+  height: 964px;
+  background-color: $color-donate-card-bg;
+  border-radius: 20px;
+  margin-top: 60px;
+  padding: 40px 92px 61.9px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.donate__card__title {
+  color: $color-frend-title;
+}
+
+.donate__card__text {
+  margin-top: 20px;
+  @include font($size: 2.4rem, $height: 120%, $weight: 400);
+
+  color: $color-text;
+}
+
+.donate__diet__wrapper {
+margin-top: 60px;
+display: flex;
+align-items: center;
+
+  .donate__diet__four {
+    padding-top: 52px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 11px;
+  }
+
+  .donate_diet__X{
+    padding-top: 29px;
+margin-right: 64px;
+  }
+
+  .donate__diet__number {
+    @include font($size: 7.2rem, $height: 80%, $weight: 500);
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-header-bg;
+  }
+
+  .donate__diet__text {
+    margin-top: 11px;
+    @include font($size: 1.6rem, $height: 140%, $weight: 400);
+    text-align: center;
+    color: $color-text;
+  }
+}

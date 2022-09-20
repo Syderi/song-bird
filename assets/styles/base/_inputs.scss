@@ -1,0 +1,19 @@
+
+
+.input {
+    width: 228px;
+    height: 42px;
+    border-radius: 2px;
+    border: 0.7px solid $color-input;
+    color: $color-placeholder;
+    background: $color-footer-bg;
+    @include font($size: 1.6rem, $height: 140%, $weight: 400);
+    padding: 10px 7px 10px 10px;
+    &:focus, &:active, &:hover{
+        outline: none;
+        border: 0.7px solid $color-focus;
+    }
+    &::placeholder {
+        color: $color-placeholder;
+      }
+}

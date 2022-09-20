@@ -19,9 +19,9 @@
   margin-bottom: 15px;
   padding: 15px 15px 19px 15px;
   position: relative;
-  max-width: 268px;
+  min-width: 268px;
   height: 391px;
-  background-color: $color-testimonials-bg;
+  background-color: $color-submit-bg;
   border-radius: 20px;
   &::before {
     content: '';

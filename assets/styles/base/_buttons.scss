@@ -19,6 +19,32 @@
 
 
 
+.submit {
+
+    background: $color-submit-bg; 
+    border: 1px solid $color-text;
+    border-radius: 5px;
+    width: 129px;
+    height: 42px;
+    color: $color-header-bg;
+    padding: 10px 39px;
+    @include font($size: 1.6rem, $height: 140%, $weight: 400);
+    
+    &:focus, &:active, &:hover{
+        color:$color-focus;
+        background: #F1F3F2;
+        border: 1px solid #4B9200;
+    }
+}
+
+
+
+
+
+
+
+
+
 
 
 // .button {
