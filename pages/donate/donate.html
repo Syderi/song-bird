@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="./style.css" />
     <title>Online-Zoo</title>
   </head>
@@ -15,20 +18,18 @@
             <!-- <img src="../../assets/img/svg/logo.svg" alt="logo"> -->
             <a href="../main/main.html" class="logoBox">
               <div class="logo">
-                <div class="logoText">PetStory online</div>
+                <div class="logoText"><h1>PetStory online</h1></div>
                 <div class="logoImg"></div>
               </div>
             </a>
           </div>
           <nav class="header__navigation">
             <ul class="navigation">
-              <li class="navigation__link"><a href="#">About</a></li>
-              <li class="navigation__link"><a href="#">Map</a></li>
-              <li class="navigation__link"><a href="#">Zoos</a></li>
-              <li class="navigation__link">
-                <a href="./donate.html">Donate</a>
-              </li>
-              <li class="navigation__link"><a href="#">Contact us</a></li>
+              <li><a class="navigation__link navigation__link_activ" href="./main.html">About</a></li>
+              <li ><a class="navigation__link" href="#">Map</a></li>
+              <li ><a class="navigation__link" href="#">Zoos</a></li>
+              <li ><a class="navigation__link" href="../donate/donate.html">Donate</a></li>
+              <li ><a class="navigation__link" href="#">Contact us</a></li>
             </ul>
           </nav>
         </div>
@@ -61,7 +62,7 @@
           Donation Information
         </h2>
         <div class="donate__card">
-          <h1 class="donate__card__title">Pick and feed a friend</h1>
+          <h3 class="donate__card__title">Pick and feed a friend</h3>
           <p class="donate__card__text">We know the animals bring you joy, and in these extraordinary times, we’re glad.</p>
           <div class="donate__diet__wrapper">
             <div class="donate__diet__four">
@@ -169,7 +170,7 @@
     <footer class="footer">
       <div class="wrapper wrapper__footer">
         <div class="footer__logo">
-          <a href="#" class="logoBox">
+          <a href="../main/main.html" class="logoBox">
             <div class="logo logo_footer">
               <div class="logoText">PetStory online</div>
               <div class="logoImg"></div>
@@ -246,14 +247,18 @@
         </div>
         <div class="footer__nav">
           <ul class="footer__navigation">
-            <li class="navigation__link"><a href="#">About</a></li>
+            <li class="navigation__link"><a href="../main/main.html">About</a></li>
             <li class="navigation__link"><a href="#">Map</a></li>
             <li class="navigation__link"><a href="#">Zoos</a></li>
             <li class="navigation__link"><a href="#">Contact us</a></li>
           </ul>
         </div>
         <div class="footer__copyright">
-          <div class="footer__autor">Designed by Eugeniy Kuzmin</div>
+          <div class="footer__autor">
+            <a class="footer__logoBox" href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online?node-id=0%3A1">
+              Designed by Eugeniy Kuzmin
+            </a>
+            </div>
           <div class="footer__school">
             <a class="footer__logoBox" href="#">
               ©RSSchool & ©Yem Digital 2021
@@ -264,3 +269,4 @@
     </footer>
   </body>
 </html>
+

@@ -22,15 +22,21 @@
   display: flex;
   align-items: center;
 }
+
 .navigation {
   display: flex;
   align-items: center;
   gap: 58px;
   @include font($size: 1.6rem, $weight: 500);
-  a {
+  .navigation__link {
     color: $color-white-text;
   }
+  .navigation__link_activ {
+color: $color-border;
 }
+}
+
+
 
 .header__designed {
   @include font($size: 1.6rem, $weight: 500);

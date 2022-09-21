@@ -10,7 +10,7 @@ body {
 
 h1 {
     margin: 0;
-    @include font($size: 4.8rem, $height: 120%, $weight:400);
+    @include font($size: 1.9rem, $height: 120%, $weight: 400);
 
 
     // @include media-mobile {
@@ -26,13 +26,13 @@ h2 {
     // }
 }
 
-// h3 {
-//     margin: 0;
-//     @include font($size: 3.6rem, $height: 130%, $weight:400);
-//     // @include media-mobile {
-//     //     @include font($height: 3.1rem, $size: 2.1rem);
-//     // }
-// }
+h3 {
+    margin: 0;
+    @include font($size: 4.8rem, $height: 120%, $weight:400);
+    // @include media-mobile {
+    //     @include font($height: 3.1rem, $size: 2.1rem);
+    // }
+}
 
 h4 {
     margin: 0;
