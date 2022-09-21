@@ -448,6 +448,11 @@ a {
   background: #F1F3F2;
   border: 1px solid #4B9200;
 }
+.submit:invalid {
+  background: #F1F3F2;
+  color: red;
+  border: 1px solid red;
+}
 
 .slider__arrow {
   cursor: pointer;
@@ -469,8 +474,6 @@ a {
 }
 
 .input {
-  width: 228px;
-  height: 42px;
   border-radius: 2px;
   border: 0.7px solid #929699;
   color: #BDBDBD;
@@ -493,6 +496,11 @@ a {
 }
 .input::placeholder {
   color: #BDBDBD;
+}
+.input:invalid {
+  background: #F1F3F2;
+  color: red;
+  border: 1px solid red;
 }
 
 .donate__cash {
@@ -648,10 +656,12 @@ a {
   font-weight: 500;
   line-height: 1.6rem;
 }
-.navigation .navigation__link {
+
+.navigation__link {
   color: rgb(255, 255, 255);
 }
-.navigation .navigation__link_activ {
+
+.navigation__link_activ {
   color: #fa6f32;
 }
 
@@ -772,6 +782,9 @@ a {
 }
 
 .slider__card {
+  height: 426px;
+  cursor: pointer;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   max-width: 366px;
@@ -779,6 +792,32 @@ a {
   border-radius: 5px;
   overflow: hidden;
   margin-bottom: 20px;
+}
+.slider__card:hover .slider__card__img {
+  display: none;
+}
+.slider__card:hover img {
+  transform: scale(1.1);
+  z-index: 2;
+}
+.slider__card:hover .slider__card__wrapper {
+  position: relative;
+  transform: translateY(-45px);
+  font-size: 2.6rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  color: white;
+  z-index: 3;
+}
+.slider__card:hover .slider__card__wrapper::before {
+  position: absolute;
+  left: 0;
+  content: "";
+  background-color: rgb(75, 146, 0);
+  height: 150px;
+  width: 366px;
+  z-index: -1;
 }
 
 .slider__card__wrapper {
@@ -916,6 +955,13 @@ a {
 .frend__description {
   max-width: 863px;
   margin-top: 11px;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  color: #333b41;
+}
+.frend__description a {
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
@@ -1091,6 +1137,9 @@ a {
   font-weight: 400;
   line-height: 140%;
 }
+.wrapper__footer .navigation__link_activ {
+  color: #fa6f32;
+}
 
 .footer__subscribe__title {
   font-size: 2.4rem;
@@ -1102,6 +1151,11 @@ a {
 .footer__input_wrapper {
   margin-top: 14px;
   display: flex;
+}
+
+.input__footer {
+  width: 228px;
+  height: 42px;
 }
 
 .footer__subscribe__submit {

@@ -1,6 +1,4 @@
 .input {
-  width: 228px;
-  height: 42px;
   border-radius: 2px;
   border: 0.7px solid $color-input;
   color: $color-placeholder;
@@ -16,6 +14,12 @@
   &::placeholder {
     color: $color-placeholder;
   }
+  &:invalid {
+    background: #F1F3F2;
+    color: $color-red;
+    border: 1px solid $color-red;
+}
+
 }
 
 .donate__cash {

@@ -28,14 +28,14 @@
   align-items: center;
   gap: 58px;
   @include font($size: 1.6rem, $weight: 500);
-  .navigation__link {
-    color: $color-white-text;
-  }
-  .navigation__link_activ {
-color: $color-border;
-}
 }
 
+.navigation__link {
+  color: $color-white-text;
+}
+.navigation__link_activ {
+color: $color-border;
+}
 
 
 .header__designed {

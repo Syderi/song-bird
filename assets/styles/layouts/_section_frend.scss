@@ -48,6 +48,10 @@ z-index: 2;
     margin-top: 11px;
     @include font($size: 1.6rem,$height: 130%, $weight: 400);
     color: $color-text;
+    a {
+        @include font($size: 1.6rem,$height: 130%, $weight: 400);
+        color: $color-text;
+    }
 }
 
 .frend__header{

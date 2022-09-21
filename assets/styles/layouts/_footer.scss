@@ -7,6 +7,11 @@
     color: $color-white-text;
     @include font($size: 1.6rem, $height: 140%, $weight: 400);
   }
+
+  .navigation__link_activ {
+    color: $color-border;
+    }
+    
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -31,6 +36,12 @@
 .footer__input_wrapper {
   margin-top: 14px;
     display: flex;
+}
+
+.input__footer{
+  width: 228px;
+  height: 42px;
+
 }
 
 .footer__subscribe__submit{

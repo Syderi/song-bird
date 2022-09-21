@@ -49,7 +49,9 @@
 }
 
 .slider__card {
-
+  height: 426px;
+  cursor: pointer;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   max-width: 366px;
@@ -57,6 +59,33 @@
   border-radius: 5px;
   overflow: hidden;
   margin-bottom: 20px;
+  &:hover{
+
+
+    .slider__card__img{
+      display: none;
+    }
+    img{
+      transform: scale(1.1);
+      z-index: 2;
+    }
+    .slider__card__wrapper{
+      position: relative;
+      transform: translateY(-45px);
+      @include font($size: 2.6rem, $height: 120%, $weight: 700);
+      color:white;
+      z-index: 3;
+      &::before{
+        position: absolute;
+        left: 0;
+        content: '';
+        background-color: $color-focus;
+        height: 150px;
+        width: 366px;
+        z-index: -1;
+      }
+    }
+  }
 }
 
 .slider__card__wrapper {
