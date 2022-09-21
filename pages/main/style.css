@@ -672,6 +672,10 @@ a {
   line-height: 1.6rem;
 }
 
+.header__designed__link {
+  color: rgb(255, 255, 255);
+}
+
 .wrapper__section-panda {
   height: 700px;
   background: url("../../../assets/img/png/GiantPanda.png");

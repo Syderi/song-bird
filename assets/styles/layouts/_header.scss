@@ -42,3 +42,6 @@ color: $color-border;
   @include font($size: 1.6rem, $weight: 500);
 }
 
+.header__designed__link {
+  color: $color-white-text;
+}
