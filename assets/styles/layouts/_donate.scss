@@ -108,39 +108,33 @@
   margin-top: 12.5px;
   width: 945px;
   height: 2px;
-  // height: 27px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   outline: none;
   background: $color-range-bg;
-  // background: red;
-  // background: #404950;
-  // border-radius: 2px;
-  // z-index: 1;
+  cursor: pointer;
 
   &::-webkit-slider-thumb {
-    position: relative;
-    -webkit-appearance: none; /* Override default look */
+    // position: relative;
+    -webkit-appearance: none;
     appearance: none;
-
     border-radius: 50%;
     width: 40px;
     height: 40px;
     background: url("../../../assets/img/png/Componentslider.png");
-    cursor: pointer;
-    // z-index: 5;
+ 
   }
+  &::-moz-range-thumb {
+    // position: relative;
+    // -webkit-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: url("../../../assets/img/png/Componentslider.png");
 
-  // &::-webkit-slider-thumb::before{
-  //   position: absolute;
-  //   width: 40px;
-  //   top: 0;
-  //   left: 0;
-  //   height: 40px;
-  //   // background: red;
-  //   z-index: 5;
-  // }
+}
 }
 
 .donate__range_label__container {
@@ -150,21 +144,19 @@
   margin-left: 32px;
   height: 10px;
   width: 1100px;
-  // background: red;
   display: flex;
-  // justify-content: space-between;
-  // gap: 135px;
-  // z-index: 0;
+
 }
 
 .donate__range_label {
 
-  // margin-right: 110px;
   margin-right: 119.3px;
   height: 10px;
   width: 10px;
   // border-radius: 5px;
   background: url("../../../assets/img/png/Ellipse.png");
+  -moz-background: url("../../img/png/Ellipse.png");
+  // background: url("../../assets/img/png/Ellipse.png");
   // background: $color-label;
   // z-index: 1;
 }
@@ -184,7 +176,7 @@
   .donate__s {
     width: 10px;
     height: 20px;
-    background: url("../../../assets/img/png/S_value.png");
+    background: url("../../assets/img/png/S_value.png");
   }
 
   .donate_value {
@@ -201,7 +193,7 @@
   margin-left: 355px;
   margin-top: 48px;
 
-  background: url("../../../assets/img/png/S2.png");
+  background: url("../../assets/img/png/S2.png");
   background-repeat: no-repeat;
   background-position-x: 248px;
   background-position-y: center;

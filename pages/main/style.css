@@ -1,49 +1,49 @@
 @font-face {
   font-family: "Roboto";
   font-display: swap;
-  src: url("../../../assets/fonts/Roboto-Thin.woff") format("woff"), url("../../../assets/fonts/Roboto-Thin.woff2") format("woff2");
+  src: url("../../assets/fonts/Roboto-Thin.woff") format("woff"), url("../../assets/fonts/Roboto-Thin.woff2") format("woff2");
   font-weight: 100;
   font-style: normal;
 }
 @font-face {
   font-family: "Roboto";
   font-display: swap;
-  src: url("../../../assets/fonts/Roboto-Light.woff") format("woff"), url("../../../assets/fonts/Roboto-Light.woff2") format("woff2");
+  src: url("../../assets/fonts/Roboto-Light.woff") format("woff"), url("../../assets/fonts/Roboto-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: "Roboto";
   font-display: swap;
-  src: url("../../../assets/fonts/Roboto-Regular.woff") format("woff"), url("../../../assets/fonts/Roboto-Regular.woff2") format("woff2");
+  src: url("../../assets/fonts/Roboto-Regular.woff") format("woff"), url("../../assets/fonts/Roboto-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Roboto";
   font-display: swap;
-  src: url("../../../assets/fonts/Roboto-Medium.woff") format("woff"), url("../../../assets/fonts/Roboto-Medium.woff2") format("woff2");
+  src: url("../../assets/fonts/Roboto-Medium.woff") format("woff"), url("../../assets/fonts/Roboto-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Roboto";
   font-display: swap;
-  src: url("../../../assets/fonts/Roboto-Bold.woff") format("woff"), url("../../../assets/fonts/Roboto-Bold.woff2") format("woff2");
+  src: url("../../assets/fonts/Roboto-Bold.woff") format("woff"), url("../../fonts/Roboto-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "Roboto";
   font-display: swap;
-  src: url("../../../assets/fonts/Roboto-Black.woff") format("woff"), url("../../../assets/fonts/Roboto-Black.woff2") format("woff2");
+  src: url("../../assets/fonts/Roboto-Black.woff") format("woff"), url("../../assets/fonts/Roboto-Black.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "Recoleta";
   font-display: swap;
-  src: url("../../../assets/fonts/RecoletaAlt-Regular.woff") format("woff"), url("../../../assets/fonts/RecoletaAlt-Regular.woff2") format("woff2");
+  src: url("../../assets/fonts/RecoletaAlt-Regular.woff") format("woff"), url("../../assets/fonts/RecoletaAlt-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -618,7 +618,7 @@ a {
   text-align: center;
 }
 .logo .logoImg {
-  background-image: url("../../../assets/img/svg/bamboo.svg");
+  background-image: url("../../assets/img/svg/bamboo.svg");
   background-position: center;
   background-repeat: no-repeat;
   box-sizing: border-box;
@@ -690,7 +690,7 @@ a {
 
 .wrapper__section-panda {
   height: 700px;
-  background: url("../../../assets/img/png/GiantPanda.png");
+  background: url("../../assets/img/png/GiantPanda.png");
   background-repeat: no-repeat;
   background-position: 0 -80px;
   display: flex;
