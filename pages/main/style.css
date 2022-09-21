@@ -432,7 +432,7 @@ a {
 
 .submit {
   background: #F1F3F2;
-  border: 1px solid #333b41;
+  border: 2px solid #333b41;
   border-radius: 5px;
   width: 129px;
   height: 42px;
@@ -446,12 +446,7 @@ a {
 .submit:focus, .submit:active, .submit:hover {
   color: rgb(75, 146, 0);
   background: #F1F3F2;
-  border: 1px solid #4B9200;
-}
-.submit:invalid {
-  background: #F1F3F2;
-  color: red;
-  border: 1px solid red;
+  border: 2px solid #4B9200;
 }
 
 .slider__arrow {
@@ -474,10 +469,12 @@ a {
 }
 
 .input {
+  height: 42px;
   border-radius: 2px;
-  border: 0.7px solid #929699;
+  border: 0.7px solid rgb(249, 128, 75);
   color: #BDBDBD;
   background: #111115;
+  cursor: pointer;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
@@ -502,6 +499,20 @@ a {
   color: red;
   border: 1px solid red;
 }
+.input:invalid .submit {
+  color: red;
+}
+
+.input:invalid ~ .submit {
+  background: #F1F3F2;
+  color: red;
+  border: 2px solid red;
+}
+
+.input__footer {
+  width: 228px;
+  height: 42px;
+}
 
 .donate__cash {
   font-size: 1.6rem;
@@ -509,6 +520,7 @@ a {
   font-weight: 400;
   line-height: 140%;
   width: 268px;
+  height: 54px;
   padding: 14px 9px;
   border: 1px solid #929699;
   border-radius: 2px;
@@ -577,7 +589,7 @@ a {
   margin: 1px 0;
   width: 115.19px;
   height: 6px;
-  background: #FE9013;
+  background: #fe9013;
   border-radius: 5px;
   cursor: pointer;
   -webkit-appearance: none;
@@ -1155,14 +1167,10 @@ a {
 .footer__input_wrapper {
   margin-top: 14px;
   display: flex;
+  align-items: center;
 }
 
-.input__footer {
-  width: 228px;
-  height: 42px;
-}
-
-.footer__subscribe__submit {
+.submit {
   margin-left: 10px;
 }
 

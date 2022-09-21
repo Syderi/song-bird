@@ -25,8 +25,7 @@
 // // START footer__subscribe
 
 // .footer__subscribe {
-//   // flex-grow: 1;
-//   //   flex-basis: 367px;
+// margin-right: 0px;
 // }
 
 .footer__subscribe__title {
@@ -36,15 +35,12 @@
 .footer__input_wrapper {
   margin-top: 14px;
     display: flex;
+    align-items: center;
 }
 
-.input__footer{
-  width: 228px;
-  height: 42px;
 
-}
 
-.footer__subscribe__submit{
+.submit{
     margin-left: 10px;
 }
 

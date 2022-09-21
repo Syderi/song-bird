@@ -1,8 +1,10 @@
 .input {
+  height: 42px;
   border-radius: 2px;
-  border: 0.7px solid $color-input;
+  border: 0.7px solid $color-input_footer;
   color: $color-placeholder;
   background: $color-footer-bg;
+  cursor: pointer;
   @include font($size: 1.6rem, $height: 140%, $weight: 400);
   padding: 10px 7px 10px 10px;
   &:focus,
@@ -15,16 +17,36 @@
     color: $color-placeholder;
   }
   &:invalid {
-    background: #F1F3F2;
+    background: $color-submit-bg;
     color: $color-red;
     border: 1px solid $color-red;
+    .submit{
+      color: $color-red;
+    }
 }
+
+
+}
+
+.input:invalid ~ 
+
+ .submit {
+    background: $color-submit-bg;
+    color: $color-red;
+    border: 2px solid $color-red;
+  }
+
+
+.input__footer{
+  width: 228px;
+  height: 42px;
 
 }
 
 .donate__cash {
   @include font($size: 1.6rem, $height: 140%, $weight: 400);
   width: 268px;
+  height: 54px;
   padding: 14px 9px;
   border: 1px solid $color-input;
   border-radius: 2px;
@@ -73,14 +95,14 @@
   width: 599px;
   height: 8px;
   cursor: pointer;
-  background: #F5F7F6;
+  background: $color-slider;
 }
 
 .testimonials__input[type="range"]::-webkit-slider-thumb {
   margin: 1px 0;
   width: 115.19px;
   height: 6px;
-  background: #FE9013;
+  background: $color-frend-title;
   border-radius: 5px;
   cursor: pointer;
   -webkit-appearance: none;

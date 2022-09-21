@@ -28,7 +28,7 @@
 .submit {
 
     background: $color-submit-bg; 
-    border: 1px solid $color-text;
+    border: 2px solid $color-text;
     border-radius: 5px;
     width: 129px;
     height: 42px;
@@ -38,14 +38,14 @@
     
     &:focus, &:active, &:hover{
         color:$color-focus;
-        background: #F1F3F2;
-        border: 1px solid #4B9200;
+        background: $color-submit-bg;
+        border: 2px solid $color-buuton-active;
     }
-    &:invalid {
-        background: #F1F3F2;
-        color: red;
-        border: 1px solid red;
-    }
+    // &:invalid {
+    //     background: $color-submit-bg;
+    //     color: $color-red;
+    //     border: 2px solid $color-red;
+    // }
 }
 
 
