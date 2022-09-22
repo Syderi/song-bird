@@ -629,7 +629,7 @@ a {
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  background-image: url("../../img/png/componentslider.png");
+  background-image: url("../../../assets/img/png/componentslider.png");
 }
 .donate__range__input[type=range]::-moz-range-thumb {
   background: transparent;
@@ -637,7 +637,7 @@ a {
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  background-image: url("../../img/png/componentslider.png");
+  background-image: url("../../../assets/img/png/componentslider.png");
 }
 
 .logoBox {
