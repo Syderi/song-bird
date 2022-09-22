@@ -1,0 +1,261 @@
+.wrapper__donate {
+  height: 1482px;
+  padding: 40px 220px 180px;
+  background: $color-donade-bg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $color-white-text;
+}
+
+// .donate__title{
+
+// }
+
+.donate__text {
+  margin-top: 10px;
+  @include font($size: 1.6rem, $height: 2.24rem, $weight: 500);
+
+  /* subtitle */
+}
+
+.donate__info {
+  margin-top: 45px;
+  align-self: flex-start;
+  color: $color-frend-title;
+}
+
+.donate__card {
+  width: 1160px;
+  height: 964px;
+  background-color: $color-donate-card-bg;
+  border-radius: 20px;
+  margin-top: 60px;
+  padding: 40px 92px 61.9px;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+}
+
+.donate__card__title {
+  margin-left: 250px;
+  color: $color-frend-title;
+}
+
+.donate__card__text {
+  margin-top: 20px;
+  @include font($size: 2.4rem, $height: 120%, $weight: 400);
+
+  color: $color-text;
+}
+
+.donate__diet__wrapper {
+  padding-left: 216px;
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+
+  .donate__diet__four {
+    padding-top: 52px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 11px;
+  }
+
+  .donate_diet__X {
+    padding-top: 29px;
+    margin-right: 64px;
+  }
+
+  .donate__diet__number {
+    @include font($size: 7.2rem, $height: 80%, $weight: 500);
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-header-bg;
+  }
+
+  .donate__diet__text {
+    margin-top: 12px;
+    @include font($size: 1.6rem, $height: 140%, $weight: 400);
+    text-align: center;
+    color: $color-text;
+  }
+}
+
+.donate__slider__container {
+  margin-top: 46.53px;
+  width: 976px;
+
+  .donate__slider_title {
+    @include font($size: 1.6rem, $height: 140%, $weight: 400);
+    color: $color-text;
+  }
+}
+
+.donate__slider {
+  position: relative;
+  margin-top: 15px;
+  width: 100%;
+  height: 27px;
+  background: $color-range-bg1;
+  // padding-bottom: -12.5px;
+  // z-index: 2;
+}
+
+
+
+.donate__range_label__container {
+  pointer-events: none;
+  position: absolute;
+  top: 9px;
+  margin-left: 32px;
+  height: 10px;
+  width: 1100px;
+  display: flex;
+
+}
+
+.donate__range_label {
+
+  margin-right: 119.3px;
+  height: 10px;
+  width: 10px;
+  border-radius: 5px;
+  // background: url("./assets/img/png/ellipse.png");
+  // -moz-background: url("../../img/png/Ellipse.png");
+  // background: url("../../assets/img/png/Ellipse.png");
+  background: $color-label;
+  // z-index: 1;
+}
+
+.donate__dollars {
+  // padding-right: 25px;
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.donate__value__wrapper {
+  width: 72px;
+  display: flex;
+  align-items: center;
+
+  .donate__s {
+    width: 10px;
+    height: 20px;
+    background: url("../../assets/img/png/S_value.png");
+  }
+
+  .donate_value {
+    margin-left: 3px;
+    @include font($size: 2.6rem, $height: 140%, $weight: 500);
+
+    text-transform: uppercase;
+
+    color: $color-text;
+  }
+}
+
+.donate__cash {
+  margin-left: 355px;
+  margin-top: 48px;
+
+  background: url("../../assets/img/png/S2.png");
+  background-repeat: no-repeat;
+  background-position-x: 248px;
+  background-position-y: center;
+}
+
+.donate__how {
+  @include font($size: 1.6rem, $height: 140%, $weight: 400);
+
+  color: $color-text;
+
+  position: relative;
+  margin: 27px auto 26px 382px;
+
+  input {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    opacity: 0;
+  }
+
+  .donate__monthly {
+    width: 18px;
+    height: 18px;
+    top: 4px;
+    left: 3px;
+    transform: scale(1.4);
+  }
+
+  .donate__once {
+    width: 18px;
+    height: 18px;
+    top: 4px;
+    left: 140px;
+    transform: scale(1.6);
+  }
+
+  .donate__monthly_label {
+    margin-right: 45px;
+  }
+
+  input + label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+  }
+
+  input + label::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid orange;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+  }
+
+  input:not(:disabled):not(:checked) + label:hover::before {
+    border-color: orange;
+  }
+
+  input:not(:disabled):active + label::before {
+    background-color: orange;
+    border-color: orange;
+  }
+
+  input:focus + label::before {
+    box-shadow: 0 0 0 0.2rem orange;
+  }
+
+  input:focus:not(:checked) + label::before {
+    border-color: orange;
+  }
+
+  input:checked + label::before {
+    border-color: orange;
+    background-color: orange;
+  }
+
+  input:disabled + label::before {
+    background-color: orange;
+  }
+}
+
+.button__donate {
+  margin-left: 342px;
+}
+
+.donate__share__text {
+  margin-left: 342px;
+  margin-top: 30px;
+  @include font($size: 1.6rem, $height: 140%, $weight: 400);
+  color: $color-text;
+}
