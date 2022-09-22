@@ -1,0 +1,111 @@
+.wrapper__footer {
+  // height: 443px;
+  background: $color-footer-bg;
+  padding: 40px 220px 50px;
+  color: $color-white-text;
+  a {
+    color: $color-white-text;
+    @include font($size: 1.6rem, $height: 140%, $weight: 400);
+  }
+
+  .navigation__link_activ {
+    color: $color-border;
+    }
+    
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+// .footer_logo {
+//   // flex-grow: 2;
+// //   width: 853px;
+// }
+
+// // START footer__subscribe
+
+// .footer__subscribe {
+// margin-right: 0px;
+// }
+
+.footer__subscribe__title {
+  @include font($size: 2.4rem, $height: 120%, $weight: 400);
+}
+
+.footer__input_wrapper {
+  margin-top: 14px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.submit{
+    margin-left: 10px;
+}
+
+// END footer__subscribe
+
+.footer__donate {
+  // flex-grow: 3;
+  margin-top: 36px;
+  flex-basis: 100%;
+}
+
+.footer__social {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+
+  // flex-grow: 1;
+
+  .footer__social__link {
+    @include font($size: 1.6rem, $height: 140%, $weight: 400);
+  }
+
+  .social__link__wrapper {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+  }
+
+  .social__name {
+    margin-left: 12px;
+  }
+}
+
+.footer__nav {
+  display: flex;
+  align-items: flex-end;
+  margin-left: 120px;
+  padding-bottom: 5px;
+
+
+  .footer__navigation {
+    @include font($size: 1.6rem, $height: 140%, $weight: 400);
+    display: flex;
+    gap: 58px;
+    align-items: flex-end;
+  }
+}
+
+.footer__copyright {
+  display: flex;
+  flex-direction: column;
+justify-content: end;
+padding-bottom: 5px;
+// flex-grow: 1;
+  @include font($size: 1.6rem, $height: 130%, $weight: 100);
+
+
+  .footer__school{
+    margin-top: 10px;
+  }
+
+
+
+  .footer__logoBox {
+    color: $color-white-text;
+    @include font($size: 1.6rem, $height: 130%, $weight: 100);
+  }
+}
