@@ -79,7 +79,7 @@
           <div class="donate__slider__container">
             <div class="donate__slider_title">Amount</div>
             <div class="donate__slider">
-              <input class = "donate__range" type="range" name="range" id="range" min="0" max="945" value="0" step="135">
+              <input class = "donate__range__input" type="range" name="range" id="range" min="0" max="945" value="0" step="135">
               <ul class = "donate__range_label__container">
                 <li class = "donate__range_label">
                 </li>
@@ -146,7 +146,7 @@
   
           </ul>
 
-          <input class="input donate__cash" type="number" placeholder="Another amount">
+          <input class="input donate__cash" type="number" placeholder="Another amount" onkeypress="event.target.value.length>3 && event.preventDefault()">
           <div class="donate__how">
               <input class="donate__monthly" type="radio" id="choice_1" name="interval">
               <label class="donate__monthly_label" for="choice1">Monthly</label>

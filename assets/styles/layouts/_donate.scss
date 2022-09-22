@@ -102,40 +102,7 @@
   // z-index: 2;
 }
 
-.donate__range {
-  position: relative;
-  margin-left: 17.5px;
-  margin-top: 12.5px;
-  width: 945px;
-  height: 2px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: none;
-  background: $color-range-bg;
-  cursor: pointer;
 
-  &::-webkit-slider-thumb {
-    // position: relative;
-    -webkit-appearance: none;
-    appearance: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    background: url("../../../assets/img/png/Componentslider.png");
- 
-  }
-  &::-moz-range-thumb {
-    // position: relative;
-    // -webkit-appearance: none;
-    appearance: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    background: url("../../../assets/img/png/Componentslider.png");
-
-}
-}
 
 .donate__range_label__container {
   pointer-events: none;
@@ -153,11 +120,11 @@
   margin-right: 119.3px;
   height: 10px;
   width: 10px;
-  // border-radius: 5px;
-  background: url("../../../assets/img/png/Ellipse.png");
-  -moz-background: url("../../img/png/Ellipse.png");
+  border-radius: 5px;
+  // background: url("./assets/img/png/ellipse.png");
+  // -moz-background: url("../../img/png/Ellipse.png");
   // background: url("../../assets/img/png/Ellipse.png");
-  // background: $color-label;
+  background: $color-label;
   // z-index: 1;
 }
 
@@ -212,7 +179,6 @@
     height: 18px;
     position: absolute;
     opacity: 0;
-    // cursor: pointer;
   }
 
   .donate__monthly {
