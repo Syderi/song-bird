@@ -37,6 +37,10 @@
 @mixin media-mobile {
     @media (max-width: $mobile-big-width) { @content; }
 }
+// $mobile-big-width: 620px;
+@mixin media-mobile-interim {
+    @media (max-width: $mobile-big-interim) { @content; }
+}
 // $mobile-small-width: 320px;
 @mixin media-mobilesmall {
     @media (max-width: $mobile-small-width) { @content; }

@@ -763,6 +763,10 @@ a {
 }
 @media (max-width: 640px) {
   .header__wrapper {
+    z-index: 10;
+    width: 100%;
+    position: fixed;
+    top: 0;
     padding: 2.5px 20px;
   }
 }
@@ -838,6 +842,7 @@ a {
 }
 
 .wrapper__section-panda {
+  overflow: hidden;
   height: 700px;
   background: url("../../assets/img/png/GiantPanda.png");
   background-repeat: no-repeat;
@@ -846,24 +851,88 @@ a {
   justify-content: flex-end;
   padding-right: 220px;
 }
+@media (max-width: 1000px) {
+  .wrapper__section-panda {
+    height: 504px;
+    padding-right: 85.75px;
+    background-size: cover;
+    background-position: -30px 0px;
+  }
+}
+@media (max-width: 768px) {
+  .wrapper__section-panda {
+    height: 400px;
+    padding-right: 10px;
+  }
+}
+@media (max-width: 640px) {
+  .wrapper__section-panda {
+    height: 373px;
+    padding-right: 14.77px;
+    background-position: -70px 0px;
+  }
+}
+@media (max-width: 620px) {
+  .wrapper__section-panda {
+    height: 330px;
+    padding-right: 5px;
+  }
+}
+@media (max-width: 320px) {
+  .wrapper__section-panda {
+    height: 298px;
+    padding-right: 10px;
+    background-size: auto 74%;
+    overflow: visible;
+  }
+}
 
 .wrapper__section-panda_donat {
   height: 386px;
   background-position: 0 -200px;
 }
 
-.panda__content {
+.panda__conteiner {
   width: 500px;
 }
-
-.panda__button {
-  margin-left: 105px;
+@media (max-width: 1000px) {
+  .panda__conteiner {
+    width: 400px;
+  }
+}
+@media (max-width: 768px) {
+  .panda__conteiner {
+    width: 255.64px;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 50px;
+  }
+}
+@media (max-width: 640px) {
+  .panda__conteiner {
+    gap: 50.09px;
+  }
+}
+@media (max-width: 620px) {
+  .panda__conteiner {
+    padding-right: 10px;
+    width: 128.13px;
+    flex-direction: column;
+    gap: 0px;
+    align-items: flex-end;
+  }
+}
+@media (max-width: 320px) {
+  .panda__conteiner {
+    padding-right: 0px;
+  }
 }
 
 .panda__caption {
   position: relative;
   padding-top: 86px;
-  height: 486px;
   font-size: 10.65rem;
   font-style: normal;
   font-weight: 500;
@@ -872,6 +941,39 @@ a {
   text-transform: uppercase;
   color: rgb(255, 255, 255);
   z-index: 1;
+}
+@media (max-width: 1280px) {
+  .panda__caption {
+    font-size: 8.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 75%;
+    padding-top: 42.8px;
+  }
+}
+@media (max-width: 768px) {
+  .panda__caption {
+    font-size: 5.42894rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 75%;
+    padding-top: 82px;
+  }
+}
+@media (max-width: 620px) {
+  .panda__caption {
+    width: 128.13px;
+    font-size: 2.8rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 75%;
+    padding-top: 75.12px;
+  }
+}
+@media (max-width: 320px) {
+  .panda__caption {
+    width: 128.13px;
+  }
 }
 .panda__caption span {
   color: rgb(255, 238, 46);
@@ -888,9 +990,70 @@ a {
   border-radius: 50%;
   z-index: -1;
 }
+@media (max-width: 1280px) {
+  .panda__caption::before {
+    width: 367px;
+    height: 367px;
+    top: -10px;
+    left: -57px;
+  }
+}
+@media (max-width: 768px) {
+  .panda__caption::before {
+    width: 237.6px;
+    height: 237.6px;
+    top: 45px;
+    left: -40px;
+  }
+}
+@media (max-width: 620px) {
+  .panda__caption::before {
+    width: 119.09px;
+    height: 119.09px;
+    top: 55px;
+    left: -20px;
+  }
+}
+@media (max-width: 320px) {
+  .panda__caption::before {
+    top: 55px;
+    left: -20px;
+  }
+}
 
 .panda__button {
+  margin-left: 105px;
   margin-top: 60px;
+}
+@media (max-width: 1000px) {
+  .panda__button {
+    margin-left: 50px;
+    margin-top: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .panda__button {
+    margin-left: 20px;
+    margin-top: 280px;
+  }
+}
+@media (max-width: 620px) {
+  .panda__button {
+    margin-top: 10px;
+    padding-right: 10px;
+  }
+}
+@media (max-width: 620px) {
+  .panda__button {
+    margin-top: 10px;
+    padding-right: 0px;
+  }
+}
+@media (max-width: 320px) {
+  .panda__button {
+    padding-right: 0px;
+    padding-bottom: 4px;
+  }
 }
 
 .wrapper__main {
