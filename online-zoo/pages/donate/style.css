@@ -678,6 +678,59 @@ a {
   border: 0.5px solid rgb(255, 255, 255);
 }
 
+@media (max-width: 640px) {
+  .logo_media-mobile {
+    width: 46.86px;
+    height: 29.03px;
+    border: none;
+  }
+  .logo_media-mobile .logoText h1 {
+    font-size: 1.2899rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+  }
+  .logo_media-mobile .logoImg {
+    left: -2px;
+    top: 4px;
+  }
+}
+
+.hamburger__line, .hamburger:after, .hamburger:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  width: 100%;
+  height: 2px;
+}
+
+.hamburger {
+  display: none;
+  position: relative;
+  width: 18px;
+  height: 10px;
+}
+@media (max-width: 640px) {
+  .hamburger {
+    display: inline-block;
+  }
+}
+.hamburger:before {
+  top: 0;
+  left: 0;
+}
+.hamburger:after {
+  bottom: 0;
+  left: 0;
+}
+
+.hamburger__line {
+  top: calc(50% - 1px);
+  left: 0;
+}
+
 .wrapper {
   max-width: 1600px;
   margin: 0 auto;
@@ -693,6 +746,31 @@ a {
   justify-content: space-between;
   color: rgb(255, 255, 255);
 }
+@media (max-width: 1280px) {
+  .header__wrapper {
+    padding: 14px 100px;
+  }
+}
+@media (max-width: 1000px) {
+  .header__wrapper {
+    padding: 14px 30px;
+  }
+}
+@media (max-width: 768px) {
+  .header__wrapper {
+    padding: 14px 20px;
+  }
+}
+@media (max-width: 640px) {
+  .header__wrapper {
+    padding: 2.5px 20px;
+  }
+}
+@media (max-width: 320px) {
+  .header__wrapper {
+    padding: 2.5px 10px;
+  }
+}
 
 .header__nav-img-wrapper {
   display: flex;
@@ -702,6 +780,11 @@ a {
 .header__navigation {
   display: flex;
   align-items: center;
+}
+@media (max-width: 640px) {
+  .header__navigation {
+    display: none;
+  }
 }
 
 .navigation {
@@ -713,6 +796,21 @@ a {
   font-weight: 500;
   line-height: 1.6rem;
 }
+@media (max-width: 1280px) {
+  .navigation {
+    gap: 54px;
+  }
+}
+@media (max-width: 1000px) {
+  .navigation {
+    gap: 48px;
+  }
+}
+@media (max-width: 768px) {
+  .navigation {
+    gap: 20px;
+  }
+}
 
 .navigation__link {
   color: rgb(255, 255, 255);
@@ -723,6 +821,7 @@ a {
 }
 
 .header__designed {
+  display: flex;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 500;
@@ -731,6 +830,11 @@ a {
 
 .header__designed__link {
   color: rgb(255, 255, 255);
+}
+@media (max-width: 640px) {
+  .header__designed__link {
+    display: none;
+  }
 }
 
 .wrapper__section-panda {

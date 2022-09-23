@@ -32,3 +32,19 @@
 .logo_footer {
   border: 0.5px solid $color-white-text;
 }
+
+.logo_media-mobile {
+  @include media-mobile {
+    width: 46.86px;
+    height: 29.03px;
+    border: none;
+    .logoText h1 {
+        @include font($size: 1.2899rem, $height: 120%, $weight: 400);
+
+    }
+    .logoImg {
+      left: -2px;
+      top: 4px;
+    }
+  }
+}
