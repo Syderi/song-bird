@@ -1297,6 +1297,7 @@ a {
 @media (max-width: 320px) {
   .slider {
     padding: 0 24.76px 0 10px;
+    margin-top: 41px;
   }
 }
 
@@ -1600,6 +1601,7 @@ a {
     height: 71px;
     width: 68px;
     background: url("../../assets/img/png/strelitzia320.png");
+    bottom: -5px;
   }
 }
 
@@ -1702,6 +1704,16 @@ a {
     padding: 10px 0 60px;
   }
 }
+@media (max-width: 630px) {
+  .frend__content {
+    padding: 10px 0px 50px;
+  }
+}
+@media (max-width: 320px) {
+  .frend__content {
+    padding: 20px 0px 40px;
+  }
+}
 
 .frend__title {
   font-size: 4.8rem;
@@ -1720,28 +1732,41 @@ a {
     line-height: 120%;
   }
 }
+@media (max-width: 630px) {
+  .frend__title {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+  }
+}
 
-.frend__content__text {
+.frend__conteiner__text {
   padding-left: 99px;
 }
 @media (max-width: 1280px) {
-  .frend__content__text {
+  .frend__conteiner__text {
     padding-left: 60px;
   }
 }
 @media (max-width: 1000px) {
-  .frend__content__text {
+  .frend__conteiner__text {
     padding-left: 49px;
   }
 }
 @media (max-width: 768px) {
-  .frend__content__text {
+  .frend__conteiner__text {
     padding: 0 30px;
   }
 }
 @media (max-width: 640px) {
-  .frend__content__text {
+  .frend__conteiner__text {
     padding: 0 20px;
+  }
+}
+@media (max-width: 630px) {
+  .frend__conteiner__text {
+    padding: 0px;
   }
 }
 
@@ -1766,6 +1791,16 @@ a {
 @media (max-width: 768px) {
   .frend__annotation {
     font-size: 2.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+  }
+}
+@media (max-width: 630px) {
+  .frend__annotation {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.8rem;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
@@ -1805,6 +1840,11 @@ a {
     padding-right: 10px;
   }
 }
+@media (max-width: 630px) {
+  .frend__annotation-covid {
+    display: none;
+  }
+}
 
 .frend__description {
   max-width: 863px;
@@ -1841,6 +1881,11 @@ a {
     padding-right: 5px;
   }
 }
+@media (max-width: 630px) {
+  .frend__description {
+    display: none;
+  }
+}
 
 .frend__header {
   text-align: center;
@@ -1861,12 +1906,22 @@ a {
     margin-top: 30px;
   }
 }
+@media (max-width: 630px) {
+  .frend__header {
+    margin-top: 21px;
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+  }
+}
 
 .frend__pay {
   margin-top: 40px;
   display: flex;
   justify-content: space-between;
   padding: 0 198px;
+  margin-top: 30px;
 }
 @media (max-width: 1280px) {
   .frend__pay {
@@ -1889,6 +1944,14 @@ a {
     margin-top: 20px;
   }
 }
+@media (max-width: 630px) {
+  .frend__pay {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin-top: 0px;
+  }
+}
 
 .frend__card {
   position: relative;
@@ -1903,8 +1966,23 @@ a {
     display: block;
     content: "";
     width: 89px;
-    height: 29pX;
+    height: 29px;
     background: url(../../assets/img/png/arrow.png);
+  }
+}
+@media (max-width: 768px) and (max-width: 630px) {
+  .frend__card_befor-vector::before {
+    top: 196px;
+    right: -60px;
+    transform: rotate(90deg);
+  }
+}
+@media (max-width: 630px) {
+  .frend__card {
+    margin-top: 20px;
+  }
+  .frend__card:last-child {
+    margin-top: 29px;
   }
 }
 
@@ -1926,6 +2004,12 @@ a {
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
+}
+@media (max-width: 630px) {
+  .frend__paragraf {
+    margin-top: 10px;
+    height: 44px;
+  }
 }
 
 .frend__vector {
@@ -1960,6 +2044,16 @@ a {
 @media (max-width: 768px) {
   .frend__button {
     margin-top: 40px;
+  }
+}
+@media (max-width: 630px) {
+  .frend__button {
+    margin-top: 30px;
+  }
+}
+@media (max-width: 320px) {
+  .frend__button {
+    margin-top: 39px;
   }
 }
 

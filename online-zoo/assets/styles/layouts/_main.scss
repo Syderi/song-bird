@@ -182,6 +182,7 @@
   }
   @include media-mobilesmall {
     padding: 0 24.76px 0 10px;
+    margin-top: 41px;
   }
 }
 
@@ -467,7 +468,7 @@
     height: 71px;
     width: 68px;
     background: url("../../assets/img/png/strelitzia320.png");
-    // top: 0px;
+    bottom: -5px;
     // right: 0px;
   }
 }

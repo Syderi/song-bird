@@ -1297,6 +1297,7 @@ a {
 @media (max-width: 320px) {
   .slider {
     padding: 0 24.76px 0 10px;
+    margin-top: 41px;
   }
 }
 
@@ -1600,6 +1601,7 @@ a {
     height: 71px;
     width: 68px;
     background: url("../../assets/img/png/strelitzia320.png");
+    bottom: -5px;
   }
 }
 
