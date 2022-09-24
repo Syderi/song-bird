@@ -865,10 +865,10 @@ a {
 }
 @media (max-width: 1000px) {
   .wrapper__section-panda {
+    background: url("../../assets/img/png/Giant Panda1000.png");
     height: 504px;
     padding-right: 85.75px;
-    background-size: cover;
-    background-position: -30px 0px;
+    background-position: 0px -80px;
   }
 }
 @media (max-width: 768px) {
@@ -879,9 +879,10 @@ a {
 }
 @media (max-width: 640px) {
   .wrapper__section-panda {
+    background: url("../../assets/img/png/Giant Panda640.png");
     height: 373px;
     padding-right: 14.77px;
-    background-position: -70px 0px;
+    background-position: 0px 0px;
   }
 }
 @media (max-width: 630px) {
@@ -1553,37 +1554,73 @@ a {
 @media (max-width: 640px) {
   .main__bacgraund__img__flower {
     top: -5px;
-    right: 0px;
   }
 }
 @media (max-width: 630px) {
   .main__bacgraund__img__flower {
-    height: 217px;
-    width: 31px;
-    background: url("../../assets/img/png/flower_fotosmall.png");
+    height: 225px;
+    width: 35px;
+    background: url("../../assets/img/png/flower_foto320.png");
     top: 0px;
-    right: 0px;
   }
 }
 @media (max-width: 320px) {
   .main__bacgraund__img__flower {
     top: -40px;
-    right: 0px;
+  }
+}
+
+.main__bacgraund__img__strelitzia {
+  display: block;
+  height: 275px;
+  width: 368px;
+  background: url("../../../assets/img/png/strelitzia.png");
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  z-index: -1;
+}
+@media (max-width: 1280px) {
+  .main__bacgraund__img__strelitzia {
+    height: 180px;
+    width: 241px;
+    background: url("../../assets/img/png/strelitzia1.png");
+  }
+}
+@media (max-width: 630px) {
+  .main__bacgraund__img__strelitzia {
+    height: 71px;
+    width: 68px;
+    background: url("../../assets/img/png/strelitzia320.png");
   }
 }
 
 .main__bacgraund__img__palm {
+  display: block;
+  width: 292px;
+  height: 460px;
+  background: url("../../../assets/img/png/palm_foto.png");
+  background-repeat: no-repeat;
   position: absolute;
-  bottom: -2px;
+  bottom: 0px;
   left: 0px;
   z-index: -1;
 }
-
-.main__bacgraund__img__strelitzia {
-  position: absolute;
-  bottom: -2px;
-  right: 0px;
-  z-index: -1;
+@media (max-width: 1280px) {
+  .main__bacgraund__img__palm {
+    height: 202px;
+    width: 194px;
+    background: url("../../assets/img/png/palm_foto1000.png");
+    background-repeat: no-repeat;
+  }
+}
+@media (max-width: 630px) {
+  .main__bacgraund__img__palm {
+    height: 72px;
+    width: 58px;
+    background: url("../../assets/img/png/palm_foto320.png");
+  }
 }
 
 .wrapper__donate {

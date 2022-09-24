@@ -9,10 +9,11 @@
   padding-right: 220px;
 
   @include media-tablet {
+    background: url("../../assets/img/png/Giant Panda1000.png");
     height: 504px;
     padding-right: 85.75px;
-    background-size: cover;
-    background-position: -30px 0px;
+    // background-size: cover;
+    background-position: 0px -80px;
   }
 
   @include media-tablet-interim {
@@ -21,9 +22,10 @@
   }
 
   @include media-mobile {
+    background: url("../../assets/img/png/Giant Panda640.png");
     height: 373px;
     padding-right: 14.77px;
-    background-position: -70px 0px;
+    background-position: 0px 0px;
   }
 
   @include media-mobile-interim {
