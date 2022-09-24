@@ -27,15 +27,19 @@
   }
 
   @include media-mobile-interim {
+    // background-size: auto 74%;
+    background-position: -30px 0px;
     height: 330px;
     padding-right: 5px;
   }
 
   @include media-mobilesmall {
+    background: url("../../assets/img/png/GiantPanda.png");
     height: 298px;
     padding-right: 10px;
-    // background-position: -60px 15px;
-    background-size: auto 74%;
+    background-position: -32px 34px;
+    background-repeat: no-repeat;
+    background-size: 383.52px;
     overflow:visible;
   }
 

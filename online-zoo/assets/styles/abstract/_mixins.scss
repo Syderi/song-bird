@@ -40,7 +40,7 @@
 @mixin media-mobile {
     @media (max-width: $mobile-big-width) { @content; }
 }
-// $mobile-big-width: 620px;
+// $mobile-big-width: 630px;
 @mixin media-mobile-interim {
     @media (max-width: $mobile-big-interim) { @content; }
 }
