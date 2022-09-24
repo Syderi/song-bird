@@ -1,6 +1,10 @@
+.footer{
+
+  background: $color-footer-bg;
+}
+
 .wrapper__footer {
   // height: 443px;
-  background: $color-footer-bg;
   padding: 40px 220px 50px;
   color: $color-white-text;
   a {

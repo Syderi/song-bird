@@ -1,6 +1,10 @@
-.header__wrapper {
+.header{
 
   background: $color-header-bg;
+}
+
+.header__wrapper {
+
   backdrop-filter: blur(2px);
   padding: 14px 220px;
   display: flex;

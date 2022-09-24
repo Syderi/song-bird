@@ -1,12 +1,27 @@
+.section-panda{
+  background: url("../../assets/img/png/GiantPanda.png");
+  background-repeat: no-repeat;
+  background-size: cover ;
+  background-position: center;
+  @include media-laptop {
+    background: none;
+  }
+}
+
 .wrapper__section-panda {
   overflow: hidden;
   height: 700px;
-  background: url("../../assets/img/png/GiantPanda.png");
-  background-repeat: no-repeat;
-  background-position: 0 -80px;
   display: flex;
   justify-content: flex-end;
   padding-right: 220px;
+
+  @include media-laptop {
+  background: url("../../assets/img/png/GiantPanda.png");
+  background-repeat: no-repeat;
+  background-position: 0 -80px;
+  }
+  
+
 
   @include media-tablet {
     background: url("../../assets/img/png/Giant Panda1000.png");

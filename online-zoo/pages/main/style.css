@@ -748,8 +748,11 @@ a {
   margin: 0 auto;
 }
 
-.header__wrapper {
+.header {
   background: rgb(0, 0, 0);
+}
+
+.header__wrapper {
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
   padding: 14px 220px;
@@ -853,15 +856,31 @@ a {
   }
 }
 
+.section-panda {
+  background: url("../../assets/img/png/GiantPanda.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 1600px) {
+  .section-panda {
+    background: none;
+  }
+}
+
 .wrapper__section-panda {
   overflow: hidden;
   height: 700px;
-  background: url("../../assets/img/png/GiantPanda.png");
-  background-repeat: no-repeat;
-  background-position: 0 -80px;
   display: flex;
   justify-content: flex-end;
   padding-right: 220px;
+}
+@media (max-width: 1600px) {
+  .wrapper__section-panda {
+    background: url("../../assets/img/png/GiantPanda.png");
+    background-repeat: no-repeat;
+    background-position: 0 -80px;
+  }
 }
 @media (max-width: 1000px) {
   .wrapper__section-panda {
@@ -1639,11 +1658,14 @@ a {
   }
 }
 
+.section_frend {
+  background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #febdab 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #e0d8f0 80.49%, #eaf7fe 127.9%, #eaf7fe 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #e0d8f0 80.49%, #eaf7fe 127.9%, #eaf7fe 149.54%);
+}
+
 .wrapper__frend {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #febdab 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #e0d8f0 80.49%, #eaf7fe 127.9%, #eaf7fe 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #e0d8f0 80.49%, #eaf7fe 127.9%, #eaf7fe 149.54%);
   opacity: 0.9;
   padding: 69px 0 100px 0;
 }
@@ -2164,8 +2186,11 @@ a {
   z-index: -1;
 }
 
-.wrapper__footer {
+.footer {
   background: #111115;
+}
+
+.wrapper__footer {
   padding: 40px 220px 50px;
   color: rgb(255, 255, 255);
   display: flex;

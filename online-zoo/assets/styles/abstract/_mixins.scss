@@ -5,7 +5,9 @@
     line-height: $height;
 }
 
-
+// @mixin media-laptop-max {
+//     @media (max-width: calc($content-width + 1px)) { @content; }
+// }
 
 // $content-width: 1600px;
 @mixin media-laptop {

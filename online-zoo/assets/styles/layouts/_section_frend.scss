@@ -1,8 +1,12 @@
+.section_frend{
+  background: $color-frend;
+
+}
+
 .wrapper__frend {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: $color-frend;
   opacity: 0.9;
   padding: 69px 0 100px 0;
   @include media-laptop-interim {
