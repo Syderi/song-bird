@@ -61,6 +61,11 @@
 
   .footer__social__link {
     @include font($size: 1.6rem, $height: 140%, $weight: 400);
+
+  }
+
+  .social__link {
+    margin-bottom: 10px;
   }
 
   .social__link__wrapper {
@@ -71,6 +76,7 @@
 
   .social__name {
     margin-left: 12px;
+    padding-top: 2px;
   }
 }
 
