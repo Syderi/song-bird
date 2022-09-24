@@ -167,7 +167,7 @@
   }
   @include media-tablet {
     padding: 0 30px;
-    margin-top: 70px;
+    margin-top: 72px;
   }
   @include media-tablet-interim {
     margin-top: 80px;
@@ -456,6 +456,13 @@
     // bottom: 0px;
     // right: 0px;
   }
+  @include media-mobile {
+    height: 131px;
+    width: 175px;
+    background: url("../../assets/img/png/strelitzia640.png");
+    // top: 0px;
+    // right: 0px;
+  }
   @include media-mobile-interim {
     height: 71px;
     width: 68px;
@@ -482,6 +489,13 @@ height: 460px;
     background-repeat: no-repeat;
     // bottom: 0px;
     // left: 0px;
+  }
+  @include media-mobile {
+    height: 202px;
+    width: 134px;
+    background: url("../../assets/img/png/palm_foto640.png");
+    // top: 0px;
+    // right: 0px;
   }
   @include media-mobile-interim {
     height: 72px;
