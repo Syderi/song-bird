@@ -1528,12 +1528,28 @@ a {
   margin-top: 1px;
   text-transform: uppercase;
 }
+@media (max-width: 630px) {
+  .slider__card__title {
+    font-size: 1.3em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+  }
+}
 
 .slider__card__description {
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 300;
   line-height: 120%;
+}
+@media (max-width: 630px) {
+  .slider__card__description {
+    font-size: 1.15rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 120%;
+  }
 }
 
 /* End Slider */
@@ -2189,6 +2205,11 @@ a {
     flex-direction: column;
   }
 }
+@media (max-width: 630px) {
+  .testimonials__cards {
+    margin-top: 24px;
+  }
+}
 
 .testimonials__card {
   margin-bottom: 15px;
@@ -2222,6 +2243,12 @@ a {
     padding: 15px 15px 5px 10px;
     max-width: 596px;
     height: 109px;
+  }
+}
+@media (max-width: 630px) {
+  .testimonials__card {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 }
 
@@ -2308,11 +2335,18 @@ a {
     margin-top: 36px;
   }
 }
+@media (max-width: 630px) {
+  .testimonial__button {
+    margin-top: 24px;
+  }
+}
 
-.button_rectangle {
-  width: 240px;
-  display: block;
-  margin: 0 auto;
+@media (max-width: 768px) {
+  .button_rectangle_testimonial {
+    width: 240px;
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 .testimonial__background__img {
@@ -2344,6 +2378,7 @@ a {
 }
 @media (max-width: 630px) {
   .testimonial__background__img {
+    bottom: -30px;
     height: 94px;
     width: 51px;
     background-image: url("../../assets/img/png/palm320.png");

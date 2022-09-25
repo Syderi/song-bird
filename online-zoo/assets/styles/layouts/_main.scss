@@ -366,11 +366,18 @@ position: relative;
 .slider__card__title {
   margin-top: 1px;
   text-transform: uppercase;
-
+  @include media-mobile-interim {
+    // margin-top: 2px;
+        @include font($size: 1.3em, $height: 120%, $weight: 500);
+      }
 }
 
 .slider__card__description {
   @include font($size: 1.5rem, $height: 120%, $weight: 300);
+  @include media-mobile-interim {
+// margin-top: 2px;
+    @include font($size: 1.15rem, $height: 120%, $weight: 300);
+  }
 }
 
 

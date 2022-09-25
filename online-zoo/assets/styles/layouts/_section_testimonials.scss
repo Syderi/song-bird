@@ -71,6 +71,9 @@ overflow: hidden;
     margin-top: 30px;
 flex-direction: column;
 }
+@include media-mobile-interim {
+  margin-top: 24px;
+}
 
 }
 
@@ -107,6 +110,11 @@ flex-direction: column;
   max-width: 596px;
   height: 109px;
 }
+@include media-mobile-interim {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 }
 
 
@@ -178,11 +186,18 @@ margin-top: 26px;
   margin-top: 36px;
 
 }
+@include media-mobile-interim {
+  margin-top: 24px;
 }
-.button_rectangle{
-  width: 240px;
-  display: block;
-margin: 0 auto;
+}
+
+.button_rectangle_testimonial{
+  @include media-tablet-interim {
+
+    width: 240px;
+    display: block;
+  margin: 0 auto;
+  }
 }
 
 
@@ -209,6 +224,7 @@ z-index: -1;
   background-image: url("../../assets/img/png/palm640.png");
 }
 @include media-mobile-interim {
+  bottom: -30px;
   height: 94px;
   width: 51px;
   background-image: url("../../assets/img/png/palm320.png");
