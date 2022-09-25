@@ -595,6 +595,11 @@ a {
   z-index: -1;
   border-radius: 20px;
 }
+@media (max-width: 1280px) {
+  .testimonials__input[type=range] {
+    width: 390px;
+  }
+}
 
 .testimonials__input[type=range]:focus {
   outline: none;
@@ -613,6 +618,11 @@ a {
   background: #fe9013;
   border-radius: 5px;
   -webkit-appearance: none;
+}
+@media (max-width: 1280px) {
+  .testimonials__input[type=range]::-webkit-slider-thumb {
+    width: 75px;
+  }
 }
 
 .testimonials__input[type=range]::-moz-range-thumb {

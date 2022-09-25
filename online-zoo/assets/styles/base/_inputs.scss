@@ -124,6 +124,9 @@
     z-index: -1;
     border-radius: 20px;
   }
+  @include media-laptop-interim{
+    width: 390px;
+  }
 }
 
 .testimonials__input[type="range"]:focus {
@@ -143,6 +146,9 @@
   background: $color-frend-title;
   border-radius: 5px;
   -webkit-appearance: none;
+  @include media-laptop-interim{
+    width: 75px;
+  }
 }
 
 .testimonials__input[type="range"]::-moz-range-thumb {
