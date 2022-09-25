@@ -1,24 +1,27 @@
-.footer{
-
+.footer {
   background: $color-footer-bg;
 }
 
 .wrapper__footer {
   // height: 443px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   padding: 40px 220px 50px;
   color: $color-white-text;
   a {
     color: $color-white-text;
     @include font($size: 1.6rem, $height: 140%, $weight: 400);
   }
-
   .navigation__link_activ {
     color: $color-border;
-    }
-    
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  }
+  @include media-laptop-interim {
+    padding: 40px 50px 50px 43px;
+  }
+  @include media-tablet {
+    padding: 40px 18px 50px 43px;
+  }
 }
 
 // .footer_logo {
@@ -38,14 +41,18 @@
 
 .footer__input_wrapper {
   margin-top: 14px;
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  @include media-laptop-interim {
+    margin-right: 20px;
+  }
+  @include media-tablet {
+    margin-right: 30px;
+  }
 }
 
-
-
-.submit{
-    margin-left: 10px;
+.submit {
+  margin-left: 10px;
 }
 
 // END footer__subscribe
@@ -65,7 +72,6 @@
 
   .footer__social__link {
     @include font($size: 1.6rem, $height: 140%, $weight: 400);
-
   }
 
   .social__link {
@@ -89,30 +95,36 @@
   align-items: flex-end;
   margin-left: 120px;
   padding-bottom: 5px;
+  @include media-laptop-interim {
+    padding-bottom: 10px;
+  }
+}
 
-
-  .footer__navigation {
-    @include font($size: 1.6rem, $height: 140%, $weight: 400);
-    display: flex;
-    gap: 58px;
-    align-items: flex-end;
+.footer__navigation {
+  @include font($size: 1.6rem, $height: 140%, $weight: 400);
+  display: flex;
+  gap: 58px;
+  align-items: flex-end;
+  @include media-laptop-interim {
+    margin-left: 0px;
+    margin-right: 23px;
+    gap: 48px;
   }
 }
 
 .footer__copyright {
   display: flex;
   flex-direction: column;
-justify-content: end;
-padding-bottom: 5px;
-// flex-grow: 1;
+  justify-content: end;
+  padding-bottom: 5px;
   @include font($size: 1.6rem, $height: 130%, $weight: 100);
-
-
-  .footer__school{
-    margin-top: 10px;
+  @include media-laptop-interim {
+    padding-bottom: 8px;
   }
 
-
+  .footer__school {
+    margin-top: 10px;
+  }
 
   .footer__logoBox {
     color: $color-white-text;
