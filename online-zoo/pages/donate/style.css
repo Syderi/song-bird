@@ -778,6 +778,7 @@ a {
 }
 @media (max-width: 640px) {
   .header__wrapper {
+    background: rgb(0, 0, 0);
     z-index: 10;
     width: 100%;
     position: fixed;
@@ -1090,6 +1091,10 @@ a {
     padding-right: 0px;
     padding-bottom: 4px;
   }
+}
+
+.main {
+  position: relative;
 }
 
 .wrapper__main {
@@ -1594,7 +1599,7 @@ a {
   display: block;
   height: 275px;
   width: 368px;
-  background: url("../../../assets/img/png/strelitzia.png");
+  background: url("../../assets/img/png/strelitzia.png");
   background-repeat: no-repeat;
   position: absolute;
   bottom: 0px;
@@ -1628,7 +1633,7 @@ a {
   display: block;
   width: 292px;
   height: 460px;
-  background: url("../../../assets/img/png/palm_foto.png");
+  background: url("../../assets/img/png/palm_foto.png");
   background-repeat: no-repeat;
   position: absolute;
   bottom: 0px;
