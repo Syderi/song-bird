@@ -46,6 +46,12 @@
   }
 }
 
+.wrapper__footer_donate{
+  @include media-laptop-interim {
+    padding: 40px 30px 50px 30px;
+  }
+}
+
 .footer__logo{
 @include media-mobile-interim {
 display: flex;
@@ -179,6 +185,12 @@ justify-content: center;
   }
 }
 
+.footer__nav_donate{
+  @include media-laptop-interim {
+    padding-left: 20px;
+  }
+}
+
 .footer__navigation {
   @include font($size: 1.6rem, $height: 140%, $weight: 400);
   display: flex;
@@ -206,7 +218,11 @@ justify-content: center;
   flex-direction: column;
   justify-content: flex-end;
   padding-bottom: 5px;
-  @include font($size: 1.6rem, $height: 130%, $weight: 100);
+  a {
+    color: $color-white-text;
+    @include font($size: 1.6rem, $height: 140%, $weight: 100);
+  }
+  // @include font($size: 1.6rem, $height: 130%, $weight: 100);
   @include media-laptop-interim {
     padding-bottom: 8px;
   }

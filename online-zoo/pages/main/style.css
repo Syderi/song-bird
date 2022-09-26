@@ -636,15 +636,21 @@ a {
 
 .donate__range__input[type=range] {
   -webkit-appearance: none;
-  margin-left: 17.5px;
+  margin-left: 10px;
   margin-top: 12.5px;
-  width: 945px;
+  width: 950px;
   height: 2px;
   -moz-appearance: none;
   appearance: none;
   outline: none;
   background-color: #72828e;
   cursor: pointer;
+}
+@media (max-width: 1280px) {
+  .donate__range__input[type=range] {
+    margin-left: 0px;
+    width: 830px;
+  }
 }
 .donate__range__input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -2486,6 +2492,12 @@ a {
   }
 }
 
+@media (max-width: 1280px) {
+  .wrapper__footer_donate {
+    padding: 40px 30px 50px 30px;
+  }
+}
+
 @media (max-width: 630px) {
   .footer__logo {
     display: flex;
@@ -2634,6 +2646,12 @@ a {
   }
 }
 
+@media (max-width: 1280px) {
+  .footer__nav_donate {
+    padding-left: 20px;
+  }
+}
+
 .footer__navigation {
   font-size: 1.6rem;
   font-style: normal;
@@ -2668,10 +2686,13 @@ a {
   flex-direction: column;
   justify-content: flex-end;
   padding-bottom: 5px;
+}
+.footer__copyright a {
+  color: rgb(255, 255, 255);
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 100;
-  line-height: 130%;
+  line-height: 140%;
 }
 @media (max-width: 1280px) {
   .footer__copyright {

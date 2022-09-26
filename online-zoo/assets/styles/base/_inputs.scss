@@ -162,15 +162,22 @@
 
 .donate__range__input[type="range"] {
   -webkit-appearance: none;
-  margin-left: 17.5px;
+  margin-left: 10px;
   margin-top: 12.5px;
-  width: 945px;
+  width: 950px;
   height: 2px;
   -moz-appearance: none;
   appearance: none;
   outline: none;
   background-color: $color-range-bg;
   cursor: pointer;
+
+  @include media-laptop-interim {
+    margin-left: 0px;
+    width: 830px;
+}
+
+
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
