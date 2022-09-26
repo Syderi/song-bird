@@ -50,6 +50,9 @@
   @include media-laptop-interim {
     padding: 40px 30px 50px 30px;
   }
+  @include media-tablet-interim {
+    padding: 13px 20px 12px 20px;
+  }
 }
 
 .footer__logo{
@@ -190,6 +193,9 @@ justify-content: center;
   @include media-laptop-interim {
     padding-left: 20px;
   }
+  @include media-tablet-interim {
+    padding-left: 0px;
+  }
 }
 
 .footer__navigation {
@@ -239,6 +245,14 @@ justify-content: center;
     padding-left: 22%;
   }
 }
+
+.footer__copyright_donate{
+  @include media-tablet-interim {
+    padding-left: 58px;
+    // padding-bottom: 0px;
+  }
+}
+
 .footer__school {
   margin-top: 10px;
 }

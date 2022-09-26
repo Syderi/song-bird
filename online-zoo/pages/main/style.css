@@ -2503,6 +2503,11 @@ a {
     padding: 40px 30px 50px 30px;
   }
 }
+@media (max-width: 768px) {
+  .wrapper__footer_donate {
+    padding: 13px 20px 12px 20px;
+  }
+}
 
 @media (max-width: 630px) {
   .footer__logo {
@@ -2660,6 +2665,11 @@ a {
     padding-left: 20px;
   }
 }
+@media (max-width: 768px) {
+  .footer__nav_donate {
+    padding-left: 0px;
+  }
+}
 
 .footer__navigation {
   font-size: 1.6rem;
@@ -2724,6 +2734,12 @@ a {
     line-height: 120%;
     margin-top: 30px;
     padding-left: 22%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__copyright_donate {
+    padding-left: 58px;
   }
 }
 

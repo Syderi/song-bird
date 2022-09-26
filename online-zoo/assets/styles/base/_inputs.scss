@@ -68,42 +68,6 @@
   -moz-appearance: textfield;
 }
 
-// .donate__cash {
-//   @include font($size: 1.6rem, $height: 140%, $weight: 400);
-//   width: 268px;
-//   height: 54px;
-//   padding: 14px 9px;
-//   border: 1px solid $color-input;
-//   border-radius: 2px;
-//   color: $color-input;
-//   background-color: transparent;
-//   &::-webkit-input-placeholder {
-//     @include font($size: 1.6rem, $height: 140%, $weight: 400);
-//     color: $color-input;
-//   }
-//   &::-moz-placeholder {
-//     @include font($size: 1.6rem, $height: 140%, $weight: 400);
-//     color: $color-input;
-//   }
-//   &:-ms-input-placeholder {
-//     @include font($size: 1.6rem, $height: 140%, $weight: 400);
-//     color: $color-input;
-//   }
-//   &::-ms-input-placeholder {
-//     @include font($size: 1.6rem, $height: 140%, $weight: 400);
-//     color: $color-input;
-//   }
-//   &::placeholder {
-//     @include font($size: 1.6rem, $height: 140%, $weight: 400);
-//     color: $color-input;
-//   }
-//   &::-webkit-outer-spin-button,
-//   &::-webkit-inner-spin-button {
-//     -webkit-appearance: none;
-//     margin: 0;
-//   }
-// }
-
 .testimonials__input[type="range"] {
   cursor: pointer;
   -webkit-appearance: none;

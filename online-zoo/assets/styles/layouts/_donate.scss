@@ -336,7 +336,7 @@
   }
 }
 
-.donate__cash {
+.donate__cash[type="number"] {
   margin-left: 355px;
   margin-top: 48px;
 
@@ -351,6 +351,14 @@
   @include media-tablet {
     margin-left: 290px;
   }
+  @include media-tablet-interim {
+    margin-top: 50px;
+    margin-left: 210px;
+    width: 180px;
+    height: 42px;
+  }
+
+
 }
 
 .donate__how {
@@ -364,6 +372,10 @@
 
   @include media-tablet {
     margin-left: 316px;
+  }
+  @include media-tablet-interim {
+    margin-top: 30px;
+    margin-left: 192px;
   }
 
   input {
@@ -450,6 +462,9 @@
   @include media-tablet {
     margin-left: 276px;
   }
+  @include media-tablet-interim {
+    margin-left: 152px;
+  }
 }
 
 .donate__share__text {
@@ -463,5 +478,8 @@
 
   @include media-tablet {
     margin-left: 273px;
+  }
+  @include media-tablet-interim {
+    margin-left: 152px;
   }
 }
