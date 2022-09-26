@@ -1,22 +1,36 @@
+.donate {
+  background: $color-donade-bg;
+}
+
 .wrapper__donate {
   height: 1482px;
   padding: 40px 220px 180px;
-  background: $color-donade-bg;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: $color-white-text;
+  @include media-laptop-interim {
+    padding: 40px 60px 40px;
+  }
+  @include media-tablet {
+    // align-items:flex-start;
+    padding: 40px 30px 30px;
+  }
 }
 
-// .donate__title{
-
-// }
+.donate__title {
+  @include media-laptop-interim {
+    align-self: flex-start;
+    max-width: 778px;
+  }
+}
 
 .donate__text {
   margin-top: 10px;
   @include font($size: 1.6rem, $height: 2.24rem, $weight: 500);
-
-  /* subtitle */
+  @include media-laptop-interim {
+    margin-top: 30px;
+  }
 }
 
 .donate__info {
@@ -35,18 +49,36 @@
   // display: flex;
   // flex-direction: column;
   // align-items: center;
+  @include media-laptop-interim {
+    padding: 20px 47px 45.98px;
+    margin-top: 40px;
+    max-width: 940px;
+    height: auto;
+  }
 }
 
 .donate__card__title {
   margin-left: 250px;
   color: $color-frend-title;
+  @include media-laptop-interim {
+    margin-left: 200px;
+    // margin-top: 20px;
+    // max-width: 940px;
+  }
+  @include media-tablet {
+    margin-left: 184px;
+    // margin-top: 20px;
+    // max-width: 940px;
+  }
 }
 
 .donate__card__text {
   margin-top: 20px;
   @include font($size: 2.4rem, $height: 120%, $weight: 400);
-
   color: $color-text;
+  @include media-laptop-interim {
+    margin-top: 10px;
+  }
 }
 
 .donate__diet__wrapper {
@@ -54,6 +86,13 @@
   margin-top: 60px;
   display: flex;
   align-items: center;
+
+  @include media-laptop-interim {
+    padding-left: 190px;
+  }
+  @include media-laptop-interim {
+    padding-left: 150px;
+  }
 
   .donate__diet__four {
     padding-top: 52px;
@@ -102,8 +141,6 @@
   // z-index: 2;
 }
 
-
-
 .donate__range_label__container {
   pointer-events: none;
   position: absolute;
@@ -112,11 +149,9 @@
   height: 10px;
   width: 1100px;
   display: flex;
-
 }
 
 .donate__range_label {
-
   margin-right: 119.3px;
   height: 10px;
   width: 10px;
@@ -164,15 +199,27 @@
   background-repeat: no-repeat;
   background-position-x: 248px;
   background-position-y: center;
+  @include media-laptop-interim {
+    margin-left: 300px;
+  }
+
+  @include media-tablet {
+    margin-left: 290px;
+  }
 }
 
 .donate__how {
   @include font($size: 1.6rem, $height: 140%, $weight: 400);
-
   color: $color-text;
-
   position: relative;
   margin: 27px auto 26px 382px;
+  @include media-laptop-interim {
+    margin-left: 330px;
+  }
+
+  @include media-tablet {
+    margin-left: 316px;
+  }
 
   input {
     width: 18px;
@@ -251,6 +298,13 @@
 
 .button__donate {
   margin-left: 342px;
+  @include media-laptop-interim {
+    margin-left: 290px;
+  }
+
+  @include media-tablet {
+    margin-left: 276px;
+  }
 }
 
 .donate__share__text {
@@ -258,4 +312,11 @@
   margin-top: 30px;
   @include font($size: 1.6rem, $height: 140%, $weight: 400);
   color: $color-text;
+  @include media-laptop-interim {
+    margin-left: 290px;
+  }
+
+  @include media-tablet {
+    margin-left: 273px;
+  }
 }
