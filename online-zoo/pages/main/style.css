@@ -652,6 +652,12 @@ a {
     width: 830px;
   }
 }
+@media (max-width: 768px) {
+  .donate__range__input[type=range] {
+    margin-left: 20px;
+    width: 560px;
+  }
+}
 .donate__range__input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border-radius: 50%;
@@ -2646,6 +2652,9 @@ a {
   }
 }
 
+.footer__nav_donate {
+  padding-bottom: 10px;
+}
 @media (max-width: 1280px) {
   .footer__nav_donate {
     padding-left: 20px;

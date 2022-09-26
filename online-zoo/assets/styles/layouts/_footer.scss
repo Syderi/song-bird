@@ -186,6 +186,7 @@ justify-content: center;
 }
 
 .footer__nav_donate{
+  padding-bottom: 10px;
   @include media-laptop-interim {
     padding-left: 20px;
   }

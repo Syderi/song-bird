@@ -176,6 +176,10 @@
     margin-left: 0px;
     width: 830px;
 }
+  @include media-tablet-interim {
+    margin-left: 20px;
+    width: 560px;
+}
 
 
 
