@@ -1602,7 +1602,7 @@ a {
   margin-top: 1px;
   text-transform: uppercase;
 }
-@media (max-width: 630px) {
+@media (max-width: 768px) {
   .slider__card__title {
     font-size: 1.3em;
     font-style: normal;
@@ -1617,7 +1617,7 @@ a {
   font-weight: 300;
   line-height: 120%;
 }
-@media (max-width: 630px) {
+@media (max-width: 768px) {
   .slider__card__description {
     font-size: 1.15rem;
     font-style: normal;
