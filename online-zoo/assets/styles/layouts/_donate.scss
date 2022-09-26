@@ -18,12 +18,13 @@
     padding: 40px 30px 30px;
   }
   @include media-tablet-interim {
-    // align-items:flex-start;
     padding: 35px 20px 35px;
   }
   @include media-mobile {
-    // align-items:flex-start;
     padding: 30px 20px 46px;
+  }
+  @include media-mobile-interim {
+    padding: 30px 10px 20px;
   }
 }
 
@@ -34,6 +35,9 @@
   }
   @include media-tablet-interim {
     @include font($size: 2.4rem, $height: 120%, $weight: 400);
+  }
+  @include media-mobile-interim {
+    max-width: 300px;
   }
 }
 
@@ -48,6 +52,10 @@
     // @include font($size: 1.6rem, $height: 140%, $weight: 500);
     margin-top: 20px;
   }
+  @include media-mobile-interim {
+    @include font($size: 1.6rem, $height: 139%, $weight: 500);
+    // margin-top: 20px;
+  }
 }
 
 .donate__info {
@@ -57,6 +65,10 @@
   @include media-tablet-interim {
     // @include font($size: 1.6rem, $height: 140%, $weight: 500);
     margin-top: 30px;
+  }
+  @include media-mobile-interim {
+    @include font($size: 2.4rem, $height: 120%, $weight: 500);
+    margin-top: 29px;
   }
 }
 
@@ -82,6 +94,13 @@
     max-width: 600px;
     padding: 30px 0px 30.98px;
   }
+  @include media-mobile-interim {
+    // @include font($size: 1.6rem, $height: 140%, $weight: 500);
+    margin-top: 30px;
+    max-width: 300px;
+    padding: 20px 0px 19.98px;
+  }
+  
 }
 
 .donate__card__title {
@@ -96,6 +115,10 @@
   @include media-tablet-interim {
     margin-left: 69px;
   }
+  @include media-mobile-interim {
+    @include font($size: 2.4rem, $height: 120%, $weight: 400);
+    margin-left: 34px;
+  }
 }
 
 .donate__card__text {
@@ -109,6 +132,10 @@
     text-align: center;
     width: 100%;
     margin-top: 20px;
+  }
+  @include media-mobile-interim {
+    margin-top: 10px;
+    @include font($size: 1.6rem, $height: 140%, $weight: 400);
   }
 }
 
@@ -128,46 +155,91 @@
     margin-top: 50px;
     padding-left: 27px;
   }
+  @include media-mobile-interim {
+    padding-left: 0px;
+    margin-top: 8px;
+  }
 
   .donate__diet__four {
     padding-top: 52px;
     display: flex;
     flex-direction: column;
     margin-right: 11px;
+    @include media-mobile-interim {
+      padding-top: 35px;
+    }
   }
 
-  .donate_diet__X {
-    padding-top: 29px;
-    margin-right: 64px;
-  }
-
+  
   .donate__diet__number {
     @include font($size: 7.2rem, $height: 80%, $weight: 500);
     text-align: center;
     text-transform: uppercase;
     color: $color-header-bg;
+    
+    @include media-mobile-interim {
+      @include font($size: 4.06015rem, $height: 80%, $weight: 500);
+    }
+    
   }
-
+  
   .donate__diet__text {
     margin-top: 12px;
     @include font($size: 1.6rem, $height: 140%, $weight: 400);
     text-align: center;
     color: $color-text;
+    
+    @include media-mobile-interim {
+      margin-top: 9px;
+      width: 90px;
+      @include font($size: 0.902255rem, $height: 140%, $weight: 400);
+    }
+  }
+
+  .donate_diet__X {
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: url("../../assets/img/png/x_icon.png");
+    background-repeat: no-repeat;
+    // background-position: center;
+    // padding-top: 43px;
+    margin-top: 24px;
+    margin-right: 64px;
+    @include media-mobile-interim {
+      width: 9px;
+      height: 9px;
+      background: url("../../assets/img/png/320.png");
+      margin-right: 30px;
+    }
+  }
+}
+
+.donate_diet__panda {
+  display: block;
+  width: 284px;
+  height: 246px;
+  background: url("../../assets/img/png/panda_widget1.png");
+  @include media-mobile-interim {
+    width: 161px;
+    height: 139px;
+    background: url("../../assets/img/png/panda_widget320.png");
   }
 }
 
 .donate__slider__container {
-  margin-top: 46.53px;
+  margin-top: 50px;
   width: 976px;
   @include media-laptop-interim {
     margin-left: 20px;
     width: 830px;
   }
   @include media-tablet {
+    margin-top: 50px;
     margin-left: 8px;
   }
   @include media-tablet-interim {
-    margin-top: 38px;
+    margin-top: 40px;
     margin-left: 0px;
     width: 600px;
   }
@@ -176,9 +248,7 @@
     @include font($size: 1.6rem, $height: 140%, $weight: 400);
     color: $color-text;
     @include media-tablet-interim {
-
       margin-left: 10px;
-
     }
   }
 }
@@ -232,7 +302,6 @@
     &:nth-child(3) {
       display: none;
     }
-
   }
 }
 
@@ -266,7 +335,6 @@
     background: url("../../../assets/img/png/S_value_active.png");
   }
 
-
   @include media-laptop-interim {
     &:first-child {
       display: none;
@@ -290,7 +358,6 @@
     }
   }
   @include media-tablet-interim {
-
     &:nth-child(2) {
       display: none;
     }
@@ -317,7 +384,6 @@
     &:nth-child(7) {
       margin-left: 0px;
     }
-
   }
 
   .donate__s {
@@ -357,8 +423,6 @@
     width: 180px;
     height: 42px;
   }
-
-
 }
 
 .donate__how {

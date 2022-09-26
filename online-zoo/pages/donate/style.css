@@ -1773,6 +1773,11 @@ a {
     padding: 30px 20px 46px;
   }
 }
+@media (max-width: 630px) {
+  .wrapper__donate {
+    padding: 30px 10px 20px;
+  }
+}
 
 @media (max-width: 1280px) {
   .donate__title {
@@ -1786,6 +1791,11 @@ a {
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
+  }
+}
+@media (max-width: 630px) {
+  .donate__title {
+    max-width: 300px;
   }
 }
 
@@ -1806,6 +1816,14 @@ a {
     margin-top: 20px;
   }
 }
+@media (max-width: 630px) {
+  .donate__text {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 139%;
+  }
+}
 
 .donate__info {
   margin-top: 45px;
@@ -1815,6 +1833,15 @@ a {
 @media (max-width: 768px) {
   .donate__info {
     margin-top: 30px;
+  }
+}
+@media (max-width: 630px) {
+  .donate__info {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    margin-top: 29px;
   }
 }
 
@@ -1841,6 +1868,13 @@ a {
     padding: 30px 0px 30.98px;
   }
 }
+@media (max-width: 630px) {
+  .donate__card {
+    margin-top: 30px;
+    max-width: 300px;
+    padding: 20px 0px 19.98px;
+  }
+}
 
 .donate__card__title {
   margin-left: 250px;
@@ -1859,6 +1893,15 @@ a {
 @media (max-width: 768px) {
   .donate__card__title {
     margin-left: 69px;
+  }
+}
+@media (max-width: 630px) {
+  .donate__card__title {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    margin-left: 34px;
   }
 }
 
@@ -1880,6 +1923,15 @@ a {
     text-align: center;
     width: 100%;
     margin-top: 20px;
+  }
+}
+@media (max-width: 630px) {
+  .donate__card__text {
+    margin-top: 10px;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
   }
 }
 
@@ -1905,15 +1957,22 @@ a {
     padding-left: 27px;
   }
 }
+@media (max-width: 630px) {
+  .donate__diet__wrapper {
+    padding-left: 0px;
+    margin-top: 8px;
+  }
+}
 .donate__diet__wrapper .donate__diet__four {
   padding-top: 52px;
   display: flex;
   flex-direction: column;
   margin-right: 11px;
 }
-.donate__diet__wrapper .donate_diet__X {
-  padding-top: 29px;
-  margin-right: 64px;
+@media (max-width: 630px) {
+  .donate__diet__wrapper .donate__diet__four {
+    padding-top: 35px;
+  }
 }
 .donate__diet__wrapper .donate__diet__number {
   font-size: 7.2rem;
@@ -1924,6 +1983,14 @@ a {
   text-transform: uppercase;
   color: rgb(0, 0, 0);
 }
+@media (max-width: 630px) {
+  .donate__diet__wrapper .donate__diet__number {
+    font-size: 4.06015rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 80%;
+  }
+}
 .donate__diet__wrapper .donate__diet__text {
   margin-top: 12px;
   font-size: 1.6rem;
@@ -1933,9 +2000,50 @@ a {
   text-align: center;
   color: #333b41;
 }
+@media (max-width: 630px) {
+  .donate__diet__wrapper .donate__diet__text {
+    margin-top: 9px;
+    width: 90px;
+    font-size: 0.902255rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+  }
+}
+.donate__diet__wrapper .donate_diet__X {
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: url("../../assets/img/png/x_icon.png");
+  background-repeat: no-repeat;
+  margin-top: 24px;
+  margin-right: 64px;
+}
+@media (max-width: 630px) {
+  .donate__diet__wrapper .donate_diet__X {
+    width: 9px;
+    height: 9px;
+    background: url("../../assets/img/png/320.png");
+    margin-right: 30px;
+  }
+}
+
+.donate_diet__panda {
+  display: block;
+  width: 284px;
+  height: 246px;
+  background: url("../../assets/img/png/panda_widget1.png");
+}
+@media (max-width: 630px) {
+  .donate_diet__panda {
+    width: 161px;
+    height: 139px;
+    background: url("../../assets/img/png/panda_widget320.png");
+  }
+}
 
 .donate__slider__container {
-  margin-top: 46.53px;
+  margin-top: 50px;
   width: 976px;
 }
 @media (max-width: 1280px) {
@@ -1946,12 +2054,13 @@ a {
 }
 @media (max-width: 1000px) {
   .donate__slider__container {
+    margin-top: 50px;
     margin-left: 8px;
   }
 }
 @media (max-width: 768px) {
   .donate__slider__container {
-    margin-top: 38px;
+    margin-top: 40px;
     margin-left: 0px;
     width: 600px;
   }
