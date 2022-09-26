@@ -652,7 +652,7 @@ a {
     width: 830px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .donate__range__input[type=range] {
     margin-left: 20px;
     width: 560px;

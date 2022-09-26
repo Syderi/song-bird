@@ -17,7 +17,7 @@
     // align-items:flex-start;
     padding: 40px 30px 30px;
   }
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     padding: 35px 20px 35px;
   }
   @include media-mobile {
@@ -33,7 +33,7 @@
     align-self: flex-start;
     max-width: 778px;
   }
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     @include font($size: 2.4rem, $height: 120%, $weight: 400);
   }
   @include media-mobile-interim {
@@ -48,7 +48,7 @@
     margin-top: 30px;
   }
 
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     // @include font($size: 1.6rem, $height: 140%, $weight: 500);
     margin-top: 20px;
   }
@@ -62,7 +62,7 @@
   margin-top: 45px;
   align-self: flex-start;
   color: $color-frend-title;
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     // @include font($size: 1.6rem, $height: 140%, $weight: 500);
     margin-top: 30px;
   }
@@ -88,7 +88,7 @@
     max-width: 940px;
     height: auto;
   }
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     // @include font($size: 1.6rem, $height: 140%, $weight: 500);
     margin-top: 30px;
     max-width: 600px;
@@ -111,7 +111,7 @@
   @include media-tablet {
     margin-left: 184px;
   }
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     margin-left: 69px;
   }
   @include media-mobile-interim {
@@ -127,7 +127,7 @@
   @include media-laptop-interim {
     margin-top: 10px;
   }
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     text-align: center;
     width: 100%;
     margin-top: 20px;
@@ -150,7 +150,7 @@
   @include media-laptop-interim {
     padding-left: 150px;
   }
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     margin-top: 50px;
     padding-left: 27px;
   }
@@ -235,7 +235,7 @@
     margin-top: 50px;
     margin-left: 8px;
   }
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     margin-top: 40px;
     margin-left: 0px;
     width: 600px;
@@ -249,7 +249,7 @@
   .donate__slider_title {
     @include font($size: 1.6rem, $height: 140%, $weight: 400);
     color: $color-text;
-    @include media-tablet-interim {
+    @include media-tablet-interim960 {
       margin-left: 10px;
     }
     @include media-mobile-interim {
@@ -267,7 +267,7 @@
   padding-top: 12.5px;
   // padding-bottom: -12.5px;
   // z-index: 2;
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     margin-top: 5px;
   }
   @include media-mobile-interim {
@@ -290,7 +290,7 @@
     width: 800px;
     margin-left: 15px;
   }
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     width: 530px;
     margin-left: 35px;
   }
@@ -311,7 +311,7 @@
       display: none;
     }
   }
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     &:nth-child(2) {
       display: none;
     }
@@ -336,7 +336,7 @@
     justify-content: flex-start;
     gap: 60px;
   }
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     margin-left: 0px;
     gap: 60px;
   }
@@ -383,7 +383,7 @@
       background: url("../../../assets/img/png/S_value_active.png");
     }
   }
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     &:nth-child(2) {
       display: none;
     }
@@ -456,7 +456,7 @@
   @include media-tablet {
     margin-left: 290px;
   }
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     margin-top: 50px;
     margin-left: 210px;
     width: 180px;
@@ -481,7 +481,7 @@
   @include media-tablet {
     margin-left: 316px;
   }
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     margin-top: 30px;
     margin-left: 192px;
   }
@@ -575,7 +575,7 @@
   @include media-tablet {
     margin-left: 276px;
   }
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     margin-left: 152px;
   }
   @include media-mobile-interim {
@@ -595,7 +595,7 @@
   @include media-tablet {
     margin-left: 273px;
   }
-  @include media-tablet-interim {
+  @include media-tablet-interim960 {
     margin-left: 152px;
   }
   @include media-mobile-interim {

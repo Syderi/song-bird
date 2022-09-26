@@ -24,6 +24,10 @@
 @mixin media-tablet-min {
     @media (max-width: calc($tablet-width - 1px)) { @content; }
 }
+// $tablet-width-interim: 960px;
+@mixin media-tablet-interim960 {
+    @media (max-width: $tablet-width-interim960) { @content; }
+}
 // $tablet-width-interim: 768px;
 @mixin media-tablet-interim {
     @media (max-width: $tablet-width-interim) { @content; }
