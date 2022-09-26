@@ -1,4 +1,5 @@
 .logoBox {
+
   color: $color-white-text;
 }
 .logo {
@@ -31,4 +32,34 @@
 }
 .logo_footer {
   border: 0.5px solid $color-white-text;
+}
+
+.logo_footer_320{
+@include media-mobile-interim {
+
+  border: none;
+  height: auto;
+  width: 128px;
+  .logoImg{
+    left: 70px;
+    top: -5px;
+  }
+}
+
+}
+
+.logo_media-mobile {
+  @include media-mobile {
+    width: 46.86px;
+    height: 29.03px;
+    border: none;
+    .logoText h1 {
+        @include font($size: 1.2899rem, $height: 120%, $weight: 400);
+
+    }
+    .logoImg {
+      left: -2px;
+      top: 4px;
+    }
+  }
 }

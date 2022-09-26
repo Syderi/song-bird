@@ -1,10 +1,32 @@
+.section_frend{
+  background: $color-frend;
+
+}
+
 .wrapper__frend {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: $color-frend;
   opacity: 0.9;
   padding: 69px 0 100px 0;
+  @include media-laptop-interim {
+    padding: 40px 30px 70px;
+  }
+  @include media-tablet {
+    padding: 30px 30px 50px;
+  }
+  @include media-tablet-interim {
+    padding: 25px 15px 25px;
+  }
+  @include media-mobile {
+    padding: 20px 0px 20px;
+  }
+  @include media-mobilesmall {
+    padding: 20px 10px;
+  }
+  //   @include media-mobilesmall {
+  //     padding: 20px 10px;
+  //   }
 }
 
 .frend__content {
@@ -12,91 +34,259 @@
   background: $color-frend-content;
   backdrop-filter: blur(2px);
   border-radius: 20px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
   padding: 41px 0 59px 0;
-
+  @include media-laptop-interim {
+    width: 1050px;
+    padding: 39px 0 55px 0;
+  }
+  @include media-tablet {
+    width: 940px;
+    padding: 30px 0 50px 0;
+  }
+  @include media-tablet-interim {
+    width: 720px;
+  }
+  @include media-mobile {
+    width: 640px;
+    padding: 10px 0 60px;
+  }
+  @include media-mobile-interim {
+    padding: 10px 0px 50px;
+  }
+  @include media-mobilesmall {
+    padding: 20px 0px 40px;
+  }
 }
 
+.frend__title {
+  @include font($size: 4.8rem, $height: 120%, $weight: 400);
+  text-align: center;
+  color: $color-frend-title;
+  z-index: 2;
 
-.frend__content__text{
-padding-left: 99px;
-}
-
-.frend__title{
-@include font($size: 4.8rem,$height: 120%, $weight: 400);
-text-align: center;
-color: $color-frend-title;
-z-index: 2;
-}
-
-.frend__annotation{
+  @include media-tablet-interim {
+    @include font($size: 4.2rem, $height: 120%, $weight: 400);
+  }
+  @include media-mobile-interim {
     @include font($size: 2.4rem, $height: 120%, $weight: 400);
-    margin-top: 30px;
-    color: $color-text;
+  }
 }
 
-.frend__annotation-covid{
+.frend__conteiner__text {
+  padding-left: 99px;
+  @include media-laptop-interim {
+    padding-left: 60px;
+  }
+  @include media-tablet {
+    padding-left: 49px;
+  }
+  @include media-tablet-interim {
+    padding: 0 30px;
+  }
+  @include media-mobile {
+    padding: 0 20px;
+  }
+  @include media-mobile-interim {
+    padding: 0px;
+  }
+}
+
+.frend__annotation {
+  @include font($size: 2.4rem, $height: 120%, $weight: 400);
+  margin-top: 30px;
+  color: $color-text;
+  @include media-laptop-interim {
+    margin-top: 25px;
+  }
+  @include media-tablet {
+    margin-top: 20px;
+  }
+
+  @include media-tablet-interim {
+    @include font($size: 2.2rem, $height: 120%, $weight: 400);
+  }
+  @include media-mobile-interim {
+    margin-top: 10px;
+    text-align: center;
+    @include font($size: 1.8rem, $height: 120%, $weight: 400);
+  }
+}
+
+.frend__annotation-covid {
+  margin-top: 40px;
+  @include font($size: 1.6rem, $height: 130%, $weight: 500);
+  color: $color-text;
+  @include media-laptop-interim {
+    padding-right: 78px;
+    margin-top: 25px;
+  }
+  @include media-tablet {
+    margin-top: 21px;
+  }
+
+  @include media-tablet-interim {
+    @include font($size: 1.6rem, $height: 130%, $weight: 500);
+    margin-top: 20px;
+  }
+  @include media-mobile {
+    padding-right: 10px;
+  }
+  @include media-mobile-interim {
+    display: none;
+  }
+}
+
+.frend__description {
+  max-width: 863px;
+  margin-top: 11px;
+  @include font($size: 1.6rem, $height: 130%, $weight: 400);
+  color: $color-text;
+  a {
+    @include font($size: 1.6rem, $height: 130%, $weight: 400);
+    color: $color-text;
+    text-decoration: underline $color-border;
+  }
+  @include media-laptop-interim {
+    padding-right: 80px;
+    margin-top: 25px;
+  }
+  @include media-tablet {
+    padding-right: 58px;
+    margin-top: 10px;
+  }
+  @include media-mobile {
+    padding-right: 5px;
+  }
+  @include media-mobile-interim {
+    display: none;
+  }
+}
+
+.frend__header {
+  text-align: center;
+  margin-top: 60px;
+  @include media-laptop-interim {
+    margin-top: 50px;
+  }
+  @include media-tablet {
     margin-top: 40px;
-    @include font($size: 1.6rem,$height: 130%, $weight: 500);
-    color: $color-text;
+  }
+  @include media-tablet-interim {
+    margin-top: 30px;
+  }
+  @include media-mobile-interim {
+    margin-top: 21px;
+  @include font($size: 2.4rem, $height: 120%, $weight: 400);
+
+
+  }
 }
 
-.frend__description{
-    max-width: 863px;
-    margin-top: 11px;
-    @include font($size: 1.6rem,$height: 130%, $weight: 400);
-    color: $color-text;
-    a {
-        @include font($size: 1.6rem,$height: 130%, $weight: 400);
-        color: $color-text;
+.frend__pay {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 198px;
+  @include media-laptop-interim {
+    padding: 0 110px;
+  }
+  @include media-tablet {
+    padding: 0 88px;
+  }
+  @include media-tablet-interim {
+    padding: 0 20px;
+  }
+  @include media-mobile {
+    padding: 0 32px 0 20px;
+    margin-top: 20px;
+  }
+  // margin-top: 30px;
+  @include media-mobile-interim {
+    flex-direction: column;
+    align-items: center;
+    padding:0;
+    margin-top: 0px;
+  }
+}
+
+.frend__card {
+  position: relative;
+  width: 168px;
+  @include media-tablet-interim {
+    &_befor-vector::before {
+      z-index: 1;
+      position: absolute;
+      top: -15px;
+      right: -58px;
+      display: block;
+      content: "";
+      width: 89px;
+      height: 29px;
+      background: url(../../assets/img/png/arrow.png);
+      @include media-mobile-interim {
+        top: 196px;
+        right: -60px;
+transform: rotate(90deg);
+        }
     }
+  }
+  @include media-mobile-interim {
+    margin-top: 20px;
+    &:last-child {
+        margin-top: 29px;
+    }
+  }
+
 }
 
-.frend__header{
-    text-align: center;
-    margin-top: 60px;
+.frend__card-img {
+  width: 100%;
+  height: 168px;
+  border: solid 1px $color-border;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: $color-white-text;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.frend__paragraf {
+  margin-top: 30px;
+  @include font($size: 1.6rem, $height: 140%, $weight: 400);
+  @include media-mobile-interim {
+    margin-top: 10px;
+    height: 44px;
+  }
+}
 
-.frend__pay{
+.frend__vector {
+  padding-top: 56px;
+  @include media-tablet {
+    padding-top: 63px;
+  }
+  @include media-tablet-interim {
+    display: none;
+  }
+}
 
+.frend__button {
+  text-align: center;
+  margin-top: 60px;
+  text-transform: uppercase;
+  @include media-laptop-interim {
+    margin-top: 65px;
+  }
+  @include media-tablet {
+    margin-top: 72px;
+  }
+  @include media-tablet-interim {
     margin-top: 40px;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 198px 0 198px;
-
-}
-
-.frend__card{
-width: 168px;
-}
-
-.frend__card-img{
-    width: 100%;
-    height: 168px;
-    border: solid 1px $color-border;
-    border-radius: 5px;
-    overflow: hidden;
-    background-color: $color-white-text;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-.frend__paragraf{
+  }
+  @include media-mobile-interim {
     margin-top: 30px;
-    @include font($size: 1.6rem,$height: 140%, $weight: 400);
-
-}
-
-.frend__vector{
-padding-top: 56px;
-}
-
-.frend__button{
-    text-align: center;
-    margin-top: 60px;
-text-transform: uppercase;
+  }
+  @include media-mobilesmall {
+    margin-top: 39px;
+  }
 }
