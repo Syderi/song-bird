@@ -948,7 +948,35 @@ a {
 
 .wrapper__section-panda_donat {
   height: 386px;
-  background-position: 0 -200px;
+}
+@media (max-width: 1600px) {
+  .wrapper__section-panda_donat {
+    background: url("../../assets/img/png/panda_bg_donate1600.png");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+@media (max-width: 1000px) {
+  .wrapper__section-panda_donat {
+    background: url("../../assets/img/png/panda_bg_donate1000.png");
+    height: 390px;
+  }
+}
+@media (max-width: 640px) {
+  .wrapper__section-panda_donat {
+    background: url("../../assets/img/png/panda_bg_donate640.png");
+    background-repeat: no-repeat;
+    background-position: center 34px;
+    height: 369px;
+  }
+}
+@media (max-width: 320px) {
+  .wrapper__section-panda_donat {
+    background: url("../../assets/img/png/panda_bg_donate320.png");
+    background-repeat: no-repeat;
+    background-position: center 34px;
+    height: 221px;
+  }
 }
 
 .panda__conteiner {
