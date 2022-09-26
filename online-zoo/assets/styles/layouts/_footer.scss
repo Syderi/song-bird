@@ -53,6 +53,9 @@
   @include media-tablet-interim {
     padding: 13px 20px 12px 20px;
   }
+  @include media-mobile-interim {
+    padding: 20px 10px 20px 10px;
+  }
 }
 
 .footer__logo{

@@ -100,7 +100,6 @@
     max-width: 300px;
     padding: 20px 0px 19.98px;
   }
-  
 }
 
 .donate__card__title {
@@ -170,25 +169,23 @@
     }
   }
 
-  
   .donate__diet__number {
     @include font($size: 7.2rem, $height: 80%, $weight: 500);
     text-align: center;
     text-transform: uppercase;
     color: $color-header-bg;
-    
+
     @include media-mobile-interim {
       @include font($size: 4.06015rem, $height: 80%, $weight: 500);
     }
-    
   }
-  
+
   .donate__diet__text {
     margin-top: 12px;
     @include font($size: 1.6rem, $height: 140%, $weight: 400);
     text-align: center;
     color: $color-text;
-    
+
     @include media-mobile-interim {
       margin-top: 9px;
       width: 90px;
@@ -209,7 +206,7 @@
     @include media-mobile-interim {
       width: 9px;
       height: 9px;
-      background: url("../../assets/img/png/320.png");
+      background: url("../../assets/img/png/x_icon320.png");
       margin-right: 30px;
     }
   }
@@ -243,12 +240,20 @@
     margin-left: 0px;
     width: 600px;
   }
+  @include media-mobile-interim {
+    margin-top: 5px;
+    // margin-left: 0px;
+    width: 300px;
+  }
 
   .donate__slider_title {
     @include font($size: 1.6rem, $height: 140%, $weight: 400);
     color: $color-text;
     @include media-tablet-interim {
       margin-left: 10px;
+    }
+    @include media-mobile-interim {
+      margin-left: 0px;
     }
   }
 }
@@ -259,10 +264,16 @@
   width: 100%;
   height: 27px;
   background: $color-range-bg1;
+  padding-top: 12.5px;
   // padding-bottom: -12.5px;
   // z-index: 2;
   @include media-tablet-interim {
     margin-top: 5px;
+  }
+  @include media-mobile-interim {
+    height: 13.5px;
+    margin-top: 7px;
+    padding-top: 6.25px;
   }
 }
 
@@ -282,6 +293,11 @@
   @include media-tablet-interim {
     width: 530px;
     margin-left: 35px;
+  }
+  @include media-mobile-interim {
+    top: 5px;
+    width: 265px;
+    margin-left: 17.5px;
   }
 }
 
@@ -303,6 +319,11 @@
       display: none;
     }
   }
+  @include media-mobile-interim {
+    height: 5px;
+    width: 5px;
+    border-radius: 2.5px;
+  }
 }
 
 .donate__dollars {
@@ -318,6 +339,11 @@
   @include media-tablet-interim {
     margin-left: 0px;
     gap: 60px;
+  }
+  @include media-mobile-interim {
+    margin-top: 5px;
+    margin-left: 0px;
+    gap: 30px;
   }
 }
 
@@ -380,25 +406,38 @@
     &:nth-child(6) div {
       //  display: none;
       background: url("../../../assets/img/png/S_value_active.png");
+      background-size: contain;
     }
     &:nth-child(7) {
       margin-left: 0px;
     }
   }
-
-  .donate__s {
-    width: 10px;
-    height: 20px;
-    background: url("../../assets/img/png/S_value.png");
+  @include media-mobile-interim {
+    &:nth-child(4) {
+      margin-left: 5px;
+    }
   }
 
   .donate_value {
     margin-left: 3px;
     @include font($size: 2.6rem, $height: 140%, $weight: 500);
-
     text-transform: uppercase;
-
     color: $color-text;
+    @include media-mobile-interim {
+      @include font($size: 1.3rem, $height: 140%, $weight: 500);
+    }
+  }
+}
+.donate__s {
+  width: 10px;
+  height: 20px;
+  background-size: contain;
+  background: url("../../assets/img/png/S_value.png");
+  @include media-mobile-interim {
+    width: 5px;
+    height: 10px;
+    background-size: contain;
+    // background-repeat: no-repeat;
   }
 }
 
@@ -422,6 +461,11 @@
     margin-left: 210px;
     width: 180px;
     height: 42px;
+    background-position-x: 158px;
+  }
+  @include media-mobile-interim {
+    margin-top: 27px;
+    margin-left: 60px;
   }
 }
 
@@ -440,6 +484,11 @@
   @include media-tablet-interim {
     margin-top: 30px;
     margin-left: 192px;
+  }
+  @include media-mobile-interim {
+    margin-top: 25px;
+    margin-left: 41px;
+    margin-bottom: 22px;
   }
 
   input {
@@ -529,6 +578,9 @@
   @include media-tablet-interim {
     margin-left: 152px;
   }
+  @include media-mobile-interim {
+    margin-left: 0px;
+  }
 }
 
 .donate__share__text {
@@ -545,5 +597,9 @@
   }
   @include media-tablet-interim {
     margin-left: 152px;
+  }
+  @include media-mobile-interim {
+    width: 301px;
+    margin-left: 0px;
   }
 }
