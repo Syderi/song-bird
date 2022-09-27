@@ -150,6 +150,7 @@ justify-content: center;
 }
 
 .social__link {
+  // @extend %transition;
   margin-bottom: 10px;
   @include media-tablet-interim {
     margin-bottom: 0px;
@@ -157,6 +158,7 @@ justify-content: center;
 }
 
 .social__link__wrapper {
+  @extend %transition;
   margin-top: 4px;
   display: flex;
   align-items: center;
@@ -270,6 +272,7 @@ justify-content: center;
 }
 
 .footer__logoBox {
+  @extend %transition;
   color: $color-white-text;
   @include font($size: 1.6rem, $height: 130%, $weight: 100);
   &:hover{

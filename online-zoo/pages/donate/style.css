@@ -47,6 +47,10 @@
   font-weight: 400;
   font-style: normal;
 }
+.footer__logoBox, .social__link__wrapper, .header__designed__link, .navigation__link {
+  transition: all 1s ease-out;
+}
+
 body {
   font-family: "Roboto", Verdana, sans-serif;
 }
