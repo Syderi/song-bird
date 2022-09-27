@@ -75,6 +75,9 @@
 
 .navigation__link {
   color: $color-white-text;
+  &:hover{
+    color: $color-border;
+  }
 }
 .navigation__link_activ {
 color: $color-border;
