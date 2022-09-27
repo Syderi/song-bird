@@ -911,6 +911,9 @@ a {
 .header__designed__link {
   color: rgb(255, 255, 255);
 }
+.header__designed__link:hover {
+  color: #fa6f32;
+}
 @media (max-width: 640px) {
   .header__designed__link {
     display: none;
