@@ -149,7 +149,7 @@ flex-direction: column;
 }
 
 .testimonial__text {
-  overflow: hidden;
+  overflow: auto;
   max-width: 237px;
   height: 309px;
   margin-top: 10px;
@@ -158,6 +158,11 @@ flex-direction: column;
   @include media-tablet-interim {
     max-width: 565px;
     height: 37px;
+  }
+  -ms-overflow-style: none;  /* IE и Edge */
+  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 

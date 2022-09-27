@@ -1,5 +1,5 @@
 .button {
-    // @extend %transition;
+    @extend %transition;
     @include font($size: 1.6rem, $height: 140%, $weight: 500);
     text-transform: uppercase;
     width: 298px;
@@ -9,18 +9,18 @@
     color: $color-white-text;
     border: none;
     cursor: pointer;
-    
-    background: $color-default;
+    background-color: $color-frend-title;
+    background-image: $color-default;
     border-radius: 25px;
     &_rectangle {
         border-radius: 5px;
     }
     &:hover{
-
+        // @extend %transition;
         background: $color-buuton-hover;
     }
     &:active{
-
+        // @extend %transition;
         background: $color-buuton-active;
     }
 }
