@@ -465,9 +465,6 @@ a {
   border-radius: 50%;
   cursor: pointer;
 }
-.social__logo:hover {
-  background: #e47209;
-}
 .social__logo:active {
   background: #4b9200;
 }
@@ -2692,6 +2689,12 @@ a {
   margin-top: 4px;
   display: flex;
   align-items: center;
+}
+.social__link__wrapper:hover {
+  color: #fa6f32;
+}
+.social__link__wrapper:hover .social__logo {
+  background: #e47209;
 }
 
 .social__name {
