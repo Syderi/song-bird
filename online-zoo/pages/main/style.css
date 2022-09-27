@@ -892,6 +892,9 @@ a {
 .navigation__link {
   color: rgb(255, 255, 255);
 }
+.navigation__link:hover {
+  color: #fa6f32;
+}
 
 .navigation__link_activ {
   color: #fa6f32;
