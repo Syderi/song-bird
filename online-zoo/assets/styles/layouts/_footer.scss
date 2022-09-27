@@ -160,6 +160,15 @@ justify-content: center;
   margin-top: 4px;
   display: flex;
   align-items: center;
+
+    &:hover{
+      color: $color-border;
+      .social__logo{
+        background: $color-buuton-hover;
+      }
+    }
+   
+
 }
 
 .social__name {
@@ -267,3 +276,5 @@ justify-content: center;
     color: $color-border;
   }
 }
+
+

@@ -65,12 +65,10 @@
     height: 26px;
     border-radius: 50%;
     cursor: pointer;
-       &:hover{
-
-        background: $color-buuton-hover;
-    }
+    //    &:hover{
+    //     background: $color-buuton-hover;
+    // }
     &:active{
-
         background: $color-buuton-active;
     }
   }
