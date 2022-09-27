@@ -92,6 +92,9 @@ color: $color-border;
 
 .header__designed__link {
   color: $color-white-text;
+  &:hover{
+    color: $color-border;
+  }
   @include media-mobile {
     display: none;
 }
