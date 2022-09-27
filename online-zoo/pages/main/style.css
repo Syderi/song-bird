@@ -801,6 +801,7 @@ a {
 
 .wrapper {
   max-width: 1600px;
+  overflow: hidden;
   margin: 0 auto;
 }
 
@@ -890,6 +891,9 @@ a {
 
 .navigation__link {
   color: rgb(255, 255, 255);
+}
+.navigation__link:hover {
+  color: #fa6f32;
 }
 
 .navigation__link_activ {
