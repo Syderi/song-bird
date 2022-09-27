@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Roboto";
   font-display: swap;
@@ -47,7 +48,7 @@
   font-weight: 400;
   font-style: normal;
 }
-.footer__logoBox, .social__link__wrapper, .header__designed__link, .navigation__link {
+.footer__logoBox, .social__link__wrapper, .slider__card:hover .slider__card__wrapper, .slider__card:hover img, .header__designed__link, .navigation__link, .button {
   transition: all 1s ease-out;
 }
 
@@ -421,7 +422,8 @@ a {
   color: rgb(255, 255, 255);
   border: none;
   cursor: pointer;
-  background: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
+  background-color: #fe9013;
+  background-image: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
   border-radius: 25px;
 }
 .button_rectangle {
@@ -2371,7 +2373,7 @@ a {
 }
 
 .testimonial__text {
-  overflow: hidden;
+  overflow: auto;
   max-width: 237px;
   height: 309px;
   margin-top: 10px;
@@ -2380,12 +2382,17 @@ a {
   font-weight: 300;
   line-height: 120%;
   color: #767474;
+  -ms-overflow-style: none; /* IE и Edge */
+  scrollbar-width: none; /* Firefox */
 }
 @media (max-width: 768px) {
   .testimonial__text {
     max-width: 565px;
     height: 37px;
   }
+}
+.testimonial__text::-webkit-scrollbar {
+  display: none;
 }
 
 .slider-testimonials-container {
