@@ -74,6 +74,7 @@
 }
 
 .navigation__link {
+  @extend %transition;
   color: $color-white-text;
   &:hover{
     color: $color-border;
@@ -91,6 +92,7 @@ color: $color-border;
 }
 
 .header__designed__link {
+  @extend %transition;
   color: $color-white-text;
   &:hover{
     color: $color-border;

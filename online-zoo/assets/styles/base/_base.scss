@@ -6,6 +6,7 @@ body {
     @extend %font-prim;
     // @include font($size: 1.6rem, $height: 1.6rem, $weight: normal);
     width: 100%;
+    // @extend %transition;
 }
 
 h1 {
