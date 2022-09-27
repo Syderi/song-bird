@@ -164,9 +164,9 @@ justify-content: center;
   align-items: center;
 
     &:hover{
-      color: $color-border;
+      color: $color-buuton-active;
       .social__logo{
-        background: $color-buuton-hover;
+        background: $color-buuton-active;
       }
     }
    
@@ -276,7 +276,7 @@ justify-content: center;
   color: $color-white-text;
   @include font($size: 1.6rem, $height: 130%, $weight: 100);
   &:hover{
-    color: $color-border;
+    color: $color-buuton-active;
   }
 }
 

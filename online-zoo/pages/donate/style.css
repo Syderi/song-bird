@@ -2695,10 +2695,10 @@ a {
   align-items: center;
 }
 .social__link__wrapper:hover {
-  color: #fa6f32;
+  color: #4b9200;
 }
 .social__link__wrapper:hover .social__logo {
-  background: #e47209;
+  background: #4b9200;
 }
 
 .social__name {
@@ -2833,5 +2833,5 @@ a {
   line-height: 130%;
 }
 .footer__logoBox:hover {
-  color: #fa6f32;
+  color: #4b9200;
 }/*# sourceMappingURL=style.css.map */
