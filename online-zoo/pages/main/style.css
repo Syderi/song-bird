@@ -2787,4 +2787,7 @@ a {
   font-style: normal;
   font-weight: 100;
   line-height: 130%;
+}
+.footer__logoBox:hover {
+  color: #fa6f32;
 }/*# sourceMappingURL=style.css.map */
