@@ -801,6 +801,7 @@ a {
 
 .wrapper {
   max-width: 1600px;
+  overflow: hidden;
   margin: 0 auto;
 }
 
