@@ -47,7 +47,7 @@
   font-weight: 400;
   font-style: normal;
 }
-.footer__logoBox, .social__link__wrapper, .slider__card:hover .slider__card__wrapper, .slider__card:hover img, .header__designed__link, .navigation__link, .button {
+.footer__logoBox, .social__link__wrapper, .slider__card:hover .slider__card__wrapper::before, .slider__card:hover .slider__card__wrapper, .slider__card:hover img, .slider__card img, .slider__card .slider__card__wrapper, .slider__card, .header__designed__link, .navigation__link, .button {
   transition: all 1s ease-out;
 }
 

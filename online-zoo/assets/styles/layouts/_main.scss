@@ -291,7 +291,7 @@ position: relative;
 }
 
 .slider__card {
-  // @extend %transition;
+  @extend %transition;
   height: 426px;
   max-width: 366px;
   overflow: hidden;
@@ -302,6 +302,10 @@ position: relative;
   margin-bottom: 20px;
   overflow: hidden;
   cursor: pointer;
+  img, .slider__card__wrapper{
+
+    @extend %transition;
+  };
   &:hover {
     
     .slider__card__img {
@@ -320,7 +324,7 @@ position: relative;
       color: white;
       z-index: 3;
       &::before {
-        // @extend %transition;
+        @extend %transition;
         position: absolute;
         left: 0;
         content: "";
