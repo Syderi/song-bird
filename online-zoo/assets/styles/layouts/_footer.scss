@@ -234,6 +234,16 @@ justify-content: center;
   }
 }
 
+.footer__navigation_main, .footer__navigation_donate {
+  @include media-mobilesmall {
+    gap: 30px;
+    padding: 0 10px;
+
+  }
+}
+
+
+
 .footer__copyright {
   display: flex;
   flex-direction: column;

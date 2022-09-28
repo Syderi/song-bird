@@ -41,7 +41,7 @@
 .testimonials__cards__wrapper{
 width: 100%;
 // background-color: aqua;
-overflow: hidden;
+// overflow: hidden;
 }
 
 .testimonials__cards {
@@ -53,23 +53,58 @@ overflow: hidden;
   & > .testimonials__card{
     order:1;
   }
+  .testimonials__card_oska{
+display: none;
+  }
+  @include media-laptop1599 {
+   flex-wrap: wrap;
+   justify-content: center;
+  }
   @include media-laptop-interim {
     margin-top: 30px;
-    .testimonials__card_michael{
-      order: -1;
-    }
-    .testimonials__card_oska{
-      order: 0;
-    }
-    .testimonials__card_oskar{
-      order: 2;
-    }
+    // .testimonials__card_michael{
+    //   order: -1;
+    // }
+    // .testimonials__card_oska{
+    //   order: 0;
+    // }
+    // .testimonials__card_oskar{
+    //   order: 2;
+    // }
+}
+// @include media-tablet1000 {
+//   justify-content: flex-start;
+//   flex-wrap:nowrap;
+//   margin-top: 30px;
+
+
+// }
+@include media-tablet {
+  .testimonials__card_oska{
+display: block;
+  }
+  .testimonials__card_mila, .testimonials__card_oskar{
+    display: none;
+      }
+      .testimonials__card_michael{
+        order: -1;
+      }
+      .testimonials__card_oska{
+        order: -0;
+      }
+      // .testimonials__card_oskar{
+      //   order: 2;
+      // }
+      .testimonials__card_fredericka{
+        order: 1;
+      }
 }
   @include media-tablet-interim {
+    // display: block;
     height: 360px;
     gap: 5px;
     margin-top: 30px;
-flex-direction: column;
+// flex-direction: column;
 }
 @include media-mobile-interim {
   margin-top: 24px;
@@ -108,9 +143,10 @@ flex-direction: column;
 @include media-tablet-interim {
   padding: 15px 15px 5px 10px;
   max-width: 596px;
-  height: 109px;
+  height: 105px;
 }
 @include media-mobile-interim {
+  // margin-bottom: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -155,6 +191,11 @@ flex-direction: column;
   margin-top: 10px;
   @include font($size: 1.5rem, $height: 120%, $weight: 300);
   color: $color-local-text;
+
+  @include media-laptop-interim {
+    max-width: 259px;
+    // height: 37px;
+  }
   @include media-tablet-interim {
     max-width: 565px;
     height: 37px;
