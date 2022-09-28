@@ -7,7 +7,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 40px 220px 50px;
+  padding: 40px 220px 41px;
   color: $color-white-text;
   a {
     color: $color-white-text;
@@ -23,16 +23,16 @@
     padding: 40px 50px 50px 43px;
   }
   @include media-tablet {
-    padding: 40px 18px 50px 43px;
+    padding: 40px 18px 39px 43px;
   }
   @include media-tablet-interim {
     padding: 22px 20px 20px 25px;
   }
   @include media-mobile {
-    padding: 13px 20px 12px 20px;
+    padding: 13px 20px 0px 20px;
   }
   @include media-mobile-interim {
-    padding: 20px 10px;
+    padding: 20px 10px 10px;
     flex-direction: column;
     .footer__logo {
       order: 1;
@@ -196,7 +196,7 @@ justify-content: center;
   }
   @include media-mobile-interim {
     // padding: 0 9px;
-    margin-top: 19px;
+    margin-top: 22px;
     // padding-bottom: 10px;
     flex-basis: 100%;
   }
@@ -252,6 +252,9 @@ justify-content: center;
   a {
     color: $color-white-text;
     @include font($size: 1.6rem, $height: 140%, $weight: 100);
+    @include media-mobile-interim {
+      @include font($size: 1.5rem, $height: 120%, $weight: 100);
+   }
   }
   // @include font($size: 1.6rem, $height: 130%, $weight: 100);
   @include media-laptop-interim {
@@ -265,8 +268,8 @@ justify-content: center;
   }
   @include media-mobile-interim {
     @include font($size: 1.5rem, $height: 120%, $weight: 100);
-    margin-top: 30px;
-    padding-left: 22%;
+    margin-top: 34px;
+    padding-left: 28%;
   }
 }
 
@@ -274,6 +277,11 @@ justify-content: center;
   @include media-tablet-interim {
     padding-left: 58px;
     // padding-bottom: 0px;
+  }
+  @include media-mobile-interim {
+    @include font($size: 1.5rem, $height: 120%, $weight: 100);
+    margin-top: 34px;
+    padding-left: 28%;
   }
 }
 
@@ -288,6 +296,9 @@ justify-content: center;
   &:hover{
     color: $color-buuton-active;
   }
+  @include media-mobile-interim {
+    @include font($size: 1.5rem, $height: 120%, $weight: 100);
+ }
 }
 
 
