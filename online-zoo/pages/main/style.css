@@ -1442,8 +1442,8 @@ a {
 }
 @media (max-width: 1280px) {
   .slider__arrow_left {
-    left: 35%;
-    transform: translateY(0px);
+    left: 35.2%;
+    transform: translateY(-3px);
   }
 }
 @media (max-width: 768px) {
@@ -1461,8 +1461,8 @@ a {
 }
 @media (max-width: 1280px) {
   .slider__arrow_right {
-    right: 35%;
-    transform: translateY(0px);
+    right: 35.2%;
+    transform: translateY(-3px);
   }
 }
 @media (max-width: 768px) {

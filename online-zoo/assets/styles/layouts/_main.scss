@@ -210,8 +210,8 @@ position: relative;
   left: 140px;
   transform: translateY(-42px);
   @include media-laptop-interim {
-    left: 35%;
-    transform: translateY(0px);
+    left: 35.2%;
+    transform: translateY(-3px);
   }
   @include media-tablet-interim {
     left: 38%;
@@ -225,8 +225,8 @@ position: relative;
   right: 140px;
   transform: translateY(-42px);
   @include media-laptop-interim {
-    right: 35%;
-    transform: translateY(0px);
+    right: 35.2%;
+    transform: translateY(-3px);
   }
   @include media-tablet-interim {
     right: 38%;
