@@ -29,7 +29,7 @@
 @font-face {
   font-family: "Roboto";
   font-display: swap;
-  src: url("../../assets/fonts/Roboto-Bold.woff") format("woff"), url("../../fonts/Roboto-Bold.woff2") format("woff2");
+  src: url("../../assets/fonts/Roboto-Bold.woff") format("woff"), url("../../assets/fonts/Roboto-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
@@ -47,7 +47,7 @@
   font-weight: 400;
   font-style: normal;
 }
-.footer__logoBox, .social__link__wrapper, .slider__card:hover .slider__card__wrapper::before, .slider__card:hover .slider__card__wrapper, .slider__card:hover img, .slider__card img, .slider__card .slider__card__wrapper, .slider__card, .header__designed__link, .navigation__link, .button {
+.popup-active, .popup a, .popup, .footer__logoBox, .social__link__wrapper, .slider__card:hover .slider__card__wrapper::before, .slider__card:hover .slider__card__wrapper, .slider__card:hover img, .slider__card img, .slider__card .slider__card__wrapper, .slider__card, .header__designed__link, .navigation__link, .button {
   transition: all 1s ease-out;
 }
 
@@ -777,6 +777,7 @@ a {
 }
 
 .hamburger {
+  cursor: pointer;
   display: none;
   position: relative;
   width: 18px;
@@ -838,7 +839,7 @@ a {
 @media (max-width: 640px) {
   .header__wrapper {
     background: rgb(0, 0, 0);
-    z-index: 10;
+    z-index: 3;
     width: 100%;
     position: fixed;
     top: 0;
@@ -2883,4 +2884,100 @@ a {
     font-weight: 100;
     line-height: 120%;
   }
+}
+
+.popup {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  position: fixed;
+  left: 100%;
+  z-index: 5;
+}
+.popup a {
+  color: #333b41;
+}
+.popup a:hover {
+  color: #fa6f32;
+}
+
+.popup-active {
+  left: 0;
+}
+
+.popup-overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(4, 4, 4, 0.2);
+}
+
+.popup__wrapper {
+  padding: 10px 10px 40px;
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  background-color: rgb(255, 255, 255);
+  z-index: 6;
+}
+
+.popup__logo {
+  width: 65.6px;
+  height: 41.6px;
+  position: relative;
+  box-sizing: border-box;
+  border: 0.8px solid rgb(254, 144, 19);
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup__logo .popup__logoText {
+  font-size: 1.52116rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-align: center;
+  color: rgb(254, 144, 19);
+}
+.popup__logo .popup__logoImg {
+  background-image: url("../../assets/img/svg/bambooyellow.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  position: absolute;
+  width: 15.03px;
+  height: 25.98px;
+  left: 5px;
+  top: 13px;
+}
+
+.popup__hamburger:after, .popup__hamburger:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  background-color: #111115;
+  border-radius: 5px;
+  width: 100%;
+  height: 2px;
+}
+
+.popup__hamburger {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 18px;
+  height: 18px;
+}
+.popup__hamburger:before {
+  top: 8px;
+  left: 0;
+  transform: rotate(-45deg);
+}
+.popup__hamburger:after {
+  bottom: 8px;
+  left: 0;
+  transform: rotate(45deg);
 }/*# sourceMappingURL=style.css.map */

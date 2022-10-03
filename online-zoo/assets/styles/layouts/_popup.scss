@@ -1,0 +1,104 @@
+.popup {
+  @extend %transition;
+  @include font($size: 1.6rem, $height: 140%, $weight: 400);
+
+  position: fixed;
+  // display: none;
+  left: 100%;
+  z-index: 5;
+  a {
+    @extend %transition;
+    color: $color-text;
+  }
+  a:hover {
+    color: $color-border;
+  }
+}
+.popup-active{
+    @extend %transition;
+    left: 0;
+}
+
+.popup-overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-popup-bg;
+}
+
+.popup__wrapper {
+    padding: 10px 10px 40px;
+    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  background-color: $color-white-text;
+  z-index: 6;
+}
+
+.popup__logo {
+    width: 65.6px;
+    height: 41.6px;
+  position: relative;
+  box-sizing: border-box;
+  border: 0.8px solid $color-logo-popup;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .popup__logoText {
+    @include font($size: 1.52116rem, $height: 120%, $weight: 400);
+    text-align: center;
+    color: $color-logo-popup;
+  }
+
+  .popup__logoImg {
+    background-image: url("../../assets/img/svg/bambooyellow.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    position: absolute;
+    width: 15.03px;
+    height: 25.98px;
+    left: 5px;
+    top: 13px;
+  }
+}
+
+%popup__hamburger-line {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    background-color: $color-footer-bg;
+    border-radius: 5px;
+    width: 100%;
+    height: 2px;
+}
+
+.popup__hamburger {
+    cursor: pointer;
+    // display: none;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 18px;
+    height: 18px;
+    &:before {
+        @extend %popup__hamburger-line;
+        top: 8px;
+        left: 0;
+        transform: rotate(-45deg);
+    }
+    &:after {
+        @extend %popup__hamburger-line;
+        bottom: 8px;
+        left: 0;
+        transform: rotate(45deg);
+    }
+}
+
+// .popup__hamburger__line {
+//     @extend %popup__hamburger-line;
+//     top: calc( 50% - 1px );
+//     left: 0;
+// }

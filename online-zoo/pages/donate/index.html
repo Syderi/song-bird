@@ -11,6 +11,41 @@
     <title>Online-Zoo</title>
   </head>
   <body>
+    <section class="popup">
+      <ul class="popup__wrapper">
+        <li class="popup__logo">
+          <a href="../main/index.html" class="popup__logoBox">
+            <div class="popup__logo">
+              <p class="popup__logoText">PetStory online</p>
+              <div class="popup__logoImg"></div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a class="popup__link" href="../main/index.html">About</a>
+        </li>
+        <li><a class="popup__link" href="#">Map</a></li>
+        <li><a class="popup__link" href="#">Zoos</a></li>
+        <li>
+          <a class="popup__link" href="#">Donate</a>
+        </li>
+        <li><a class="popup__link" href="#">Contact us</a></li>
+        <li>
+          <a
+            class="popup__link"
+            href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online?node-id=0%3A1"
+            >Designed by ©</a
+          >
+        </li>
+      </ul>
+      <div class="popup__close popup-click">
+        <div class="popup__hamburger">
+          <!-- <span class="popup__hamburger__line"></span> -->
+        </div>
+      </div>
+      <div class="popup-overlay popup-click">
+      </div>
+    </section>
     <header class="header">
       <div class="wrapper header__wrapper">
         <div class="header__nav-img-wrapper">
@@ -47,7 +82,7 @@
             href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online?node-id=0%3A1"
             >Designed by ©</a
           >
-          <div class="header__logo-line">
+          <div class="header__logo-line popup-click">
             <span class="header__hamburger hamburger"
               ><span class="hamburger__line"></span
             ></span>
@@ -298,5 +333,6 @@
         </div>
       </div>
     </footer>
+    <script src="../../assets/js/popup.js"></script>
   </body>
 </html>
