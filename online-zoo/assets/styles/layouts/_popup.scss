@@ -5,7 +5,7 @@
   position: fixed;
   // display: none;
   left: 100%;
-  z-index: 5;
+  z-index: 6;
   a {
     @extend %transition;
     color: $color-text;
@@ -20,6 +20,7 @@
 }
 
 .popup-overlay {
+  // transition:none;
   width: 100vw;
   height: 100vh;
   background-color: $color-popup-bg;
@@ -32,7 +33,7 @@
   flex-direction: column;
   width: 100vw;
   background-color: $color-white-text;
-  z-index: 6;
+  z-index: 7;
 }
 
 .popup__logo {

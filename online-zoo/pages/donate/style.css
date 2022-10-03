@@ -51,6 +51,10 @@
   transition: all 1s ease-out;
 }
 
+.slider__cards {
+  transition: transform 2s linear;
+}
+
 body {
   font-family: "Roboto", Verdana, sans-serif;
 }
@@ -472,14 +476,6 @@ a {
 }
 .social__logo:active {
   background: #4b9200;
-}
-
-.slider__arrow_left_img:hover {
-  transform: translateX(-3px) scale(1.2);
-}
-
-.slider__arrow_right_img:hover {
-  transform: translateX(3px) scale(1.2);
 }
 
 .input {
@@ -1192,6 +1188,7 @@ a {
 }
 
 .wrapper__main {
+  overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1380,9 +1377,20 @@ a {
 
 /* Start Slider ------------------------ */
 .slider {
+  max-width: 100vw;
   position: relative;
   margin-top: 180px;
   padding: 0 220px;
+}
+@media (max-width: 1599px) {
+  .slider {
+    padding: 0 200px;
+  }
+}
+@media (max-width: 1400px) {
+  .slider {
+    padding: 0 180px;
+  }
 }
 @media (max-width: 1280px) {
   .slider {
@@ -1392,12 +1400,18 @@ a {
 }
 @media (max-width: 1000px) {
   .slider {
-    padding: 0 30px;
+    padding: 0 5px;
     margin-top: 72px;
+  }
+}
+@media (max-width: 999px) {
+  .slider {
+    padding: 0 85px;
   }
 }
 @media (max-width: 768px) {
   .slider {
+    max-width: 100vw;
     margin-top: 80px;
     padding: 0 20px;
   }
@@ -1439,6 +1453,12 @@ a {
   top: 50%;
   left: 140px;
   transform: translateY(-42px);
+  z-index: 5;
+}
+@media (max-width: 1599px) {
+  .slider__arrow_left {
+    transform: translateY(-3px);
+  }
 }
 @media (max-width: 1280px) {
   .slider__arrow_left {
@@ -1458,6 +1478,12 @@ a {
   top: 50%;
   right: 140px;
   transform: translateY(-42px);
+  z-index: 5;
+}
+@media (max-width: 1599px) {
+  .slider__arrow_right {
+    transform: translateY(-3px);
+  }
 }
 @media (max-width: 1280px) {
   .slider__arrow_right {
@@ -1472,61 +1498,42 @@ a {
   }
 }
 
+.slider__wrapper_hidden {
+  width: 100%;
+  overflow: hidden;
+}
+
 .slider__cards {
   position: relative;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  -moz-column-gap: 10px;
-       column-gap: 10px;
-}
-.slider__cards .slider__card_alligators {
-  display: none;
-}
-.slider__cards .slider__card_panda,
-.slider__cards .slider__card_eagles,
-.slider__cards .slider__card_gorillas,
-.slider__cards .slider__card_two-toed,
-.slider__cards .slider__card_two-cheetahs,
-.slider__cards .slider__card_two-penguins,
-.slider__cards .slider__card_alligators {
-  order: 0;
-}
-@media (max-width: 1000px) {
-  .slider__cards .slider__card_gorillas {
-    order: 1;
-  }
-  .slider__cards .slider__card_two-toed {
-    display: none;
-  }
-  .slider__cards .slider__card_alligators {
-    display: flex;
-    order: 1;
-  }
-  .slider__cards .slider__card_two-penguins {
-    order: 3;
-  }
-}
-@media (max-width: 999px) {
-  .slider__cards {
-    -moz-column-gap: 10%;
-         column-gap: 10%;
-  }
-  .slider__cards .slider__card_two-toed,
-.slider__cards .slider__card_two-cheetahs,
-.slider__cards .slider__card_two-penguins {
-    display: none;
-  }
-}
-@media (max-width: 768px) {
-  .slider__cards {
-    -moz-column-gap: 3%;
-         column-gap: 3%;
-  }
+  flex-wrap: nowrap;
+  justify-content: space-around;
 }
 @media (max-width: 630px) {
   .slider__cards {
     flex-direction: column;
+  }
+}
+
+.slider__cards_ative-right {
+  transform: translateX(100%);
+}
+
+.slider__cards_ative-left {
+  transform: translateX(-100%);
+}
+
+.slider__cards_center, .slider__cards_left, .slider__cards_right {
+  min-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  justify-content: space-around;
+}
+@media (max-width: 768px) {
+  .slider__cards_center, .slider__cards_left, .slider__cards_right {
+    min-width: 100%;
   }
 }
 
@@ -1552,7 +1559,7 @@ a {
 .slider__card:hover .slider__card__wrapper {
   position: relative;
   transform: translateY(-45px);
-  font-size: 2.6rem;
+  font-size: 1.8rem;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
@@ -1568,7 +1575,7 @@ a {
   width: 366px;
   z-index: -1;
 }
-@media (max-width: 1280px) {
+@media (max-width: 1599px) {
   .slider__card {
     height: 354px;
     max-width: 294px;
@@ -2893,7 +2900,7 @@ a {
   line-height: 140%;
   position: fixed;
   left: 100%;
-  z-index: 5;
+  z-index: 6;
 }
 .popup a {
   color: #333b41;
@@ -2919,7 +2926,7 @@ a {
   flex-direction: column;
   width: 100vw;
   background-color: rgb(255, 255, 255);
-  z-index: 6;
+  z-index: 7;
 }
 
 .popup__logo {
