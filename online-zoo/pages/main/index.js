@@ -12,84 +12,150 @@ const sliderCardsLeft = document.querySelector(".slider__cards_left");
 const sliderCardsCenter = document.querySelector(".slider__cards_center");
 const sliderCardsRight = document.querySelector(".slider__cards_right");
 
-
-let startCardArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+let windowInnerWidth = document.documentElement.clientWidth;
 
 let bgBlockControls = true;
 
+const startCardArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+let shuffleCardArray = []
+let centrCardArray = [];
+let leftRightCardArray = [];
+let countStepCardArray = 6;
 
-sliderCards.addEventListener('transitionstart',() =>{
-   bgBlockControls = false;
-})
+// Начало от ширины экрана количество карточек
+window.addEventListener("resize", function () {
+  windowInnerWidth = document.documentElement.clientWidth;
+  if (windowInnerWidth >= 1000) {
+    countStepCardArray = 6;
+  } else if (windowInnerWidth > 630 && windowInnerWidth < 1000) {
+    countStepCardArray = 4;
+  } else {
+   countStepCardArray = 2;
+   // sliderCardsRight.innerHTML=''
+   // sliderCardsLeft.innerHTML=''
+  }
 
-sliderCards.addEventListener("transitionend", (e) => {
-   console.log(e)
+//   startgenerareArraysCards()
+sliderCardsLeft.innerHTML=''
+sliderCardsCenter.innerHTML=''
+sliderCardsRight.innerHTML=''
+startgenerareArraysCards()
+  addCardsFromArray(centrCardArray,addSliderCardsCenter)
+addCardsFromArray(leftRightCardArray,addSliderCardsLeftAndRight)
+
+  console.log("countStepCardArray", countStepCardArray);
+  console.log("windowInnerWidth", windowInnerWidth);
+});
+// Конец от ширины экрана количество карточек
+
+// Начало Функция перемешивания массива
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+// Конец Функция перемешивания массива
+
+// Начало формируем массивы карточек
+
+function startgenerareArraysCards(params) {
+   shuffleCardArray = startCardArray.slice(0);
+   shuffleCardArray=shuffle(shuffleCardArray)
+   centrCardArray = shuffleCardArray.splice(0, countStepCardArray);
+   leftRightCardArray = shuffleCardArray.splice(0, countStepCardArray);
+   console.log('shuffleCardArray',shuffleCardArray)
+   console.log('centrCardArray',centrCardArray)
+   console.log('leftRightCardArray',leftRightCardArray)
+}
+startgenerareArraysCards()
+
+// console.log('shuffleCardArray',shuffleCardArray)
+// console.log('centrCardArray',centrCardArray)
+// console.log('leftRightCardArray',leftRightCardArray)
+// console.log('shuffleCardArray',shuffleCardArray)
+// Конец формируем массивы карточек
+
+//  Начало заполнения карточек
+
+
+function addCardsFromArray(array,cardFunction) {
+   array.forEach((id, index, array) => {
+      cardFunction(id);
+   });
+}
+
+function addSliderCardsLeftAndRight(id) {
+  sliderCardsLeft.append(createCard(id));
+  sliderCardsRight.append(createCard(id));
+}
+
+function addSliderCardsCenter(id) {
+  sliderCardsCenter.append(createCard(id));
+}
+
+addCardsFromArray(centrCardArray,addSliderCardsCenter)
+addCardsFromArray(leftRightCardArray,addSliderCardsLeftAndRight)
+
+// Конец заполнения карточек
+
+sliderCards.addEventListener("transitionstart", (e) => {
   if (
     e.target.className === "slider__cards" &&
     e.propertyName === "transform"
-  ) {
-   setTimeout(() => {
-      
-      bgBlockControls = true;
+    ) {
+    setTimeout(() => {
+      bgBlockControls = false;
    }, 50);
+}
+});
+
+sliderCards.addEventListener("transitionend", (e) => {
+   console.log('------------------------------------------')
+   if (
+      e.target.className === "slider__cards" &&
+      e.propertyName === "transform"
+      ) {
+         setTimeout(() => {
+            bgBlockControls = true;
+         }, 50);
+         sliderCardsCenter.innerHTML = "";
+         addCardsFromArray(leftRightCardArray,addSliderCardsCenter)
+         sliderCards.style.transitionDuration = '0s'
+         sliderCards.style.transform = `translateX(${0}%)`;
+
+         shuffleCardArray = Array.from(new Set(shuffleCardArray.concat(centrCardArray)));
+         shuffleCardArray=shuffle(shuffleCardArray)
+         console.log('shuffleCardArray end trans', shuffleCardArray)
+
+         centrCardArray = leftRightCardArray.slice(0);
+         leftRightCardArray = shuffleCardArray.splice(0, countStepCardArray);
+         console.log('centrCardArray end trans', centrCardArray)
+         console.log('leftRightCardArray end trans', leftRightCardArray)
+         console.log('shuffleCardArray end trans 222', shuffleCardArray)
+         sliderCardsLeft.innerHTML = "";
+         sliderCardsRight.innerHTML = "";
+         addCardsFromArray(leftRightCardArray,addSliderCardsLeftAndRight)
+
+         
+         
   }
 });
 
 sliderArrowRight.addEventListener("click", () => {
-  if (bgBlockControls) {
-   //   bgBlockControls = false;
-    sliderCards.style.transform = `translateX(${-100}%)`;
-   //  setTimeout(() => {
-   //  }, 1);
-  }
+   if (bgBlockControls) {
+      sliderCards.style.transitionDuration = '1.5s'
+      sliderCards.style.transform = `translateX(${-100}%)`;
+   }
 });
 
 sliderArrowLeft.addEventListener("click", () => {
-  if (bgBlockControls) {
-   //   bgBlockControls = false;
-    sliderCards.style.transform = `translateX(${100}%)`;
-   //  setTimeout(() => {
-   //  }, 1);
-  }
-});
-
-
-
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
-const shuffleCardArray = shuffle(startCardArray)
-console.log(shuffleCardArray)
-
-
-shuffleCardArray.forEach((id,index,array) => {
-   if (index<=5) {
-      addSliderCardsLeftAndRight(id)
+   if (bgBlockControls) {
+      sliderCards.style.transitionDuration = '1.5s'
+      sliderCards.style.transform = `translateX(${100}%)`;
    }
-   if (index>5 && index<=11) {
-      addSliderCardsCenter(id)
-   }
-
 });
-
-
-
-function addSliderCardsLeftAndRight(id) {
-   sliderCardsLeft.append(createCard(id))
-   sliderCardsRight.append(createCard(id))
-}
-
-function addSliderCardsCenter(id) {
-   sliderCardsCenter.append(createCard(id))
-}
-
-
-
 
 function createCard(id) {
   let sliderCard = document.createElement("div");
@@ -127,28 +193,5 @@ function createCard(id) {
 
   return sliderCard;
 }
-
-// sliderCardsCenter.append(createCard(0));
-// sliderCardsCenter.append(createCard(1));
-// sliderCardsCenter.append(createCard(2));
-// sliderCardsCenter.append(createCard(3));
-// sliderCardsCenter.append(createCard(4))
-// sliderCardsCenter.append(createCard(5))
-
-// sliderCardsLeft.append(createCard(6));
-// sliderCardsLeft.append(createCard(7));
-// sliderCardsLeft.append(createCard(8));
-// sliderCardsLeft.append(createCard(9));
-// sliderCardsLeft.append(createCard(10))
-// sliderCardsLeft.append(createCard(11))
-
-// sliderCardsRight.append(createCard(6));
-// sliderCardsRight.append(createCard(7));
-// sliderCardsRight.append(createCard(8));
-// sliderCardsRight.append(createCard(9));
-// sliderCardsRight.append(createCard(10))
-// sliderCardsRight.append(createCard(11))
-
-// createCard(6)
 
 // End Slider Pets
