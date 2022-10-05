@@ -2,7 +2,7 @@ import dataAnimals from "../../assets/js/dataAnimals.js";
 import dataTestimonials from "../../assets/js/dataTestimonials.js";
 
 // console.log(dataAnimals);
-console.log(dataTestimonials);
+// console.log(dataTestimonials);
 
 // start Slider Pets
 
@@ -13,6 +13,9 @@ const sliderArrowLeft = document.querySelector(".slider__arrow_left");
 const sliderCardsLeft = document.querySelector(".slider__cards_left");
 const sliderCardsCenter = document.querySelector(".slider__cards_center");
 const sliderCardsRight = document.querySelector(".slider__cards_right");
+
+const testimonialsCards = document.querySelector(".testimonials__cards");
+const testimonialsInput = document.querySelector(".testimonials__input");
 
 // let windowInnerWidth = document.documentElement.clientWidth;
 let windowInnerWidth = window.innerWidth;
@@ -25,11 +28,14 @@ let centrCardArray = [];
 let leftRightCardArray = [];
 let countStepCardArray = 6;
 
-// Начало от ширины экрана количество карточек
-window.addEventListener("resize", function () {
-  // windowInnerWidth = document.documentElement.innerWidth;
-windowInnerWidth = window.innerWidth;
+testimonialsInput.value = 0;
+testimonialsInput.min = 0;
+testimonialsInput.max = 7;
+testimonialsInput.step = 1;
 
+let stapTransformTestimonials = 100 / 4;
+
+function updateCountStepCardArray() {
   if (windowInnerWidth >= 1000) {
     countStepCardArray = 6;
   } else if (windowInnerWidth > 630 && windowInnerWidth < 1000) {
@@ -37,6 +43,40 @@ windowInnerWidth = window.innerWidth;
   } else {
     countStepCardArray = 2;
   }
+  // return countStepCardArray;
+}
+updateCountStepCardArray();
+
+function UpdateStapTransformTestimonials() {
+  if (windowInnerWidth > 1280) {
+    stapTransformTestimonials = 100 / 4;
+  } else {
+    stapTransformTestimonials = 100 / 3;
+  }
+}
+UpdateStapTransformTestimonials();
+
+function updatetesTimonialsInputMax() {
+  if (windowInnerWidth > 1280) {
+    testimonialsInput.max = 7;
+  } else {
+    testimonialsInput.max = 8;
+  }
+}
+updatetesTimonialsInputMax();
+
+// Начало от ширины экрана количество карточек
+window.addEventListener("resize", function () {
+  // windowInnerWidth = document.documentElement.innerWidth;
+  windowInnerWidth = window.innerWidth;
+  testimonialsInput.value = 0;
+  testimonialsCards.style.transform = `translateX(0)`;
+  updateCountStepCardArray();
+  UpdateStapTransformTestimonials();
+  updatetesTimonialsInputMax();
+
+  // console.log(stapTransformTestimonials)
+  // console.log(testimonialsInput.max)
 
   //   startgenerareArraysCards()
   sliderCardsLeft.innerHTML = "";
@@ -86,8 +126,7 @@ function addCardsFromArray(array, cardFunction) {
 
 function addSliderCardsLeftAndRight(id) {
   sliderCardsLeft.append(createCard(id));
-  if (windowInnerWidth>630) {
-
+  if (windowInnerWidth > 630) {
     sliderCardsRight.append(createCard(id));
   }
 }
@@ -196,12 +235,17 @@ function createCard(id) {
 
 // End Slider Pets
 
-
 // START testimonials Slider
 
-const testimonialsCards = document.querySelector('.testimonials__cards')
+// Начало заполнения карточками отзыва контейнера
 
+dataTestimonials.forEach((id, index, array) => {
+  testimonialsCards.append(createTestimonialCard(index));
+});
 
+// Конец заполнения карточками отзыва контейнера
+
+// Начало генерации карточек отзывов
 function createTestimonialCard(id) {
   let sliderTestimonialCard = document.createElement("div");
   sliderTestimonialCard.classList.add("testimonials__card");
@@ -210,18 +254,20 @@ function createTestimonialCard(id) {
   let testimonialsCardHeader = document.createElement("div");
   testimonialsCardHeader.classList.add("testimonials__card__header");
   sliderTestimonialCard.append(testimonialsCardHeader);
-  
+
   let imgTestimonialCard = document.createElement("img");
   imgTestimonialCard.src = dataTestimonials[id].logo;
   testimonialsCardHeader.append(imgTestimonialCard);
-  
+
   let testimonialsCardHeaderWrapper = document.createElement("div");
-  testimonialsCardHeaderWrapper.classList.add("testimonials__card__header__wrapper");
+  testimonialsCardHeaderWrapper.classList.add(
+    "testimonials__card__header__wrapper"
+  );
   testimonialsCardHeader.append(testimonialsCardHeaderWrapper);
-  
+
   let testimonialsName = document.createElement("div");
   testimonialsName.classList.add("testimonials__name");
-  testimonialsName.textContent = dataTestimonials[id].name
+  testimonialsName.textContent = dataTestimonials[id].name;
   testimonialsCardHeaderWrapper.append(testimonialsName);
 
   let testimonialData = document.createElement("div");
@@ -230,28 +276,42 @@ function createTestimonialCard(id) {
 
   let testimonialDataLocal = document.createElement("div");
   testimonialDataLocal.classList.add("testimonial__data__local");
-  testimonialDataLocal.textContent = dataTestimonials[id].location
+  testimonialDataLocal.textContent = dataTestimonials[id].location;
   testimonialData.append(testimonialDataLocal);
 
   let testimonialParagraf = document.createElement("p");
-  testimonialParagraf.textContent = "•"
+  testimonialParagraf.textContent = "•";
   testimonialData.append(testimonialParagraf);
 
   let testimonialDataDate = document.createElement("div");
   testimonialDataDate.classList.add("testimonial__data__date");
-  testimonialDataDate.textContent = dataTestimonials[id].lastVisit
+  testimonialDataDate.textContent = dataTestimonials[id].lastVisit;
   testimonialData.append(testimonialDataDate);
 
   let testimonialText = document.createElement("div");
   testimonialText.classList.add("testimonial__text");
-  testimonialText.textContent = dataTestimonials[id].quote
+  testimonialText.textContent = dataTestimonials[id].quote;
   sliderTestimonialCard.append(testimonialText);
-
 
   return sliderTestimonialCard;
 }
+// Конец генерации карточек отзывов
 
-testimonialsCards.append(createTestimonialCard(10))
 
+
+testimonialsInput.addEventListener("input", (e) => {
+  let stapTransform = e.target.value;
+  // console.log('input', e)
+  testimonialsCards.style.transform = `translateX(${
+    -stapTransform * stapTransformTestimonials
+  }%)`;
+});
+
+// testimonialsCards.append(createTestimonialCard(10))
+
+// min="01"
+// max="04"
+// step="1"
+// value="01"
 
 // End testimonials Slider
