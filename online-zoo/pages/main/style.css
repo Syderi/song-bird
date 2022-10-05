@@ -2291,6 +2291,7 @@ a {
 }
 
 .testimonials__card {
+  cursor: pointer;
   margin-bottom: 15px;
   padding: 15px 15px 19px 15px;
   position: relative;
@@ -2472,6 +2473,47 @@ a {
     width: 51px;
     background-image: url("../../assets/img/png/palm320.png");
   }
+}
+
+.testimonials-popup {
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(4, 4, 4, 0.2);
+  z-index: 8;
+}
+
+.testimonials-popup_active {
+  display: flex;
+}
+
+.testimonials-popup__wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px 17px 17px;
+  width: 320px;
+  height: 428px;
+  background-color: rgb(255, 255, 255);
+}
+
+.testimonials__card_popup {
+  width: 267px;
+  height: 391px;
+}
+
+.testimonials-popup__close {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.testimonial__text_popup {
+  height: 320px;
 }
 
 .footer {

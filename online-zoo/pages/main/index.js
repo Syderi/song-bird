@@ -239,6 +239,8 @@ function createCard(id) {
 
 // Начало заполнения карточками отзыва контейнера
 
+let textPopupKeyHeight = 0
+
 dataTestimonials.forEach((id, index, array) => {
   testimonialsCards.append(createTestimonialCard(index));
 });
@@ -290,12 +292,49 @@ function createTestimonialCard(id) {
 
   let testimonialText = document.createElement("div");
   testimonialText.classList.add("testimonial__text");
+
+  if (textPopupKeyHeight) {
+    testimonialText.classList.add("testimonial__text_popup");
+  }
+
   testimonialText.textContent = dataTestimonials[id].quote;
   sliderTestimonialCard.append(testimonialText);
+
+  sliderTestimonialCard.id = dataTestimonials[id].id
 
   return sliderTestimonialCard;
 }
 // Конец генерации карточек отзывов
+
+const testimonialsCardsArray = testimonialsCards.childNodes
+const testimonialsPopup = document.querySelector('.testimonials-popup')
+const testimonialsPopupWrapper = document.querySelector('.testimonials-popup__wrapper')
+// const testimonialText = document.querySelector('.testimonial__text')
+
+testimonialsCardsArray.forEach((child)=>{
+    child.addEventListener('click', (e) => {
+      textPopupKeyHeight=1
+    testimonialsPopup.classList.toggle('testimonials-popup_active')
+
+    let testimonialPopupCard = createTestimonialCard(child.id)
+    testimonialPopupCard.classList.add("testimonials__card_popup");
+    // testimonialText.classList.add(".testimonial__text_popup");
+    // testimonialText.style.height = '309px'
+
+    testimonialsPopupWrapper.prepend(testimonialPopupCard);
+  // console.log(e)
+  // console.log(child)
+  // console.log(child.id)
+})
+} )
+
+
+
+// document.body.childNodes
+
+// function addsliderTestimonialCardPopup() {
+
+// }
 
 
 
