@@ -129,6 +129,7 @@ flex-direction: column;
   min-width: 24%;
   height: 391px;
   background-color: $color-submit-bg;
+  // border: red;
   border-radius: 20px;
   &::before {
     content: '';
@@ -313,6 +314,8 @@ z-index: 8;
 }
 
 .testimonials__card_popup{
+  // z-index: 9;
+  border: 1px $color-buuton-hover solid;
   width: 267px;
   height: 391px;
 }

@@ -2502,6 +2502,7 @@ a {
 }
 
 .testimonials__card_popup {
+  border: 1px #e47209 solid;
   width: 267px;
   height: 391px;
 }
