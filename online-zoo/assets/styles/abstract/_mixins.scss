@@ -24,6 +24,9 @@
 @mixin media-laptop-interim {
     @media (max-width: $content-width-interim) { @content; }
 }
+@mixin media-laptop1100 {
+    @media (max-width: 1100px) { @content; }
+}
 // $tablet-width: 1000px;
 @mixin media-tablet {
     @media (max-width: $tablet-width) { @content; }

@@ -1527,8 +1527,6 @@ a {
   min-width: 100%;
   display: flex;
   flex-wrap: wrap;
-  -moz-column-gap: 10px;
-       column-gap: 10px;
   justify-content: space-around;
 }
 @media (max-width: 768px) {

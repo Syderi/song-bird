@@ -1528,8 +1528,6 @@ a {
   min-width: 100%;
   display: flex;
   flex-wrap: wrap;
-  -moz-column-gap: 10px;
-       column-gap: 10px;
   justify-content: space-around;
 }
 @media (max-width: 768px) {
@@ -2271,12 +2269,6 @@ a {
   gap: 28px;
   margin-top: 47px;
 }
-.testimonials__cards > .testimonials__card {
-  order: 1;
-}
-.testimonials__cards .testimonials__card_oska {
-  display: none;
-}
 @media (max-width: 1599px) {
   .testimonials__cards {
     flex-wrap: wrap;
@@ -2286,23 +2278,6 @@ a {
 @media (max-width: 1280px) {
   .testimonials__cards {
     margin-top: 30px;
-  }
-}
-@media (max-width: 1000px) {
-  .testimonials__cards .testimonials__card_oska {
-    display: block;
-  }
-  .testimonials__cards .testimonials__card_mila, .testimonials__cards .testimonials__card_oskar {
-    display: none;
-  }
-  .testimonials__cards .testimonials__card_michael {
-    order: -1;
-  }
-  .testimonials__cards .testimonials__card_oska {
-    order: 0;
-  }
-  .testimonials__cards .testimonials__card_fredericka {
-    order: 1;
   }
 }
 @media (max-width: 768px) {

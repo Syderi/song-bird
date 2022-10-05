@@ -50,55 +50,41 @@ width: 100%;
   display: flex;
   gap: 28px;
   margin-top: 47px;
-  & > .testimonials__card{
-    order:1;
-  }
-  .testimonials__card_oska{
-display: none;
-  }
+  // & > .testimonials__card{
+  //   order:1;
+  // }
+//   .testimonials__card_oska{
+// display: none;
+//   }
   @include media-laptop1599 {
    flex-wrap: wrap;
    justify-content: center;
   }
   @include media-laptop-interim {
     margin-top: 30px;
-    // .testimonials__card_michael{
-    //   order: -1;
-    // }
-    // .testimonials__card_oska{
-    //   order: 0;
-    // }
-    // .testimonials__card_oskar{
-    //   order: 2;
-    // }
+
 }
-// @include media-tablet1000 {
-//   justify-content: flex-start;
-//   flex-wrap:nowrap;
-//   margin-top: 30px;
 
-
+// @include media-tablet {
+//   .testimonials__card_oska{
+// display: block;
+//   }
+//   .testimonials__card_mila, .testimonials__card_oskar{
+//     display: none;
+//       }
+//       .testimonials__card_michael{
+//         order: -1;
+//       }
+//       .testimonials__card_oska{
+//         order: -0;
+//       }
+//       // .testimonials__card_oskar{
+//       //   order: 2;
+//       // }
+//       .testimonials__card_fredericka{
+//         order: 1;
+//       }
 // }
-@include media-tablet {
-  .testimonials__card_oska{
-display: block;
-  }
-  .testimonials__card_mila, .testimonials__card_oskar{
-    display: none;
-      }
-      .testimonials__card_michael{
-        order: -1;
-      }
-      .testimonials__card_oska{
-        order: -0;
-      }
-      // .testimonials__card_oskar{
-      //   order: 2;
-      // }
-      .testimonials__card_fredericka{
-        order: 1;
-      }
-}
   @include media-tablet-interim {
     // display: block;
     height: 360px;
@@ -277,33 +263,3 @@ z-index: -1;
 }
 }
 
-
-  // .slider-testimonials {
-  //   display: flex;
-  //   align-items: center;
-  //   margin-top: 6px;
-  //   position: relative;
-  //   width: 599px;
-  //   height: 8px;
-  //   background:$color-slider;
-  //   border-radius: 5px;
-  //   &::before {
-  //     content: '';
-  //     position: absolute;
-  //     top: -1px;
-  //     left: -1px;
-  //     bottom: -1px;
-  //     right: -1px;
-  //     background: $color-testimonials-border;
-  //     border-image-slice: 1;
-  //     z-index: -1;
-  //     border-radius: 20px;
-  //   }
-  // }
-  
-  // .slider-testimonials__width {
-  //   width: 115.19px;
-  // height: 6px;
-  // background: $color-frend-title;
-  // border-radius: 5px;
-  // }
