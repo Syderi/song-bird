@@ -131,7 +131,7 @@ function updatedonateDollarsRevers() {
         donateRangeInput.value = "7";
         break;
       default:
-        donateRangeInput.value = "6";
+        donateRangeInput.value = "7";
     }
   } else if (windowInnerWidthDonate <= 1280 && windowInnerWidthDonate > 960) {
     switch (donateCashInput.value) {
@@ -157,7 +157,7 @@ function updatedonateDollarsRevers() {
         donateRangeInput.value = "6";
         break;
       default:
-        donateRangeInput.value = "4";
+        donateRangeInput.value = "6";
     }
   } else if (windowInnerWidthDonate <= 960) {
     switch (donateCashInput.value) {
@@ -177,7 +177,7 @@ function updatedonateDollarsRevers() {
         donateRangeInput.value = "4";
         break;
       default:
-        donateRangeInput.value = "2";
+        donateRangeInput.value = "4";
     }
   }
 }

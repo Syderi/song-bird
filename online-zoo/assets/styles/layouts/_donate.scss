@@ -461,6 +461,12 @@
   .donate__s {
     //  display: none;
     background: url("../../assets/img/png/S_value_active.png");
+    @include media-mobile-interim {
+      width: 5px;
+      height: 10px;
+      background-size: contain;
+      // background-repeat: no-repeat;
+    }
   }
 }
 

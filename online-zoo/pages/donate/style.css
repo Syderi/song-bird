@@ -2316,6 +2316,13 @@ a {
 .donate__value__wrapper_active .donate__s {
   background: url("../../assets/img/png/S_value_active.png");
 }
+@media (max-width: 630px) {
+  .donate__value__wrapper_active .donate__s {
+    width: 5px;
+    height: 10px;
+    background-size: contain;
+  }
+}
 
 .donate__s {
   width: 10px;
