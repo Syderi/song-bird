@@ -104,6 +104,7 @@ function updatedonateDollars() {
 updatedonateDollars();
 
 function updatedonateDollarsRevers() {
+  let blockColor = false;
   if (windowInnerWidthDonate > 1280) {
     switch (donateCashInput.value) {
       case "5000":
@@ -132,6 +133,7 @@ function updatedonateDollarsRevers() {
         break;
       default:
         donateRangeInput.value = "7";
+        blockColor = true;
     }
   } else if (windowInnerWidthDonate <= 1280 && windowInnerWidthDonate > 960) {
     switch (donateCashInput.value) {
@@ -158,6 +160,7 @@ function updatedonateDollarsRevers() {
         break;
       default:
         donateRangeInput.value = "6";
+        blockColor = true;
     }
   } else if (windowInnerWidthDonate <= 960) {
     switch (donateCashInput.value) {
@@ -178,8 +181,10 @@ function updatedonateDollarsRevers() {
         break;
       default:
         donateRangeInput.value = "4";
+        blockColor = true;
     }
   }
+  return blockColor
 }
 updatedonateDollarsRevers();
 // Конец Функция Функция назначения долларов импута ренджа
@@ -189,8 +194,12 @@ window.addEventListener("resize", function () {
   donateCashInput.value = donateDollars;
   windowInnerWidthDonate = window.innerWidth;
   updateDonateRangeInput();
+  
   updatedonateDollarsRevers();
   addColorDollars();
+
+
+
 });
 // Конец Начало функция ширины экрана
 
@@ -214,6 +223,13 @@ donateCashInput.addEventListener("input", (e) => {
 
   updatedonateDollarsRevers();
   addColorDollars();
+
+  if (updatedonateDollarsRevers()) {
+    for (let i = 0; i < donateDollarsULWrapper.length; i++) {
+      donateDollarsULWrapper[i].classList.remove("donate__value__wrapper_active");
+      donateLabelULWrapper[i].classList.remove("donate__range_label_active");
+    }
+  }
 });
 
 //  Конец импута долларов

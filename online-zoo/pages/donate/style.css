@@ -2150,7 +2150,7 @@ a {
 .donate__range_label__container {
   pointer-events: none;
   position: absolute;
-  top: 9px;
+  top: 8px;
   margin-left: 25px;
   height: 10px;
   width: 920px;
@@ -2171,7 +2171,7 @@ a {
 }
 @media (max-width: 630px) {
   .donate__range_label__container {
-    top: 5px;
+    top: 4px;
     width: 265px;
     margin-left: 17.5px;
   }
