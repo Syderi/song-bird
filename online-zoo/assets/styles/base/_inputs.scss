@@ -154,6 +154,7 @@
   }
 
   &::-webkit-slider-thumb {
+    // opacity: 0;
     -webkit-appearance: none;
     border-radius: 50%;
     width: 40px;
@@ -180,6 +181,36 @@
   }
 }
 
+
+
+
+
+.testimonials__input[type="range"]::-moz-range-thumb {
+  border: none;
+  margin: 1px 0;
+  width: 115.19px;
+  height: 6px;
+  background: $color-frend-title;
+  border-radius: 5px;
+}
+
+.donate__range__input_hidde[type="range"] {
+ 
+
+  &::-webkit-slider-thumb {
+    opacity: 0;
+ 
+    @include media-mobile-interim {
+      opacity: 0;
+    }
+  }
+  &::-moz-range-thumb {
+    opacity: 0;
+    @include media-mobile-interim {
+      opacity: 0;
+  }
+}
+}
 // input[type="range"] {
 //   -webkit-appearance: none;
 //   background: transparent;

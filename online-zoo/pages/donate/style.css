@@ -694,6 +694,32 @@ a {
   }
 }
 
+.testimonials__input[type=range]::-moz-range-thumb {
+  border: none;
+  margin: 1px 0;
+  width: 115.19px;
+  height: 6px;
+  background: #fe9013;
+  border-radius: 5px;
+}
+
+.donate__range__input_hidde[type=range]::-webkit-slider-thumb {
+  opacity: 0;
+}
+@media (max-width: 630px) {
+  .donate__range__input_hidde[type=range]::-webkit-slider-thumb {
+    opacity: 0;
+  }
+}
+.donate__range__input_hidde[type=range]::-moz-range-thumb {
+  opacity: 0;
+}
+@media (max-width: 630px) {
+  .donate__range__input_hidde[type=range]::-moz-range-thumb {
+    opacity: 0;
+  }
+}
+
 .logoBox {
   color: rgb(255, 255, 255);
 }
