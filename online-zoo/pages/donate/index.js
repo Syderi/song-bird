@@ -194,17 +194,21 @@ window.addEventListener("resize", function () {
   donateCashInput.value = donateDollars;
   windowInnerWidthDonate = window.innerWidth;
   updateDonateRangeInput();
-  
   updatedonateDollarsRevers();
   addColorDollars();
-
-
 
 });
 // Конец Начало функция ширины экрана
 
 //  Начало отслеживания ренджа
-donateRangeInput.addEventListener("input", (e) => {
+// donateRangeInput.addEventListener("input", (e) => {
+//   updatedonateDollars();
+//   addColorDollars();
+
+//   donateCashInput.value = donateDollars;
+// });
+
+donateRangeInput.addEventListener("click", (e) => {
   updatedonateDollars();
   addColorDollars();
 
@@ -222,19 +226,24 @@ donateCashInput.addEventListener("input", (e) => {
   donateCashInput.value = inputValue;
 
   updatedonateDollarsRevers();
+  
   addColorDollars();
 
   if (updatedonateDollarsRevers()) {
     for (let i = 0; i < donateDollarsULWrapper.length; i++) {
       donateDollarsULWrapper[i].classList.remove("donate__value__wrapper_active");
       donateLabelULWrapper[i].classList.remove("donate__range_label_active");
+  donateRangeInput.classList.add('donate__range__input_hidde')
+
     }
   }
+
+
 });
 
 //  Конец импута долларов
 
-// Начало коллекция техста долларов
+// Начало коллекция текста долларов
 
 function addColorDollars() {
   let rangeValue = Number(donateRangeInput.value);
@@ -255,6 +264,7 @@ function addColorDollars() {
       "donate__range_label_active"
     );
   }
+  donateRangeInput.classList.remove('donate__range__input_hidde')
 }
 addColorDollars();
 
