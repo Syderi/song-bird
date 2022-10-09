@@ -3,7 +3,7 @@ position: relative;
 }
 
 .wrapper__main {
-  // overflow: hidden;
+  overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -162,18 +162,35 @@ position: relative;
 /* Start Slider ------------------------ */
 
 .slider {
+  max-width: 100vw;
   position: relative;
   margin-top: 180px;
   padding: 0 220px;
+  // @include media-laptop1599 {
+  //   margin-top: 72px;
+  // }
+  @include media-laptop1599 {
+    // margin-top: 145px;
+    padding: 0 200px;
+  }
+  @include media-laptop1400 {
+    // margin-top: 145px;
+    padding: 0 180px;
+  }
   @include media-laptop-interim {
     margin-top: 145px;
     padding: 0 40px;
   }
   @include media-tablet {
-    padding: 0 30px;
+    padding: 0 5px;
     margin-top: 72px;
   }
+  @include media-tablet-min {
+    padding: 0 85px;
+    // margin-top: 72px;
+  }
   @include media-tablet-interim {
+    max-width: 100vw;
     margin-top: 80px;
     padding: 0 20px;
   }
@@ -209,6 +226,11 @@ position: relative;
   top: 50%;
   left: 140px;
   transform: translateY(-42px);
+  z-index: 5;
+  @include media-laptop1599 {
+    // right: 35.2%;
+    transform: translateY(-3px);
+  }
   @include media-laptop-interim {
     left: 35.2%;
     transform: translateY(-3px);
@@ -224,6 +246,11 @@ position: relative;
   top: 50%;
   right: 140px;
   transform: translateY(-42px);
+  z-index: 5;
+  @include media-laptop1599 {
+    // right: 35.2%;
+    transform: translateY(-3px);
+  }
   @include media-laptop-interim {
     right: 35.2%;
     transform: translateY(-3px);
@@ -234,60 +261,87 @@ position: relative;
   }
 }
 
+.slider__wrapper_hidden{
+width: 100%;
+overflow: hidden;
+// background-color: aqua;
+}
+
 
 
 .slider__cards {
+  @extend %transition-transform;
   position: relative;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  column-gap: 10px;
-  .slider__card_alligators {
-    display: none;
-  }
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  // column-gap: 10px;
+  // .slider__card_alligators {
+  //   display: none;
+  // }
 
-  .slider__card_panda,
-  .slider__card_eagles,
-  .slider__card_gorillas,
-  .slider__card_two-toed,
-  .slider__card_two-cheetahs,
-  .slider__card_two-penguins,
-  .slider__card_alligators {
-    order: 0;
-  }
+  // .slider__card_panda,
+  // .slider__card_eagles,
+  // .slider__card_gorillas,
+  // .slider__card_two-toed,
+  // .slider__card_two-cheetahs,
+  // .slider__card_two-penguins,
+  // .slider__card_alligators {
+  //   order: 0;
+  // }
 
-  @include media-tablet {
-    .slider__card_gorillas {
-      order: 1;
-    }
-    .slider__card_two-toed{
-      display: none;
-    }
-    .slider__card_alligators {
-      display: flex;
-      order: 1;
-    }
-    .slider__card_two-penguins{
-      order: 3;
-    }
-  }
-  @include media-tablet-min {
-    column-gap: 10%;
-    .slider__card_two-toed,
-    .slider__card_two-cheetahs,
-    .slider__card_two-penguins{
-      display: none;
-    }
-  }
-  @include media-tablet-interim {
-    column-gap: 3%;
-  }
+  // @include media-tablet {
+  //   .slider__card_gorillas {
+  //     order: 1;
+  //   }
+  //   .slider__card_two-toed{
+  //     display: none;
+  //   }
+  //   .slider__card_alligators {
+  //     display: flex;
+  //     order: 1;
+  //   }
+  //   .slider__card_two-penguins{
+  //     order: 3;
+  //   }
+  // }
+  // @include media-tablet-min {
+  //   column-gap: 10%;
+  //   .slider__card_two-toed,
+  //   .slider__card_two-cheetahs,
+  //   .slider__card_two-penguins{
+  //     display: none;
+  //   }
+  // }
+  // @include media-tablet-interim {
+  //   column-gap: 3%;
+  // }
 
 
   @include media-mobile-interim {
    flex-direction: column;
      }
 
+}
+
+.slider__cards_ative-right{
+  transform: translateX(100%);
+}
+.slider__cards_ative-left{
+  transform: translateX(-100%);
+}
+
+
+.slider__cards_center, .slider__cards_left, .slider__cards_right{
+  min-width: 100%;
+  // max-height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  // column-gap: 10px;
+  justify-content: space-around;
+  @include media-tablet-interim {
+    min-width: 100%;
+  }
 }
 
 .slider__card {
@@ -320,7 +374,7 @@ position: relative;
       @extend %transition;
       position: relative;
       transform: translateY(-45px);
-      @include font($size: 2.6rem, $height: 120%, $weight: 700);
+      @include font($size: 1.8rem, $height: 120%, $weight: 700);
       color: white;
       z-index: 3;
       &::before {
@@ -335,7 +389,7 @@ position: relative;
       }
     }
   }
-  @include media-laptop-interim {
+  @include media-laptop1599 {
     height: 354px;
     max-width: 294px;
     margin-top: 73px;
