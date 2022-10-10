@@ -222,10 +222,10 @@ donateCashInput.addEventListener("input", (e) => {
   if (donateCashInput.value.length >= 4) {
     donateCashInput.value = donateCashInput.value.slice(0, 4);
   }
-  if (donateCashInput.value < 1) {
-    donateCashInput.value = 0
-  }
-  let inputValue = donateCashInput.value.replace(/[e,+,-,',']/g, '');
+//   if (donateCashInput.value.split('').includes('.')) {
+//     donateCashInput.value.value = '';
+//  }
+  let inputValue = donateCashInput.value.replace(/[e,+,-,',','.']/g, '');
   donateCashInput.value = inputValue;
 
   updatedonateDollarsRevers();
