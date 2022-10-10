@@ -201,12 +201,12 @@ window.addEventListener("resize", function () {
 // Конец Начало функция ширины экрана
 
 //  Начало отслеживания ренджа
-// donateRangeInput.addEventListener("input", (e) => {
-//   updatedonateDollars();
-//   addColorDollars();
+donateRangeInput.addEventListener("input", (e) => {
+  updatedonateDollars();
+  addColorDollars();
 
-//   donateCashInput.value = donateDollars;
-// });
+  donateCashInput.value = donateDollars;
+});
 
 donateRangeInput.addEventListener("click", (e) => {
   updatedonateDollars();
