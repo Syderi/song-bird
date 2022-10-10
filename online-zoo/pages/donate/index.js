@@ -219,10 +219,10 @@ donateRangeInput.addEventListener("click", (e) => {
 
 //  Начало импута долларов
 donateCashInput.addEventListener("input", (e) => {
-  if (donateCashInput.value.length > 4) {
-    donateCashInput.value = donateCashInput.value.slice(0, 3);
+  if (donateCashInput.value.length >= 4) {
+    donateCashInput.value = donateCashInput.value.slice(0, 4);
   }
-  let inputValue = donateCashInput.value.replace(/[e,+,-]/g, '');
+  let inputValue = donateCashInput.value.replace(/[e,+,-,',']/g, '');
   donateCashInput.value = inputValue;
 
   updatedonateDollarsRevers();
