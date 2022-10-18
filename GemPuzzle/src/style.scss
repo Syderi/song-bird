@@ -1,0 +1,14 @@
+body {
+    background-color: green;
+    box-sizing: border-box;
+}
+
+
+.wrapper {
+    margin: 0 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(128, 0, 70);
+    min-height: 100vh;
+}
