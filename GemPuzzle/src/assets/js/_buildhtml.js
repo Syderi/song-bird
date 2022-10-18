@@ -46,8 +46,12 @@ wrapperMoveTime.append(Counttime)
 
 const wrapperGame = document.createElement('div')
 wrapperGame.className = 'wrapper-game'
-// wrapperGame.innerHTML ='5555'
 wrapper.appendChild(wrapperGame)
+
+
+// const cell = document.createElement('div')
+// cell.className = 'cell'
+
 
 
 
