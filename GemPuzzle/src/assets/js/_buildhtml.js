@@ -49,13 +49,6 @@ wrapperGame.className = 'wrapper-game'
 wrapper.appendChild(wrapperGame)
 
 
-// const cell = document.createElement('div')
-// cell.className = 'cell'
-
-
-
-
-
 const wrapperRadio = document.createElement('div')
 wrapperRadio.className = 'wrapper-radio'
 wrapper.appendChild(wrapperRadio)
@@ -137,4 +130,4 @@ wrapperRadio.append(radioInput88)
 
 
 
-export {wrapperGame}
+export {wrapperGame, btnShuffle, btnStop}
