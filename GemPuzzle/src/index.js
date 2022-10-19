@@ -6,6 +6,7 @@ import {
   btnSave,
   btnLoad,
   btnSound,
+  btnResult,
   countMoves,
   countTime,
 } from "./assets/js/_buildhtml";
@@ -24,7 +25,7 @@ let countMovesValue = 0;
 let isValid;
 let isValidTransition = true;
 let resultArray = [];
-let keyLocal = false
+let keyLocal = false;
 const audioObj = new Audio(audio);
 
 //  Начало получаю значение размера матрицы
@@ -61,15 +62,15 @@ function addCells(typeGame) {
   });
   cellsNodes = Array.from(wrapperGame.querySelectorAll(".cell"));
   cellsNodesArray = cellsNodes.map((item) => Number(item.dataset.matrixId));
-  console.log('99-cellsNodesArray',cellsNodesArray)
+  console.log("99-cellsNodesArray", cellsNodesArray);
   cellsNodes.at(-1).style.display = "none";
 
   matrix = getMatrix(cellsNodesArray);
-  console.log('befor 99-matrix',matrix)
-if (keyLocal) {
-  matrix = JSON.parse(localStorage.getItem('matrixLocalStorage'))
-}
-console.log('after 99-matrix',matrix)
+  console.log("befor 99-matrix", matrix);
+  if (keyLocal) {
+    matrix = JSON.parse(localStorage.getItem("matrixLocalStorage"));
+  }
+  console.log("after 99-matrix", matrix);
   // console.log('300', matrix)
   setPositionItems(matrix);
   shuffleCells();
@@ -92,13 +93,13 @@ function shuffleCells() {
   const flatMatrix = matrix.flat();
   const shuffleArray = shuffle(flatMatrix);
   // const shuffleArray = [[1,2,3],[4,5,6],[7,8,9]];
-  console.log('befor 199-matrix',matrix)
+  console.log("befor 199-matrix", matrix);
   if (keyLocal) {
-    matrix = JSON.parse(localStorage.getItem('matrixLocalStorage'))
+    matrix = JSON.parse(localStorage.getItem("matrixLocalStorage"));
   } else {
     matrix = getMatrix(shuffleArray);
   }
-  console.log('after 199-matrix',matrix)
+  console.log("after 199-matrix", matrix);
 
   // console.log("matrixSSSSSSSS = ", matrix);
   setPositionItems(matrix);
@@ -139,10 +140,10 @@ wrapperGame.addEventListener("transitionend", (e) => {
 
 // Начало Функция перемешивания массива
 function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
+  // for (let i = array.length - 1; i > 0; i--) {
+  //   const j = Math.floor(Math.random() * (i + 1));
+  //   [array[i], array[j]] = [array[j], array[i]];
+  // }
   return array;
 }
 // Конец Функция перемешивания массива
@@ -216,10 +217,8 @@ function swap(coords1, coords2, matrix) {
   changecountMovesValue();
   if (isWonGame(matrix)) {
     addWonClass();
+  }
 }
-
-}
-
 
 // Конец  замены значений матрицы
 
@@ -275,16 +274,15 @@ btnSound.addEventListener("click", (e) => {
 // }
 // строка 200
 
-
 function isWonGame(matrix) {
   const winFlatArrGame = new Array(typeGame).fill(0).map((_item, i) => i + 1);
-  console.log('winFlatArrGame',winFlatArrGame)
+  console.log("winFlatArrGame", winFlatArrGame);
   const flatMatrix = matrix.flat();
-  console.log('flatMatrix',flatMatrix)
+  console.log("flatMatrix", flatMatrix);
   for (let i = 0; i < winFlatArrGame.length; i++) {
-      if (flatMatrix[i] !== winFlatArrGame[i]) {
-          return false;
-      }
+    if (flatMatrix[i] !== winFlatArrGame[i]) {
+      return false;
+    }
   }
   return true;
 }
@@ -293,70 +291,77 @@ function isWonGame(matrix) {
 // const wonClass = 'WinGame';
 
 function addWonClass() {
-  let winTime = formatTimeDuration(timeDuration)
+  let winTime = formatTimeDuration(timeDuration);
+  setTimeout(() => {
     setTimeout(() => {
-    setTimeout(() => {
-      wrapperWin.classList.remove('wrapper-win-active')
-      wrapperWin.textContent =''
-    }, 5000)
-    wrapperWin.classList.add('wrapper-win-active')
-    wrapperWin.textContent = `Hooray! You solved the puzzle in ${winTime} and ${countMovesValue} moves!`
-    }, 500)
+      wrapperWin.classList.remove("wrapper-win-active");
+      wrapperWin.textContent = "";
+    }, 3000);
+    wrapperWin.classList.add("wrapper-win-active");
+    wrapperWin.textContent = `Hooray! You solved the puzzle in ${winTime} and ${countMovesValue} moves!`;
+  }, 500);
+
+resultArray.push({
+  'typeGame': typeGame,
+  'moves': countMovesValue,
+  'winTime': winTime,
+})
+
+resultArray.sort(function(a, b) {
+  return a.moves - b.moves;
+});
+
+if (resultArray.length > 10 ) {
+  resultArray.length = 10
 }
 
+let resultArrayLocalStorage = JSON.stringify(resultArray);
+localStorage.setItem("resultArrayLocalStorage", resultArrayLocalStorage);
 
-// btnSave, btnLoad,
-
-resultArray = []
+}
 
 btnSave.addEventListener("click", () => {
-
-
-let matrixLocalStorage = JSON.stringify(matrix)
-
-localStorage.setItem('matrixLocalStorage', matrixLocalStorage)
-localStorage.setItem('typeGameLocalStorage', typeGame)
-
-  // typeGame = 25;
-  // addCells(typeGame);
-  // matrix = [
-  //   [1, 2, 3, 4, 5],
-  //   [6, 7, 8, 9, 10],
-  //   [11, 12, 13, 14, 15],
-  //   [16, 17, 18, 19, 20],
-  //   [25, 24, 23, 22, 21],
-  // ];
-  // let a = JSON.stringify([
-  //   [1, 2, 3, 4, 5],
-  //   [6, 7, 8, 9, 10],
-  //   [11, 12, 13, 14, 15],
-  //   [16, 17, 18, 19, 20],
-  //   [25, 24, 23, 22, 21],
-  // ]);
-  // // console.log('a',a)
-  // let b = JSON.parse(a);
-  // // console.log('b',b)
-
-  // setPositionItems(b);
+  let matrixLocalStorage = JSON.stringify(matrix);
+  localStorage.setItem("matrixLocalStorage", matrixLocalStorage);
+  localStorage.setItem("typeGameLocalStorage", typeGame);
 });
 
 btnLoad.addEventListener("click", () => {
- 
-  if (localStorage.getItem('matrixLocalStorage')) {
-    keyLocal=true
+  if (localStorage.getItem("matrixLocalStorage")) {
+    keyLocal = true;
   }
+  matrix = JSON.parse(localStorage.getItem("matrixLocalStorage"));
+  typeGame = Number(localStorage.getItem("typeGameLocalStorage"));
+  // console.log("matrix", matrix);
+  // console.log("typeGame", typeGame);
 
-  matrix = JSON.parse(localStorage.getItem('matrixLocalStorage'))
-  typeGame = Number(localStorage.getItem('typeGameLocalStorage'))
-console.log("matrix",matrix)
-console.log("typeGame",typeGame)
+  addCells(typeGame);
+  // setPositionItems(matrix);
+  keyLocal = false;
+});
 
-    addCells(typeGame);
-    // setPositionItems(matrix);
-    keyLocal=false
-  });
 
+btnResult.addEventListener("click", () => {
+
+  setTimeout(() => {
+    setTimeout(() => {
+      wrapperWin.classList.remove("wrapper-win-active");
+      wrapperWin.textContent = "";
+    }, 3000);
+    wrapperWin.classList.add("wrapper-win-active");
+
+    if (localStorage.getItem("resultArrayLocalStorage")) {
+      resultArray = JSON.parse(localStorage.getItem("resultArrayLocalStorage"));
+      resultArray.forEach((el,index,arr) => {
+        let myP = document.createElement('p');
+        myP.textContent = `${index+1}: Type: ${el.typeGame}, Moves: ${el.moves}, winTime: ${el.winTime}`
+        wrapperWin.appendChild(myP);
+      })
+    } else {
+      wrapperWin.textContent = 'No Results' 
+    }
+  }, 500);
+})
 
 
 // Конец сохранения игры и вывод резултатов
-

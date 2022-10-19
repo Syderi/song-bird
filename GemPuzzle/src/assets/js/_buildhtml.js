@@ -139,4 +139,4 @@ wrapper.appendChild(wrapperWin)
 
 
 
-export {wrapperGame, wrapperWin, btnShuffle, btnSave, btnLoad, btnSound, countMoves, countTime}
+export {wrapperGame, wrapperWin, btnShuffle, btnSave, btnLoad, btnSound, btnResult, countMoves, countTime}
