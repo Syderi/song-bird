@@ -58,6 +58,7 @@ function addCells(typeGame) {
     cell.dataset.matrixId = el + 1;
     cell.style.width = `${100 / sizeCell}%`;
     cell.style.height = `${100 / sizeCell}%`;
+    cell.draggable = true
     wrapperGame.append(cell);
   });
   cellsNodes = Array.from(wrapperGame.querySelectorAll(".cell"));
@@ -96,17 +97,11 @@ function shuffleCells() {
   while (!searchErrorArray(shuffleArray)) {
     shuffleArray = shuffle(flatMatrix);
   }
-
-  // const shuffleArray = [[1,2,3],[4,5,6],[7,8,9]];
-  // console.log("befor 199-matrix", matrix);
   if (keyLocal) {
     matrix = JSON.parse(localStorage.getItem("matrixLocalStorage"));
   } else {
     matrix = getMatrix(shuffleArray);
   }
-  // console.log("after 199-matrix", matrix);
-
-  // console.log("matrixSSSSSSSS = ", matrix);
   setPositionItems(matrix);
 }
 
@@ -128,12 +123,62 @@ wrapperGame.addEventListener("click", (e) => {
   if (isValid && isValidTransition) {
     swap(sizeCellCoords, celCoords, matrix);
     setPositionItems(matrix);
-    // console.log("matrix", matrix);
     audioObj.play();
   }
 });
 
 // Конец  изменения позиций по клику
+
+// Начало изменения позиций по движению мыши
+
+
+wrapperGame.addEventListener("mousedown", (e) => {
+  const cellNode = e.target.closest(".cell");
+  if (!cellNode) {
+    return;
+  }
+  console.log('cellNode',cellNode)
+  // cellNode.draggable = true
+  console.log('e',e)
+  cellNode.addEventListener('dragend',(event)=>{
+console.log('event',event)
+if (!e.target.classList.contains(".wrapper-game")) {
+  console.log('Отпустил над пустотой')
+}
+  })
+
+  // cellNode.onmousedown = function(e) { 
+  //  let coords = getCoords(cellNode); 
+  // let shiftX = e.pageX; 
+  // let shiftY = e.pageY - coords.top; 
+  // // smile.style.position = 'absolute'; 
+  // wrapperGame.appendChild(cellNode); 
+  // moveAt(e); 
+  // cellNode.style.zIndex = 1000; // над другими элементами 
+  // function moveAt(e) { 
+  //   cellNode.style.left = e.pageX - shiftX + 'px'; 
+  //   cellNode.style.top = e.pageY - shiftY + 'px'; } 
+  // document.onmousemove = function(e) { 
+  //  moveAt(e); 
+  // }; 
+  // cellNode.onmouseup = function() { 
+  // document.onmousemove = null; 
+  // cellNode.onmouseup = null; 
+  // }; 
+  // } 
+  // cellNode.ondragstart = function() { return false; }; 
+  // function getCoords(elem) { 
+  // let box = elem.getBoundingClientRect(); 
+  // return { 
+  // top: box.top + pageYOffset, 
+  // left: box.left + pageXOffset 
+  //   }; 
+  //  } 
+
+
+});
+
+// Конец изменения позиций по движению мыши
 
 wrapperGame.addEventListener("transitionstart", (e) => {
   isValidTransition = false;
@@ -274,10 +319,6 @@ btnSound.addEventListener("click", (e) => {
 
 // Начало сохранения игры и вывод резултатов
 
-// if (isWonGame(matrix)) {
-//   addWonClass();
-// }
-// строка 200
 
 function isWonGame(matrix) {
   const winFlatArrGame = new Array(typeGame).fill(0).map((_item, i) => i + 1);
@@ -293,7 +334,6 @@ function isWonGame(matrix) {
 }
 
 // Подраздел выигрыша
-// const wonClass = 'WinGame';
 
 function addWonClass() {
   let winTime = formatTimeDuration(timeDuration);
@@ -322,7 +362,6 @@ if (resultArray.length > 10 ) {
 
 let resultArrayLocalStorage = JSON.stringify(resultArray);
 localStorage.setItem("resultArrayLocalStorage", resultArrayLocalStorage);
-
 }
 
 btnSave.addEventListener("click", () => {
@@ -336,9 +375,6 @@ btnLoad.addEventListener("click", () => {
     keyLocal = true;
     matrix = JSON.parse(localStorage.getItem("matrixLocalStorage"));
     typeGame = Number(localStorage.getItem("typeGameLocalStorage"));
-    // console.log("matrix", matrix);
-    // console.log("typeGame", typeGame);
-  
     addCells(typeGame);
   }
   // setPositionItems(matrix);
@@ -368,26 +404,17 @@ btnResult.addEventListener("click", () => {
   }, 500);
 })
 
-
 // Конец сохранения игры и вывод резултатов
-
 
 // Начало проверки массива
 
 function searchErrorArray(array) {
 let countInversions = 0
-
 let array1 = array.slice()
-
 let blankRowPosition = Math.ceil((array1.indexOf(typeGame)+1)/Math.sqrt(typeGame))-1
-// %Math.sqrt(typeGame)
-
-// console.log('blankRowPosition',blankRowPosition)
-
 
 array1.splice(array1.indexOf(typeGame), 1)
 // console.log(array1)
-
   for (let i = 0; i < array1.length; i++) {
     for (let j = i; j < array1.length; j++) {
     if (array1[i]>array1[j]) {
@@ -406,10 +433,6 @@ if (!(typeGame%2 === 0) && (countInversions%2===0)) {
 } else {
   return false
 }
-
-
 }
-
-
 
 // Конец проверки массива
