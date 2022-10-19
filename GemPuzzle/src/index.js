@@ -62,15 +62,15 @@ function addCells(typeGame) {
   });
   cellsNodes = Array.from(wrapperGame.querySelectorAll(".cell"));
   cellsNodesArray = cellsNodes.map((item) => Number(item.dataset.matrixId));
-  console.log("99-cellsNodesArray", cellsNodesArray);
+  // console.log("99-cellsNodesArray", cellsNodesArray);
   cellsNodes.at(-1).style.display = "none";
 
   matrix = getMatrix(cellsNodesArray);
-  console.log("befor 99-matrix", matrix);
+  // console.log("befor 99-matrix", matrix);
   if (keyLocal) {
     matrix = JSON.parse(localStorage.getItem("matrixLocalStorage"));
   }
-  console.log("after 99-matrix", matrix);
+  // console.log("after 99-matrix", matrix);
   // console.log('300', matrix)
   setPositionItems(matrix);
   shuffleCells();
@@ -91,21 +91,20 @@ btnShuffle.addEventListener("click", (e) => {
 
 function shuffleCells() {
   const flatMatrix = matrix.flat();
-
+  let shuffleArray = shuffle(flatMatrix)
   
-  
-  const shuffleArray = shuffle(flatMatrix);
-  searchErrorArray(shuffleArray)
-
+  while (!searchErrorArray(shuffleArray)) {
+    shuffleArray = shuffle(flatMatrix);
+  }
 
   // const shuffleArray = [[1,2,3],[4,5,6],[7,8,9]];
-  console.log("befor 199-matrix", matrix);
+  // console.log("befor 199-matrix", matrix);
   if (keyLocal) {
     matrix = JSON.parse(localStorage.getItem("matrixLocalStorage"));
   } else {
     matrix = getMatrix(shuffleArray);
   }
-  console.log("after 199-matrix", matrix);
+  // console.log("after 199-matrix", matrix);
 
   // console.log("matrixSSSSSSSS = ", matrix);
   setPositionItems(matrix);
@@ -282,9 +281,9 @@ btnSound.addEventListener("click", (e) => {
 
 function isWonGame(matrix) {
   const winFlatArrGame = new Array(typeGame).fill(0).map((_item, i) => i + 1);
-  console.log("winFlatArrGame", winFlatArrGame);
+  // console.log("winFlatArrGame", winFlatArrGame);
   const flatMatrix = matrix.flat();
-  console.log("flatMatrix", flatMatrix);
+  // console.log("flatMatrix", flatMatrix);
   for (let i = 0; i < winFlatArrGame.length; i++) {
     if (flatMatrix[i] !== winFlatArrGame[i]) {
       return false;
@@ -335,13 +334,13 @@ btnSave.addEventListener("click", () => {
 btnLoad.addEventListener("click", () => {
   if (localStorage.getItem("matrixLocalStorage")) {
     keyLocal = true;
+    matrix = JSON.parse(localStorage.getItem("matrixLocalStorage"));
+    typeGame = Number(localStorage.getItem("typeGameLocalStorage"));
+    // console.log("matrix", matrix);
+    // console.log("typeGame", typeGame);
+  
+    addCells(typeGame);
   }
-  matrix = JSON.parse(localStorage.getItem("matrixLocalStorage"));
-  typeGame = Number(localStorage.getItem("typeGameLocalStorage"));
-  // console.log("matrix", matrix);
-  // console.log("typeGame", typeGame);
-
-  addCells(typeGame);
   // setPositionItems(matrix);
   keyLocal = false;
 });
@@ -380,9 +379,14 @@ let countInversions = 0
 
 let array1 = array.slice()
 
-console.log(array1.indexOf(typeGame))
-array.splice(array1.indexOf(typeGame), 1)
-console.log(array1)
+let blankRowPosition = Math.ceil((array1.indexOf(typeGame)+1)/Math.sqrt(typeGame))-1
+// %Math.sqrt(typeGame)
+
+console.log('blankRowPosition',blankRowPosition)
+
+
+array1.splice(array1.indexOf(typeGame), 1)
+// console.log(array1)
 
   for (let i = 0; i < array1.length; i++) {
     for (let j = i; j < array1.length; j++) {
@@ -393,7 +397,19 @@ console.log(array1)
     }
   }
   console.log('countInversions',countInversions)
+if (!(typeGame%2 === 0) && (countInversions%2===0)) {
+  console.log('РЕШАЕМО 3')
+  return true
+} else if ( !( (countInversions+blankRowPosition)%2===0 ) && (typeGame%2 === 0)) {
+  console.log('РЕШАЕМО 4')
+  return true
+} else {
+  return false
 }
+
+
+}
+
 
 
 // Конец проверки массива
