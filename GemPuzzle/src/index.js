@@ -24,6 +24,7 @@ let countMovesValue = 0;
 let isValid;
 let isValidTransition = true;
 let resultArray = [];
+let keyLocal = false
 const audioObj = new Audio(audio);
 
 //  Начало получаю значение размера матрицы
@@ -35,7 +36,6 @@ radioValue.forEach((element) => {
     timeDuration = 0;
     countMovesValue = 0;
     countTime.textContent = "00:00:00";
-    // shuffleCells()
     countMoves.textContent = `${countMovesValue}`;
   });
 });
@@ -43,6 +43,9 @@ radioValue.forEach((element) => {
 //  Конец получаю значение размера матрицы
 
 function addCells(typeGame) {
+  // if (keyLocal) {
+  //   typeGame = Number(localStorage.getItem('typeGameLocalStorage'))
+  // }
   wrapperGame.innerHTML = "";
   sizeCell = Math.sqrt(typeGame);
   let startArray = [...Array(typeGame).keys()];
@@ -58,9 +61,15 @@ function addCells(typeGame) {
   });
   cellsNodes = Array.from(wrapperGame.querySelectorAll(".cell"));
   cellsNodesArray = cellsNodes.map((item) => Number(item.dataset.matrixId));
-  // console.log('99-cellsNodesArray',cellsNodesArray)
+  console.log('99-cellsNodesArray',cellsNodesArray)
   cellsNodes.at(-1).style.display = "none";
+
   matrix = getMatrix(cellsNodesArray);
+  console.log('befor 99-matrix',matrix)
+if (keyLocal) {
+  matrix = JSON.parse(localStorage.getItem('matrixLocalStorage'))
+}
+console.log('after 99-matrix',matrix)
   // console.log('300', matrix)
   setPositionItems(matrix);
   shuffleCells();
@@ -83,7 +92,14 @@ function shuffleCells() {
   const flatMatrix = matrix.flat();
   const shuffleArray = shuffle(flatMatrix);
   // const shuffleArray = [[1,2,3],[4,5,6],[7,8,9]];
-  matrix = getMatrix(shuffleArray);
+  console.log('befor 199-matrix',matrix)
+  if (keyLocal) {
+    matrix = JSON.parse(localStorage.getItem('matrixLocalStorage'))
+  } else {
+    matrix = getMatrix(shuffleArray);
+  }
+  console.log('after 199-matrix',matrix)
+
   // console.log("matrixSSSSSSSS = ", matrix);
   setPositionItems(matrix);
 }
@@ -123,10 +139,10 @@ wrapperGame.addEventListener("transitionend", (e) => {
 
 // Начало Функция перемешивания массива
 function shuffle(array) {
-  // for (let i = array.length - 1; i > 0; i--) {
-  //   const j = Math.floor(Math.random() * (i + 1));
-  //   [array[i], array[j]] = [array[j], array[i]];
-  // }
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
   return array;
 }
 // Конец Функция перемешивания массива
@@ -289,35 +305,58 @@ function addWonClass() {
 }
 
 
-
-
-
 // btnSave, btnLoad,
 
 resultArray = []
 
 btnSave.addEventListener("click", () => {
-  typeGame = 25;
-  addCells(typeGame);
-  matrix = [
-    [1, 2, 3, 4, 5],
-    [6, 7, 8, 9, 10],
-    [11, 12, 13, 14, 15],
-    [16, 17, 18, 19, 20],
-    [25, 24, 23, 22, 21],
-  ];
-  let a = JSON.stringify([
-    [1, 2, 3, 4, 5],
-    [6, 7, 8, 9, 10],
-    [11, 12, 13, 14, 15],
-    [16, 17, 18, 19, 20],
-    [25, 24, 23, 22, 21],
-  ]);
-  // console.log('a',a)
-  let b = JSON.parse(a);
-  // console.log('b',b)
 
-  setPositionItems(b);
+
+let matrixLocalStorage = JSON.stringify(matrix)
+
+localStorage.setItem('matrixLocalStorage', matrixLocalStorage)
+localStorage.setItem('typeGameLocalStorage', typeGame)
+
+  // typeGame = 25;
+  // addCells(typeGame);
+  // matrix = [
+  //   [1, 2, 3, 4, 5],
+  //   [6, 7, 8, 9, 10],
+  //   [11, 12, 13, 14, 15],
+  //   [16, 17, 18, 19, 20],
+  //   [25, 24, 23, 22, 21],
+  // ];
+  // let a = JSON.stringify([
+  //   [1, 2, 3, 4, 5],
+  //   [6, 7, 8, 9, 10],
+  //   [11, 12, 13, 14, 15],
+  //   [16, 17, 18, 19, 20],
+  //   [25, 24, 23, 22, 21],
+  // ]);
+  // // console.log('a',a)
+  // let b = JSON.parse(a);
+  // // console.log('b',b)
+
+  // setPositionItems(b);
 });
+
+btnLoad.addEventListener("click", () => {
+ 
+  if (localStorage.getItem('matrixLocalStorage')) {
+    keyLocal=true
+  }
+
+  matrix = JSON.parse(localStorage.getItem('matrixLocalStorage'))
+  typeGame = Number(localStorage.getItem('typeGameLocalStorage'))
+console.log("matrix",matrix)
+console.log("typeGame",typeGame)
+
+    addCells(typeGame);
+    // setPositionItems(matrix);
+    keyLocal=false
+  });
+
+
+
 // Конец сохранения игры и вывод резултатов
 
