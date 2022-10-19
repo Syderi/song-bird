@@ -91,7 +91,13 @@ btnShuffle.addEventListener("click", (e) => {
 
 function shuffleCells() {
   const flatMatrix = matrix.flat();
+
+  
+  
   const shuffleArray = shuffle(flatMatrix);
+  searchErrorArray(shuffleArray)
+
+
   // const shuffleArray = [[1,2,3],[4,5,6],[7,8,9]];
   console.log("befor 199-matrix", matrix);
   if (keyLocal) {
@@ -140,10 +146,10 @@ wrapperGame.addEventListener("transitionend", (e) => {
 
 // Начало Функция перемешивания массива
 function shuffle(array) {
-  // for (let i = array.length - 1; i > 0; i--) {
-  //   const j = Math.floor(Math.random() * (i + 1));
-  //   [array[i], array[j]] = [array[j], array[i]];
-  // }
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
   return array;
 }
 // Конец Функция перемешивания массива
@@ -365,3 +371,29 @@ btnResult.addEventListener("click", () => {
 
 
 // Конец сохранения игры и вывод резултатов
+
+
+// Начало проверки массива
+
+function searchErrorArray(array) {
+let countInversions = 0
+
+let array1 = array.slice()
+
+console.log(array1.indexOf(typeGame))
+array.splice(array1.indexOf(typeGame), 1)
+console.log(array1)
+
+  for (let i = 0; i < array1.length; i++) {
+    for (let j = i; j < array1.length; j++) {
+    if (array1[i]>array1[j]) {
+      // console.log(array[i],array[j])
+      countInversions++
+    }
+    }
+  }
+  console.log('countInversions',countInversions)
+}
+
+
+// Конец проверки массива
