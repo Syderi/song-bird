@@ -1,5 +1,5 @@
 body {
-  background-color: green;
+  background-color: rgb(189, 241, 189);
   box-sizing: border-box;
 }
 
@@ -11,22 +11,32 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  background-color: rgb(128, 0, 70);
+  background-color: rgb(248, 210, 231);
   min-height: 100vh;
 }
 
 .wrapper-Buttons {
+  width: 100%;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 3%;
-  background-color: rgb(0, 87, 128);
+  background-color: rgb(53, 183, 243);
 }
+
+
+.sound-mute{
+  background-color: black;
+  color: white
+}
+
+
 
 .wrapper-Move-Time {
   display: flex;
   justify-content: center;
   gap: 5%;
-  background-color: rgb(149, 160, 1);
+  background-color: rgb(237, 240, 203);
   width: 100%;
 }
 
@@ -59,7 +69,8 @@ body {
   border-radius: 6px;
   font-size: 25px;
   background-color: gray;
-  transition: all 1s;
+  transition: all 0.2s;
+
 //   box-shadow: inset 1px 1px 1px 1px white;
 }
 
@@ -67,6 +78,9 @@ body {
   display: flex;
   justify-content: center;
   gap: 2px;
-  background-color: rgb(14, 160, 1);
+  background-color: rgb(158, 250, 150);
   width: 100%;
 }
+
+
+

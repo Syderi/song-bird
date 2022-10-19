@@ -77,7 +77,6 @@ const config = {
         generator: {
           filename: 'fonts/[name][ext]'
         },
-      
       },
       {
         test: /\.(bmp|svg|png|jpg|gif)$/i,
@@ -85,9 +84,14 @@ const config = {
         generator: {
           filename: 'img/[name][ext]'
         },
-      
       },
-
+      {
+        test: /\.(mp3|wav)$/i,
+        type: "asset",
+        generator: {
+          filename: 'audio/[name][ext]'
+        },
+      },
     ],
   },
 };

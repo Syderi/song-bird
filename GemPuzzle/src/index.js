@@ -1,7 +1,8 @@
 // import '../src/assets/js/_buildhtml'
-import { wrapperGame, btnShuffle, btnStop } from "./assets/js/_buildhtml";
+import { wrapperGame, btnShuffle, btnStop, btnSound, countMoves, countTime } from "./assets/js/_buildhtml";
 import "../index.html";
 import "./style.scss";
+import audio from "./assets/audio/move.mp3";
 
 let radioValue = document.getElementsByName("radio");
 let typeGame = 16;
@@ -9,13 +10,24 @@ let cellsNodes;
 let cellsNodesArray
 let sizeCell
 let matrix
-console.log('20', cellsNodes)
+let timeDuration = 0;
+let countMovesValue = 0
+let isValid
+let isValidTransition = true
+const audioObj = new Audio(audio);
+
+console.log('20', audioObj)
 //  Начало получаю значение размера матрицы
 
 radioValue.forEach((element) => {
-  element.addEventListener("click", () => {
+  element.addEventListener("change", () => {
     typeGame = +element.value;
     addCells(typeGame);
+    timeDuration = 0;
+    countMovesValue = 0
+    countTime.textContent = '00:00:00'
+    // shuffleCells()
+    countMoves.textContent = `${countMovesValue}`  
   });
 });
 
@@ -26,7 +38,6 @@ function addCells(typeGame) {
   sizeCell = Math.sqrt(typeGame);
   let startArray = [...Array(typeGame).keys()];
   console.log('10', startArray)
-  // let startArray1 = shuffle(startArray);
   startArray.forEach((el, ind, array) => {
     const cell = document.createElement("div");
     cell.className = "cell";
@@ -44,12 +55,19 @@ function addCells(typeGame) {
   // console.log('300', matrix)
   setPositionItems(matrix)
   shuffleCells()
+  // timeDuration = 0;
+  // formatTimeDuration(timeDuration)
+  // showTime()
 }
 addCells(typeGame);
 
 // Начало кнопка перемешивания
 btnShuffle.addEventListener('click', (e) => {
+  timeDuration = 0;
+  countMovesValue = 0
+  countTime.textContent = '00:00:00'
   shuffleCells()
+  countMoves.textContent = `${countMovesValue}`
 })
 
 function shuffleCells() {
@@ -68,19 +86,35 @@ wrapperGame.addEventListener('click', (e) => {
   if (!cellNode) {
     return
   }
+  audioObj.pause();
+  audioObj.currentTime = 0;
 
   const celNumber = Number(cellNode.dataset.matrixId)
   const celCoords = findCoordsByNumber(celNumber, matrix)
   const sizeCellCoords = findCoordsByNumber(typeGame, matrix)
-  const isValid = isValidForSwap(celCoords, sizeCellCoords)
-  if (isValid) {
+  isValid = isValidForSwap(celCoords, sizeCellCoords)
+  if (isValid && isValidTransition) {
+
     swap(sizeCellCoords, celCoords, matrix)
     setPositionItems(matrix)
     console.log('matrix',matrix)
+    audioObj.play()
+
   }
 })
 
+
 // Конец  изменения позиций по клику
+
+wrapperGame.addEventListener("transitionstart", (e) => {
+  isValidTransition = false
+})
+
+wrapperGame.addEventListener("transitionend", (e) => {
+  isValidTransition = true
+})
+
+
 
 // Начало Функция перемешивания массива
 function shuffle(array) {
@@ -155,19 +189,71 @@ function swap(coords1, coords2, matrix) {
   const coords1Number = matrix[coords1.y][coords1.x]
   matrix[coords1.y][coords1.x] = matrix[coords2.y][coords2.x]
   matrix[coords2.y][coords2.x] = coords1Number
+  changecountMovesValue()
 
 }
 
 // Конец  замены значений матрицы
+
+// Начало отображения времени и ходов
+
+// let timeDuration = 0;
+
+function formatTimeDuration(timeDuration) {
+    const date = new Date(2022, 0, 1);
+    // console.log('date',date)
+    date.setSeconds(timeDuration);
+
+    return date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+}
+
+function showTime() {
+    setInterval(() => {
+      timeDuration++
+      countTime.textContent = `${formatTimeDuration(timeDuration)}`
+    }, 1000)
+}
+
+
+function changecountMovesValue() {
+  countMovesValue++
+  countMoves.textContent = `${countMovesValue}`
+}
+
+showTime()
+
+// countMoves, countTime
+
+
+// Конец отображения времени и ходов
+
+
+// Начало обработка кнопки звука
+
+btnSound.addEventListener('click', (e) => {
+  btnSound.classList.toggle('sound-mute')
+  console.log(e)
+
+if (e.target.classList.contains('sound-mute')) {
+  audioObj.volume = 0
+} else {
+  audioObj.volume = 1
+}
+
+})
+
+// Конец обработка кнопки звука
+
+
 
 btnStop.addEventListener('click', () => {
   typeGame = 25
   addCells(typeGame)
   matrix = [[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15],[16,17,18,19,20],[25,24,23,22,21]]
   let a = JSON.stringify([[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15],[16,17,18,19,20],[25,24,23,22,21]])
-  console.log('a',a)
+  // console.log('a',a)
   let b = JSON.parse(a)
-  console.log('b',b)
+  // console.log('b',b)
   
   setPositionItems(b)
 })

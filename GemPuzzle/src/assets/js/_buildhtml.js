@@ -32,21 +32,24 @@ wrapper.appendChild(wrapperMoveTime)
 
 const moves = document.createElement('div')
 moves.textContent = 'Moves:'
-const Countmoves = document.createElement('div')
-Countmoves.textContent = '0'
+const countMoves = document.createElement('div')
+countMoves.textContent = '0'
 const time = document.createElement('div')
 time.textContent = 'Time:'
-const Counttime = document.createElement('div')
-Counttime.textContent = '00:00'
+const countTime = document.createElement('div')
+countTime.textContent = '00:00:00'
 
 wrapperMoveTime.append(moves)
-wrapperMoveTime.append(Countmoves)
+wrapperMoveTime.append(countMoves)
 wrapperMoveTime.append(time)
-wrapperMoveTime.append(Counttime)
+wrapperMoveTime.append(countTime)
 
 const wrapperGame = document.createElement('div')
 wrapperGame.className = 'wrapper-game'
 wrapper.appendChild(wrapperGame)
+
+
+// Начало Добавление радио
 
 
 const wrapperRadio = document.createElement('div')
@@ -129,5 +132,4 @@ wrapperRadio.append(radioInput88)
 
 
 
-
-export {wrapperGame, btnShuffle, btnStop}
+export {wrapperGame, btnShuffle, btnStop, btnSound, countMoves, countTime}
