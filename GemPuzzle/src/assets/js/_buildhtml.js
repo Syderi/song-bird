@@ -8,18 +8,21 @@ wrapper.appendChild(wrapperButtons)
 
 const btnShuffle = document.createElement('button')
 btnShuffle.textContent = 'Shuffle and start'
-const btnStop = document.createElement('button')
-btnStop.textContent = 'Stop'
+// const btnStop = document.createElement('button')
+// btnStop.textContent = 'Stop'
 const btnSave = document.createElement('button')
 btnSave.textContent = 'Save'
+const btnLoad = document.createElement('button')
+btnLoad.textContent = 'Load'
 const btnSound = document.createElement('button')
 btnSound.textContent = 'Sound'
 const btnResult = document.createElement('button')
 btnResult.textContent = 'Result'
 
 wrapperButtons.append(btnShuffle)
-wrapperButtons.append(btnStop)
+// wrapperButtons.append(btnStop)
 wrapperButtons.append(btnSave)
+wrapperButtons.append(btnLoad)
 wrapperButtons.append(btnSound)
 wrapperButtons.append(btnResult)
 
@@ -130,6 +133,10 @@ wrapperRadio.append(radioLabel88)
 wrapperRadio.append(radioInput88)
 
 
+const wrapperWin = document.createElement('div')
+wrapperWin.className = 'wrapper-win'
+wrapper.appendChild(wrapperWin)
 
 
-export {wrapperGame, btnShuffle, btnStop, btnSound, countMoves, countTime}
+
+export {wrapperGame, wrapperWin, btnShuffle, btnSave, btnLoad, btnSound, countMoves, countTime}
