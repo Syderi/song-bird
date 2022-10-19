@@ -382,7 +382,7 @@ let array1 = array.slice()
 let blankRowPosition = Math.ceil((array1.indexOf(typeGame)+1)/Math.sqrt(typeGame))-1
 // %Math.sqrt(typeGame)
 
-console.log('blankRowPosition',blankRowPosition)
+// console.log('blankRowPosition',blankRowPosition)
 
 
 array1.splice(array1.indexOf(typeGame), 1)
@@ -396,7 +396,7 @@ array1.splice(array1.indexOf(typeGame), 1)
     }
     }
   }
-  console.log('countInversions',countInversions)
+  // console.log('countInversions',countInversions)
 if (!(typeGame%2 === 0) && (countInversions%2===0)) {
   console.log('РЕШАЕМО 3')
   return true
