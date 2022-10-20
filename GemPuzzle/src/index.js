@@ -315,6 +315,8 @@ function swap(coords1, coords2, matrix) {
 
 // let timeDuration = 0;
 
+
+
 function formatTimeDuration(timeDuration) {
   const date = new Date(2022, 0, 1);
   // console.log('date',date)
@@ -383,6 +385,7 @@ function addWonClass() {
     }, 3000);
     wrapperWin.classList.add("wrapper-win-active");
     wrapperWin.textContent = `Hooray! You solved the puzzle in ${winTime} and ${countMovesValue} moves!`;
+    timeDuration = 0
   }, 500);
 
 resultArray.push({
@@ -407,6 +410,9 @@ btnSave.addEventListener("click", () => {
   let matrixLocalStorage = JSON.stringify(matrix);
   localStorage.setItem("matrixLocalStorage", matrixLocalStorage);
   localStorage.setItem("typeGameLocalStorage", typeGame);
+  localStorage.setItem("movesLocalStorage", countMovesValue);
+  localStorage.setItem("timeDurationLocalStorage", timeDuration);
+  // localStorage.setItem("typeGameLocalStorage", typeGame);
 });
 
 btnLoad.addEventListener("click", () => {
@@ -414,6 +420,9 @@ btnLoad.addEventListener("click", () => {
     keyLocal = true;
     matrix = JSON.parse(localStorage.getItem("matrixLocalStorage"));
     typeGame = Number(localStorage.getItem("typeGameLocalStorage"));
+    countMovesValue = Number(localStorage.getItem("movesLocalStorage"));
+    timeDuration = Number(localStorage.getItem("timeDurationLocalStorage"));
+    countMoves.textContent = countMovesValue
     // radioValue.value = ''+typeGame
     addCells(typeGame);
   }
