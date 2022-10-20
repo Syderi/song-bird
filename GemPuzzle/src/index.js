@@ -62,25 +62,20 @@ function addCells(typeGame) {
     cell.draggable = true
     cell.addEventListener('dragstart',dragStart)
     cell.addEventListener('dragend',dragEnd)
+    cell.addEventListener('touchEnd',touchEnd)
     wrapperGame.append(cell);
   });
   cellsNodes = Array.from(wrapperGame.querySelectorAll(".cell"));
   cellsNodesArray = cellsNodes.map((item) => Number(item.dataset.matrixId));
-  // console.log("99-cellsNodesArray", cellsNodesArray);
   cellsNodes.at(-1).style.display = "none";
 
   matrix = getMatrix(cellsNodesArray);
-  // console.log("befor 99-matrix", matrix);
   if (keyLocal) {
     matrix = JSON.parse(localStorage.getItem("matrixLocalStorage"));
   }
-  // console.log("after 99-matrix", matrix);
-  // console.log('300', matrix)
+
   setPositionItems(matrix);
   shuffleCells();
-  // timeDuration = 0;
-  // formatTimeDuration(timeDuration)
-  // showTime()
 }
 addCells(typeGame);
 
@@ -141,26 +136,10 @@ wrapperGame.addEventListener('dragover', (e)=>{
 })
 
 wrapperGame.addEventListener('drop', (e)=>{
-  // console.log('10 = drop',e)
-  // console.log('20 = drop id', e.dataTransfer.getData('id'))
-
   let cellNode = document.getElementById(e.dataTransfer.getData('id'))
-
-
-
-  // const cellNode = e.target.closest(".cell");
-  // console.log("drop cellNode",cellNode)
-  // if (!cellNode) {
-  //   console.log('Пустота',e)
-  //   return;
-  // }
-
   if (!e.target.classList.contains('cell'))  {
-
-    // console.log('НА КЛЕТКАХ')
   audioObj.pause();
   audioObj.currentTime = 0;
-
   const celNumber = Number(cellNode.dataset.matrixId);
   const celCoords = findCoordsByNumber(celNumber, matrix);
   const sizeCellCoords = findCoordsByNumber(typeGame, matrix);
@@ -172,10 +151,7 @@ wrapperGame.addEventListener('drop', (e)=>{
   }
   }
 
-
-
 })
-
 
 function dragStart(e) {
   let cell = e.target.id
@@ -194,28 +170,16 @@ setTimeout(() => {
   
 },110);
 
-
-
 }
 
+function touchEnd(e) {
+   let cell = e.target.id
+   let elemCellDragStart = document.getElementById(cell)
+setTimeout(() => {
+  elemCellDragStart.style.opacity = '1'
+},110);
 
-
-// wrapperGame.addEventListener("mousedown", (e) => {
-//   const cellNode = e.target.closest(".cell");
-//   if (!cellNode) {
-//     return;
-//   }
-//   // console.log('cellNode',cellNode)
-//   // cellNode.draggable = true
-//   // console.log('e',e)
-//   cellNode.addEventListener('dragend',(event)=>{
-// // console.log('event',event)
-// if (!e.target.classList.contains(".wrapper-game")) {
-//   // console.log('Отпустил над пустотой')
-// }
-//   })
-
-// });
+}
 
 // Конец изменения позиций по движению мыши
 
