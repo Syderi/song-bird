@@ -56,9 +56,12 @@ function addCells(typeGame) {
     cell.className = "cell";
     cell.textContent = el + 1;
     cell.dataset.matrixId = el + 1;
+    cell.id = el + 1;
     cell.style.width = `${100 / sizeCell}%`;
     cell.style.height = `${100 / sizeCell}%`;
     cell.draggable = true
+    cell.addEventListener('dragstart',dragStart)
+    cell.addEventListener('dragend',dragEnd)
     wrapperGame.append(cell);
   });
   cellsNodes = Array.from(wrapperGame.querySelectorAll(".cell"));
@@ -110,7 +113,9 @@ function shuffleCells() {
 // Начало изменения позиций по клику
 wrapperGame.addEventListener("click", (e) => {
   const cellNode = e.target.closest(".cell");
+  // console.log("click cellNode",cellNode)
   if (!cellNode) {
+    // console.log('Пустота',e)
     return;
   }
   audioObj.pause();
@@ -131,52 +136,86 @@ wrapperGame.addEventListener("click", (e) => {
 
 // Начало изменения позиций по движению мыши
 
+wrapperGame.addEventListener('dragover', (e)=>{
+  e.preventDefault()
+})
 
-wrapperGame.addEventListener("mousedown", (e) => {
-  const cellNode = e.target.closest(".cell");
-  if (!cellNode) {
-    return;
+wrapperGame.addEventListener('drop', (e)=>{
+  // console.log('10 = drop',e)
+  // console.log('20 = drop id', e.dataTransfer.getData('id'))
+
+  let cellNode = document.getElementById(e.dataTransfer.getData('id'))
+
+
+
+  // const cellNode = e.target.closest(".cell");
+  // console.log("drop cellNode",cellNode)
+  // if (!cellNode) {
+  //   console.log('Пустота',e)
+  //   return;
+  // }
+
+  if (!e.target.classList.contains('cell'))  {
+
+    // console.log('НА КЛЕТКАХ')
+  audioObj.pause();
+  audioObj.currentTime = 0;
+
+  const celNumber = Number(cellNode.dataset.matrixId);
+  const celCoords = findCoordsByNumber(celNumber, matrix);
+  const sizeCellCoords = findCoordsByNumber(typeGame, matrix);
+  isValid = isValidForSwap(celCoords, sizeCellCoords);
+  if (isValid && isValidTransition) {
+    swap(sizeCellCoords, celCoords, matrix);
+    setPositionItems(matrix);
+    audioObj.play();
   }
-  console.log('cellNode',cellNode)
-  // cellNode.draggable = true
-  console.log('e',e)
-  cellNode.addEventListener('dragend',(event)=>{
-console.log('event',event)
-if (!e.target.classList.contains(".wrapper-game")) {
-  console.log('Отпустил над пустотой')
+  }
+
+
+
+})
+
+
+function dragStart(e) {
+  let cell = e.target.id
+  e.dataTransfer.setData('id',e.target.id)
+  // console.log('0000 = dragstart e=',e)
+  let elemCellDragStart = document.getElementById(cell)
+  elemCellDragStart.style.opacity = '0'
 }
-  })
 
-  // cellNode.onmousedown = function(e) { 
-  //  let coords = getCoords(cellNode); 
-  // let shiftX = e.pageX; 
-  // let shiftY = e.pageY - coords.top; 
-  // // smile.style.position = 'absolute'; 
-  // wrapperGame.appendChild(cellNode); 
-  // moveAt(e); 
-  // cellNode.style.zIndex = 1000; // над другими элементами 
-  // function moveAt(e) { 
-  //   cellNode.style.left = e.pageX - shiftX + 'px'; 
-  //   cellNode.style.top = e.pageY - shiftY + 'px'; } 
-  // document.onmousemove = function(e) { 
-  //  moveAt(e); 
-  // }; 
-  // cellNode.onmouseup = function() { 
-  // document.onmousemove = null; 
-  // cellNode.onmouseup = null; 
-  // }; 
-  // } 
-  // cellNode.ondragstart = function() { return false; }; 
-  // function getCoords(elem) { 
-  // let box = elem.getBoundingClientRect(); 
-  // return { 
-  // top: box.top + pageYOffset, 
-  // left: box.left + pageXOffset 
-  //   }; 
-  //  } 
+function dragEnd(e) {
+   let cell = e.target.id
+   let elemCellDragStart = document.getElementById(cell)
+   
+setTimeout(() => {
+  elemCellDragStart.style.opacity = '1'
+  
+},110);
 
 
-});
+
+}
+
+
+
+// wrapperGame.addEventListener("mousedown", (e) => {
+//   const cellNode = e.target.closest(".cell");
+//   if (!cellNode) {
+//     return;
+//   }
+//   // console.log('cellNode',cellNode)
+//   // cellNode.draggable = true
+//   // console.log('e',e)
+//   cellNode.addEventListener('dragend',(event)=>{
+// // console.log('event',event)
+// if (!e.target.classList.contains(".wrapper-game")) {
+//   // console.log('Отпустил над пустотой')
+// }
+//   })
+
+// });
 
 // Конец изменения позиций по движению мыши
 
@@ -375,6 +414,7 @@ btnLoad.addEventListener("click", () => {
     keyLocal = true;
     matrix = JSON.parse(localStorage.getItem("matrixLocalStorage"));
     typeGame = Number(localStorage.getItem("typeGameLocalStorage"));
+    // radioValue.value = ''+typeGame
     addCells(typeGame);
   }
   // setPositionItems(matrix);
@@ -425,10 +465,10 @@ array1.splice(array1.indexOf(typeGame), 1)
   }
   // console.log('countInversions',countInversions)
 if (!(typeGame%2 === 0) && (countInversions%2===0)) {
-  console.log('РЕШАЕМО 3')
+  // console.log('РЕШАЕМО 3')
   return true
 } else if ( !( (countInversions+blankRowPosition)%2===0 ) && (typeGame%2 === 0)) {
-  console.log('РЕШАЕМО 4')
+  // console.log('РЕШАЕМО 4')
   return true
 } else {
   return false
