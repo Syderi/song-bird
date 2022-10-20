@@ -158,7 +158,13 @@ function dragStart(e) {
   e.dataTransfer.setData('id',e.target.id)
   // console.log('0000 = dragstart e=',e)
   let elemCellDragStart = document.getElementById(cell)
-  elemCellDragStart.style.opacity = '0'
+  elemCellDragStart.style.opacity = '0.3'
+
+  setTimeout(() => {
+    elemCellDragStart.style.opacity = '1'
+    
+  },10000);
+  
 }
 
 function dragEnd(e) {
@@ -226,6 +232,7 @@ function setPositionItems(matrix) {
     for (let x = 0; x < matrix[y].length; x++) {
       const value = matrix[y][x];
       const node = cellsNodes[value - 1];
+      console.log(node)
       setNodeStyles(node, x, y);
     }
   }
