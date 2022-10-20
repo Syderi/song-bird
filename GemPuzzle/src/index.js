@@ -50,7 +50,6 @@ function addCells(typeGame) {
   wrapperGame.innerHTML = "";
   sizeCell = Math.sqrt(typeGame);
   let startArray = [...Array(typeGame).keys()];
-  // console.log("10", startArray);
   startArray.forEach((el, ind, array) => {
     const cell = document.createElement("div");
     cell.className = "cell";
@@ -108,9 +107,7 @@ function shuffleCells() {
 // Начало изменения позиций по клику
 wrapperGame.addEventListener("click", (e) => {
   const cellNode = e.target.closest(".cell");
-  // console.log("click cellNode",cellNode)
   if (!cellNode) {
-    // console.log('Пустота',e)
     return;
   }
   audioObj.pause();
@@ -156,7 +153,6 @@ wrapperGame.addEventListener('drop', (e)=>{
 function dragStart(e) {
   let cell = e.target.id
   e.dataTransfer.setData('id',e.target.id)
-  // console.log('0000 = dragstart e=',e)
   let elemCellDragStart = document.getElementById(cell)
   elemCellDragStart.style.opacity = '0.3'
 
@@ -232,7 +228,6 @@ function setPositionItems(matrix) {
     for (let x = 0; x < matrix[y].length; x++) {
       const value = matrix[y][x];
       const node = cellsNodes[value - 1];
-      console.log(node)
       setNodeStyles(node, x, y);
     }
   }
@@ -290,7 +285,6 @@ function swap(coords1, coords2, matrix) {
 
 function formatTimeDuration(timeDuration) {
   const date = new Date(2022, 0, 1);
-  // console.log('date',date)
   date.setSeconds(timeDuration);
 
   return date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
@@ -318,7 +312,6 @@ showTime();
 
 btnSound.addEventListener("click", (e) => {
   btnSound.classList.toggle("sound-mute");
-  // console.log(e);
 
   if (e.target.classList.contains("sound-mute")) {
     audioObj.volume = 0;
@@ -334,9 +327,7 @@ btnSound.addEventListener("click", (e) => {
 
 function isWonGame(matrix) {
   const winFlatArrGame = new Array(typeGame).fill(0).map((_item, i) => i + 1);
-  // console.log("winFlatArrGame", winFlatArrGame);
   const flatMatrix = matrix.flat();
-  // console.log("flatMatrix", flatMatrix);
   for (let i = 0; i < winFlatArrGame.length; i++) {
     if (flatMatrix[i] !== winFlatArrGame[i]) {
       return false;
@@ -402,6 +393,11 @@ btnLoad.addEventListener("click", () => {
 });
 
 
+if (localStorage.getItem("resultArrayLocalStorage")) {
+  resultArray = JSON.parse(localStorage.getItem("resultArrayLocalStorage"));
+  console.log(resultArray)
+}
+
 btnResult.addEventListener("click", () => {
 
   setTimeout(() => {
@@ -434,21 +430,16 @@ let array1 = array.slice()
 let blankRowPosition = Math.ceil((array1.indexOf(typeGame)+1)/Math.sqrt(typeGame))-1
 
 array1.splice(array1.indexOf(typeGame), 1)
-// console.log(array1)
   for (let i = 0; i < array1.length; i++) {
     for (let j = i; j < array1.length; j++) {
     if (array1[i]>array1[j]) {
-      // console.log(array[i],array[j])
       countInversions++
     }
     }
   }
-  // console.log('countInversions',countInversions)
 if (!(typeGame%2 === 0) && (countInversions%2===0)) {
-  // console.log('РЕШАЕМО 3')
   return true
 } else if ( !( (countInversions+blankRowPosition)%2===0 ) && (typeGame%2 === 0)) {
-  // console.log('РЕШАЕМО 4')
   return true
 } else {
   return false
