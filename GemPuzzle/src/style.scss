@@ -61,6 +61,8 @@ body {
 
 
 .button{
+  transition: all 0.1s;
+  cursor: pointer;
   @extend %font-prim;
 border: none;
 margin-bottom: 5px;
@@ -158,6 +160,7 @@ background-image: url(./assets/img/radio.png);
 
 
 .label{
+  transition: all 0.1s;
   cursor: pointer;
   background-image: url(./assets/img/radio.png);
   background-repeat: no-repeat;
@@ -179,6 +182,8 @@ background-image: url(./assets/img/radio.png);
 
 
 .radio{
+  transition: all 0.1s;
+  cursor: pointer;
   display: none;
 }
 
