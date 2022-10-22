@@ -1,0 +1,16 @@
+@mixin font ($size, $height: $size, $weight: bold, $style: normal) {
+    font-size: $size;
+    font-style: $style;
+    font-weight: $weight;
+    line-height: $height;
+}
+
+@mixin media-550 {
+    @media (max-width: 550px) { @content; }
+}
+@mixin media-450 {
+    @media (max-width: 450px) { @content; }
+}
+@mixin media-400 {
+    @media (max-width: 400px) { @content; }
+}

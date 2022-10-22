@@ -1,28 +1,85 @@
+@import "./assets/styles/abstract/fonts";
+@import "./assets/styles/abstract/placeholders";
+@import "./assets/styles/abstract/mixins";
+
+
+
 body {
+  margin: 0;
+  @extend %font-prim;
   // background-color: rgb(245, 250, 245);
   box-sizing: border-box;
-  user-select:none
+  user-select:none;
+  background-image: url(./assets/img/pautina-pauki-krasivo-foto-48.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 10px;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+
+
 }
 
 .wrapper {
-  max-width: 700px;
-  margin: 0 auto;
+  width: 700px;
+  margin: 0 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  background-color: rgb(250, 241, 246);
   min-height: 100vh;
+
+  @include media-550 {
+    width: 90%;
+    // background: red;
+  }
+  // @include media-450 {
+
+  // }
+  // @include media-400 {
+
+  // }
+
+
 }
 
 .wrapper-Buttons {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
   gap: 3%;
-  background-color: rgb(213, 239, 252);
+  // background-color: rgb(213, 239, 252);
+}
+
+
+
+.button{
+  @extend %font-prim;
+border: none;
+margin-bottom: 5px;
+border-radius: 5px;
+background-image: url(./assets/img/radio.png);
+@include font($size: 2.0rem, $height: 120%, $weight: 500);
+@include media-550 {
+  @include font($size: 1.6rem, $height: 120%, $weight: 400);
+}
+@include media-450 {
+  @include font($size: 1.5rem, $height: 120%, $weight: 400);
+}
+@include media-400 {
+  @include font($size: 1.4rem, $height: 120%, $weight: 400);
+}
+  &:hover{
+    background: rgba(19, 18, 18, 0.3);
+    // opacity: 0.9;
+  }
 }
 
 
@@ -37,8 +94,9 @@ body {
   display: flex;
   justify-content: center;
   gap: 5%;
-  background-color: rgb(237, 240, 203);
+  // background-color: rgb(237, 240, 203);
   width: 100%;
+  @include font($size: 1.4rem, $height: 120%, $weight: 400);
 }
 
 .wrapper-game {
@@ -50,9 +108,10 @@ body {
   width: 100%;
   height: 0;
   padding-bottom: 100%;
-  background-color: rgb(184, 252, 231);
-  border: 1px solid black;
+  // background-color: rgb(184, 252, 231);
+  border: 1px solid white;
   border-radius: 5px;
+  
 }
 
 .cell {
@@ -68,19 +127,59 @@ body {
   height: 25%;
   border: 2px solid rgb(154, 154, 218);
   border-radius: 6px;
-  font-size: 25px;
-  background-color: rgb(214, 214, 214);
+  font-size: 45px;
+  // color: rgb(226, 241, 15);
+  background-image: url(./assets/img/cell.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   transition: all 0.1s;
+  
+  @include font($size: 3.0rem, $height: 120%, $weight: 400);
+  @include media-550 {
+    @include font($size: 2.5rem, $height: 120%, $weight: 400);
+  }
+  @include media-400 {
+    @include font($size: 2.0rem, $height: 120%, $weight: 400);
+  }
+
+
 
 //   box-shadow: inset 1px 1px 1px 1px white;
 }
 
 .wrapper-radio {
   display: flex;
-  justify-content: center;
-  gap: 2px;
-  background-color: rgb(158, 250, 150);
+  justify-content: space-around;
+  gap: 12px;
+  // background-color: rgb(158, 250, 150);
   width: 100%;
+  font-size: 20px;
+}
+
+
+.label{
+  cursor: pointer;
+  background-image: url(./assets/img/radio.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  &:hover{
+    background: rgba(19, 18, 18, 0.3);
+    // opacity: 0.9;
+  }
+
+  @include font($size: 3.0rem, $height: 120%, $weight: 400);
+  @include media-550 {
+    @include font($size: 2.0rem, $height: 120%, $weight: 400);
+  }
+  @include media-400 {
+    @include font($size: 1.4rem, $height: 120%, $weight: 400);
+  }
+}
+
+
+.radio{
+  display: none;
 }
 
 .wrapper-win{
