@@ -382,6 +382,13 @@ btnLoad.addEventListener("click", () => {
     keyLocal = true;
     matrix = JSON.parse(localStorage.getItem("matrixLocalStorage"));
     typeGame = Number(localStorage.getItem("typeGameLocalStorage"));
+    let radioNew = document.getElementById(`radio${typeGame}`)
+  // console.log(radioNew)
+  // console.log(radioNew.value)
+  // console.log(radioNew.checked)
+  radioNew.checked = true
+  // console.log(radioNew.checked)
+  // radioNew.value=64
     countMovesValue = Number(localStorage.getItem("movesLocalStorage"));
     timeDuration = Number(localStorage.getItem("timeDurationLocalStorage"));
     countMoves.textContent = countMovesValue
@@ -395,7 +402,7 @@ btnLoad.addEventListener("click", () => {
 
 if (localStorage.getItem("resultArrayLocalStorage")) {
   resultArray = JSON.parse(localStorage.getItem("resultArrayLocalStorage"));
-  console.log(resultArray)
+  // console.log(resultArray)
 }
 
 btnResult.addEventListener("click", () => {
