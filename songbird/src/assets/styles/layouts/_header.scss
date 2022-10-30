@@ -1,103 +1,159 @@
-.header{
-
-  background: $color-header-bg;
-}
-
-.header__wrapper {
-
-  backdrop-filter: blur(2px);
-  padding: 14px 220px;
+.header__wrapper{
+  width: 100%;
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  justify-content: space-between;
-  color: $color-white-text;
-
-  @include media-laptop-interim {
-    padding: 14px 100px;
-  }
-
-  @include media-tablet {
-    padding: 14px 30px;
-  }
-
-  @include media-tablet-interim {
-    padding: 14px 20px;
-  }
-
-  @include media-mobile {
-    background: $color-header-bg;
-    z-index: 3;
-    width: 100%;
-    position: fixed;  
-    top: 0;
-    padding: 2.5px 20px;
-  }
-
-  @include media-mobilesmall {
-    padding: 2.5px 10px;
-  }
+  flex-wrap: wrap;
+  gap: 1rem;
+  // padding: 1rem;
 }
 
-
-.header__nav-img-wrapper {
-  display: flex;
-  gap: 63px;
+.header__logo{
+  width: 200px;
+  height: 55px;
+  background-image: url("./assets/img/svg/logo-song-bird.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  
 }
 
-.header__navigation {
-  display: flex;
-  align-items: center;
-  @include media-mobile {
-    display: none;
-  }
-}
-
-.navigation {
-  display: flex;
-  align-items: center;
-  gap: 58px;
-  @include font($size: 1.6rem, $weight: 500);
-  @include media-laptop-interim {
-    gap: 54px;
-  }
-
-  @include media-tablet {
-    gap: 48px;
-  }
-
-  @include media-tablet-interim {
-    gap: 20px;
-  }
-
-
+.header__nav{
+  @include font($size: 2.4rem, $height: 120%, $weight: 400, $style: italic);
+display: flex;
+// flex: 1 1 auto;
+gap: 1rem;
 
 }
 
-.navigation__link {
+.nav__item{
+cursor: pointer;
+padding: 0.5rem;
+border-radius: 0.5rem; 
+    @extend %transition;
+
+&:hover{
+  background-color: $color-hover;
+  // border: 1px solid red;
+}
+}
+
+.select-lang{
+  padding: 0.5rem;
+  border-radius: 0.5rem; 
+  @include font($size: 2.4rem, $height: 120%, $weight: 400, $style: italic);
+  cursor: pointer;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: $color-body-text;
   @extend %transition;
-  color: $color-white-text;
   &:hover{
-    color: $color-border;
+    background-color: $color-hover;
   }
 }
-.navigation__link_activ {
-color: $color-border;
+
+.select-lang__item {
+background-color: $color-hover;
+border: none;
 }
 
 
-.header__designed {
-  display: flex;
-  @include font($size: 1.6rem, $weight: 500);
+// .header__wrapper {
 
-}
+//   backdrop-filter: blur(2px);
+//   padding: 14px 220px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   color: $color-white-text;
 
-.header__designed__link {
-  @extend %transition;
-  color: $color-white-text;
-  &:hover{
-    color: $color-border;
-  }
-  @include media-mobile {
-    display: none;
-}
-}
+//   @include media-laptop-interim {
+//     padding: 14px 100px;
+//   }
+
+//   @include media-tablet {
+//     padding: 14px 30px;
+//   }
+
+//   @include media-tablet-interim {
+//     padding: 14px 20px;
+//   }
+
+//   @include media-mobile {
+//     background: $color-header-bg;
+//     z-index: 3;
+//     width: 100%;
+//     position: fixed;  
+//     top: 0;
+//     padding: 2.5px 20px;
+//   }
+
+//   @include media-mobilesmall {
+//     padding: 2.5px 10px;
+//   }
+// }
+
+
+// .header__nav-img-wrapper {
+//   display: flex;
+//   gap: 63px;
+// }
+
+// .header__navigation {
+//   display: flex;
+//   align-items: center;
+//   @include media-mobile {
+//     display: none;
+//   }
+// }
+
+// .navigation {
+//   display: flex;
+//   align-items: center;
+//   gap: 58px;
+//   @include font($size: 1.6rem, $weight: 500);
+//   @include media-laptop-interim {
+//     gap: 54px;
+//   }
+
+//   @include media-tablet {
+//     gap: 48px;
+//   }
+
+//   @include media-tablet-interim {
+//     gap: 20px;
+//   }
+
+
+
+// }
+
+// .navigation__link {
+//   @extend %transition;
+//   color: $color-white-text;
+//   &:hover{
+//     color: $color-border;
+//   }
+// }
+// .navigation__link_activ {
+// color: $color-border;
+// }
+
+
+// .header__designed {
+//   display: flex;
+//   @include font($size: 1.6rem, $weight: 500);
+
+// }
+
+// .header__designed__link {
+//   @extend %transition;
+//   color: $color-white-text;
+//   &:hover{
+//     color: $color-border;
+//   }
+//   @include media-mobile {
+//     display: none;
+// }
+// }
