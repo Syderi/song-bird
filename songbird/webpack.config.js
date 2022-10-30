@@ -92,6 +92,13 @@ const config = {
           filename: 'audio/[name][ext]'
         },
       },
+      {
+        test: /\.(mp4|avi)$/i,
+        type: "asset",
+        generator: {
+          filename: 'video/[name][ext]'
+        },
+      },
     ],
   },
 };

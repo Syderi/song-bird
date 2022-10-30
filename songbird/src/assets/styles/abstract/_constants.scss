@@ -1,5 +1,7 @@
 $color-body-background: #222;
-$color-hover: #444;
+// $color-hover: #444;
+$color-button: #007c5d;
+$color-hover: #00bc8c;
 $color-body-text: #fff;
 
 
@@ -95,10 +97,9 @@ $color-body-text: #fff;
 //   );
 
 $content-width: 1920px;
-// $content-width-interim: 1280px;
-// $tablet-width: 1000px;
-// $tablet-width-interim960: 960px;
-// $tablet-width-interim: 768px;
-// $mobile-big-width: 640px;
-// $mobile-big-interim: 630px;
-// $mobile-small-width: 320px;
+$desktop-width: 1200px;
+
+$tablet-width: 900px;
+
+$mobile-width: 600px;
+
