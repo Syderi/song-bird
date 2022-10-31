@@ -17,7 +17,14 @@ body {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    user-select: none;
 }
+
+
+.preload * {
+transition: none !important;
+    }
+    
 
 ul{
     margin: 0;

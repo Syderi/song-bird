@@ -40,10 +40,13 @@
   border-radius: 0.5rem;
   @extend %transition;
 
-  &:hover,
-  &:active {
+  &:hover {
     background-color: $color-hover;
-    color: black;
+    color: $color-BLACK;
+  }
+  &:active {
+    color: $color-BLACK;
+    background-color: $color-active;
   }
 
   @include desktop {
@@ -81,10 +84,13 @@
   outline: none;
   color: $color-body-text;
   @extend %transition;
-  &:hover,
-  &:active {
+  &:hover {
     background-color: $color-hover;
-    color: black;
+    color: $color-BLACK;
+  }
+  &:active {
+    color: $color-BLACK;
+    background-color: $color-active;
   }
 
   @include desktop {

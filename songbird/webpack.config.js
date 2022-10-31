@@ -29,7 +29,8 @@ const config = {
       new HtmlWebpackPlugin({
          template: path.resolve(__dirname, 'index.html'), // шаблон
         filename: 'index.html', // название выходного файла
-        chunks: ['index'] // здесь от названия страницы, ты добавляешь именно тот js файл, который должен быть к ней привязан можно привязать через js
+        chunks: ['index'], // здесь от названия страницы, ты добавляешь именно тот js файл, который должен быть к ней привязан можно привязать через js
+        inject: 'body',
     }),
    ],
   module: {

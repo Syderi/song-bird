@@ -41,9 +41,12 @@
   color: $color-body-text;
   border-radius: 0.5rem; 
   @extend %transition;
-  &:hover, &:active{
+  &:hover{
     background-color: $color-hover;
-    // border: 1px solid red;
+  }
+  &:active {
+    color: $color-BLACK;
+    background-color: $color-active;
   }
 }
 

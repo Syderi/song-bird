@@ -1,4 +1,5 @@
 import "./assets/js/_addFavicon";
+import "./assets/js/_preload";
 
 
 import "../index.html";

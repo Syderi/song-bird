@@ -7,15 +7,15 @@
   @extend %transition;
 
   @include desktop {
-    width: 85%;
+    width: 87%;
   }
 
   @include tablet {
 
-    width: 90%;
+    width: 93%;
   } 
   @include mobile {
-    width: 95%;
+    width: 98%;
   }  
 }
 
@@ -66,6 +66,7 @@
   min-height: 155px;
   border-radius: 10px;
   background-image: url(./assets/img/jpg/bird_default.jpg);
+  background-repeat: no-repeat;
 }
 
 .game__random__description {
@@ -102,9 +103,12 @@
   border-radius: 5px;
   background-image: url(./assets/img/svg/play.svg);
   background-repeat: no-repeat;
-  &:hover,
-  &:active {
+  &:hover{
     background-color: $color-hover;
+  }
+  &:active {
+    color: $color-BLACK;
+    background-color: $color-active;
   }
 }
 
@@ -121,9 +125,12 @@
   @extend %transition;
   background-image: url(./assets/img/svg/sound.svg);
   background-repeat: no-repeat;
-  &:hover,
-  &:active {
+  &:hover {
     background-color: $color-hover;
+  }
+  &:active {
+    color: $color-BLACK;
+    background-color: $color-active;
   }
 }
 
@@ -142,6 +149,9 @@
   width: 100%;
   gap: 1rem;
   margin-bottom: 2rem;
+  @include tablet {
+flex-direction: column;
+}
 }
 
 .game__choice {
@@ -151,6 +161,9 @@
   width: 48%;
   border-radius: 0.5rem;
   flex: 0 0 auto;
+  @include tablet {
+    width: 100%;
+    }
 }
 
 .game__choice__item {
@@ -159,6 +172,7 @@
   padding: 0.85rem 1.25rem;
   border: 1px solid $color-line;
   background-color: $color-body-background;
+  @extend %transition;
   @include desktop {
     @include font($size: 1.9rem, $height: 130%, $weight: 400);
   }
@@ -177,6 +191,16 @@
     border-bottom-right-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;
   }
+
+  &:hover {
+    background-color: $color-hover;
+    color: $color-BLACK;
+  }
+  &:active {
+    color: $color-BLACK;
+    background-color: $color-active;
+  }
+
 }
 
 .game__choice__item-btn {
@@ -196,15 +220,37 @@
   padding: 0.5rem;
   background-color: $color-body-background;
   border-radius: 0.5rem;
+  @include tablet {
+    width: 100%;
+    }
 }
 
 
 .game__card__bird{
+  // background-color: rgb(194, 245, 170);
 width: 100%;
 display: flex;
 gap: 1rem;
 margin-bottom: 1rem;
+
+// @include tablet {
+
+// }
+@include mobile {
+ flex-direction: column;
+ align-items: center;
 }
+}
+
+
+.game__card__image {
+  min-width: 200px;
+  min-height: 155px;
+  border-radius: 10px;
+  background-image: url(./assets/img/jpg/bird_default.jpg);
+  background-repeat: no-repeat;
+}
+
 
 .game__card__species {
   @include font($size: 1.8rem, $height: 120%, $weight: 300, $style: normal);
@@ -215,9 +261,9 @@ margin-bottom: 1rem;
 .game__card__description {
   width: calc(100% - 200px);
   text-align: center;
-  // @include mobile {
-  //   width: 90%;
-  // }
+  @include mobile {
+   width: 100%;
+   }
 }
 
 .card-audio__wrapper{
@@ -228,4 +274,63 @@ margin-bottom: 1rem;
 
 .description-card{
   @include font($size: 1.8rem, $height: 120%, $weight: 300, $style: normal);
+}
+
+
+
+.game__next{
+  padding: 0.5rem;
+display: flex;
+width: 100%;
+justify-content: space-around;
+gap: 0.5rem;
+background-color: $color-body-background;
+border-radius: 0.5rem;
+}
+
+.game__next-button{
+  color: $color-body-text;
+border: none;
+width: 48%;
+border-radius: 0.5rem;
+background-color: $color-button;
+@extend %transition;
+
+
+@include desktop {
+  width: 40%;
+}
+@include tablet {
+  width: 37%;
+}
+@include mobile {
+  width: 35%;
+}
+
+
+&:hover {
+  background-color: $color-hover;
+  color: $color-BLACK;
+}
+&:active {
+  color: $color-BLACK;
+  background-color: $color-active;
+}
+}
+
+.game__next-button, .game__next-score{
+  @include font($size: 2.4rem, $height: 120%, $weight: 400, $style: italic);
+  @include desktop {
+    @include font($size: 2rem, $height: 130%, $weight: 400);
+  }
+  @include tablet {
+    @include font($size: 1.8rem, $height: 120%, $weight: 300);
+  }
+  @include mobile {
+    @include font($size: 1.6rem, $height: 120%, $weight: 200);
+  }
+}
+
+.game__score__count{
+  margin-left: 0.3rem;
 }
