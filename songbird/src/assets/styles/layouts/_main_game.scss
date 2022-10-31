@@ -1,0 +1,123 @@
+.main__game {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @extend %transition;
+}
+
+.game__select {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background-color: $color-body-background;
+  border-radius: 5px;
+  @include font($size: 2.4rem, $height: 120%, $weight: 400, $style: italic);
+  padding: 0.5rem;
+}
+
+.game__select__item {
+  list-style-type: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  @include desktop {
+    @include font($size: 2rem, $height: 130%, $weight: 400);
+  }
+  @include tablet {
+    @include font($size: 1.8rem, $height: 120%, $weight: 300);
+  }
+  @include mobile {
+    @include font($size: 1.6rem, $height: 120%, $weight: 200);
+  }
+}
+
+.game__random {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+  background-color: $color-body-background;
+  border-radius: 5px;
+
+  @include mobile {
+flex-direction: column;
+align-items: center;
+  }
+}
+
+.game__random__image {
+  width: 200px;
+  height: 155px;
+  border-radius: 10px;
+  background-image: url(./assets/img/jpg/bird_default.jpg);
+}
+
+.game__random__description {
+  width: calc(100% - 200px);
+  text-align: center;
+  @include mobile {
+    width: 90%
+  }
+}
+
+.game__random__name {
+  @include font($size: 2rem, $height: 140%, $weight: 400, $style: normal);
+  border-bottom: 3px solid $color-line;
+  margin: 1rem 0;
+}
+
+.wraper-time {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper-mute,
+.wrapper-play {
+  display: flex;
+  gap: 1rem;
+  padding: 0.2rem;
+}
+
+.play {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  background: $color-button;
+  border-radius: 5px;
+  background-image: url(./assets/img/svg/play.svg);
+  background-repeat: no-repeat;
+  &:hover,
+  &:active {
+    background-color: $color-hover;
+  }
+}
+
+.play_pause {
+  background-image: url(./assets/img/svg/pause.svg);
+}
+
+.mute {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  background: $color-button;
+  border-radius: 5px;
+  @extend %transition;
+  background-image: url(./assets/img/svg/sound.svg);
+  background-repeat: no-repeat;
+  &:hover,
+  &:active {
+    background-color: $color-hover;
+  }
+}
+
+.mute_pause {
+  background-image: url(./assets/img/svg/audiof_mute.svg);
+}
+
+.range_all {
+  width: 100%;
+}

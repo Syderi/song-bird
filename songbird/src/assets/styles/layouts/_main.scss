@@ -1,9 +1,10 @@
-.main{
+.main {
   padding: 1rem;
   flex: 1 1 auto;
 }
 
 .main__wrapper {
+  position: relative;
   width: 100%;
   min-height: 100%;
   display: flex;
@@ -11,17 +12,10 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
- }
-
-.video-contanier{
-  display: flex;
-  justify-content: center;
-height: 100%;
-width: 100%;
-
 }
 
-.video-content {
-  width: 70vw;
-  border-radius: 5px;
+.main-section_hide {
+  position: absolute;
+  opacity: 0;
+  transform: rotateY(360deg) scale(0);
 }

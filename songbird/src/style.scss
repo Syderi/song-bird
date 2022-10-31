@@ -10,6 +10,7 @@
 
 @import "./assets/styles/base/normalize";
 @import "./assets/styles/base/base";
+@import "./assets/styles/base/input_range";
 
 
 // //Abstract
@@ -23,7 +24,6 @@
 
 // @import "../../assets/styles/base/normalize";
 // @import "../../assets/styles/base/base";
-// @import "../../assets/styles/base/buttons";
 // @import "../../assets/styles/base/inputs";
 // @import "../../assets/styles/base/logo";
 // @import "../../assets/styles/base/hamburger";
@@ -35,9 +35,12 @@
 @import "./assets/styles/layouts/header";
 // @import "../../assets/styles/layouts/section_panda";
 @import "./assets/styles/layouts/main";
+@import "./assets/styles/layouts/main_home";
+@import "./assets/styles/layouts/main_game";
 // @import "../../assets/styles/layouts/donate";
 // // @import "../../assets/styles/layouts/section_testimonials";
 @import "./assets/styles/layouts/footer";
 // @import "../../assets/styles/layouts/popup";
+@import "./assets/styles/layouts/active";
 
 // // 

@@ -1,0 +1,35 @@
+input[type=range] {
+    // width: 100%;
+    margin: -3.1px 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+  }
+  input[type=range]:focus {
+    outline: none;
+    opacity: 0.9;
+  }
+  input[type=range]:hover {
+    opacity: 0.8;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    background: $color-button;
+    border: 0;
+    border-radius: 5px;
+    // width: 100%;
+    height: 1rem;
+    cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    margin-top: -5px;
+    width: 2rem;
+    height: 2rem;
+    background: $color-hover;
+    border: 2.9px solid $color-body-text;
+    border-radius: 28px;
+    cursor: pointer;
+    -webkit-appearance: none;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: $color-hover;
+  }
+  

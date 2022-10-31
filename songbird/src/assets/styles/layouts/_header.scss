@@ -1,14 +1,23 @@
-.header__wrapper{
+.header__wrapper {
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
+  @include desktop {
+    gap: 0.8rem;
+  }
+  @include tablet {
+    gap: 0.5rem;
+  }
+  @include mobile {
+    gap: 0.2rem;
+  }
 }
 
-.header__logo{
+.header__logo {
   width: 200px;
   height: 55px;
   background-image: url("./assets/img/svg/logo-song-bird.svg");
@@ -16,40 +25,39 @@
   background-repeat: no-repeat;
 }
 
-.header__nav{
+.header__nav {
   @include font($size: 2.4rem, $height: 120%, $weight: 400, $style: italic);
-display: flex;
-// flex: 1 1 auto;
-gap: 1rem;
-
+  display: flex;
+  // flex: 1 1 auto;
+  gap: 1rem;
 }
 
-.nav__item{
-cursor: pointer;
-padding: 0.5rem;
-background-color: $color-button;
-border-radius: 0.5rem; 
-    @extend %transition;
+.nav__item {
+  list-style-type: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: $color-button;
+  border-radius: 0.5rem;
+  @extend %transition;
 
-    &:hover, &:active{
-      background-color: $color-hover;
-      color: black;
-    }
+  &:hover,
+  &:active {
+    background-color: $color-hover;
+    color: black;
+  }
 
-@include desktop {
-  @include font($size: 2.0rem, $height: 130%, $weight: 400);
+  @include desktop {
+    @include font($size: 2rem, $height: 130%, $weight: 400);
+  }
+  @include tablet {
+    @include font($size: 1.8rem, $height: 120%, $weight: 300);
+  }
+  @include mobile {
+    @include font($size: 1.6rem, $height: 120%, $weight: 200);
+  }
 }
-@include tablet {
-  @include font($size: 1.8rem, $height: 120%, $weight: 300);
-}
-@include mobile {
-  @include font($size: 1.6rem, $height: 120%, $weight: 200);
-}
 
-
-}
-
-.header__select__label{
+.header__select__label {
   @include font($size: 2.2rem, $height: 130%, $weight: 400);
   @include desktop {
     @include font($size: 1.8rem, $height: 120%, $weight: 300);
@@ -60,14 +68,11 @@ border-radius: 0.5rem;
   @include mobile {
     @include font($size: 1.6rem, $height: 120%, $weight: 200);
   }
-  
 }
 
-
-
-.select-lang{
+.select-lang {
   padding: 0.2rem;
-  border-radius: 0.5rem; 
+  border-radius: 0.5rem;
   @include font($size: 2.4rem, $height: 120%, $weight: 400, $style: italic);
   cursor: pointer;
   appearance: none;
@@ -76,23 +81,24 @@ border-radius: 0.5rem;
   outline: none;
   color: $color-body-text;
   @extend %transition;
-  &:hover, &:active{
+  &:hover,
+  &:active {
     background-color: $color-hover;
     color: black;
   }
 
   @include desktop {
-    @include font($size: 2.0rem, $height: 130%, $weight: 300, $style: italic);
- }
+    @include font($size: 2rem, $height: 130%, $weight: 300, $style: italic);
+  }
   @include tablet {
     @include font($size: 1.8rem, $height: 120%, $weight: 200, $style: italic);
- }
+  }
   @include mobile {
     @include font($size: 1.6rem, $height: 120%, $weight: 200, $style: italic);
- }
+  }
 }
 
 .select-lang__item {
-background-color: $color-hover;
-border: none;
+  background-color: $color-hover;
+  border: none;
 }
