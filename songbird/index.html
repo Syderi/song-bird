@@ -1,117 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game birds</title>
-  </head>
 
-  <body>
-    <header class="header">
-      <div class="wrapper header__wrapper">
-        <div class="header__logo"></div>
-        <ul class="header__nav">
-          <li class="nav__item active">Дом</li>
-          <li class="nav__item">Игра</li>
-          <li class="nav__item">Результаты</li>
-          <li class="nav__item">Галлерея</li>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game birds</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="wrapper header__wrapper">
+      <div class="header__logo"></div>
+      <ul class="header__nav">
+        <li class="nav__item active">Дом</li>
+        <li class="nav__item">Игра</li>
+        <li class="nav__item">Результаты</li>
+        <li class="nav__item">Галлерея</li>
+      </ul>
+      <form class="header__select" action="/" method="post">
+        <label class="header__select__label" for="lang">Выберите язык:</label>
+        <select class="select-lang" name="lang" id="lang">
+          <option class="select-lang__item select-lang_ru" value="ru" selected>
+            Русский
+          </option>
+          <option class="select-lang__item select-lang_eng" value="en">
+            English
+          </option>
+        </select>
+      </form>
+    </div>
+  </header>
+  <main class="main">
+    <div class="wrapper main__wrapper">
+      <section class="main__home main-section_hide">
+        <h1 class="main__title">Удачи в игре.</h1>
+        <div class="video-contanier">
+          <video autoplay muted loop controls preload="none" poster="./src/assets/img/jpg/start.jpg"
+            class="video-content">
+            <source src="./src/assets/video/start.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
+      <section class="main__game">
+        <ul class="game__select">
+          <li class="game__select__item active">Разминка</li>
+          <li class="game__select__item">Воробьиные</li>
+          <li class="game__select__item">Лесные птицы</li>
+          <li class="game__select__item">Певчие птицы</li>
+          <li class="game__select__item">Хищные птицы</li>
+          <li class="game__select__item">Морские птицы</li>
         </ul>
-        <form class="header__select" action="/" method="post">
-          <label class="header__select__label" for="lang">Выберите язык:</label>
-          <select class="select-lang" name="lang" id="lang">
-            <option
-              class="select-lang__item select-lang_ru"
-              value="ru"
-              selected
-            >
-              Русский
-            </option>
-            <option class="select-lang__item select-lang_eng" value="en">
-              English
-            </option>
-          </select>
-        </form>
-      </div>
-    </header>
-    <main class="main">
-      <div class="wrapper main__wrapper">
-        <section class="main__home main-section_hide">
-          <h1 class="main__title">Удачи в игре.</h1>
-          <div class="video-contanier">
-            <video
-              autoplay
-              muted
-              loop
-              controls
-              preload="none"
-              poster="./src/assets/img/jpg/start.jpg"
-              class="video-content"
-            >
-              <source src="./src/assets/video/start.mp4" type="video/mp4" />
-            </video>
+        <div class="game__random">
+          <div class="game__random__image"></div>
+          <div class="game__random__description">
+            <h3 class="game__random__name">******</h3>
+            <div class="wraper-time">
+              <div class="time-song time-song_random">0:00</div>
+              <div class="time-long time-long_random">0:00</div>
+            </div>
+
+            <div class="wrapper-play">
+              <div class="play play_random"></div>
+              <input class="range-play range-play_random range_all" type="range" min="0" max="100" value="0" />
+            </div>
+
+            <div class="wrapper-mute">
+              <div class="mute mute_random"></div>
+              <input class="range-volume range-volume_random range_all" type="range" min="0" max="100" value="0" />
+            </div>
           </div>
-        </section>
-        <section class="main__game">
-          <ul class="game__select">
-            <li class="game__select__item active">Разминка</li>
-            <li class="game__select__item">Воробьиные</li>
-            <li class="game__select__item">Лесные птицы</li>
-            <li class="game__select__item">Певчие птицы</li>
-            <li class="game__select__item">Хищные птицы</li>
-            <li class="game__select__item">Морские птицы</li>
+        </div>
+        <div class="game__play__wrapper">
+          <ul class="game__choice">
+            <li class="game__choice__item"><span class="game__choice__item-btn"></span>Ворон</li>
+            <li class="game__choice__item"><span class="game__choice__item-btn"></span>Журавль</li>
+            <li class="game__choice__item"><span class="game__choice__item-btn"></span>Ласточка</li>
+            <li class="game__choice__item"><span class="game__choice__item-btn"></span>Козодой</li>
+            <li class="game__choice__item"><span class="game__choice__item-btn"></span>Кукушка</li>
+            <li class="game__choice__item"><span class="game__choice__item-btn"></span>Синица</li>
           </ul>
-          <div class="game__random">
-            <div class="game__random__image"></div>
-            <div class="game__random__description">
-              <h3 class="game__random__name">******</h3>
+          <div class="game__card">
+            <div class="game__card__bird">
+              <div class="game__random__image game__card__image"></div>
+              <div class="game__card__description">
+                <h3 class="game__card__name">******</h3>
+                <h4 class="game__card__species">******</h4>
+              </div>
+            </div>
+
+            <div class="card-audio__wrapper">
               <div class="wraper-time">
-                <div class="time-song">0:00</div>
-                <div class="time-long">0:00</div>
+                <div class="time-song time-song_card">0:00</div>
+                <div class="time-long time-long_card">0:00</div>
               </div>
 
               <div class="wrapper-play">
-                <div class="play"></div>
-                <input
-                  class="range range_all slider-progress"
-                  type="range"
-                  min="0"
-                  max="100"
-                  value="0"
-                />
+                <div class="play play_card"></div>
+                <input class="range range-play_card range_all" type="range" min="0" max="100" value="0" />
               </div>
 
               <div class="wrapper-mute">
-                <div class="mute"></div>
-                <input
-                  class="range-volume range_all slider-progress"
-                  type="range"
-                  min="0"
-                  max="100"
-                  value="0"
-                />
+                <div class="mute mute_card"></div>
+                <input class="range-volume range-volume_card range_all" type="range" min="0" max="100" value="0" />
               </div>
             </div>
+
+
+
+
+            <div class="description-card">Ворон – крупная птица. Длина тела достигает 70 сантиметров, размах крыльев
+              – до полутора метров. Вороны населяют окрестности Тауэра. В Англии бытует поверье, что в день, когда
+              черные вороны улетят от Тауэра, монархия рухнет.
+            </div>
           </div>
-        </section>
-      </div>
-    </main>
-    <footer class="footer">
-      <div class="wrapper footer__wrapper">
-        <p class="footer__copy-rights">All Rights Reserved 2022 © Syderi</p>
-        <div class="footer__links-wrapper">
-          <a
-            class="footer__link footer__link_git"
-            href="https://github.com/Syderi"
-          >
-          </a>
-          <a
-            class="footer__link footer__link_rs-scool"
-            href="https://rs.school/js/"
-          >
-          </a>
         </div>
+      </section>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="wrapper footer__wrapper">
+      <p class="footer__copy-rights">All Rights Reserved 2022 © Syderi</p>
+      <div class="footer__links-wrapper">
+        <a class="footer__link footer__link_git" href="https://github.com/Syderi">
+        </a>
+        <a class="footer__link footer__link_rs-scool" href="https://rs.school/js/">
+        </a>
       </div>
-    </footer>
-  </body>
+    </div>
+  </footer>
+</body>
+
 </html>
