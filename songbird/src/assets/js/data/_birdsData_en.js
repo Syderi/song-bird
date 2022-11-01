@@ -1,6 +1,5 @@
 const birdsData = [
-  [
-    {
+     {
       id: 1,
       name: 'Raven',
       species: 'Corvus corax',
@@ -58,10 +57,8 @@ const birdsData = [
       audio:
         'https://www.xeno-canto.org/sounds/uploaded/RFGQDPLDEC/XC518417-Kj%C3%B8ttmeis%20XC%20Helg%C3%B8ya%20Elias%20A.%20Ryberg20200108133922_079.mp3',
     },
-  ],
-  [
-    {
-      id: 1,
+     {
+      id: 7,
       name: 'Sparrow',
       species: 'Passer domesticus',
       description:
@@ -70,7 +67,7 @@ const birdsData = [
       audio: 'https://www.xeno-canto.org/sounds/uploaded/CXFHOPIVAS/XC503224-191020_0134.mp3',
     },
     {
-      id: 2,
+      id: 8,
       name: 'Rook',
       species: 'Corvus frugilegus',
       description:
@@ -79,7 +76,7 @@ const birdsData = [
       audio: 'https://www.xeno-canto.org/sounds/uploaded/RLRHCUIPIY/XC512540-gawron%20Suble%2019.12.19%20%2012.35.mp3',
     },
     {
-      id: 3,
+      id: 9,
       name: 'Jackdaw',
       species: 'Coloeus monedula',
       description:
@@ -89,7 +86,7 @@ const birdsData = [
         'https://www.xeno-canto.org/sounds/uploaded/GYAUIPUVNM/XC510498-Coloeus%20monedula_2019.11.13_11.55_01.mp3',
     },
     {
-      id: 4,
+      id: 10,
       name: 'Song Thrush',
       species: 'Turdus philomelos',
       description:
@@ -98,7 +95,7 @@ const birdsData = [
       audio: 'https://www.xeno-canto.org/sounds/uploaded/BLMSIUFTFU/XC513326-190704_1146_TF-Glogow.mp3',
     },
     {
-      id: 5,
+      id: 11,
       name: 'Magpie',
       species: 'Pica pica',
       description:
@@ -107,7 +104,7 @@ const birdsData = [
       audio: 'https://www.xeno-canto.org/sounds/uploaded/GYAUIPUVNM/XC500868-Pica%20pica2019.08.23_09.18_02.mp3',
     },
     {
-      id: 6,
+      id: 12,
       name: 'Jay',
       species: 'Garrulus glandarius',
       description:
@@ -116,10 +113,8 @@ const birdsData = [
       audio:
         'https://www.xeno-canto.org/sounds/uploaded/TFOGOENSTQ/XC501517-191008_1590%201300.%20Eichelh%C3%A4her%20D%2C%20NW%2C%20LEV.%20Stephan%20Risch.mp3 ',
     },
-  ],
-  [
-    {
-      id: 1,
+     {
+      id: 13,
       name: 'Finch',
       species: 'Fringilla coelebs',
       description:
@@ -128,7 +123,7 @@ const birdsData = [
       audio: 'https://www.xeno-canto.org/sounds/uploaded/ZNCDXTUOFL/XC512407-150622_03%20zi%C4%99ba%20%282%29.mp3',
     },
     {
-      id: 2,
+      id: 14,
       name: 'Klest',
       species: 'Loxia curvirostra',
       description:
@@ -137,7 +132,7 @@ const birdsData = [
       audio: 'https://www.xeno-canto.org/sounds/uploaded/OTVUCEGYZN/XC495381-Kruisbek%20roep%20NHD%20290619.mp3',
     },
     {
-      id: 3,
+      id: 15,
       name: 'Dove',
       species: 'Streptopelia turtur',
       description:
@@ -147,17 +142,17 @@ const birdsData = [
         'https://www.xeno-canto.org/sounds/uploaded/ZNCDXTUOFL/XC324106-Turkawka_Streptopelia_turtur_Poland_Jarek_Matusiak_2011625_07.mp3',
     },
     {
-      id: 4,
+      id: 16,
       name: 'Woodpecker',
       species: 'Dendrocopos major',
       description:
         'The woodpecker is a conspicuous and noisy bird that often lives near humans. From mid-January to the end of June, you can hear the "drum roll" of woodpeckers - a trill from the vibration of branches under the quick beats of the bird\'s beak. In good weather, the shot can be heard within a radius of 1.5 km.',
       image: 'https://live.staticflickr.com/65535/49339376578_e933426455.jpg',
       audio:
-        'https://www.xeno-canto.org/sounds/uploaded/ZNCDXTUOFL/XC518928-AB-017%20dzi%C4%99cio%C5%82%20du%C5%BCy%20agresja%20%282%29 .mp3',
+        'https://www.xeno-canto.org/sounds/uploaded/ZNCDXTUOFL/XC518928-AB-017%20dzi%C4%99cio%C5%82%20du%C5%BCy%20agresja%20%282%29.mp3',
     },
     {
-      id: 5,
+      id: 17,
       name: 'Hoopoe',
       species: 'Upupa epops',
       description:
@@ -166,7 +161,7 @@ const birdsData = [
       audio: 'https://www.xeno-canto.org/sounds/uploaded/ZNCDXTUOFL/XC477326-dudek%20%282%29.mp3',
     },
     {
-      id: 6,
+      id: 18,
       name: 'Swift',
       species: 'Apus apus',
       description:
@@ -174,10 +169,8 @@ const birdsData = [
       image: 'https://live.staticflickr.com//65535//48386150031_7b749df74b.jpg',
       audio: 'https://www.xeno-canto.org/sounds/uploaded/TMUAWSDHDJ/XC511871-G.mp3',
     },
-  ],
-  [
-    {
-      id: 1,
+      {
+      id: 19,
       name: 'Lark',
       species: 'Alauda arvensis',
       description:
@@ -187,7 +180,7 @@ const birdsData = [
         'https://www.xeno-canto.org/sounds/uploaded/ZNCDXTUOFL/XC462158-Skowronek_Alauda_arvensis_Poland_Jarek_Matusiak_%20-006%20skowronek%20%282%29.mp3',
     },
     {
-      id: 2,
+      id: 20,
       name: 'Nightingale',
       species: 'Luscinia luscinia',
       description:
@@ -197,7 +190,7 @@ const birdsData = [
         'https://www.xeno-canto.org/sounds/uploaded/HILVWSADVL/XC513809-R07_0052%20Thrush%20Nightingale%20Snipe.mp3',
     },
     {
-      id: 3,
+      id: 21,
       name: 'Starling',
       species: 'Sturnus vulgaris',
       description:
@@ -206,7 +199,7 @@ const birdsData = [
       audio: 'https://www.xeno-canto.org/sounds/uploaded/GYAUIPUVNM/XC515519-2020.01.01_17.24_01.MP3',
     },
     {
-      id: 4,
+      id: 22,
       name: 'Oriole',
       species: 'Oriolus oriolus',
       description:
@@ -215,7 +208,7 @@ const birdsData = [
       audio: 'https://www.xeno-canto.org/sounds/uploaded/GYAUIPUVNM/XC491801-2019.07.07_06.28_01.mp3',
     },
     {
-      id: 5,
+      id: 23,
       name: 'Whistle',
       species: 'Bombycilla garrulus',
       description:
@@ -224,7 +217,7 @@ const birdsData = [
       audio: 'https://www.xeno-canto.org/sounds/uploaded/ZNCDXTUOFL/XC517421-AB-004%20%282%29%20jemio%C5%82uszka.mp3',
     },
     {
-      id: 6,
+      id: 24,
       name: 'Goldfinch',
       species: 'Carduelis carduelis',
       description:
@@ -233,10 +226,8 @@ const birdsData = [
       audio:
         'https://www.xeno-canto.org/sounds/uploaded/VOLIQOYWKG/XC489265-190724_07.58h_putter_biesbosch_%20boompjes%20langs%20open%20water_zang_1ex_ad_niet%20gezien_.mp3',
     },
-  ],
-  [
-    {
-      id: 1,
+     {
+      id: 25,
       name: 'Eagle',
       species: 'Aquila nipalensis',
       description:
@@ -245,7 +236,7 @@ const birdsData = [
       audio: 'https://www.xeno-canto.org/sounds/uploaded/KTBTZAHSXF/10_Aquila_nipalensis_al02D85.mp3',
     },
     {
-      id: 2,
+      id: 26,
       name: 'Kite',
       species: 'Milvus migrans',
       description:
@@ -255,7 +246,7 @@ const birdsData = [
         'https://www.xeno-canto.org/sounds/uploaded/SDPCHKOHRH/XC485740-2019-06-22%20Selenga%20Milan%20brun%20cris%20de%20quemandage%203.mp3',
     },
     {
-      id: 3,
+      id: 27,
       name: 'Lun',
       species: 'Circus cyaneus',
       description:
@@ -264,7 +255,7 @@ const birdsData = [
       audio: 'https://www.xeno-canto.org/sounds/uploaded/BLMSIUFTFU/XC513498-190709_1175_Cir.cyan-f.mp3',
     },
     {
-      id: 4,
+      id: 28,
       name: 'Falcon',
       species: 'Falco peregrinus',
       description:
@@ -273,7 +264,7 @@ const birdsData = [
       audio: 'https://www.xeno-canto.org/sounds/uploaded/MMEJYLOPDO/XC496049-Pilgrimsfalk_06.mp3',
     },
     {
-      id: 5,
+      id: 29,
       name: 'Hawk',
       species: 'Accipiter gentilis',
       description:
@@ -282,7 +273,7 @@ const birdsData = [
       audio: 'https://www.xeno-canto.org/sounds/uploaded/MMEJYLOPDO/XC512740-Duvh%C3%B6k_09.mp3',
     },
     {
-      id: 6,
+      id: 30,
       name: 'Owl',
       species: 'Bubo bubo',
       description:
@@ -290,10 +281,8 @@ const birdsData = [
       image: 'https://live.staticflickr.com/65535/48137123012_393653c2e4.jpg',
       audio: 'https://www.xeno-canto.org/sounds/uploaded/WNLIDKJKXT/XC518386-sense%20t%C3%ADtol.mp3',
     },
-  ],
-  [
-    {
-      id: 1,
+     {
+      id: 31,
       name: 'Albatross',
       species: 'Diomedea exulans',
       description:
@@ -302,7 +291,7 @@ const birdsData = [
       audio: 'https://www.xeno-canto.org/sounds/uploaded/WOEAFQRMUD/XC293087-Diomedea%20exulans151120_T254.mp3',
     },
     {
-      id: 2,
+      id: 32,
       name: 'Gannet',
       species: 'Sula nebouxii',
       description:
@@ -312,7 +301,7 @@ const birdsData = [
         'https://www.xeno-canto.org/sounds/uploaded/YHKQPPJDVP/XC411507-171217_1491%20BF%20Booby%205ft%20IDLP%201230%20mp3%20amp.mp3',
     },
     {
-      id: 3,
+      id: 33,
       name: 'Petrel',
       species: 'Puffinus griseus',
       description:
@@ -322,16 +311,16 @@ const birdsData = [
         'https://www.xeno-canto.org/sounds/uploaded/XQEVNREHJY/SHEARWATER%20Christmas%20Island_04_Motu_Isla%20de%20Pascua-Easter%20Island_CH_4MAR03_Alvaro%20Jaramillo.mp3',
     },
     {
-      id: 4,
+      id: 34,
       name: 'Pelican',
       species: 'Pelecanus',
       description:
         'Pelicans are the inhabitants of the seas and rivers. They walk awkwardly, but fly and swim well. They feed mainly on fish, arrange collective hunts - lined up in a semicircle, they flap their wings and beaks on the water and force out the frightened fish in shallow water.',
-      image: 'https://live.staticflickr.com/65535/49159147156_dcbbb5c12a.jpg',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Brown_Pelican21K.jpg/1920px-Brown_Pelican21K.jpg',
       audio: 'https://www.xeno-canto.org/sounds/uploaded/XAMHIHFTZG/XC331138-call1.mp3',
     },
     {
-      id: 5,
+      id: 35,
       name: 'Penguin',
       species: 'Aptenodytes forsteri',
       description:
@@ -340,7 +329,7 @@ const birdsData = [
       audio: 'https://www.xeno-canto.org/sounds/uploaded/OOECIWCSWV/XC449827-LS100829%20King%20Penguin%20call%20A.mp3',
     },
     {
-      id: 6,
+      id: 36,
       name: 'Seagull',
       species: 'Larus argentatus',
       description:
@@ -349,7 +338,6 @@ const birdsData = [
       audio:
         'https://www.xeno-canto.org/sounds/uploaded/VOLIQOYWKG/XC501190-190801_06.50h_zilvermeeuw_duinen%20van%20goeree_roep_2ex_overvliegend_gezien_.mp3',
     },
-  ],
-];
+ ];
 
 export default birdsData;

@@ -33,7 +33,8 @@
   </header>
   <main class="main">
     <div class="wrapper main__wrapper">
-      <section class="main__home main-section_hide">
+      <!-- <section class="main__home"> -->
+      <section class="main__home">
         <h1 class="main__title">Удачи в игре.</h1>
         <div class="video-contanier">
           <video autoplay muted loop controls preload="none" poster="./src/assets/img/jpg/start.jpg"
@@ -52,7 +53,9 @@
           <li class="game__select__item">Морские птицы</li>
         </ul>
         <div class="game__random">
-          <div class="game__random__image"></div>
+          <div class="game__random__image">
+            <img class="game__random__picture" src="./src/assets/img/jpg/bird_default.jpg" alt="bird">
+          </div>
           <div class="game__random__description">
             <h3 class="game__random__name">******</h3>
             <div class="wraper-time">
@@ -82,45 +85,73 @@
           </ul>
           <div class="game__card">
             <div class="game__card__bird">
-              <div class="game__card__image"></div>
+              <div class="game__card__image">
+                <img src="./src/assets/img/jpg/bird_default.jpg" alt="bird">
+              </div>
               <div class="game__card__description">
-                <h3 class="game__card__name">******</h3>
-                <h4 class="game__card__species">******</h4>
+                <h3 class="game__card__name">Выберите птицу</h3>
+                <h4 class="game__card__species">Прослушайте её голос</h4>
               </div>
             </div>
-
             <div class="card-audio__wrapper">
               <div class="wraper-time">
-                <div class="time-song time-song_card">0:00</div>
-                <div class="time-long time-long_card">0:00</div>
+                <div class="time-song">0:00</div>
+                <div class="time-long">0:00</div>
               </div>
-
               <div class="wrapper-play">
-                <div class="play play_card"></div>
-                <input class="range range-play_card range_all" type="range" min="0" max="100" value="0" />
+                <div class="play"></div>
+                <input class="range_duration range_all"
+                 type="range" min="0" max="100" value="0" />
               </div>
-
               <div class="wrapper-mute">
-                <div class="mute mute_card"></div>
-                <input class="range-volume range-volume_card range_all" type="range" min="0" max="100" value="0" />
+                <div class="mute"></div>
+                <input class="range-volume range_all" type="range" min="0" max="100" value="0" />
               </div>
             </div>
 
-
-
-
-            <div class="description-card">Ворон – крупная птица. Длина тела достигает 70 сантиметров, размах крыльев
-              – до полутора метров. Вороны населяют окрестности Тауэра. В Англии бытует поверье, что в день, когда
-              черные вороны улетят от Тауэра, монархия рухнет.
+            <div class="description-card"> ****************************
             </div>
           </div>
           <div class="game__next">
-            <button class="game__next-button"> 
-Следующий уровень
+            <button class="game__next-button">
+              Следующий уровень
             </button>
             <p class="game__next-score">Количество очков:<span class="game__score__count">0</span></p>
           </div>
         </div>
+      </section>
+      <!--  -->
+      <section class="main__results">
+        RESULTS
+      </section>
+      <!--  -->
+      <section class="main__gallery">
+        <!-- <div class="game__card">
+          <div class="game__card__bird">
+            <div class="game__card__image"></div>
+            <div class="game__card__description">
+              <h3 class="game__card__name">Выберите птицу</h3>
+              <h4 class="game__card__species">Прослушайте её голос</h4>
+            </div>
+          </div>
+          <div class="card-audio__wrapper">
+            <div class="wraper-time">
+              <div class="time-song">0:00</div>
+              <div class="time-long">0:00</div>
+
+            </div>
+            <div class="wrapper-play">
+              <div class="play"></div>
+              <input class="range_all" type="range" min="0" max="100" value="0" />
+            </div>
+            <div class="wrapper-mute">
+              <div class="mute mute_card"></div>
+              <input class="range-volume range_all" type="range" min="0" max="100" value="0" />
+            </div>
+          </div>
+          <div class="description-card"> ****************************
+          </div>
+        </div> -->
       </section>
     </div>
   </main>

@@ -65,9 +65,16 @@
   min-width: 200px;
   min-height: 155px;
   border-radius: 10px;
-  background-image: url(./assets/img/jpg/bird_default.jpg);
+  // background-image: url(./assets/img/jpg/bird_default.jpg);
   background-repeat: no-repeat;
 }
+
+.game__random__picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  }
 
 .game__random__description {
   width: calc(100% - 200px);
@@ -124,7 +131,9 @@
   border-radius: 5px;
   @extend %transition;
   background-image: url(./assets/img/svg/sound.svg);
+  // background-image: url(./assets/img/svg/audiof_mute.svg);
   background-repeat: no-repeat;
+  background-size: cover;
   &:hover {
     background-color: $color-hover;
   }
@@ -247,9 +256,17 @@ margin-bottom: 1rem;
   min-width: 200px;
   min-height: 155px;
   border-radius: 10px;
-  background-image: url(./assets/img/jpg/bird_default.jpg);
+  // background-image: url(./assets/img/jpg/bird_default.jpg);
   background-repeat: no-repeat;
 }
+
+
+.game__card__picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  }
 
 
 .game__card__species {
