@@ -1,18 +1,12 @@
+// import '../audio/Choose_en.mp3'
+// import '../audio/Choose_ru.mp3'
 import birdsData from "../js/data/_birdsData_en"
 
 
 
-// console.log("birdsData", birdsData)
-
-// let audio = new Audio
-// audio.src = birdsData[1].audio
-
-// audio.play()
-
-
 const mainGallery = document.querySelector(".main__gallery")
 
-function createGameCard(array, idinficator) {
+export function createGameCard(array, idinficator) {
 
   let isPlay = false
   let stoptimeupdate = true;
@@ -23,12 +17,6 @@ function createGameCard(array, idinficator) {
   audio.volume = 0.5
 
   let currentAudioVolume = audio.volume * 100
-
-  // audio.addEventListener('loadedmetadata',()=> {
-  //   // timeLong.textContent = (formatTime(Math.floor(audio.duration)));
-  //   console.log(audio.currentTime)
-  // });
-
 
   const gameCard = document.createElement("div");
   gameCard.classList.add("game__card");
@@ -90,7 +78,6 @@ function createGameCard(array, idinficator) {
 
   wraperTime.append(timeLongCard)
 
-
   const wrapperPlay = document.createElement("div");
   wrapperPlay.classList.add("wrapper-play");
 
@@ -121,7 +108,6 @@ function createGameCard(array, idinficator) {
 
   wrapperMute.append(mute)
 
-
   const rangeVolume = document.createElement("input");
   rangeVolume.classList.add("range_volume");
   rangeVolume.classList.add("range_all");
@@ -138,7 +124,6 @@ function createGameCard(array, idinficator) {
 
   gameCard.append(descriptionCard)
 
-
   // Функции проигрывателя
 
   // convert song.currentTime and song.duration into MM:SS format
@@ -151,8 +136,9 @@ function createGameCard(array, idinficator) {
     return `${min}:${sec}`;
   };
 
+ function playAudio() {
 
-  function playAudio() {
+return new Promise(res => {
     if (!isPlay) {
       // audio.currentTime = currentTimeAudio;
       audio.play();
@@ -164,8 +150,9 @@ function createGameCard(array, idinficator) {
       play.classList.remove('play_pause');
       isPlay = !isPlay;
     };
-  };
 
+})
+ };
 
   audio.addEventListener('loadedmetadata', () => {
     timeLongCard.textContent = (formatTime(Math.floor(audio.duration)));
@@ -191,21 +178,6 @@ function createGameCard(array, idinficator) {
     isPlay = false;
   });
 
-
-
-  // audio.addEventListener('timeupdate', () => {
-  //   if (audio.currentTime !== 0) {
-  //     timeSong.textContent = (formatTime(Math.floor(audio.currentTime)));;
-  //     currentTimeAudio = audio.currentTime;
-  //   };
-  //       if (stoptimeupdate) {
-  //           if (audio.currentTime !== 0) {
-  //           range.value = 100 / audio.duration * currentTimeAudio;
-  //           rangeChange();
-  //         };
-  //       }
-  // });
-
   rangeDuration.addEventListener('mouseout', (e) => {
     stoptimeupdate = true;
   });
@@ -219,10 +191,6 @@ function createGameCard(array, idinficator) {
 
   }
 
-  //   rangeVolume.addEventListener('click', (e) => {
-  //     audio.volume = rangeVolume.value;
-  //  });
-
   mute.onclick = function () {
     if (!audio.muted) {
       mute.classList.add('mute_pause');
@@ -233,7 +201,6 @@ function createGameCard(array, idinficator) {
       audio.muted = false;
       rangeVolume.value = currentAudioVolume
     }
-
   }
 
   rangeVolume.addEventListener('change', (e) => {
@@ -248,17 +215,14 @@ function createGameCard(array, idinficator) {
       audio.volume = rangeVolume.value/100; 
       currentAudioVolume = audio.volume*100
     }
-
   });
 
-  play.onclick = function () {
+  play.onclick = async function () {
     // audio.play()
-    playAudio()
-
+    await playAudio()
   }
 
   // Конец функция проигрователя
-
 
   return gameCard
 
@@ -270,17 +234,16 @@ for (let index = 0; index < 36; index++) {
 
 }
 
+// import audiourl from "../audio/Choose_ru.mp3"
 
 
-// mainGallery.onclick(() => {
+// let audio = new Audio
+// audio.src ="../audio/Choose_en.mp3"
 
-// })
-
-// mainGallery.addEventListener("click", (e) => {
-
-//     console.log("55555 ======= ",e.target.closest(".game__card").dataset.galleryCard)
-
-// })
+// audio.play()
 
 
 
+// import img from "../../assets/img/jpg/bird_default.jpg"
+
+// console.log(img)

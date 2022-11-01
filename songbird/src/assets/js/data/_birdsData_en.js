@@ -338,6 +338,16 @@ const birdsData = [
       audio:
         'https://www.xeno-canto.org/sounds/uploaded/VOLIQOYWKG/XC501190-190801_06.50h_zilvermeeuw_duinen%20van%20goeree_roep_2ex_overvliegend_gezien_.mp3',
     },
+    {
+      id: 100,
+      name: 'Choose a bird',
+      species: 'Hear her voice',
+      description:
+        '*-*-*-*-*-*-*-*',
+      image: '../img/bird_default.jpg',
+      audio:
+        '../audio/Choose_en.mp3',
+    },
  ];
 
 export default birdsData;
