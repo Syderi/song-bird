@@ -1,26 +1,14 @@
-
 import birdsDataEN from "./data/_birdsData_en"
 import birdsDataRU from "./data/_birdsData_ru"
 import {createGameCard} from "./_create_gallery"
 import {createRandomCard} from "./_create_random_card"
 
 
-
-// const mainGame = document.querySelector(".main__game")
-// mainGame.append(createRandomCard(birdsDataRU, 12, false))
-
-
-
-
 // Создал карточку рандомную
 const mainGame = document.querySelector(".main__game")
-const gameCardRandom = createRandomCard(birdsDataRU, 13, true)
+const gameCardRandom = createRandomCard(birdsDataRU, 37, false)
 mainGame.insertBefore(gameCardRandom, mainGame.children[1])
-// const gamePlayWrapper = document.querySelector(".game__play__wrapper")
-// const gameCardgame = createGameCard(birdsDataRU,37)
-// gamePlayWrapper.insertBefore(gameCardgame, gamePlayWrapper.children[1])
 // Конец создания карточеки рандомной
-
 
 // Создал карточку просмотра ответов
 const gamePlayWrapper = document.querySelector(".game__play__wrapper")
@@ -28,6 +16,51 @@ const gameCardgame = createGameCard(birdsDataRU,37)
 gamePlayWrapper.insertBefore(gameCardgame, gamePlayWrapper.children[1])
 // Конец создания карточек просмотра ответа
 
+// Начало Основные константы
+let gameScore = 0;
+let countLoop = 0;
+let mainArray = birdsDataRU.slice()
+console.log("mainArray",mainArray)
+// Конец Основные константы
+
+// Начало функция возврата части главного массива
+function getloopArray(currentLoop) {
+return mainArray.slice(currentLoop*6,((currentLoop*6)+6))
+}
+// Конец функция возврата части главного массива
+
+// Взял часть массива
+let loopArray = getloopArray(countLoop)
+console.log("loopArray",loopArray)
+// Конец взятия части массива
+
+let randomLoopValue = getRandomNum(0, 6)
+console.log("randomLoopValue",randomLoopValue)
+
+// Начало Функция случайного числа
+function getRandomNum(min, max) {
+   return Math.floor(Math.random() * (max - min)) + min;
+};
+// Конец Функция случайного числа
+
+// console.log(loopArray[randomLoopValue]);
+
+function createGameWthisRandom(array = loopArray, randomValue = randomLoopValue) {
+   console.log(array[randomValue]);
+   let id = array[randomValue].id
+   console.log(id);
+
+
+   // const mainGame = document.querySelector(".main__game")
+   // const gameCardRandom = createRandomCard(birdsDataRU, 37, false)
+   // mainGame.insertBefore(gameCardRandom, mainGame.children[1])
+
+
+   mainGame.children[1].replaceWith(createRandomCard(mainArray, id, false))
+   gamePlayWrapper.children[1].replaceWith(createGameCard(mainArray,37))
+}
+
+createGameWthisRandom()
 
 // setTimeout(() => {
 //     gamePlayWrapper.children[1].remove()
@@ -48,41 +81,17 @@ gamePlayWrapper.insertBefore(gameCardgame, gamePlayWrapper.children[1])
 // gameCardgame.replaceWith(createGameCard(birdsDataRU,35))
 
 // Начало основной фунции игры
-function maneGame(arrayData) {
-
-    const gameNextButton = document.querySelector(".game__next-button")
-    let gameArray = arrayData.slice()
-    // console.log("gameArray",gameArray)
-    let mainLoop = 0;
-    // console.log(mainLoop < 6)
 
 
-    // for (let mainLoop = 0; mainLoop < 6; ) {
-
-            console.log("mainLoop",mainLoop)
+// function maneGame(arrayData) {
 
 
-            // gameNextButton.setAttribute("disabled", true)
-            // gameNextButton.setAttribute("disabled", true)
+// }
 
-    // gameNextButton.addEventListener("click", (e) => {
-    //     console.log("ameNextButton",e)
-    //     console.log("ameNextButton",gameNextButton.hasAttribute("disabled"))
-    //         mainLoop++
-    //         gameNextButton.setAttribute("disabled", true)
-    // })
-
-    // }
-
-
-    
+// maneGame(birdsDataRU)
 
 
 
-
-}
-
-maneGame(birdsDataRU)
 // Конец основной фунции игры
 
 
@@ -100,10 +109,3 @@ function shuffle(array) {
  }
  // Конец Функция перемешивания массива
 
-// Начало Функция случайного числа
-
- function getRandomNum(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
- };
-
- // Конец Функция случайного числа
