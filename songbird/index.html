@@ -33,7 +33,6 @@
   </header>
   <main class="main">
     <div class="wrapper main__wrapper">
-      <!-- <section class="main__home"> -->
       <section class="main__home">
         <h1 class="main__title">Удачи в игре.</h1>
         <div class="video-contanier">
@@ -43,7 +42,7 @@
           </video>
         </div>
       </section>
-      <section class="main__game">
+      <section class="main__game main-section_hide">
         <ul class="game__select">
           <li class="game__select__item active">Разминка</li>
           <li class="game__select__item">Воробьиные</li>
@@ -62,12 +61,10 @@
               <div class="time-song time-song_random">0:00</div>
               <div class="time-long time-long_random">0:00</div>
             </div>
-
             <div class="wrapper-play">
               <div class="play play_random"></div>
               <input class="range-play range-play_random range_all" type="range" min="0" max="100" value="0" />
             </div>
-
             <div class="wrapper-mute">
               <div class="mute mute_random"></div>
               <input class="range-volume range-volume_random range_all" type="range" min="0" max="100" value="0" />
@@ -114,44 +111,17 @@
           </div> -->
           <div class="game__next">
             <button class="game__next-button">
+            <!-- <button class="game__next-button" disabled> -->
               Следующий уровень
             </button>
             <p class="game__next-score">Количество очков:<span class="game__score__count">0</span></p>
           </div>
         </div>
       </section>
-      <!--  -->
-      <section class="main__results">
+      <section class="main__results main-section_hide">
         RESULTS
       </section>
-      <!--  -->
-      <section class="main__gallery">
-        <!-- <div class="game__card">
-          <div class="game__card__bird">
-            <div class="game__card__image"></div>
-            <div class="game__card__description">
-              <h3 class="game__card__name">Выберите птицу</h3>
-              <h4 class="game__card__species">Прослушайте её голос</h4>
-            </div>
-          </div>
-          <div class="card-audio__wrapper">
-            <div class="wraper-time">
-              <div class="time-song">0:00</div>
-              <div class="time-long">0:00</div>
-
-            </div>
-            <div class="wrapper-play">
-              <div class="play"></div>
-              <input class="range_all" type="range" min="0" max="100" value="0" />
-            </div>
-            <div class="wrapper-mute">
-              <div class="mute mute_card"></div>
-              <input class="range-volume range_all" type="range" min="0" max="100" value="0" />
-            </div>
-          </div>
-          <div class="description-card"> ****************************
-          </div>
-        </div> -->
+      <section class="main__gallery main-section_hide">
       </section>
     </div>
   </main>

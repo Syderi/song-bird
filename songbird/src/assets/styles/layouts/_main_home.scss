@@ -3,10 +3,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @extend %transition_main;
   // position: absolute;
   // opacity: 0;
   // transform: rotateY(360deg) scale(0);
-  @extend %transition;
 }
 
 .main__title{

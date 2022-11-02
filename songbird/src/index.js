@@ -7,14 +7,14 @@ import "./assets/js/_addFavicon";
 import "./assets/js/_preload";
 import "./assets/js/_create_gallery";
 import "./assets/js/_game";
+import "./assets/js/_choice_page";
 
 
-// console.log(galleryCard)
 
 const langSelect = document.getElementById("lang")
-console.log(langSelect)
+// console.log(langSelect)
 
 
 langSelect.addEventListener("change", () => {
-console.log(langSelect.value)
+// console.log(langSelect.value)
 })

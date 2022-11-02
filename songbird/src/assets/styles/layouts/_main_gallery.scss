@@ -6,7 +6,7 @@
   // flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  @extend %transition;
+  @extend %transition_main;
 
   @include desktop {
     width: 87%;

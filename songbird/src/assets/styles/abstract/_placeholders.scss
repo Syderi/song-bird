@@ -3,19 +3,10 @@
 }
 
 %transition {
-    transition: all 1s ease-out;
+    transition: all 0.5s ease-out;
 }
 
 
-// %custom-scroll {
-//     &::-webkit-scrollbar {
-//       width: 5px;
-//     }
-//     &::-webkit-scrollbar-track {
-//       box-shadow: inset 0 0 1px grey;
-//     }
-//     &::-webkit-scrollbar-thumb {
-//       background: $color-violet;
-//       border-radius: 10px;
-//     }
-//   }
+%transition_main {
+    transition: all 1.5s linear;
+}

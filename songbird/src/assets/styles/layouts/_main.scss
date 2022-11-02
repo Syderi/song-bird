@@ -15,7 +15,7 @@
 }
 
 .main-section_hide {
-  // display: none;
+  @extend %transition_main;
   position: absolute;
   opacity: 0;
   transform: rotateY(360deg) scale(0);

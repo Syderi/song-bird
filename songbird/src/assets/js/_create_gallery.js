@@ -1,8 +1,4 @@
-// import '../audio/Choose_en.mp3'
-// import '../audio/Choose_ru.mp3'
 import birdsData from "../js/data/_birdsData_en"
-
-
 
 const mainGallery = document.querySelector(".main__gallery")
 
@@ -206,7 +202,7 @@ return new Promise(res => {
   rangeVolume.addEventListener('change', (e) => {
     if (e.target.value === "0") {
       mute.classList.add('mute_pause');
-      console.log (e)
+      // console.log (e)
          audio.muted = true;
     audio.volume = 0; 
     } else {

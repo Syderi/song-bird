@@ -1,0 +1,7 @@
+.main__results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @extend %transition_main;
+}

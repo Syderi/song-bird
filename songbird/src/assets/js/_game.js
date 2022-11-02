@@ -3,7 +3,7 @@ import birdsData from "./data/_birdsData_en"
 import {createGameCard} from "./_create_gallery"
 
 
-console.log(createGameCard)
+// console.log(createGameCard)
 
 const gamePlayWrapper = document.querySelector(".game__play__wrapper")
 
