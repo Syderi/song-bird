@@ -1,77 +1,65 @@
-import birdsDataEN from "../js/data/_birdsData_en"
-import birdsDataRU from "../js/data/_birdsData_ru"
+import birdsDataEN from "./data/_birdsData_en"
+import birdsDataRU from "./data/_birdsData_ru"
 import '../audio/Choose_en.mp3'
 import '../audio/Choose_ru.mp3'
+import bird_default from '../img/jpg/bird_default.jpg'
 
-const mainGallery = document.querySelector(".main__gallery")
-
-export function createGameCard(array, idinficator, ) {
+export function createRandomCard(array, idinficator, visible = false) {
 
   let isPlay = false
   let stoptimeupdate = true;
   const index = idinficator - 1;
-
-  // const audio = new Audio
-  // audio.src = array[index].audio
-  // audio.volume = 0.5
   
-  const gameCard = document.createElement("div");
-  gameCard.classList.add("game__card");
-  gameCard.dataset.galleryCard = array[index].id;
+  const randomCard = document.createElement("div");
+  randomCard.classList.add("game__random");
+  randomCard.dataset.randomCard = array[index].id;
   
   const audio = document.createElement("audio");
   audio.controls = false;
   audio.src = array[index].audio
   audio.volume = 0.5
-  // console.log(newAudio.src)
-  
-    let currentAudioVolume = audio.volume * 100
+  let currentAudioVolume = audio.volume * 100
 
-  gameCard.append(audio)
+  randomCard.append(audio)
 
-  const gameCardBird = document.createElement("div");
-  gameCardBird.classList.add("game__card__bird");
+  const gameRandomImage = document.createElement("div");
+  gameRandomImage.classList.add("game__random__image");
 
-  gameCard.append(gameCardBird)
+  randomCard.append(gameRandomImage)
 
-  const gameCardImage = document.createElement("div");
-  gameCardImage.classList.add("game__card__image");
+  const gameRandomPicture = document.createElement("img");
+  gameRandomPicture.classList.add("game__random__picture");
 
-  gameCardBird.append(gameCardImage)
+  if (visible) {
+    gameRandomPicture.src = array[index].image
+  } else {
+    gameRandomPicture.src = bird_default
+  }
 
-  const gameCardPicture = document.createElement("img");
-  gameCardPicture.classList.add("game__card__picture");
-  gameCardPicture.src = array[index].image
-  gameCardPicture.alt = "bird"
+  gameRandomPicture.alt = "bird"
 
-  gameCardImage.append(gameCardPicture)
+  gameRandomImage.append(gameRandomPicture)
 
-  const gameСardDescription = document.createElement("div");
-  gameСardDescription.classList.add("game__card__description");
+  const gameRandomDescription = document.createElement("div");
+  gameRandomDescription.classList.add("game__random__description");
 
-  gameCardBird.append(gameСardDescription)
+  randomCard.append(gameRandomDescription)
 
-  const gameСardName = document.createElement("h3");
-  gameСardName.classList.add("game__card__name");
-  gameСardName.textContent = array[index].name
+  const gameRandomName = document.createElement("h3");
+  gameRandomName.classList.add("game__random__name");
 
-  gameСardDescription.append(gameСardName)
+  if (visible) {
+    gameRandomName.textContent = array[index].name
+  } else {
+    gameRandomName.textContent = "*-*-*-*-*-*-*"
+  }
 
-  const gameCardSpecies = document.createElement("h4");
-  gameCardSpecies.classList.add("game__card__species");
-  gameCardSpecies.textContent = array[index].species;
-
-  gameСardDescription.append(gameCardSpecies)
-
-  const cardAudioWrapper = document.createElement("div");
-  cardAudioWrapper.classList.add("card-audio__wrapper");
-
-  gameCard.append(cardAudioWrapper)
+  gameRandomDescription.append(gameRandomName)
 
   const wraperTime = document.createElement("div");
   wraperTime.classList.add("wraper-time");
 
-  cardAudioWrapper.append(wraperTime)
+  gameRandomDescription.append(wraperTime)
 
   const timeSongCard = document.createElement("div");
   timeSongCard.classList.add("time-song");
@@ -88,7 +76,7 @@ export function createGameCard(array, idinficator, ) {
   const wrapperPlay = document.createElement("div");
   wrapperPlay.classList.add("wrapper-play");
 
-  cardAudioWrapper.append(wrapperPlay)
+  gameRandomDescription.append(wrapperPlay)
 
   const play = document.createElement("div");
   play.classList.add("play");
@@ -108,7 +96,7 @@ export function createGameCard(array, idinficator, ) {
   const wrapperMute = document.createElement("div");
   wrapperMute.classList.add("wrapper-mute");
 
-  cardAudioWrapper.append(wrapperMute)
+  gameRandomDescription.append(wrapperMute)
 
   const mute = document.createElement("div");
   mute.classList.add("mute");
@@ -124,12 +112,6 @@ export function createGameCard(array, idinficator, ) {
   rangeVolume.value = "50";
 
   wrapperMute.append(rangeVolume)
-
-  const descriptionCard = document.createElement("div");
-  descriptionCard.classList.add("description-card");
-  descriptionCard.textContent = array[index].description;
-
-  gameCard.append(descriptionCard)
 
   // Функции проигрывателя
 
@@ -231,26 +213,9 @@ return new Promise(res => {
 
   // Конец функция проигрователя
 
-  return gameCard
+  return randomCard
 
 }
 
-// createGameCard(birdsData, 22)
-for (let index = 0; index < 36; index++) {
-  mainGallery.append(createGameCard(birdsDataRU, index + 1))
-
-}
-
-// import audiourl from "../audio/Choose_ru.mp3"
 
 
-// let audio = new Audio
-// audio.src ="../audio/Choose_en.mp3"
-
-// audio.play()
-
-
-
-// import img from "../../assets/img/jpg/bird_default.jpg"
-
-// console.log(img)

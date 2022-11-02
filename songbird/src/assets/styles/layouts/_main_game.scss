@@ -330,7 +330,7 @@
     @extend %transition;
     cursor: auto;
     border: 1px solid $color-button-border-disabled;
-    background-color: $color-button-background-disabled;
+    background-color: $color-line;
     color: $color-button-color-disabled;
   }
 }
