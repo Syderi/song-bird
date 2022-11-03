@@ -3,29 +3,24 @@ import birdsDataRU from "../js/data/_birdsData_ru"
 import '../audio/Choose_en.mp3'
 import '../audio/Choose_ru.mp3'
 
-const mainGallery = document.querySelector(".main__gallery")
+import { getIndexlanguage } from "./_language"
 
-export function createGameCard(array, idinficator, ) {
+export function createGameCard(array, idinficator,) {
 
   let isPlay = false
   let stoptimeupdate = true;
   const index = idinficator - 1;
 
-  // const audio = new Audio
-  // audio.src = array[index].audio
-  // audio.volume = 0.5
-  
   const gameCard = document.createElement("div");
   gameCard.classList.add("game__card");
   gameCard.dataset.galleryCard = array[index].id;
-  
+
   const audio = document.createElement("audio");
   audio.controls = false;
   audio.src = array[index].audio
   audio.volume = 0.5
-  // console.log(newAudio.src)
-  
-    let currentAudioVolume = audio.volume * 100
+
+  let currentAudioVolume = audio.volume * 100
 
   gameCard.append(audio)
 
@@ -143,23 +138,23 @@ export function createGameCard(array, idinficator, ) {
     return `${min}:${sec}`;
   };
 
- function playAudio() {
+  function playAudio() {
 
-return new Promise(res => {
-    if (!isPlay) {
-      // audio.currentTime = currentTimeAudio;
-      audio.play();
-      play.classList.add('play_pause');
-      isPlay = !isPlay;
-      // currentTimeAudio = audio.currentTime;
-    } else {
-      audio.pause();
-      play.classList.remove('play_pause');
-      isPlay = !isPlay;
-    };
+    return new Promise(res => {
+      if (!isPlay) {
+        // audio.currentTime = currentTimeAudio;
+        audio.play();
+        play.classList.add('play_pause');
+        isPlay = !isPlay;
+        // currentTimeAudio = audio.currentTime;
+      } else {
+        audio.pause();
+        play.classList.remove('play_pause');
+        isPlay = !isPlay;
+      };
 
-})
- };
+    })
+  };
 
   audio.addEventListener('loadedmetadata', () => {
     timeLongCard.textContent = (formatTime(Math.floor(audio.duration)));
@@ -213,14 +208,13 @@ return new Promise(res => {
   rangeVolume.addEventListener('change', (e) => {
     if (e.target.value === "0") {
       mute.classList.add('mute_pause');
-      // console.log (e)
-         audio.muted = true;
-    audio.volume = 0; 
+      audio.muted = true;
+      audio.volume = 0;
     } else {
       mute.classList.remove('mute_pause');
       audio.muted = false;
-      audio.volume = rangeVolume.value/100; 
-      currentAudioVolume = audio.volume*100
+      audio.volume = rangeVolume.value / 100;
+      currentAudioVolume = audio.volume * 100
     }
   });
 
@@ -235,22 +229,17 @@ return new Promise(res => {
 
 }
 
-// createGameCard(birdsData, 22)
-for (let index = 0; index < 36; index++) {
-  mainGallery.append(createGameCard(birdsDataRU, index + 1))
+export function createGallery() {
+  console.log("getIndexlanguageSelectLocalStorage", getIndexlanguage())
 
+  let languageArray = [birdsDataRU, birdsDataEN]
+  let curentArray = languageArray[getIndexlanguage()]
+  // console.log("languageArray",languageArray[getIndexlanguage()])
+  const mainGallery = document.querySelector(".main__gallery")
+  mainGallery.innerHTML = ""
+  for (let index = 0; index < 36; index++) {
+    mainGallery.append(createGameCard(curentArray, index + 1))
+  }
 }
 
-// import audiourl from "../audio/Choose_ru.mp3"
-
-
-// let audio = new Audio
-// audio.src ="../audio/Choose_en.mp3"
-
-// audio.play()
-
-
-
-// import img from "../../assets/img/jpg/bird_default.jpg"
-
-// console.log(img)
+createGallery()

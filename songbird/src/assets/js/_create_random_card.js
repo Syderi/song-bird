@@ -195,7 +195,6 @@ return new Promise(res => {
   rangeVolume.addEventListener('change', (e) => {
     if (e.target.value === "0") {
       mute.classList.add('mute_pause');
-      // console.log (e)
          audio.muted = true;
     audio.volume = 0; 
     } else {
@@ -207,7 +206,6 @@ return new Promise(res => {
   });
 
   play.onclick = async function () {
-    // audio.play()
     await playAudio()
   }
 

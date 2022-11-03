@@ -5,7 +5,39 @@ import { createRandomCard } from "./_create_random_card";
 import { addTagsClickHandler } from "./_choice_page"
 import correctAnswer from "../audio/pravilnyiy-otvet.mp3";
 import wrongAnswer from "../audio/nepravilnyiy-otvet.mp3";
+import { getIndexlanguage } from "./_language"
 
+export function createMainGame() {
+   
+const mainGame = document.querySelector(".main__game");
+
+mainGame.innerHTML = `<ul class="game__select">
+<li class="game__select__item active">Разминка</li>
+<li class="game__select__item">Воробьиные</li>
+<li class="game__select__item">Лесные птицы</li>
+<li class="game__select__item">Певчие птицы</li>
+<li class="game__select__item">Хищные птицы</li>
+<li class="game__select__item">Морские птицы</li>
+</ul>
+<div class="game__play__wrapper">
+<ul class="game__choice">
+  <li class="game__choice__item"><span class="game__choice__item-btn"></span>Ворон!!!</li>
+  <li class="game__choice__item"><span class="game__choice__item-btn"></span>Журавль!!!</li>
+  <li class="game__choice__item"><span class="game__choice__item-btn"></span>Ласточка!!!</li>
+  <li class="game__choice__item"><span class="game__choice__item-btn"></span>Козодой!!!</li>
+  <li class="game__choice__item"><span class="game__choice__item-btn"></span>Кукушка!!!</li>
+  <li class="game__choice__item"><span class="game__choice__item-btn"></span>Синица!!!</li>
+</ul>
+<div class="game__next">
+  <button class="game__next-button" disabled>
+    Следующий уровень
+  </button>
+  <p class="game__next-score">Количество очков:<span class="game__score__count">0</span></p>
+</div>
+</div>`
+
+let languageArray = [birdsDataRU, birdsDataEN]
+let curentArray = languageArray[getIndexlanguage()]
 
 // addTagsClickHandler()
 
@@ -27,22 +59,18 @@ const resultMessage = document.querySelector(".result__message");
 const navItemGame = document.querySelector(".nav__item_game");
 const resultDescriptionScore = document.querySelector(".result_description_score");
 
-
-
-
 let gameScore = 0;
 let countLoop = 0;
 let keyBlockChoiseColor = false;
 let numberOfAttempts = 5;
 
-let mainArray = birdsDataRU.slice(); // Создал копию массива от базы. ссылки объекты
+let mainArray = curentArray.slice(); // Создал копию массива от базы. ссылки объекты
 let loopArray = getloopArray(countLoop); // Взял часть массива
 let randomLoopValue = getRandomNum(0, 6); // Правильный ответ 0-5
 resultDescriptionScore.textContent = gameScore;
-console.log("ПЕРвЫЙ РАНДОМ ОТВЕТ randomLoopValue", randomLoopValue);
 
 // Создал карточку рандомную
-const mainGame = document.querySelector(".main__game");
+// const mainGame = document.querySelector(".main__game");
 const gameCardRandom = createRandomCard(mainArray, 37, false);
 mainGame.insertBefore(gameCardRandom, mainGame.children[1]);
 // Конец создания карточеки рандомной
@@ -204,23 +232,6 @@ resultNewGameButton.addEventListener("click", () => {
 });
 // Конец  слушатель на Баттоне рандом
 
+}
 
-// Начало основной фунции игры
-
-// function maneGame(arrayData) {
-
-// }
-
-// maneGame(birdsDataRU)
-
-// Конец основной фунции игры
-
-// // Начало Функция перемешивания массива
-// function shuffle(array) {
-//     for (let i = array.length - 1; i > 0; i--) {
-//        const j = Math.floor(Math.random() * (i + 1));
-//        [array[i], array[j]] = [array[j], array[i]];
-//     }
-//     return array;
-//  }
-//  // Конец Функция перемешивания массива
+createMainGame()
