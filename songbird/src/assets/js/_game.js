@@ -32,7 +32,9 @@ mainGame.innerHTML = `<ul class="game__select">
   <button class="game__next-button" disabled>
     Следующий уровень
   </button>
-  <p class="game__next-score">Количество очков:<span class="game__score__count">0</span></p>
+  <p class="game__next-score">
+  <span class="score">Количество очков:</span><span class="game__score__count">0</span>
+</p>
 </div>
 </div>`
 
@@ -207,9 +209,12 @@ gameNextButton.addEventListener("click", () => {
       navItemResult.click()
       if (gameScore !== 36) {
          resultNewGameButton.disabled = false
-         resultMessage.textContent = "Поздарвляем. Игра окончена"
+         if (getIndexlanguage()) {
+            resultMessage.textContent = "Congratulations. The game is over."
+         } else {
+            resultMessage.textContent = "Поздрaвляем. Игра окончена."
+         }
       }
-      // resultMessage.textContent = "Проверка"
    }
 
    keyBlockChoiseColor = false;

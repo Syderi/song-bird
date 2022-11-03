@@ -13,10 +13,10 @@
     <div class="wrapper header__wrapper">
       <div class="header__logo"></div>
       <ul class="header__nav">
-        <li class="nav__item active">Дом</li>
+        <li class="nav__item nav__item_home active">Дом</li>
         <li class="nav__item nav__item_game">Игра</li>
         <li class="nav__item nav__item_result">Результаты</li>
-        <li class="nav__item">Галлерея</li>
+        <li class="nav__item nav__item_gallery">Галлерея</li>
       </ul>
       <form class="header__select" action="/" method="post">
         <label class="header__select__label" for="lang">Выберите язык:</label>
@@ -64,7 +64,9 @@
             <button class="game__next-button" disabled>
               Следующий уровень
             </button>
-            <p class="game__next-score">Количество очков:<span class="game__score__count">0</span></p>
+            <p class="game__next-score">
+              <span class="score">Количество очков:</span><span class="game__score__count">0</span>
+            </p>
           </div>
         </div>
       </section>
