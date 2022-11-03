@@ -14,8 +14,8 @@
       <div class="header__logo"></div>
       <ul class="header__nav">
         <li class="nav__item active">Дом</li>
-        <li class="nav__item">Игра</li>
-        <li class="nav__item">Результаты</li>
+        <li class="nav__item nav__item_game">Игра</li>
+        <li class="nav__item nav__item_result">Результаты</li>
         <li class="nav__item">Галлерея</li>
       </ul>
       <form class="header__select" action="/" method="post">
@@ -69,7 +69,17 @@
         </div>
       </section>
       <section class="main__results main-section_hide">
-        RESULTS
+        <p class="result__message">
+          Ваш прогресс
+        </p>
+        <p class="result__description">
+          <span class="result_description_text">Из 36 возможных баллов вы набрали:</span>&nbsp<span class="result_description_score">0</span>
+        </p>
+
+        <!-- <button class="result__new-game"> -->
+        <button class="result__new-game-button" disabled>
+          Играть снова!
+        </button>
       </section>
       <section class="main__gallery main-section_hide">
       </section>

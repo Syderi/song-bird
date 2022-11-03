@@ -1,6 +1,6 @@
 // import birdsData from "./data/_birdsData_en"
 
-const addTagsClickHandler = () => {
+export const addTagsClickHandler = () => {
     const headerNav = document.querySelector('.header__nav');
     const mainWrapper = document.querySelector(".main__wrapper")
     const mainWrapperChildern = Array.from(mainWrapper.children);

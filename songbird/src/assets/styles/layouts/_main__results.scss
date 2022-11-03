@@ -1,7 +1,86 @@
 .main__results {
+  width: 80%;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+  // flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  // border: 
+  background-color: $color-body-background;
+  border: 3px solid $color-line;
+  border-radius: 1rem;
+  padding: 5%;
   @extend %transition_main;
+
+  @include desktop {
+    width: 87%;
+  }
+
+  @include tablet {
+
+    width: 93%;
+  } 
+  @include mobile {
+    width: 98%;
+  }  
 }
+
+
+.result__message{
+  @include font($size: 2.4rem, $height: 140%, $weight: 600, $style: italic);
+  margin-bottom: 2rem;
+  @include desktop {
+    @include font($size: 2.2rem, $height: 130%, $weight: 500);
+  }
+  @include tablet {
+    @include font($size: 2.0rem, $height: 120%, $weight: 400);
+  }
+  @include mobile {
+    @include font($size: 1.8rem, $height: 120%, $weight: 300);
+  }
+}
+
+.result__new-game-button {
+  padding: 1rem;
+  cursor: pointer;
+  color: $color-body-text;
+  border: none;
+  width: 80%;
+  border-radius: 0.5rem;
+  background-color: $color-button;
+  @include font($size: 2.4rem, $height: 120%, $weight: 400, $style: italic);
+  @extend %transition;
+
+  @include desktop {
+    @include font($size: 2rem, $height: 130%, $weight: 400);
+    width: 70%;
+  }
+  @include tablet {
+    @include font($size: 1.8rem, $height: 120%, $weight: 300);
+    width: 60%;
+  }
+  @include mobile {
+    width: 50%;
+    @include font($size: 1.6rem, $height: 120%, $weight: 200);
+  }
+
+  &:hover {
+    background-color: $color-hover;
+    color: $color-BLACK;
+  }
+  &:active {
+    color: $color-BLACK;
+    background-color: $color-active;
+  }
+
+  &:disabled,
+  &[disabled] {
+    @extend %transition;
+    cursor: auto;
+    border: 1px solid $color-button-border-disabled;
+    background-color: $color-line;
+    color: $color-button-color-disabled;
+  }
+}
+
