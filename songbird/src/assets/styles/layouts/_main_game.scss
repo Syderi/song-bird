@@ -217,7 +217,15 @@
   height: 1rem;
   border-radius: 0.5rem;
   background-color: $color-line;
+  // background-color: red;
   margin-right: 1.5rem;
+  &_red {
+    background-color:$color-RED;
+  }
+
+  &_green {
+    background-color:green;
+  }
 }
 
 .game__card {
