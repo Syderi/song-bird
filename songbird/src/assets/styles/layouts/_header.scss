@@ -7,12 +7,15 @@
   gap: 1rem;
   padding-bottom: 3rem;
   @include desktop {
+    padding-bottom: 2rem;
     gap: 0.8rem;
   }
   @include tablet {
+    padding-bottom: 1rem;
     gap: 0.5rem;
   }
   @include mobile {
+    padding-bottom: 0.5rem;
     gap: 0.2rem;
   }
 }
@@ -23,6 +26,18 @@
   background-image: url("./assets/img/svg/logo-song-bird.svg");
   background-size: contain;
   background-repeat: no-repeat;
+  @include desktop {
+    width: 180px;
+    height: 50px;
+  }
+  @include tablet {
+    width: 120px;
+    height: 45px;
+  }
+  @include mobile {
+    width: 80px;
+    height: 30px;
+  }
 }
 
 .header__nav {
