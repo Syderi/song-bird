@@ -4,8 +4,12 @@ import '../audio/Choose_en.mp3'
 import '../audio/Choose_ru.mp3'
 
 import { getIndexlanguage } from "./_language"
+let i =0
+export function createGameCard(array, idinficator = 37,) {
 
-export function createGameCard(array, idinficator,) {
+  // console.log("i",array,idinficator)
+
+  i++
 
   let isPlay = false
   let stoptimeupdate = true;
@@ -230,7 +234,7 @@ export function createGameCard(array, idinficator,) {
 }
 
 export function createGallery() {
-  console.log("getIndexlanguageSelectLocalStorage", getIndexlanguage())
+  // console.log("getIndexlanguageSelectLocalStorage", getIndexlanguage())
 
   let languageArray = [birdsDataRU, birdsDataEN]
   let curentArray = languageArray[getIndexlanguage()]
@@ -242,4 +246,4 @@ export function createGallery() {
   }
 }
 
-createGallery()
+// createGallery()

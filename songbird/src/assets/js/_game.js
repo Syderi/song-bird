@@ -6,6 +6,7 @@ import { addTagsClickHandler } from "./_choice_page"
 import correctAnswer from "../audio/pravilnyiy-otvet.mp3";
 import wrongAnswer from "../audio/nepravilnyiy-otvet.mp3";
 import { getIndexlanguage } from "./_language"
+import bird_default from '../img/jpg/bird_default.jpg'
 
 export function createMainGame() {
    
@@ -207,12 +208,13 @@ gameNextButton.addEventListener("click", () => {
       gameScore = 0
       gameScoreCount.textContent = gameScore
       navItemResult.click()
-      if (gameScore !== 36) {
+      if (gameScore === 36) {
          resultNewGameButton.disabled = false
          if (getIndexlanguage()) {
-            resultMessage.textContent = "Congratulations. The game is over."
-         } else {
             resultMessage.textContent = "Поздрaвляем. Игра окончена."
+
+         } else {
+            resultMessage.textContent = "Congratulations. The game is over."
          }
       }
    }
@@ -239,4 +241,4 @@ resultNewGameButton.addEventListener("click", () => {
 
 }
 
-createMainGame()
+// createMainGame()

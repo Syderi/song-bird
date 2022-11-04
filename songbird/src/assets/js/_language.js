@@ -1,3 +1,4 @@
+
 import { createGallery } from "./_create_gallery"
 import { createMainGame } from "./_game"
 import {
@@ -14,15 +15,20 @@ const languageSelect = document.getElementById("lang")
 // console.log("langSelect", languageSelect.value)
 
 if (localStorage.getItem("languageSelectLocalStorage")) {
-  console.log("Данные присутствуют")
+  // console.log("Данные присутствуют")
   languageSelect.value = localStorage.getItem("languageSelectLocalStorage")
 } else {
-  console.log("Данные отсутсвтуют")
+  // console.log("Данные отсутсвтуют")
   localStorage.setItem("languageSelectLocalStorage", languageSelect.value)
 }
 
 languageSelect.addEventListener("change", () => {
   localStorage.setItem("languageSelectLocalStorage", languageSelect.value)
+  startAll()
+
+})
+
+function startAll() {
   createGallery();
   createMainGame();
   changelanguageHome();
@@ -34,7 +40,9 @@ languageSelect.addEventListener("change", () => {
   changelanguageResultMessage();
   changelanguageResultDescriptionText();
   changelanguageResultNewGameButton();
-})
+}
+
+startAll()
 
 
 export function getIndexlanguage() {
@@ -47,17 +55,12 @@ function changelanguageHome() {
   mainTitle.textContent = goodLuckData[getIndexlanguage()]
 }
 
-changelanguageHome()
-
 function changelanguageheaderSelectLabel() {
   const headerSelectLabel = document.querySelector(".header__select__label")
   headerSelectLabel.textContent = headerSelectLabelData[getIndexlanguage()]
 }
 
-changelanguageheaderSelectLabel()
-
 function changelanguageNav() {
-
   const navItemHome = document.querySelector(".nav__item_home")
   const navItemGame = document.querySelector(".nav__item_game")
   const navItemResult = document.querySelector(".nav__item_result")
@@ -67,10 +70,7 @@ function changelanguageNav() {
   navItemGame.textContent = navData[getIndexlanguage()].game
   navItemResult.textContent = navData[getIndexlanguage()].result
   navItemGallery.textContent = navData[getIndexlanguage()].gallery
-
 }
-
-changelanguageNav()
 
 function changelanguagelevelGameData() {
   const gameSelect = document.querySelector(".game__select")
@@ -81,39 +81,30 @@ function changelanguagelevelGameData() {
 
 }
 
-changelanguagelevelGameData()
-
 function changelanguageNextButton() {
   const gameNextButton = document.querySelector(".game__next-button")
   gameNextButton.textContent = gameNextButtonData[getIndexlanguage()]
 }
 
-changelanguageNextButton()
 
 function changelanguageGameScore() {
   const score = document.querySelector(".score")
   score.textContent = scoreData[getIndexlanguage()]
 }
 
-changelanguageGameScore()
 
 function changelanguageResultMessage() {
   const resultMessage = document.querySelector(".result__message")
   resultMessage.textContent = resultMessageData[getIndexlanguage()]
 }
 
-changelanguageResultMessage()
-
 function changelanguageResultDescriptionText() {
   const resultDescriptionText = document.querySelector(".result_description_text")
   resultDescriptionText.textContent = resultDescriptionTextData[getIndexlanguage()]
 }
-
-changelanguageResultDescriptionText()
 
 function changelanguageResultNewGameButton() {
   const resultNewGameButton = document.querySelector(".result__new-game-button")
   resultNewGameButton.textContent = resultNewGameButtonData[getIndexlanguage()]
 }
 
-changelanguageResultNewGameButton()

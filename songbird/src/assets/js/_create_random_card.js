@@ -1,8 +1,15 @@
-import birdsDataEN from "./data/_birdsData_en"
-import birdsDataRU from "./data/_birdsData_ru"
+// import birdsDataEN from "./data/_birdsData_en"
+// import birdsDataRU from "./data/_birdsData_ru"
 import '../audio/Choose_en.mp3'
 import '../audio/Choose_ru.mp3'
 import bird_default from '../img/jpg/bird_default.jpg'
+
+
+import birdsDataEN from "../js/data/_birdsData_en"
+import birdsDataRU from "../js/data/_birdsData_ru"
+import '../audio/Choose_en.mp3'
+import '../audio/Choose_ru.mp3'
+
 
 export function createRandomCard(array, idinficator, visible = false) {
 

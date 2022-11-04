@@ -293,9 +293,9 @@ const birdsDataRU = [
       species: 'Прослушайте её голос',
       description:
         '*-*-*-*-*-*-*-*',
-      image: '../img/bird_default.jpg',
+      image: 'img/bird_default.jpg',
       audio:
-        '../audio/Choose_ru.mp3',
+        'audio/Choose_ru.mp3',
       // audioUrl:
       //   '../audio/Choose_ru.mp3',
     },

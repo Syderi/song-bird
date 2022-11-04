@@ -344,9 +344,9 @@ const birdsDataEN = [
       species: 'Hear her voice',
       description:
         '*-*-*-*-*-*-*-*',
-      image: '../img/bird_default.jpg',
+      image: 'img/bird_default.jpg',
       audio:
-        '../audio/Choose_en.mp3',
+        'audio/Choose_en.mp3',
     },
  ];
 
