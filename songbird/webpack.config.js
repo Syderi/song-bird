@@ -81,21 +81,21 @@ const config = {
       },
       {
         test: /\.(bmp|svg|png|jpg|gif)$/i,
-        type: "asset",
+        type: "asset/resource",
         generator: {
           filename: 'img/[name][ext]'
         },
       },
       {
         test: /\.(mp3|wav)$/i,
-        type: "asset",
+        type: "asset/resource",
         generator: {
           filename: 'audio/[name][ext]'
         },
       },
       {
         test: /\.(mp4|avi)$/i,
-        type: "asset",
+        type: "asset/resource",
         generator: {
           filename: 'video/[name][ext]'
         },
