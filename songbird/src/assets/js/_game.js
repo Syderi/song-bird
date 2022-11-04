@@ -70,6 +70,7 @@ let numberOfAttempts = 5;
 let mainArray = curentArray.slice(); // Создал копию массива от базы. ссылки объекты
 let loopArray = getloopArray(countLoop); // Взял часть массива
 let randomLoopValue = getRandomNum(0, 6); // Правильный ответ 0-5
+console.log("Правильный ответ", randomLoopValue+1)
 resultDescriptionScore.textContent = gameScore;
 
 // Создал карточку рандомную
@@ -203,27 +204,28 @@ gameNextButton.addEventListener("click", () => {
    countLoop++;
 
    if (countLoop === 6) {
+      resultNewGameButton.disabled = false
       keyBlockChoiseColor = false;
       countLoop = 0
+
+      if (gameScore === 30) {
+         resultNewGameButton.disabled = true
+         if (getIndexlanguage()) {
+            resultMessage.textContent = "Congratulations. The game is over."
+         } else {
+            resultMessage.textContent = "Поздрaвляем. Игра окончена."
+         }
+      }
       gameScore = 0
       gameScoreCount.textContent = gameScore
       navItemResult.click()
-      if (gameScore === 36) {
-         resultNewGameButton.disabled = false
-         if (getIndexlanguage()) {
-            resultMessage.textContent = "Поздрaвляем. Игра окончена."
-
-         } else {
-            resultMessage.textContent = "Congratulations. The game is over."
-         }
-      }
    }
 
    keyBlockChoiseColor = false;
    numberOfAttempts = 5;
    loopArray = getloopArray(countLoop); // Взял часть массива
    randomLoopValue = getRandomNum(0, 6);
-
+   console.log("Правильный ответ", randomLoopValue+1)
    repaceGameChoiceItem();
    createGameWthisRandom();
    changeSelectedTagsQuestion(countLoop);

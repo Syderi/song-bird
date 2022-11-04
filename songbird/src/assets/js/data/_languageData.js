@@ -31,5 +31,5 @@ export const levelGameData = [
 export const gameNextButtonData = ["Следующий уровень", "Next level"];
 export const scoreData = ["Количество очков:", "Score:"];
 export const resultMessageData = ["Ваш прогресс", "Your progress"];
-export const resultDescriptionTextData = ["Из 36 возможных баллов вы набрали:", "Out of 36 possible points, you scored:"];
+export const resultDescriptionTextData = ["Из 30 возможных баллов вы набрали:", "Out of 30 possible points, you scored:"];
 export const resultNewGameButtonData = ["Играть снова!", "Play again!"];
