@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game birds</title>
+</head>
+
+<body class="preload">
+  <header class="header">
+    <div class="wrapper header__wrapper">
+      <div class="header__logo"></div>
+      <ul class="header__nav">
+        <li class="nav__item nav__item_home active">Дом</li>
+        <li class="nav__item nav__item_game">Игра</li>
+        <li class="nav__item nav__item_result">Результаты</li>
+        <li class="nav__item nav__item_gallery">Галлерея</li>
+      </ul>
+      <form class="header__select" action="/" method="post">
+        <label class="header__select__label" for="lang">Выберите язык:</label>
+        <select class="select-lang" name="lang" id="lang">
+          <option class="select-lang__item select-lang_ru" value="ru" selected>
+            Русский
+          </option>
+          <option class="select-lang__item select-lang_eng" value="en">
+            English
+          </option>
+        </select>
+      </form>
+    </div>
+  </header>
+  <main class="main">
+    <div class="wrapper main__wrapper">
+      <section class="main__home">
+        <h1 class="main__title">Удачи в игре.</h1>
+        <div class="video-contanier">
+          <video autoplay muted loop controls preload="none" poster="./src/assets/img/jpg/start.jpg"
+            class="video-content">
+            <source src="./src/assets/video/start.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
+      <section class="main__game main-section_hide">
+        <ul class="game__select">
+          <li class="game__select__item active">Разминка</li>
+          <li class="game__select__item">Воробьиные</li>
+          <li class="game__select__item">Лесные птицы</li>
+          <li class="game__select__item">Певчие птицы</li>
+          <li class="game__select__item">Хищные птицы</li>
+          <li class="game__select__item">Морские птицы</li>
+        </ul>
+        <div class="game__play__wrapper">
+          <ul class="game__choice">
+            <li class="game__choice__item"><span class="game__choice__item-btn"></span>Ворон!!!</li>
+            <li class="game__choice__item"><span class="game__choice__item-btn"></span>Журавль!!!</li>
+            <li class="game__choice__item"><span class="game__choice__item-btn"></span>Ласточка!!!</li>
+            <li class="game__choice__item"><span class="game__choice__item-btn"></span>Козодой!!!</li>
+            <li class="game__choice__item"><span class="game__choice__item-btn"></span>Кукушка!!!</li>
+            <li class="game__choice__item"><span class="game__choice__item-btn"></span>Синица!!!</li>
+          </ul>
+          <div class="game__next">
+            <button class="game__next-button" disabled>
+              Следующий уровень
+            </button>
+            <p class="game__next-score">
+              <span class="score">Количество очков:</span><span class="game__score__count">0</span>
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="main__results main-section_hide">
+        <p class="result__message">
+          Ваш прогресс
+        </p>
+        <p class="result__description">
+          <span class="result_description_text">Из 36 возможных баллов вы набрали:</span>&nbsp<span class="result_description_score">0</span>
+        </p>
+
+        <!-- <button class="result__new-game"> -->
+        <button class="result__new-game-button" disabled>
+          Играть снова!
+        </button>
+      </section>
+      <section class="main__gallery main-section_hide">
+      </section>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="wrapper footer__wrapper">
+      <p class="footer__copy-rights">All Rights Reserved 2022 © Syderi</p>
+      <div class="footer__links-wrapper">
+        <a class="footer__link footer__link_git" href="https://github.com/Syderi">
+        </a>
+        <a class="footer__link footer__link_rs-scool" href="https://rs.school/js/">
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

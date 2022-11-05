@@ -1,0 +1,92 @@
+html {
+    // @extend %transition;
+    font-size: 10px;
+    height: 100vh;
+}
+
+body {
+    @extend %font-prim;
+    @include font($size: 1.4rem, $height: 1.4rem, $weight: normal);
+    // width: 100vw;
+    background: $color-body-background;
+    background-image: url("./assets/img/jpg/Black-bird.jpg");
+    background-size: cover;
+    background-position-x: center;
+    color: $color-body-text;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    user-select: none;
+}
+
+
+.preload * {
+transition: none !important;
+    }
+    
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+
+// h1 {
+//     margin: 0;
+//     @include font($size: 1.9rem, $height: 120%, $weight: 400);
+
+
+//     // @include media-mobile {
+//     //     @include font($height: 4.2rem, $size: 3.2rem);
+//     // }
+// }
+
+// h2 {
+//     margin: 0;
+//     @include font($size: 3.6rem, $height: 130%, $weight:400);
+//     // @include media-mobile {
+//     //     @include font($height: 3.3rem, $size: 2.4rem);
+//     // }
+// }
+
+// h3 {
+//     margin: 0;
+//     @include font($size: 4.8rem, $height: 120%, $weight:400);
+//     // @include media-mobile {
+//     //     @include font($height: 3.1rem, $size: 2.1rem);
+//     // }
+// }
+
+// h4 {
+//     margin: 0;
+//     @include font($size: 2.4rem, $height: 120%, $weight:400);
+//     // @include media-tablet {
+//     //     @include font($height: 3.0rem, $size: 2.0rem);
+//     // }
+// }
+
+// h5 {
+//     margin: 0;
+//     @include font($size: 1.6rem, $height: 2.24rem, $weight:500);
+// }
+
+// .block-shadowed {
+//     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+//     border-radius: 10px;
+// }
+
+// a {
+//     text-decoration: none;
+//     margin: 0;
+// }

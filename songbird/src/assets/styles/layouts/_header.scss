@@ -1,0 +1,125 @@
+.header__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 3rem;
+  @include desktop {
+    padding-bottom: 2rem;
+    gap: 0.8rem;
+  }
+  @include tablet {
+    padding-bottom: 1rem;
+    gap: 0.5rem;
+  }
+  @include mobile {
+    padding-bottom: 0.5rem;
+    gap: 0.2rem;
+  }
+}
+
+.header__logo {
+  width: 200px;
+  height: 55px;
+  background-image: url("./assets/img/svg/logo-song-bird.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  @include desktop {
+    width: 180px;
+    height: 50px;
+  }
+  @include tablet {
+    width: 120px;
+    height: 45px;
+  }
+  @include mobile {
+    width: 80px;
+    height: 30px;
+  }
+}
+
+.header__nav {
+  @include font($size: 2.4rem, $height: 120%, $weight: 400, $style: italic);
+  display: flex;
+  // flex: 1 1 auto;
+  gap: 1rem;
+}
+
+.nav__item {
+  list-style-type: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: $color-button;
+  border-radius: 0.5rem;
+  @extend %transition;
+
+  &:hover {
+    background-color: $color-hover;
+    color: $color-BLACK;
+  }
+  &:active {
+    color: $color-BLACK;
+    background-color: $color-active;
+  }
+
+  @include desktop {
+    @include font($size: 2rem, $height: 130%, $weight: 400);
+  }
+  @include tablet {
+    @include font($size: 1.8rem, $height: 120%, $weight: 300);
+  }
+  @include mobile {
+    @include font($size: 1.6rem, $height: 120%, $weight: 200);
+  }
+}
+
+.header__select__label {
+  @include font($size: 2.2rem, $height: 130%, $weight: 400);
+  @include desktop {
+    @include font($size: 1.8rem, $height: 120%, $weight: 300);
+  }
+  @include tablet {
+    @include font($size: 1.7rem, $height: 120%, $weight: 200);
+  }
+  @include mobile {
+    @include font($size: 1.6rem, $height: 120%, $weight: 200);
+  }
+}
+
+.select-lang {
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+  @include font($size: 2.4rem, $height: 120%, $weight: 400, $style: italic);
+  cursor: pointer;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: $color-body-text;
+  @extend %transition;
+  &:hover {
+    background-color: $color-hover;
+    color: $color-BLACK;
+  }
+  &:active {
+    color: $color-BLACK;
+    background-color: $color-active;
+  }
+
+  @include desktop {
+    @include font($size: 2rem, $height: 130%, $weight: 300, $style: italic);
+  }
+  @include tablet {
+    @include font($size: 1.8rem, $height: 120%, $weight: 200, $style: italic);
+  }
+  @include mobile {
+    @include font($size: 1.6rem, $height: 120%, $weight: 200, $style: italic);
+  }
+}
+
+.select-lang__item {
+  background-color: $color-hover;
+  border: none;
+}

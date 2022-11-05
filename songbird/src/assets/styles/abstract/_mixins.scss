@@ -1,0 +1,30 @@
+@mixin font($size, $height: $size, $weight: bold, $style: normal) {
+  font-size: $size;
+  font-style: $style;
+  font-weight: $weight;
+  line-height: $height;
+}
+
+@mixin desktop {
+  @media (max-width: $desktop-width) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: $tablet-width) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: $mobile-width) {
+    @content;
+  }
+}
+
+
+// $content-width: 1920px;
+// $desktop-width: 1200px;
+
+// $tablet-width: 900px;
+
+// $mobile-width: 600px;
