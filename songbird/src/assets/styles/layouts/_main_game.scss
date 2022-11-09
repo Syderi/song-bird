@@ -337,6 +337,21 @@
 
 .description-card {
   @include font($size: 1.8rem, $height: 120%, $weight: 300, $style: normal);
+  display: flex;
+  align-items: center;
+  min-height: 13rem;
+  @include desktop {
+    min-height: 18rem;
+  }
+
+  @include tablet {
+    min-height: 13rem;
+  }
+  @include mobile {
+    @include font($size: 1.6rem, $height: 120%, $weight: 300, $style: normal);
+    min-height: 18rem;
+  }
+
 }
 
 .game__next {
