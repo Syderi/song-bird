@@ -45,6 +45,12 @@
   display: flex;
   // flex: 1 1 auto;
   gap: 1rem;
+  @include tablet {
+    gap: 0.5rem;
+  }
+  @include mobile {
+    gap: 0.2rem;
+  }
 }
 
 .nav__item {
