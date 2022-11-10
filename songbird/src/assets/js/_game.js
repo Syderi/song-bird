@@ -157,7 +157,7 @@ function changeSelectedTagsQuestion(countLoop) {
 
 // Начало слушатель кликов на выборе птиц
 gameChoiseConteiner.addEventListener("click", (e) => {
-   if (e.target.classList.contains("game__choice__item")) {
+   if (e.target.classList.contains("game__choice__item") || e.target.classList.contains("game__choice__item-btn")) {
       resetAudioDurationWrongCorrect();
       const gameChoiceItemSpan = document.querySelectorAll(".game__choice__item-btn");
       let clickedTag = e.target;
