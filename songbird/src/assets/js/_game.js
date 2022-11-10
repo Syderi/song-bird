@@ -178,10 +178,6 @@ gameChoiseConteiner.addEventListener("click", (e) => {
                mainGame.children[1].replaceWith(createRandomCard(mainArray, mainArrayID, true));
                gameNextButton.disabled = false;
 
-               // if(countLoop ===5) {
-               //    gameNextButton.click()
-               // }
-
             }
             gameChoiceItemSpan[indexNumberLi].classList.add("game__choice__item-btn_green");
             keyBlockChoiseColor = !keyBlockChoiseColor;
