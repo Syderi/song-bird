@@ -22,6 +22,9 @@ interface INews {
     urlToImage: string;
 }
 
+interface IGetResp {
+    endpoint: string;
+    options: { [x: string]: string };
+}
 
-
-export { ISource, INews }
+export { ISource, INews, IGetResp }

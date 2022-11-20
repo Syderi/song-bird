@@ -1,6 +1,6 @@
-// enum HTML {
-//     DocFrag = "DocumentFragment",
-//     Div = HTMLDivElement,
-// };
+enum StatusCodes {
+    unauthorized = 401,
+    notFound = 404
+}
 
-// export {HTML}
+export { StatusCodes }
