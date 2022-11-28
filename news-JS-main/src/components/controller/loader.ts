@@ -3,12 +3,12 @@ import { StatusCodes } from '../../dataTs/_enum';
 import { option, callbackVoid } from '../../dataTs/_type'
 
 class Loader {
-    protected baseLink: string;
-    protected options: option;
+    protected _baseLink: string;
+    protected _options: option;
 
     constructor(baseLink: string, options: option) {
-        this.baseLink = baseLink;
-        this.options = options;
+        this._baseLink = baseLink;
+        this._options = options;
     }
 
     getResp(
@@ -30,9 +30,9 @@ class Loader {
         return res;
     }
 
-    makeUrl(options: option, endpoint: string) {
-        const urlOptions = { ...this.options, ...options };
-        let url = `${this.baseLink}${endpoint}?`;
+    makeUrl(options: option, endpoint: string):string {
+        const urlOptions = { ...this._options, ...options };
+        let url = `${this._baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key) => {
             url += `${key}=${urlOptions[key]}&`;
@@ -41,7 +41,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: callbackVoid, options = {}) {
+    load(method: string, endpoint: string, callback: callbackVoid, options = {}):void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())

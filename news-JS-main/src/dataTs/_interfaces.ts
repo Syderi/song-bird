@@ -24,7 +24,20 @@ interface INews {
 
 interface IGetResp {
     endpoint: string;
-    options: { [x: string]: string };
+    options?: { [x: string]: string };
 }
 
-export { ISource, INews, IGetResp }
+
+interface IDrawSources {
+    status: string;
+    sources: ISource[];
+}
+
+interface IdrawNews {
+    status: string;
+    totalResults: number;
+    articles: INews[];
+
+}
+
+export { ISource, INews, IGetResp, IDrawSources, IdrawNews }

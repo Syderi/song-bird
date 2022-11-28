@@ -3,4 +3,4 @@ enum StatusCodes {
     notFound = 404
 }
 
-export { StatusCodes }
+export { StatusCodes}

@@ -7,4 +7,5 @@ type option = {
 
 type callbackVoid = <T>(arg: T) => void;
 
+
 export { template, option, callbackVoid }
