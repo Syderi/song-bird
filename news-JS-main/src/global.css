@@ -16,6 +16,7 @@ header h1 {
 footer {
     height: 100px;
     display: flex;
+    gap: 5px;
     align-items: center;
     justify-content: center;
 }
@@ -33,3 +34,47 @@ footer .copyright a:hover {
 footer .copyright:before {
     content: '©';
 }
+
+.footer__links-wrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+    /* background-color: red; */
+    border-radius: 5px; 
+  }
+
+  .footer__link{
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    color: green;
+    border-radius: 5px; 
+ 
+  }
+
+
+  .footer__link_git{
+    width: 30px;
+    height: 30px;
+  
+  background: url("../assets/img/svg/github.svg");
+  /* background: url("./assets/img/svg/github.svg"); */
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+
+  
+  }
+  
+  .footer__link_rs-scool{
+    width: 120px;
+    height: 30px;
+  background: url("../assets/img/svg/rs_school.svg");
+  /* background: url("./assets/img/svg/rs_school.svg"); */
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+
+  
+  }
