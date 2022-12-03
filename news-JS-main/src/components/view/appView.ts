@@ -3,8 +3,8 @@ import Sources from './sources/sources';
 import { IDrawSources, IdrawNews } from '../../dataTs/_interfaces';
 
 export class AppView {
-    news: News;
-    sources: Sources
+    private news: News;
+    private sources: Sources
 
     constructor() {
         this.news = new News();

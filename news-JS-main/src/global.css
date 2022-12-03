@@ -58,19 +58,20 @@ footer .copyright:before {
     width: 30px;
     height: 30px;
   
-  background: url("../assets/img/svg/github.svg");
+  /* background: url("../assets/img/svg/github.svg"); */
+  background: url("/src/assets/img/svg/github.svg");
   /* background: url("./assets/img/svg/github.svg"); */
   background-size: contain;
   background-repeat: no-repeat;
   
 
   
-  }
+  } 
   
   .footer__link_rs-scool{
     width: 120px;
     height: 30px;
-  background: url("../assets/img/svg/rs_school.svg");
+  background: url("/src/assets/img/svg/rs_school.svg");
   /* background: url("./assets/img/svg/rs_school.svg"); */
   background-size: contain;
   background-repeat: no-repeat;

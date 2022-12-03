@@ -1,3 +1,5 @@
+import { option } from './_type'
+
 interface ISource {
     category: string;
     country: string;
@@ -24,7 +26,7 @@ interface INews {
 
 interface IGetResp {
     endpoint: string;
-    options?: { [x: string]: string };
+    options?: option;
 }
 
 
