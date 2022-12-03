@@ -2,8 +2,6 @@ import './sources.css';
 import { ISource } from '../../../dataTs/_interfaces';
 import { template } from '../../../dataTs/_type'
 
-
-
 class Sources {
     draw(data: ISource[]): void {
         const fragment: DocumentFragment = document.createDocumentFragment();
@@ -11,16 +9,23 @@ class Sources {
 
         data.forEach((item) => {
             if (sourceItemTemp) {
-                const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLDivElement;
+                const sourceClone: Node | null = sourceItemTemp.content.cloneNode(true);
 
-                (sourceClone.querySelector('.source__item-name') as HTMLDivElement).textContent = item.name;
-                (sourceClone.querySelector('.source__item') as HTMLDivElement).setAttribute('data-source-id', item.id);
+                if (sourceClone instanceof DocumentFragment) {
 
-                fragment.append(sourceClone);
+                    const sourceItemName: HTMLDivElement | null = sourceClone.querySelector('.source__item-name')
+                    if (sourceItemName) sourceItemName.textContent = item.name;
+
+                    const sourceItem: HTMLDivElement | null = sourceClone.querySelector('.source__item')
+                    if (sourceItem) sourceItem.setAttribute('data-source-id', item.id);
+
+                    fragment.append(sourceClone);
+                }
             }
         });
 
-        (document.querySelector('.sources') as HTMLElement).append(fragment);
+        const sources: HTMLElement | null = document.querySelector('.sources')
+        if (sources) sources.append(fragment);
     }
 }
 
