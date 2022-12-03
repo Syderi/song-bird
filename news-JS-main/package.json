@@ -10,7 +10,8 @@
     "watch": "webpack --watch",
     "start": "webpack serve",
     "lint": "eslint . --ext .ts",
-    "clear": "rd /s /q dist"
+    "clear": "rd /s /q dist",
+    "deploy": "npm run build && npx gh-pages -d dist -e news-JS-main"
   },
   "keywords": [],
   "author": "",
