@@ -1,7 +1,5 @@
 import AppController from '../controller/controller';
-// import { ISource } from '../../dataTs/_interfaces';
 import { AppView } from '../view/appView';
-import { IDrawSources, IdrawNews } from '../../dataTs/_interfaces';
 
 class App {
     controller: AppController;
@@ -15,15 +13,11 @@ class App {
     start() {
         (document
             .querySelector('.sources') as HTMLDivElement)
-            .addEventListener('click', (e: Event) => this.controller.getNews(e, (data?: IdrawNews) => {
-                // if (data) {
-                    return this.view.drawNews(data)
-                // } else { return }
+            .addEventListener('click', (e: Event) => this.controller.getNews(e, (data) => {
+                if (data) return this.view.drawNews(data)
             }));
-        this.controller.getSources((data?:IDrawSources) => {
-            // if (data) {
-                return this.view.drawSources(data)
-            // } else { return }
+        this.controller.getSources((data) => {
+            if (data) return this.view.drawSources(data)
         });
     }
 }

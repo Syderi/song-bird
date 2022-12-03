@@ -1,4 +1,4 @@
-import { IGetResp } from '../../dataTs/_interfaces';
+import { IGetResp, IDrawSources } from '../../dataTs/_interfaces';
 import { StatusCodes } from '../../dataTs/_enum';
 import { option, callbackVoid } from '../../dataTs/_type'
 
@@ -13,7 +13,7 @@ class Loader {
 
     getResp(
         { endpoint, options = {} }: IGetResp,
-        callback: callbackVoid = () => {
+        callback = () => {
             console.error('No callback for GET response');
         }
     ): void {
@@ -30,7 +30,7 @@ class Loader {
         return res;
     }
 
-    makeUrl(options: option, endpoint: string):string {
+    makeUrl(options: option, endpoint: string): string {
         const urlOptions = { ...this._options, ...options };
         let url = `${this._baseLink}${endpoint}?`;
 
@@ -41,12 +41,12 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: callbackVoid, options = {}):void {
+    load(method: string, endpoint: string, callback: callbackVoid, options = {}): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data) => callback(data))
-            .catch((err) => console.error(err));
+            .then((data: IDrawSources) => callback(data))
+            .catch((err: Error): void => console.error(err));
     }
 }
 

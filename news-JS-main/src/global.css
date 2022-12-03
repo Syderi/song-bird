@@ -1,81 +1,76 @@
 body {
-    color: #fff;
-    background: #17181c;
-    font-family: sans-serif;
+  color: #fff;
+  background: #17181c;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
 }
 
 header {
-    padding: 10px 30px;
+  padding: 10px 30px;
 }
 
 header h1 {
-    font-size: 40px;
-    font-weight: 800;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+main {
+  flex: 1;
 }
 
 footer {
-    height: 100px;
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    justify-content: center;
+  height: 100px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
 }
 footer .copyright {
-    font-size: 14px;
-    color: #333;
-    text-align: center;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
 }
 footer .copyright a {
-    color: #444;
+  color: #444;
 }
 footer .copyright a:hover {
-    color: #555;
+  color: #555;
 }
 footer .copyright:before {
-    content: '©';
+  content: "©";
 }
 
-.footer__links-wrapper{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 5px;
-    /* background-color: red; */
-    border-radius: 5px; 
-  }
+.footer__links-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 5px;
+  border-radius: 5px;
+}
 
-  .footer__link{
-    cursor: pointer;
-    display: block;
-    text-decoration: none;
-    color: green;
-    border-radius: 5px; 
- 
-  }
+.footer__link {
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  color: green;
+  border-radius: 5px;
+}
 
-
-  .footer__link_git{
-    width: 30px;
-    height: 30px;
-  
-  /* background: url("../assets/img/svg/github.svg"); */
+.footer__link_git {
+  width: 30px;
+  height: 30px;
   background: url("/src/assets/img/svg/github.svg");
-  /* background: url("./assets/img/svg/github.svg"); */
   background-size: contain;
   background-repeat: no-repeat;
-  
+}
 
-  
-  } 
-  
-  .footer__link_rs-scool{
-    width: 120px;
-    height: 30px;
+.footer__link_rs-scool {
+  width: 120px;
+  height: 30px;
   background: url("/src/assets/img/svg/rs_school.svg");
-  /* background: url("./assets/img/svg/rs_school.svg"); */
   background-size: contain;
   background-repeat: no-repeat;
-  
-
-  
-  }
+}
