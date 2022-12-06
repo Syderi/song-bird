@@ -1,13 +1,33 @@
 .sources {
+
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
-    height: 130px;
-    overflow: auto;
+    /* height: 130px; */
+    overflow-y: auto;
     align-items: center;
     font: 300 1em 'Fira Sans', sans-serif;
 }
+
+
+
+.sources::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .sources::-webkit-scrollbar-track {
+    box-shadow: 5px 5px 5px -5px rgba(34, 60, 80) inset;
+    background-color: #f9f9fd , 0.2;
+    border-radius: 10px;
+  }
+  
+  .sources::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(180deg, #00c6fb, #30c5ff);
+  }
+
+
 
 .source__item {
     user-select: none;
