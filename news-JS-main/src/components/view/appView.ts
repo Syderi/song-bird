@@ -18,10 +18,10 @@ export class AppView {
         }
     }
 
-    drawSources(data: IDrawSources | undefined): void {
+    drawSources(data: IDrawSources | undefined, letter: string): void {
         if (data) {
             const values = data.sources ? data.sources : [];
-            this.sources.draw(values);
+            this.sources.draw(values, letter);
         }
     }
 }

@@ -1,5 +1,5 @@
-import App from './components/app/app';
+import Alfabet from './components/controller/alfabet';
 import './global.css';
 
-const app = new App();
-app.start();
+const alfaBet = new Alfabet();
+alfaBet.showAlfaBet();

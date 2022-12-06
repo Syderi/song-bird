@@ -3,11 +3,15 @@ import { ISource } from '../../../dataTs/_interfaces';
 import { template } from '../../../dataTs/_type'
 
 class Sources {
-    draw(data: ISource[]): void {
+    draw(data: ISource[], letter: string): void {
         const fragment: DocumentFragment = document.createDocumentFragment();
         const sourceItemTemp: template = document.querySelector('#sourceItemTemp');
+     
 
         data.forEach((item) => {
+
+if(item.name[0] === letter) {
+
             if (sourceItemTemp) {
                 const sourceClone: Node | null = sourceItemTemp.content.cloneNode(true);
 
@@ -22,6 +26,8 @@ class Sources {
                     fragment.append(sourceClone);
                 }
             }
+
+        }
         });
 
         const sources: HTMLElement | null = document.querySelector('.sources')

@@ -17,8 +17,35 @@ header h1 {
   font-weight: 800;
 }
 
-main {
+.main {
   flex: 1;
+}
+
+.alfaBet {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 15px;
+  padding: 5px;
+}
+
+.alfaBet__item {
+  user-select: none;
+  font-size: 20px;
+  cursor: pointer;
+  list-style-type: none;
+}
+
+.alfaBet__item:hover {
+  border-color: #3fcc59;
+  color: #69db7e;
+  box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
+  transform: translateY(-0.05em);
+}
+
+
+.alfaBet__item_active {
+  color: #70d6ff;
 }
 
 footer {
@@ -28,17 +55,21 @@ footer {
   align-items: center;
   justify-content: center;
 }
+
 footer .copyright {
   font-size: 14px;
   color: #333;
   text-align: center;
 }
+
 footer .copyright a {
   color: #444;
 }
+
 footer .copyright a:hover {
   color: #555;
 }
+
 footer .copyright:before {
   content: "©";
 }
