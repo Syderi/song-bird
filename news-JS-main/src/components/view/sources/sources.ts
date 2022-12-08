@@ -1,4 +1,4 @@
-import './sources.css';
+import './_sources.scss';
 import { ISource } from '../../../dataTs/_interfaces';
 import { template } from '../../../dataTs/_type'
 

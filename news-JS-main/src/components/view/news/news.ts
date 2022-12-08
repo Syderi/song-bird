@@ -1,4 +1,4 @@
-import './news.css';
+import './_news.scss';
 import { INews } from '../../../dataTs/_interfaces';
 import { template } from '../../../dataTs/_type'
 

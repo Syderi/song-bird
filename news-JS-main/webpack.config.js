@@ -2,18 +2,21 @@
 
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const EslingPlugin = require('eslint-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV == "production";
 
-const stylesHandler = "style-loader";
+// const stylesHandler = "style-loader";
+const stylesHandler = isProduction
+  ? MiniCssExtractPlugin.loader
+  : "style-loader";
 
 const config = {
   entry: {
     index: path.resolve(__dirname, './src/index.ts'), // одна входная точка, единый js файл для всех (в твоем случае для двух) страниц!!!!
   },
-  // "./src/index.ts",
 
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -51,14 +54,54 @@ const config = {
         use: 'ts-loader'
       },
       {
+        test: /\.s[ac]ss$/i,
+        use: [stylesHandler, "css-loader", {
+          loader: "postcss-loader",
+          options: {
+            postcssOptions: {
+              plugins: [
+                [
+                  require("postcss-preset-env"),
+                  {
+                    // Options
+                  },
+                ],
+              ],
+            },
+          },
+        },
+         "sass-loader"],
+      },
+      {
         test: /\.css$/i,
         use: [stylesHandler, "css-loader", "postcss-loader"],
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+        test: /\.(eot|ttf|woff|woff2|)$/i,
+        type: "asset",
+        generator: {
+          filename: 'fonts/[name][ext]'
+        },
+      },
+      {
+        test: /\.(bmp|svg|png|jpg|gif)$/i,
         type: "asset/resource",
         generator: {
           filename: 'img/[name][ext]'
+        },
+      },
+      {
+        test: /\.(mp3|wav)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: 'audio/[name][ext]'
+        },
+      },
+      {
+        test: /\.(mp4|avi)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: 'video/[name][ext]'
         },
       },
 
@@ -71,6 +114,8 @@ const config = {
 module.exports = () => {
   if (isProduction) {
     config.mode = "production";
+
+    config.plugins.push(new MiniCssExtractPlugin());
 
     // config.plugins.push(new WorkboxWebpackPlugin.GenerateSW());
   } else {

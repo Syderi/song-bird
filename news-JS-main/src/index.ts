@@ -1,5 +1,5 @@
 import Alfabet from './components/controller/alfabet';
-import './global.css';
+import './_global.scss';
 
 const alfaBet = new Alfabet();
 alfaBet.showAlfaBet();
