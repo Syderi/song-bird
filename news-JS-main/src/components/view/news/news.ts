@@ -1,6 +1,7 @@
 import './_news.scss';
 import { INews } from '../../../dataTs/_interfaces';
 import { template } from '../../../dataTs/_type'
+import placholder from '../../../assets/img/jpg/news_placeholder.jpg'
 
 class News {
     draw(data: INews[]): void {
@@ -22,7 +23,7 @@ class News {
                     }
 
                     const newsMetaPhoto: HTMLDivElement | null = newsClone.querySelector('.news__meta-photo')
-                    if (newsMetaPhoto) newsMetaPhoto.style.backgroundImage = `url(${item.urlToImage || 'img/news_placeholder.jpg'})`;
+                    if (newsMetaPhoto) newsMetaPhoto.style.backgroundImage = `url(${item.urlToImage || placholder})`;
 
                     const newsMetaAuthor: HTMLLIElement | null = newsClone.querySelector('.news__meta-author')
                     if (newsMetaAuthor) newsMetaAuthor.textContent = item.author || item.source.name;

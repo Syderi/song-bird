@@ -89,6 +89,7 @@ const config = {
       },
       {
         test: /\.(bmp|svg|png|jpg|gif)$/i,
+        // loader: 'file-loader',
         type: "asset/resource",
         generator: {
           filename: 'img/[name][ext]'
