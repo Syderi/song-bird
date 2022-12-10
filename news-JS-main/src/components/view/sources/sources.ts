@@ -3,7 +3,7 @@ import { ISource } from '../../../dataTs/_interfaces';
 import { template } from '../../../dataTs/_type'
 
 class Sources {
-    draw(data: ISource[], letter: string): void {
+    draw(data: Readonly<ISource[]>, letter: string): void {
         const fragment: DocumentFragment = document.createDocumentFragment();
         const sourceItemTemp: template = document.querySelector('#sourceItemTemp');
      

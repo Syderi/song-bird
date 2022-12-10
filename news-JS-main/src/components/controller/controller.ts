@@ -1,8 +1,8 @@
 import AppLoader from './appLoader';
-import { IDrawSources, IdrawNews } from '../../dataTs/_interfaces';
+import { IDrawSources, IdrawNews, IdrawNewsError } from '../../dataTs/_interfaces';
 
 class AppController extends AppLoader {
-    getSources(callback: (data?: IDrawSources) => void): void {
+    getSources(callback: ( data?: IDrawSources | IdrawNewsError | undefined) => void): void {
         super.getResp(
             {
                 endpoint: 'sources',
@@ -11,7 +11,7 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e: Event, callback: (data?: IdrawNews) => void): void {
+    getNews(e: Event, callback: (data?: IdrawNews | IdrawNewsError) => void): void {
         let target = e.target as Element;
         const newsContainer = e.currentTarget as HTMLDivElement;
 

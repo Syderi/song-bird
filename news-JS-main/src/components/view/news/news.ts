@@ -4,7 +4,7 @@ import { template } from '../../../dataTs/_type'
 import placholder from '../../../assets/img/jpg/news_placeholder.jpg'
 
 class News {
-    draw(data: INews[]): void {
+    draw(data: Readonly<INews[]>): void {
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment: DocumentFragment = document.createDocumentFragment();
