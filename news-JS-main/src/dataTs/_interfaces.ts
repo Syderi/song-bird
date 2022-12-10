@@ -24,6 +24,15 @@ interface INews {
     urlToImage: string;
 }
 
+
+
+interface I {
+    "status": "error",
+    "code": "apiKeyMissing",
+    "message": "Your API key is missing. Append this to the URL with the apiKey param, or use the x-api-key HTTP header."
+}
+
+
 interface IGetResp {
     endpoint: string;
     options?: option;
@@ -42,4 +51,10 @@ interface IdrawNews {
 
 }
 
-export { ISource, INews, IGetResp, IDrawSources, IdrawNews }
+interface IdrawNewsError {
+    status: string;
+    code: string;
+    message: string;
+}
+
+export { ISource, INews, IGetResp, IDrawSources, IdrawNews, IdrawNewsError }

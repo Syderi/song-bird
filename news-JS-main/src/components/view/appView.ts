@@ -1,6 +1,6 @@
 import News from './news/news';
 import Sources from './sources/sources';
-import { IDrawSources, IdrawNews } from '../../dataTs/_interfaces';
+import { IDrawSources, IdrawNews, IdrawNewsError } from '../../dataTs/_interfaces';
 
 export class AppView {
     private news: News;
@@ -11,17 +11,23 @@ export class AppView {
         this.sources = new Sources();
     }
 
-    drawNews(data: IdrawNews | undefined): void {
+    drawNews(data: IdrawNews | IdrawNewsError | undefined): void {
         if (data) {
-            const values = data.articles ? data.articles : [];
-            this.news.draw(values);
+            if ('message' in data) { console.log(data) }
+            else if ('articles' in data) {
+                const values = data.articles ? data.articles : [];
+                this.news.draw(values);
+            }
         }
     }
 
-    drawSources(data: IDrawSources | undefined, letter: string): void {
+    drawSources(data: IDrawSources | IdrawNewsError | undefined, letter: string): void {
         if (data) {
-            const values = data.sources ? data.sources : [];
-            this.sources.draw(values, letter);
+            if ('message' in data) { console.log(data) }
+            else if ('sources' in data) {
+                const values = data.sources ? data.sources : [];
+                this.sources.draw(values, letter);
+            }
         }
     }
 }
