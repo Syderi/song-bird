@@ -1,12 +1,59 @@
-.race__inputs{
+.race {
+  font-size: 1.6rem;
+}
+
+.race__inputs,
+.wrapper-track, .race__pagination {
   padding-top: 20px;
 }
 
-.race__wrapper{
+.race__wrapper {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
+.wrapper-track{
+display: flex;
+flex-direction: column;
+gap: 0.5rem;
+}
 
+.track__car{
+  position: relative;
+  height: fit-content;
+  border-bottom: dotted 2px black;
+}
+
+.car-image {
+  position: absolute;
+  top: -17px;
+  left: 20px;
+  width: 60px;
+}
+
+.container__track__car-svg{
+  position: relative;
+}
+
+.track__car-image{
+  position: absolute;
+  top: -20px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+}
+
+.track__finish {
+  position: absolute;
+  top: 0px;
+  right: 90px;
+  width: 40px;
+}
+
+.race__pagination {
+  padding-top: 20px;
+  display: flex;
+  gap: 10px;
+}
