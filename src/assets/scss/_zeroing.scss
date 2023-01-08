@@ -1,0 +1,71 @@
+/* Обнуление стилей */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  // margin: 0;
+  // padding: 0;
+  // border: 0;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+html,
+body {
+  font-family: "Ubuntu", sans-serif;
+  color: #000;
+  scroll-behavior: smooth;
+  font-size: 10px;
+}
+
+// body {
+//   display: flex;
+//   min-height: 100vh;
+//   flex-direction: column;
+// }
+
+// main {
+//   flex: 1 1 auto;
+// }
+
+.button {
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgb(105, 231, 55);
+  font-size: 1.4rem;
+}
+
+.input{
+  height: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
