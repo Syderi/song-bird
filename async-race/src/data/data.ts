@@ -3,12 +3,23 @@ import { ICar } from '../types/_interfaces';
 const base: string = 'http://localhost:3000';
 
 const garage = `${base}/garage`;
+const winners = `${base}/winners`;
+
+
 
 async function getCars(): Promise<ICar[]> {
   const res: Response = await fetch(garage);
   const data: Promise<ICar[]> = await res.json();
   return data
 }
+
+async function getWinners(): Promise<ICar[]> {
+  const res: Response = await fetch(winners);
+  const data: Promise<ICar[]> = await res.json();
+  return data
+}
+
+
 
 
 // async function getCarsList() {
@@ -17,4 +28,4 @@ async function getCars(): Promise<ICar[]> {
 //   return await data
 // }
 
-export { getCars };
+export { getCars, getWinners };

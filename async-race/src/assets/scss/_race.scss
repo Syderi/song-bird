@@ -1,9 +1,9 @@
-.race {
+.race, .results{
   font-size: 1.6rem;
 }
 
 .race__inputs,
-.wrapper-track, .race__pagination {
+.wrapper-track, .race__pagination, .results {
   padding-top: 20px;
 }
 
@@ -14,23 +14,22 @@
   padding: 0.5rem;
 }
 
-.wrapper-track{
+.wrapper-track, .results{
 display: flex;
 flex-direction: column;
 gap: 0.5rem;
 }
 
+.results{
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+
 .track__car{
   position: relative;
   height: fit-content;
   border-bottom: dotted 2px black;
-}
-
-.car-image {
-  position: absolute;
-  top: -17px;
-  left: 20px;
-  width: 60px;
 }
 
 .container__track__car-svg{
@@ -43,6 +42,7 @@ gap: 0.5rem;
   left: 15px;
   width: 50px;
   height: 50px;
+  // fill:blue;
 }
 
 .track__finish {
@@ -56,4 +56,9 @@ gap: 0.5rem;
   padding-top: 20px;
   display: flex;
   gap: 10px;
+}
+
+.results__winners{
+text-align: center;
+font-weight: 600;
 }

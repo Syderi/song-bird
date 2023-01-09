@@ -4,3 +4,4 @@ declare module "*.jpeg";
 declare module "*.webp";
 declare module "*.gif";
 declare module "*.json";
+declare module "*.svg";
