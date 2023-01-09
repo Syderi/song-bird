@@ -1,11 +1,17 @@
 
-type template = HTMLTemplateElement | null
+// type template = HTMLTemplateElement | null
 
-type option = {
+// type option = {
+//     [x: string]: string;
+// };
+
+// type callbackVoid = <T>(arg: T) => void;
+
+
+
+type stringObject = {
     [x: string]: string;
-};
-
-type callbackVoid = <T>(arg: T) => void;
+  }
 
 
-export { template, option, callbackVoid }
+export { stringObject }
