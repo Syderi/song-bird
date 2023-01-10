@@ -1,6 +1,6 @@
-import { createElement, addChildren, createElementfromString } from './createElement'
-import { svgCar } from '../constants/car'
-import flag from '../assets/img/png/flag.png'
+import { createElement, addChildren, createContainerCar, createElementfromString } from './createElement'
+// import { svgCar } from '../constants/car'
+// import flag from '../assets/img/png/flag.png'
 
 const sectionRace = createElement('section', { className: 'race' })
 
@@ -32,45 +32,37 @@ const trackItems = createElement('div', { className: 'track-items', textContent:
 const trackNumberPage = createElement('div', { className: 'track-number-page', textContent: `Page #1` })
 const containerCARS = createElement('div', { className: 'container-cars' })
 
-function createContainerCar() {
-  const containerCar = createElement('div', { className: 'container-car' })
-
-  const raceWrapper = createElement('div', { className: 'race__wrapper' })
-  const buttonSelect = createElement('button', { className: 'button button_select', textContent: 'SELECT' }) as HTMLButtonElement
-  const buttonRemove = createElement('button', { className: 'button button_remove', textContent: 'REMOVE' }) as HTMLButtonElement
-  const carName = createElement('p', { className: 'car-name', textContent: `Audi` })
-  addChildren(raceWrapper, [buttonSelect, buttonRemove, carName])
+// // функция создания одиночной гонки
+// function createContainerCar() { 
+//   const containerCar = createElement('div', { className: 'container-car' })
+//   const raceWrapper = createElement('div', { className: 'race__wrapper' })
+//   const buttonSelect = createElement('button', { className: 'button button_select', textContent: 'SELECT' }) as HTMLButtonElement
+//   const buttonRemove = createElement('button', { className: 'button button_remove', textContent: 'REMOVE' }) as HTMLButtonElement
+//   const carName = createElement('p', { className: 'car-name', textContent: `Audi` })
+//   addChildren(raceWrapper, [buttonSelect, buttonRemove, carName])
   
-  const trackCar = createElement('div', { className: 'race__wrapper track__car' })
-  const buttonStartA = createElement('button', { className: 'button button_start', textContent: 'A' }) as HTMLButtonElement
-  const buttonStopB = createElement('button', { className: 'button button_stop', textContent: 'B' }) as HTMLButtonElement
-  const trackCarSvg = createElement('div', { className: 'container__track__car-svg' })
+//   const trackCar = createElement('div', { className: 'race__wrapper track__car' })
+//   const buttonStartA = createElement('button', { className: 'button button_start', textContent: 'A' }) as HTMLButtonElement
+//   const buttonStopB = createElement('button', { className: 'button button_stop', textContent: 'B' }) as HTMLButtonElement
+//   const trackCarSvg = createElement('div', { className: 'container__track__car-svg' })
 
 
-  const car = createElementfromString(svgCar) as HTMLOrSVGImageElement
-  car.style.fill = `#123456`
-  car.style.width = `50px`
-  car.style.height = `50px`
-  car.setAttribute('class', 'track__car-image')
-  trackCarSvg.append(car)
+//   const car = createElementfromString(svgCar) as HTMLOrSVGImageElement
+//   car.style.fill = `#123456`
+//   car.style.width = `50px`
+//   car.style.height = `50px`
+//   car.setAttribute('class', 'track__car-image')
+//   trackCarSvg.append(car)
 
-  const trackFinish = createElement('img', { className: 'track__finish', src: flag, alt:'finish flag' }) as HTMLImageElement
-  addChildren(trackCar, [buttonStartA,buttonStopB, trackCarSvg, trackFinish])
-
-
-
-  addChildren(containerCar, [raceWrapper, trackCar])
-
-  return containerCar
-}
-
-
+//   const trackFinish = createElement('img', { className: 'track__finish', src: flag, alt:'finish flag' }) as HTMLImageElement
+//   addChildren(trackCar, [buttonStartA,buttonStopB, trackCarSvg, trackFinish])
+//   addChildren(containerCar, [raceWrapper, trackCar])
+//   return containerCar
+// }
 
 addChildren(containerCARS, [createContainerCar()])
 addChildren(wrapperTrack, [trackItems, trackNumberPage, containerCARS])
 // конец создания переменного враппера с гонками
-
-
 
 const racePagination = createElement('div', { className: 'race__pagination' })
 const buttonRacePaginationPrev = createElement('button', { className: 'button button_race__pagination-prev', textContent: 'PREV' }) as HTMLButtonElement

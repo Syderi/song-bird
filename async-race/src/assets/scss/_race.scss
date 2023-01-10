@@ -62,3 +62,13 @@ gap: 0.5rem;
 text-align: center;
 font-weight: 600;
 }
+
+.wins-sort, .time-sort{
+  user-select: none;
+  cursor: pointer;
+color: rgb(41, 163, 4);
+
+&:active{
+  color: aqua;
+}
+}
