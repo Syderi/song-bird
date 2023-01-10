@@ -22,7 +22,7 @@ function createElementfromString(textString: string): HTMLElement {
 }
 
 // функция создания одиночной гонки
-function createContainerCar(color: string = 'red'): HTMLElement {
+function createContainerCar(color: string = 'red') {
   const containerCar = createElement('div', { className: 'container-car' })
   const raceWrapper = createElement('div', { className: 'race__wrapper' })
   const buttonSelect = createElement('button', { className: 'button button_select', textContent: 'SELECT' }) as HTMLButtonElement
@@ -45,7 +45,17 @@ function createContainerCar(color: string = 'red'): HTMLElement {
   const trackFinish = createElement('img', { className: 'track__finish', src: flag, alt: 'finish flag' }) as HTMLImageElement
   addChildren(trackCar, [buttonStartA, buttonStopB, trackCarSvg, trackFinish])
   addChildren(containerCar, [raceWrapper, trackCar])
-  return containerCar
+
+  buttonStartA.addEventListener('click', () => {
+    buttonStartA.textContent = 'НАЖАЛ'
+  })
+
+
+  return {containerCar:containerCar,
+    buttonStartA:buttonStartA,
+    buttonStopB:buttonStopB,
+
+  }
 }
 
 // функция создания одиночного результата победы

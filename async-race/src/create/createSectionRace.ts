@@ -60,7 +60,18 @@ const containerCARS = createElement('div', { className: 'container-cars' })
 //   return containerCar
 // }
 
-addChildren(containerCARS, [createContainerCar()])
+const mapHtml = new Set<HTMLButtonElement>()
+
+for (let index = 0; index < 5; index++) {
+  const temp = createContainerCar(`#${index}5${index}${index}0${index}`)
+  addChildren(containerCARS, [temp.containerCar])
+  mapHtml.add(temp.buttonStartA)
+}
+
+for (const user of mapHtml) {
+  console.log('',user); // John (потом Pete и Mary)
+}
+
 addChildren(wrapperTrack, [trackItems, trackNumberPage, containerCARS])
 // конец создания переменного враппера с гонками
 
@@ -71,4 +82,14 @@ addChildren(racePagination, [buttonRacePaginationPrev, buttonRacePaginationNext]
 
 addChildren(sectionRace, [raceInputs, wrapperTrack, racePagination])
 
-export { sectionRace }
+export { sectionRace, mapHtml}
+
+
+buttonRaceStart.addEventListener('click', ()=> {
+  let user: HTMLButtonElement;
+  for (user of mapHtml) {
+
+    // console.log('user',user); // John (потом Pete и Mary)
+    user.click()
+  }
+})
