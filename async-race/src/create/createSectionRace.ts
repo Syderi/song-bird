@@ -1,6 +1,8 @@
 import { createElement, addChildren, createContainerCar, createElementfromString } from './createElement'
 // import { svgCar } from '../constants/car'
 // import flag from '../assets/img/png/flag.png'
+import { getCars } from '../api/api'
+import {  ICar } from '../types/_interfaces';
 
 const sectionRace = createElement('section', { className: 'race' })
 
@@ -60,17 +62,32 @@ const containerCARS = createElement('div', { className: 'container-cars' })
 //   return containerCar
 // }
 
+
+async function renderContainerCARS() {
+  containerCARS.innerHTML = ''
+  const carsArray: ICar[] = await getCars(1);
+  console.log('carsArray', carsArray)
+  carsArray.forEach(car => {
+    const tempCar = createContainerCar(car.name,car.color)
+    addChildren(containerCARS, [tempCar.containerCar])
+  })
+  
+
+}
+
+renderContainerCARS()
+
 const mapHtml = new Set<HTMLButtonElement>()
 
-for (let index = 0; index < 5; index++) {
-  const temp = createContainerCar(`#${index}5${index}${index}0${index}`)
-  addChildren(containerCARS, [temp.containerCar])
-  mapHtml.add(temp.buttonStartA)
-}
+// for (let index = 0; index < 3; index++) {
+//   const temp = createContainerCar(`#${index}5${index}${index}0${index}`)
+//   addChildren(containerCARS, [temp.containerCar])
+//   mapHtml.add(temp.buttonStartA)
+// }
 
-for (const user of mapHtml) {
-  console.log('',user); // John (потом Pete и Mary)
-}
+// for (const user of mapHtml) {
+//   console.log('',user); // John (потом Pete и Mary)
+// }
 
 addChildren(wrapperTrack, [trackItems, trackNumberPage, containerCARS])
 // конец создания переменного враппера с гонками
@@ -92,4 +109,17 @@ buttonRaceStart.addEventListener('click', ()=> {
     // console.log('user',user); // John (потом Pete и Mary)
     user.click()
   }
+})
+
+
+inputColorCreate.addEventListener('change', ()=> {
+console.log('inputColorCreate.value', inputColorCreate.value)
+})
+
+
+buttonCreate.addEventListener('click', ()=>{
+  console.log('inputColorCreate.value',inputColorCreate.value)
+  console.log('inputNameCreate.value',inputNameCreate.value)
+  inputColorCreate.disabled = true
+  inputNameCreate.disabled = true
 })

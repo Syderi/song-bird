@@ -5,7 +5,7 @@ import './components/favicon/_add_favicon' // добавил фавиконку
 import './create/createBody'
 
 // import car from './assets/img/svg/car.svg'
-import flag from './assets/img/png/flag.png'
+// import flag from './assets/img/png/flag.png'
 
 
 import { ICar } from './types/_interfaces'
@@ -151,17 +151,17 @@ displayWinners()
 // })
 
 
-const A = document.querySelector('.button_start') as HTMLButtonElement
+// const A = document.querySelector('.button_start') as HTMLButtonElement
 
-document.body.addEventListener('clear', (e) =>{
-  A.click()
+// document.body.addEventListener('clear', (e) =>{
+//   A.click()
 
-})
+// })
 
 
-A.addEventListener('click', (e) => {
-  console.log('click AAAA')
-})
+// A.addEventListener('click', (e) => {
+//   console.log('click AAAA')
+// })
 
 // const containerСar = `<div class="container-car">
 // <div class="race__wrapper">

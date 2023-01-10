@@ -7,9 +7,12 @@ const winners = `${base}/winners`;
 
 
 
+
 async function getCars(): Promise<ICar[]> {
-  const res: Response = await fetch(garage);
+  const res: Response = await fetch(`${garage}?_page=1&_limit=7`);
   const data: Promise<ICar[]> = await res.json();
+  console.log('res.headers',Object.fromEntries(res.headers))
+  console.log('rres.headers.get(x-total-count)=',res.headers.get('x-total-count'))
   return data
 }
 

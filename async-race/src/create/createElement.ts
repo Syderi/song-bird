@@ -22,12 +22,12 @@ function createElementfromString(textString: string): HTMLElement {
 }
 
 // функция создания одиночной гонки
-function createContainerCar(color: string = 'red') {
+function createContainerCar(nameCar: string = 'Audi', color: string = 'red') {
   const containerCar = createElement('div', { className: 'container-car' })
   const raceWrapper = createElement('div', { className: 'race__wrapper' })
   const buttonSelect = createElement('button', { className: 'button button_select', textContent: 'SELECT' }) as HTMLButtonElement
   const buttonRemove = createElement('button', { className: 'button button_remove', textContent: 'REMOVE' }) as HTMLButtonElement
-  const carName = createElement('p', { className: 'car-name', textContent: `Audi` })
+  const carName = createElement('p', { className: 'car-name', textContent: `${nameCar}` })
   addChildren(raceWrapper, [buttonSelect, buttonRemove, carName])
 
   const trackCar = createElement('div', { className: 'race__wrapper track__car' })
@@ -51,10 +51,10 @@ function createContainerCar(color: string = 'red') {
   })
 
 
-  return {containerCar:containerCar,
-    buttonStartA:buttonStartA,
-    buttonStopB:buttonStopB,
-
+  return {
+    containerCar: containerCar,
+    buttonStartA: buttonStartA,
+    buttonStopB: buttonStopB,
   }
 }
 
