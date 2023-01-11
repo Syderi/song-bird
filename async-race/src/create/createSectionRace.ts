@@ -1,10 +1,10 @@
 import { createElement, addChildren, createContainerCar, createElementfromString } from './createElement';
 // import { svgCar } from '../constants/car'
 // import flag from '../assets/img/png/flag.png'
-import { getCarsApi } from '../api/api';
-import {  ICar } from '../types/_interfaces';
+// import { getCarsApi } from '../api/api';
+// import {  ICar } from '../types/_interfaces';
 
-import { renderContainerCARS } from './render';
+// import { renderContainerCARS } from './render';
 
 const sectionRace = createElement('section', { className: 'race' });
 
@@ -32,11 +32,11 @@ addChildren(raceInputs, [raceCreate, raceUpdate, raceStart]);
 
 // создание переменного враппера с гонками
 const wrapperTrack = createElement('div', { className: 'wrapper-track' });
-const trackItems = createElement('div', { className: 'track-items', textContent: 'garage (1)' });
-const trackNumberPage = createElement('div', { className: 'track-number-page', textContent: 'Page #1' });
+export const trackItems = createElement('div', { className: 'track-items', textContent: 'garage (1)' });
+export const trackNumberPage = createElement('div', { className: 'track-number-page', textContent: 'Page #1' });
 export const containerCARS = createElement('div', { className: 'container-cars' });
 
-renderContainerCARS(1);
+// renderContainerCARS();
 
 const mapHtml = new Set<HTMLButtonElement>();
 

@@ -1,5 +1,5 @@
-import { createElement, addChildren, createElementfromString, createContainerResultWin } from './createElement';
-// import { svgCar } from '../constants/car'
+import { createElement, addChildren, createContainerResultWin } from './createElement';
+// import { renderContainerResultWin, a } from './render';
 
 const sectionResults = createElement('section', { className: 'results' });
 
@@ -7,10 +7,10 @@ const resultsWinners = createElement('div', { className: 'results__winners', tex
 const resultsPage = createElement('div', { className: 'results__page', textContent: 'Page #1' });
 
 const resultsTable = createElement('table', { className: 'results__table' }) as HTMLTableElement;
-const resultsTbody = createElement('tbody', { className: 'results__tbody' }) as HTMLTableElement;
+export const resultsTbody = createElement('tbody', { className: 'results__tbody' }) as HTMLTableElement;
 addChildren(resultsTable, [resultsTbody]);
 
-const resultsTableTitleRow = createElement('tr', { className: 'results__table__title-row' }) as HTMLTableElement;
+export const resultsTableTitleRow = createElement('tr', { className: 'results__table__title-row' }) as HTMLTableElement;
 const resultsTableTitleNumber = createElement('th', { className: 'title-row-item', textContent: 'Number' }) as HTMLTableElement;
 const resultsTableTitleCar = createElement('th', { className: 'title-row-item', textContent: 'Car' }) as HTMLTableElement;
 const resultsTableTitleName = createElement('th', { className: 'title-row-item', textContent: 'Name' }) as HTMLTableElement;
@@ -37,8 +37,12 @@ addChildren(resultsTableTitleRow, [resultsTableTitleNumber, resultsTableTitleCar
 //   return resultsTableWinnerRow
 // }
 
-addChildren(resultsTbody, [resultsTableTitleRow]);
-addChildren(resultsTbody, [createContainerResultWin()]);
+// addChildren(resultsTbody, [resultsTableTitleRow]);
+// addChildren(resultsTbody, [createContainerResultWin()]);
+// setTimeout(() => {
+  
+//   a();
+// }, 0);
 
 const resultsPagination = createElement('div', { className: 'race__pagination pagination_results' });
 const buttonResultsPaginationPrev = createElement('button', { className: 'button button_results__pagination-prev', textContent: 'PREV' }) as HTMLButtonElement;
@@ -47,4 +51,7 @@ addChildren(resultsPagination, [buttonResultsPaginationPrev, buttonResultsPagina
 
 addChildren(sectionResults, [resultsWinners, resultsPage, resultsTable, resultsPagination]);
 
+
 export { sectionResults };
+
+// renderContainerResultWin();

@@ -1,32 +1,38 @@
 import '../index.html';
 import './_global.scss';
 import './components/favicon/_add_favicon'; // добавил фавиконку
-
 import './create/createBody';
+import './create/render';
+// import './api/api';
 
 // import car from './assets/img/svg/car.svg'
 // import flag from './assets/img/png/flag.png'
 
 
-import { ICar } from './types/_interfaces';
-import { getCars, getWinners } from './data/data';
+// import { ICar } from './types/_interfaces';
+// import { getCars, getWinners } from './data/data';
 
 console.log('ПРОВЕРКА');
 
-async function displayGarage() {
-  const carsLength: ICar[] = await getCars();
-  console.log('carsLength', carsLength);
-  return carsLength;
-}
+// async function displayGarage() {
+//   const carsLength: ICar[] = await getCars();
+//   console.log('carsLength', carsLength);
+//   return carsLength;
+// }
 
-async function displayWinners() {
-  const winners: ICar[] = await getWinners();
-  console.log('displayWinners', winners);
-  return winners;
-}
+// async function displayWinners() {
+//   const winners: ICar[] = await getWinners();
+//   console.log('displayWinners', winners);
+//   return winners;
+// }
 
-displayGarage();
-displayWinners();
+// displayGarage();
+// displayWinners();
+
+
+
+
+// renderContainerResultWin();
 
 
 // const trackCarImage = document.querySelector('.track__car-image') as HTMLOrSVGImageElement

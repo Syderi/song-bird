@@ -1,6 +1,10 @@
-enum StatusCodes {
-  unauthorized = 401,
-  notFound = 404,
+export enum WinnersSortOrderEnum {
+  DES = 'DESC',
+  ASC = 'ASC',
 }
 
-export { StatusCodes };
+export enum WinnersSortEnum {
+  id = 'id',
+  wins = 'wins',
+  time = 'time',
+}

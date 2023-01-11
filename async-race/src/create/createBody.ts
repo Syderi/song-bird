@@ -6,6 +6,6 @@ import { sectionResults } from './createSectionResults';
 
 
 const BODY = document.body;
-console.log('body');
+// console.log('body');
 // BODY.prepend(header)
 addChildren(BODY, [header, sectionRace, sectionResults]);

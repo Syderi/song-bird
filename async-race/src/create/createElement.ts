@@ -50,7 +50,6 @@ function createContainerCar(nameCar: string = 'Audi', color: string = 'red') {
     buttonStartA.textContent = 'НАЖАЛ';
   });
 
-
   return {
     containerCar: containerCar,
     buttonStartA: buttonStartA,
