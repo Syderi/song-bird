@@ -9,9 +9,9 @@
 
 
 
-type stringObject = {
-    [x: string]: string;
-  }
+type StringObject = {
+  [x: string]: string;
+};
 
 
-export { stringObject }
+export { StringObject };

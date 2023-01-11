@@ -52,9 +52,9 @@
 
 
 interface ICar {
-    name: string;
-    color: string;
-    id: number;
-  }
+  name: string;
+  color: string;
+  id: number;
+}
 
-  export { ICar }
+export { ICar };

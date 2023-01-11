@@ -1,4 +1,4 @@
-import favicon from "../../assets/img/png/bmw-mini-icon.png";
+import favicon from '../../assets/img/png/bmw-mini-icon.png';
 
 export default function addFavicon() {
   const link: HTMLLinkElement = document.createElement('link');
@@ -7,5 +7,5 @@ export default function addFavicon() {
   document.head.appendChild(link);
 }
 
-addFavicon()
+addFavicon();
 
