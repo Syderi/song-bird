@@ -35,7 +35,7 @@ export async function getCarsApi(page: number = 1, limit: number = MAX_CARS_IN_P
 }
 
 // Возвращает данные об указанном автомобиле.
-export async function getCarAPi(id: string): Promise<ICarApi> {
+export async function getCarAPi(id: number): Promise<ICarApi> {
   const res = await fetch(`${urlGarage}/${id}`, {
     method: 'GET',
   });
@@ -54,12 +54,16 @@ export async function getWinnersApi(
     method: 'GET',
   });
   const winnersCarsArray: IWinnerCarApi[] = await res.json();
+  console.log('575775', winnersCarsArray);
   let countWinnerCars = res.headers.get('X-Total-Count') ?? '0';
   if (!countWinnerCars) countWinnerCars = '0';
 
+  console.log('from Api ====', {
+    countWinnerCars: countWinnerCars,
+    winnersCarsArray: winnersCarsArray,
+  });
 
-  winnersCarsArray.map(async (el) => el.car = await getCarAPi(el.id.toString()));
-
+  await Promise.all(winnersCarsArray.map(async (el) => el.car = await getCarAPi(el.id)));
   return {
     countWinnerCars: countWinnerCars,
     winnersCarsArray: winnersCarsArray,

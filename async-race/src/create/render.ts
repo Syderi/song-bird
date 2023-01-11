@@ -33,29 +33,52 @@ renderContainerCARS();
 export async function renderContainerResultWin() {
 
   const WinnerCars = await getWinnersApi();
-  console.log('getWinnersApi res', WinnerCars);
+
+
+
+  console.log('100 =getWinnersApi res==', WinnerCars.winnersCarsArray[0].car);
 
   resultsTbody.innerHTML = '';
   addChildren(resultsTbody, [resultsTableTitleRow]);
+  // addChildren(resultsTbody, [createContainerResultWin(1, WinnerCars[0].car.color, winCar.car.name, winCar.wins, winCar.time)]);
 
-  WinnerCars.winnersCarsArray.forEach((winCar, index) => {
-    // if (winCar.car) {
-    console.log(winCar.car?.color);
+  const a = WinnerCars.winnersCarsArray;
 
-    const c = color(winCar.id.toString())
+  console.log('200 =a==', a);
+
+  for (let index = 0; index < a.length; index++) {
 
 
-    addChildren(resultsTbody, [createContainerResultWin(index + 1, +c , winCar.car?.name, winCar.wins, winCar.time)]);
-    // }
 
-    // const tempCar = createContainerCar(car.name, car.color);
-    // addChildren(containerCARS, [tempCar.containerCar]);
-  });
 
-async function color(id: string) {
-  const car = await getCarAPi(id)
-  return car.color
-}
+    const winCar = WinnerCars.winnersCarsArray[index];
+    console.log('winCar.car', winCar.car);
+    if (winCar.car) {
+
+      addChildren(resultsTbody, [createContainerResultWin(index + 1, winCar.car.color, winCar.car.name, winCar.wins, winCar.time)]);
+    }
+
+  }
+
+  // WinnerCars.winnersCarsArray.forEach((winCar, index) => {
+  //   if (winCar.car) {
+  //     console.log('winCar.car?.color', winCar.car?.color);
+  //     console.log('winCar.car', winCar);
+
+  //     // const c = color(winCar.id)
+
+
+  //     addChildren(resultsTbody, [createContainerResultWin(index + 1, winCar.car?.color, winCar.car?.name, winCar.wins, winCar.time)]);
+  //   }
+
+  //   // const tempCar = createContainerCar(car.name, car.color);
+  //   // addChildren(containerCARS, [tempCar.containerCar]);
+  // });
+
+  // async function color(id: number):string {
+  //   const car = await getCarAPi(id)
+  //   return car.color
+  // }
 
   // containerCARS.innerHTML = '';
   // const res = await getCarsApi(page);
