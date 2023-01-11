@@ -33,8 +33,10 @@ export async function renderContainerCARS(page: number = GLOBAL_STATE.countOfPag
   const countCars = res.countCars;
 
   carsArray.forEach(car => {
-    const tempCar = createContainerCar(car.name, car.color);
-    addChildren(containerCARS, [tempCar.containerCar]);
+    if (car.id) {
+      const tempCar = createContainerCar(car.id, car.name, car.color);
+      addChildren(containerCARS, [tempCar.containerCar]);
+    }
   });
   renrderTrackItemsAndNumberPage(countCars, page);
 }

@@ -22,11 +22,15 @@ function createElementfromString(textString: string): HTMLElement {
 }
 
 // функция создания одиночной гонки
-function createContainerCar(nameCar: string = 'Audi', color: string = 'red') {
+function createContainerCar(id: number, nameCar: string = 'Audi', color: string = 'red' ) {
   const containerCar = createElement('div', { className: 'container-car' });
   const raceWrapper = createElement('div', { className: 'race__wrapper' });
   const buttonSelect = createElement('button', { className: 'button button_select', textContent: 'SELECT' }) as HTMLButtonElement;
   const buttonRemove = createElement('button', { className: 'button button_remove', textContent: 'REMOVE' }) as HTMLButtonElement;
+  buttonRemove.setAttribute('data-remove', `${id}`);
+  buttonRemove.onclick = () => { console.log(buttonRemove.getAttribute('data-remove')); };
+
+
   const carName = createElement('p', { className: 'car-name', textContent: `${nameCar}` });
   addChildren(raceWrapper, [buttonSelect, buttonRemove, carName]);
 
