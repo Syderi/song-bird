@@ -3,8 +3,8 @@ import { createElement, addChildren, createContainerResultWin } from './createEl
 
 const sectionResults = createElement('section', { className: 'results' });
 
-const resultsWinners = createElement('div', { className: 'results__winners', textContent: 'winners (1)' });
-const resultsPage = createElement('div', { className: 'results__page', textContent: 'Page #1' });
+export const resultsWinners = createElement('div', { className: 'results__winners', textContent: 'winners (1)' });
+export const resultsPage = createElement('div', { className: 'results__page', textContent: 'Page #1' });
 
 const resultsTable = createElement('table', { className: 'results__table' }) as HTMLTableElement;
 export const resultsTbody = createElement('tbody', { className: 'results__tbody' }) as HTMLTableElement;
