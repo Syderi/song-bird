@@ -3,6 +3,7 @@ import './_global.scss';
 import './components/favicon/_add_favicon'; // добавил фавиконку
 import './create/createBody';
 import './create/render';
+import './logic/mainLogic';
 // import './api/api';
 
 // import car from './assets/img/svg/car.svg'

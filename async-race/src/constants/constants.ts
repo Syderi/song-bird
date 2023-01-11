@@ -8,3 +8,13 @@ export const urlEngine = `${urlBase}/engine`;
 
 export const MAX_CARS_IN_PAGE = 7;
 export const MAX_WINNERS_CARS_IN_PAGE = 10;
+
+interface IGlobalState {
+  countOfPageRace: number;
+  countOfPageWinners: number;
+}
+
+export const GLOBAL_STATE = {
+  countOfPageRace: 1,
+  countOfPageWinners: 1,
+};

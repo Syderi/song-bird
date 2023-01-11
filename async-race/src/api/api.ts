@@ -17,12 +17,6 @@ export async function getCarsApi(page: number = 1, limit: number = MAX_CARS_IN_P
   const carsArray: ICarApi[] = await res.json();
   let countCars = res.headers.get('X-Total-Count') ?? '0';
   if (!countCars) countCars = '0';
-
-  // console.log('getCarsApi', {
-  //   countCars: countCars,
-  //   carsArray: carsArray,
-  // });
-
   return {
     countCars: countCars,
     carsArray: carsArray,
@@ -37,6 +31,33 @@ export async function getCarAPi(id: number): Promise<ICarApi> {
   return res.json();
 }
 
+// Создает новую машину в гараже
+export async function сreateCarAPi(car: ICarApi): Promise<ICarApi> {
+  return (await fetch(urlGarage, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(car),
+  })).json();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Возвращает json данные о победителях.
 export async function getWinnersApi(
   page: number = 1,
@@ -48,8 +69,8 @@ export async function getWinnersApi(
     method: 'GET',
   });
   const winnersCarsArray: IWinnerCarApi[] = await res.json();
-  let countWinnerCars = res.headers.get('X-Total-Count') ?? '0';
-  if (!countWinnerCars) countWinnerCars = '0';
+  const countWinnerCars = res.headers.get('X-Total-Count') || '0';
+  // if (!countWinnerCars) countWinnerCars = '0';
   await Promise.all(winnersCarsArray.map(async (el) => el.car = await getCarAPi(el.id)));
   return {
     countWinnerCars: countWinnerCars,

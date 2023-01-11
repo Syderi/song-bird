@@ -3,7 +3,7 @@
 export interface ICarApi {
   name: string;
   color: string;
-  id: number;
+  id?: number;
 }
 
 export interface IResponseGetCarsApi {

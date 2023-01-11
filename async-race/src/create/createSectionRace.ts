@@ -1,19 +1,13 @@
 import { createElement, addChildren, createContainerCar, createElementfromString } from './createElement';
-// import { svgCar } from '../constants/car'
-// import flag from '../assets/img/png/flag.png'
-// import { getCarsApi } from '../api/api';
-// import {  ICar } from '../types/_interfaces';
-
-// import { renderContainerCARS } from './render';
 
 const sectionRace = createElement('section', { className: 'race' });
 
 const raceInputs = createElement('div', { className: 'race__inputs' });
 
 const raceCreate = createElement('div', { className: 'race__wrapper race-create' });
-const inputNameCreate = createElement('input', { className: 'input name-create', type: 'text' }) as HTMLInputElement;
-const inputColorCreate = createElement('input', { className: 'input color-create', type: 'color' }) as HTMLInputElement;
-const buttonCreate = createElement('button', { className: 'button button_create', textContent: 'CREATE' }) as HTMLButtonElement;
+export const inputNameCreate = createElement('input', { className: 'input name-create', type: 'text' }) as HTMLInputElement;
+export const inputColorCreate = createElement('input', { className: 'input color-create', type: 'color' }) as HTMLInputElement;
+export const buttonCreate = createElement('button', { className: 'button button_create', textContent: 'CREATE' }) as HTMLButtonElement;
 addChildren(raceCreate, [inputNameCreate, inputColorCreate, buttonCreate]);
 
 const raceUpdate = createElement('div', { className: 'race__wrapper race-update' });
@@ -70,17 +64,4 @@ buttonRaceStart.addEventListener('click', ()=> {
     // console.log('user',user); // John (потом Pete и Mary)
     user.click();
   }
-});
-
-
-inputColorCreate.addEventListener('change', ()=> {
-  console.log('inputColorCreate.value', inputColorCreate.value);
-});
-
-
-buttonCreate.addEventListener('click', ()=>{
-  console.log('inputColorCreate.value', inputColorCreate.value);
-  console.log('inputNameCreate.value', inputNameCreate.value);
-  inputColorCreate.disabled = true;
-  inputNameCreate.disabled = true;
 });
