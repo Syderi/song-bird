@@ -2,6 +2,7 @@ import { deleteCarAPi, deleteWinnerApi, getWinnerCarAPi, getWinnersApi } from '.
 import { renderContainerCARS, renderContainerResultWin } from '../create/render';
 import { checkbuttonRacePagination } from './LogicPaginationRace';
 import { checkbuttonWinnerPagination } from './LogicPaginationWinner';
+import { GLOBAL_STATE } from '../constants/constants';
 
 // Логика удаления машины из гаража
 export async function deleteCarFromGarge(id: string) {
@@ -13,12 +14,13 @@ export async function deleteCarFromGarge(id: string) {
 // Логика удаления машины из победителей
 export async function deleteCarFromWinners(id: string) {
   const winners = await getWinnersApi();
+  GLOBAL_STATE.countCarsInGarageWinners = +winners.countWinnerCars
   const key: boolean = winners.winnersCarsArray.some((car) => car.id === +id);
   // console.log('key', key);
   if (key) {
     await deleteWinnerApi(id);
+    // checkbuttonWinnerPagination();
   }
   await renderContainerResultWin();
-  checkbuttonWinnerPagination();
 }
 

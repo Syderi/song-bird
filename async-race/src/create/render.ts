@@ -41,7 +41,6 @@ export async function renderContainerCARS(page: number = GLOBAL_STATE.countOfPag
   renrderTrackItemsAndNumberPage(countCars, page);
 }
 
-
 // функция заполнения контейнера РЕЗУЛЬТАТА ПОБЕДИТЕЛЕЙ гонок
 export async function renderContainerResultWin(page: number = GLOBAL_STATE.countOfPageWinners) {
   const WinnerCars = await getWinnersApi(page);

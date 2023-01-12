@@ -11,8 +11,17 @@ export async function checkbuttonWinnerPagination(numberOfPage: number = GLOBAL_
   } else {
     buttonResultsPaginationPrev.disabled = false;
   }
-  const maxCars = await getWinnersApi();
-  GLOBAL_STATE.countCarsInGarageWinners = +maxCars.countWinnerCars;
+  const winners = await getWinnersApi();
+
+
+  //// В ЛОГИКЕ УДАЛЕНИЯ МАШИНЫ НАДО ПОДУМАТЬ КАК СДЕЛАТЬ
+
+  // const key: boolean = winners.winnersCarsArray.some((car) => car.id === +id);
+
+
+
+
+  GLOBAL_STATE.countCarsInGarageWinners = +winners.countWinnerCars;
   const maxPage = Math.ceil(GLOBAL_STATE.countCarsInGarageWinners / MAX_WINNERS_CARS_IN_PAGE);
   // console.log('maxPage', maxPage);
   if (GLOBAL_STATE.countOfPageWinners >= maxPage) {
