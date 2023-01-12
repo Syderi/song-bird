@@ -6,6 +6,7 @@ import { ICarApi } from '../types/_interfaces';
 import { containerCARS, trackItems, trackNumberPage } from './createSectionRace';
 import { resultsTbody, resultsTableTitleRow, resultsWinners, resultsPage } from './createSectionResults';
 import { GLOBAL_STATE } from '../constants/constants';
+import { checkbuttonWinnerPagination } from '../logic/LogicPaginationWinner';
 
 // функция заполнения номера страницы и количества машин в гараже
 function renrderTrackItemsAndNumberPage(
@@ -44,6 +45,9 @@ export async function renderContainerCARS(page: number = GLOBAL_STATE.countOfPag
 // функция заполнения контейнера РЕЗУЛЬТАТА ПОБЕДИТЕЛЕЙ гонок
 export async function renderContainerResultWin(page: number = GLOBAL_STATE.countOfPageWinners) {
   const WinnerCars = await getWinnersApi(page);
+  // console.log('WinnerCars RENDER TS', WinnerCars);
+  GLOBAL_STATE.countCarsInGarageWinners = +WinnerCars.countWinnerCars;
+  // console.log('GLOBAL_STATE.countCarsInGarageWinners RENDER TS', GLOBAL_STATE.countCarsInGarageWinners);
   resultsTbody.innerHTML = '';
   addChildren(resultsTbody, [resultsTableTitleRow]);
 
@@ -60,8 +64,7 @@ export async function renderContainerResultWin(page: number = GLOBAL_STATE.count
         winCar.time)]);
     // }
   }
-
-
+  checkbuttonWinnerPagination();
   renrderWinnersItemsAndNumberPage(WinnerCars.countWinnerCars, page);
 }
 

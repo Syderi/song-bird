@@ -13,14 +13,16 @@ export async function deleteCarFromGarge(id: string) {
 
 // Логика удаления машины из победителей
 export async function deleteCarFromWinners(id: string) {
-  const winners = await getWinnersApi();
-  GLOBAL_STATE.countCarsInGarageWinners = +winners.countWinnerCars
+  const winners = await getWinnersApi(-1);
+  console.log('winners ЛОГИК ДЕЛЕТ', winners);
+  GLOBAL_STATE.countCarsInGarageWinners = +winners.countWinnerCars;
+  // console.log('GLOBAL_STATE.countCarsInGarageWinners', GLOBAL_STATE.countCarsInGarageWinners);
   const key: boolean = winners.winnersCarsArray.some((car) => car.id === +id);
   // console.log('key', key);
   if (key) {
     await deleteWinnerApi(id);
-    // checkbuttonWinnerPagination();
   }
+  checkbuttonWinnerPagination();
   await renderContainerResultWin();
 }
 

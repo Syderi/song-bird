@@ -76,9 +76,17 @@ export async function getWinnersApi(
   order: WinnersSortOrderEnum = WinnersSortOrderEnum.ASC,
   limit = MAX_WINNERS_CARS_IN_PAGE,
 ): Promise<IGeneralWinnersResponse> {
-  const res: Response = await fetch(`${urlWinners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`, {
-    method: 'GET',
-  });
+  let res: Response;
+  if (page === -1) {
+    console.log('ПОЛУЧИЛ -1');
+    res = await fetch(`${urlWinners}`, {
+      method: 'GET',
+    });
+  } else {
+    res = await fetch(`${urlWinners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`, {
+      method: 'GET',
+    });
+  }
   const winnersCarsArray: IWinnerCarApi[] = await res.json();
   const countWinnerCars = res.headers.get('X-Total-Count') || '0';
   // if (!countWinnerCars) countWinnerCars = '0';
