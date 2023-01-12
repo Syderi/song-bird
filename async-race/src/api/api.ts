@@ -2,11 +2,11 @@ import {
   urlEngine, urlGarage,
   urlWinners, MAX_CARS_IN_PAGE,
   MAX_WINNERS_CARS_IN_PAGE,
-} from '../constants/constants';
+  GLOBAL_STATE } from '../constants/constants';
 
 import { WinnersSortOrderEnum, WinnersSortEnum } from '../types/_enum';
 import { ICarApi, IResponseGetCarsApi, IGeneralWinnersResponse, IWinnerCarApi } from '../types/_interfaces';
-
+// import { checkbuttonRacePagination } from '../logic/LogicPaginationRace';
 
 
 // Возвращает данные об автомобилях в гараже.
@@ -17,6 +17,9 @@ export async function getCarsApi(page: number = 1, limit: number = MAX_CARS_IN_P
   const carsArray: ICarApi[] = await res.json();
   let countCars = res.headers.get('X-Total-Count') ?? '0';
   if (!countCars) countCars = '0';
+  GLOBAL_STATE.countCarsInGarageRace = +countCars;
+  // console.log('GLOBAL_STATE.countCarsInGarageRace', GLOBAL_STATE.countCarsInGarageRace);
+  // checkbuttonRacePagination();
   return {
     countCars: countCars,
     carsArray: carsArray,

@@ -1,6 +1,7 @@
 import { inputNameCreate, inputColorCreate, buttonCreate } from '../create/createSectionRace';
 import { сreateCarAPi } from '../api/api';
 import { renderContainerCARS } from '../create/render';
+import { checkbuttonRacePagination } from './LogicPaginationRace';
 
 // Логика добавления машины в гараж
 async function createCar(
@@ -12,6 +13,7 @@ async function createCar(
     color: color,
   });
   await renderContainerCARS();
+  checkbuttonRacePagination();
 }
 
 buttonCreate.addEventListener('click', () => {

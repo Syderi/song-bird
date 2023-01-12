@@ -1,6 +1,6 @@
 import { createElement, addChildren, createContainerCar, createElementfromString } from './createElement';
 
-const sectionRace = createElement('section', { className: 'race' });
+export const sectionRace = createElement('section', { className: 'race' });
 
 const raceInputs = createElement('div', { className: 'race__inputs' });
 
@@ -32,7 +32,7 @@ export const containerCARS = createElement('div', { className: 'container-cars' 
 
 // renderContainerCARS();
 
-const mapHtml = new Set<HTMLButtonElement>();
+// const mapHtml = new Set<HTMLButtonElement>();
 
 // for (let index = 0; index < 3; index++) {
 //   const temp = createContainerCar(`#${index}5${index}${index}0${index}`)
@@ -48,20 +48,20 @@ addChildren(wrapperTrack, [trackItems, trackNumberPage, containerCARS]);
 // конец создания переменного враппера с гонками
 
 const racePagination = createElement('div', { className: 'race__pagination' });
-const buttonRacePaginationPrev = createElement('button', { className: 'button button_race__pagination-prev', textContent: 'PREV' }) as HTMLButtonElement;
-const buttonRacePaginationNext = createElement('button', { className: 'button button_race__pagination-next', textContent: 'NEXT' }) as HTMLButtonElement;
+export const buttonRacePaginationPrev = createElement('button', { className: 'button button_race__pagination-prev', textContent: 'PREV' }) as HTMLButtonElement;
+// buttonRacePaginationPrev.disabled = true;
+export const buttonRacePaginationNext = createElement('button', { className: 'button button_race__pagination-next', textContent: 'NEXT' }) as HTMLButtonElement;
 addChildren(racePagination, [buttonRacePaginationPrev, buttonRacePaginationNext]);
 
 addChildren(sectionRace, [raceInputs, wrapperTrack, racePagination]);
 
-export { sectionRace, mapHtml };
+// export { sectionRace, mapHtml };
 
 
-buttonRaceStart.addEventListener('click', ()=> {
-  let user: HTMLButtonElement;
-  for (user of mapHtml) {
-
-    // console.log('user',user); // John (потом Pete и Mary)
-    user.click();
-  }
-});
+// buttonRaceStart.addEventListener('click', ()=> {
+//   let user: HTMLButtonElement;
+//   for (user of mapHtml) {
+//     // console.log('user',user); // John (потом Pete и Mary)
+//     user.click();
+//   }
+// });
