@@ -16,7 +16,7 @@ export interface IWinnerCarApi {
   id: number;
   wins: number;
   time: number;
-  car?: ICarApi;
+  // car?: ICarApi;
 }
 
 

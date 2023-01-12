@@ -42,21 +42,29 @@ export async function сreateCarAPi(car: ICarApi): Promise<ICarApi> {
   })).json();
 }
 
+// удаляет машину из гаража
+export async function deleteCarAPi(id: string): Promise<void> {
+  await fetch(`${urlGarage}/${id}`, {
+    method: 'DELETE',
+  });
+}
 
 
+// удаляет машину из победителей
+export async function deleteWinnerApi(id: string): Promise<void> {
+  return (await fetch(`${urlWinners}/${id}`, {
+    method: 'DELETE',
+  })).json();
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
+// Возвращает данные об указанном автомобиле ПОБЕДИТЕЛЯ
+export async function getWinnerCarAPi(id: number | string): Promise<ICarApi> {
+  const res = await fetch(`${urlWinners}/${id}`, {
+    method: 'GET',
+  });
+  return res.json(); 
+}
 
 // Возвращает json данные о победителях.
 export async function getWinnersApi(
@@ -71,7 +79,7 @@ export async function getWinnersApi(
   const winnersCarsArray: IWinnerCarApi[] = await res.json();
   const countWinnerCars = res.headers.get('X-Total-Count') || '0';
   // if (!countWinnerCars) countWinnerCars = '0';
-  await Promise.all(winnersCarsArray.map(async (el) => el.car = await getCarAPi(el.id)));
+  // await Promise.all(winnersCarsArray.map(async (el) => el.car = await getCarAPi(el.id)));
   return {
     countWinnerCars: countWinnerCars,
     winnersCarsArray: winnersCarsArray,

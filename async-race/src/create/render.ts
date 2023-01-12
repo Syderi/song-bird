@@ -50,10 +50,19 @@ export async function renderContainerResultWin(page: number = GLOBAL_STATE.count
 
   for (let index = 0; index < WinnerCars.winnersCarsArray.length; index++) {
     const winCar = WinnerCars.winnersCarsArray[index];
-    if (winCar.car) {
-      addChildren(resultsTbody, [createContainerResultWin(index + 1, winCar.car.color, winCar.car.name, winCar.wins, winCar.time)]);
-    }
+    const car = await getCarAPi(winCar.id);
+    // if (winCar.car) {
+    addChildren(resultsTbody,
+      [createContainerResultWin(
+        index + 1,
+        car.color,
+        car.name,
+        winCar.wins,
+        winCar.time)]);
+    // }
   }
+
+
   renrderWinnersItemsAndNumberPage(WinnerCars.countWinnerCars, page);
 }
 

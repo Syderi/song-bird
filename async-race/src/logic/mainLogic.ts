@@ -1,1 +1,2 @@
 import './logicCreateCar';
+import './logicDeleteCar';

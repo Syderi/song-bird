@@ -1,6 +1,7 @@
 import { StringObject } from '../types/_type';
 import { svgCar } from '../constants/car';
 import flag from '../assets/img/png/flag.png';
+import { deleteCarFromGarge, deleteCarFromWinners } from '../logic/logicDeleteCar';
 
 function createElement(tagName: string = 'div', options?: StringObject) {
   const element = document.createElement(tagName);
@@ -28,8 +29,16 @@ function createContainerCar(id: number, nameCar: string = 'Audi', color: string 
   const buttonSelect = createElement('button', { className: 'button button_select', textContent: 'SELECT' }) as HTMLButtonElement;
   const buttonRemove = createElement('button', { className: 'button button_remove', textContent: 'REMOVE' }) as HTMLButtonElement;
   buttonRemove.setAttribute('data-remove', `${id}`);
-  buttonRemove.onclick = () => { console.log(buttonRemove.getAttribute('data-remove')); };
-
+  buttonRemove.addEventListener('click', () => {
+    const idRemove = buttonRemove.getAttribute('data-remove');
+    if (idRemove) {
+      deleteCarFromGarge(idRemove);
+      deleteCarFromWinners(idRemove);
+    }
+  });
+    
+  
+  // .onclick = deleteCarFromGarge(buttonRemove.getAttribute('data-remove'));
 
   const carName = createElement('p', { className: 'car-name', textContent: `${nameCar}` });
   addChildren(raceWrapper, [buttonSelect, buttonRemove, carName]);
