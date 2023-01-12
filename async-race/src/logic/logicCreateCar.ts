@@ -4,7 +4,7 @@ import { renderContainerCARS } from '../create/render';
 import { checkbuttonRacePagination } from './LogicPaginationRace';
 
 // Логика добавления машины в гараж
-async function createCar(
+export async function createCar(
   name: string = inputNameCreate.value,
   color: string = inputColorCreate.value,
 ) {

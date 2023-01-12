@@ -25,3 +25,7 @@ export interface IGeneralWinnersResponse {
   winnersCarsArray: IWinnerCarApi[];
 }
 
+export interface ICarData {
+  [x: string]: Array<string>
+}
+

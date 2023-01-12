@@ -19,7 +19,7 @@ addChildren(raceUpdate, [inputNameUpdate, inputColorUpdate, buttonUpdate]);
 const raceStart = createElement('div', { className: 'race__wrapper race-start' });
 const buttonRaceStart = createElement('button', { className: 'button button_race-start', textContent: 'START' }) as HTMLButtonElement;
 const buttonRaceReset = createElement('button', { className: 'button button_race-reset', textContent: 'RESET' }) as HTMLButtonElement;
-const buttonRaceGenerateCars = createElement('button', { className: 'button button_race-generate-cars', textContent: 'GENERATE CARS' }) as HTMLButtonElement;
+export const buttonRaceGenerateCars = createElement('button', { className: 'button button_race-generate-cars', textContent: 'GENERATE CARS' }) as HTMLButtonElement;
 addChildren(raceStart, [buttonRaceStart, buttonRaceReset, buttonRaceGenerateCars]);
 
 addChildren(raceInputs, [raceCreate, raceUpdate, raceStart]);
