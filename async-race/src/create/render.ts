@@ -54,7 +54,7 @@ export async function renderContainerResultWin(page: number = GLOBAL_STATE.count
     // if (winCar.car) {
     addChildren(resultsTbody,
       [createContainerResultWin(
-        index + 1,
+        (page * 10 + index - 9),
         car.color,
         car.name,
         winCar.wins,

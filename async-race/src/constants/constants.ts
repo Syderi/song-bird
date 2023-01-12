@@ -11,12 +11,14 @@ export const MAX_WINNERS_CARS_IN_PAGE = 10;
 
 interface IGlobalState {
   countOfPageRace: number;
-  countCarsInGarageRace: number;
   countOfPageWinners: number;
+  countCarsInGarageRace: number;
+  countCarsInGarageWinners: number;
 }
 
 export const GLOBAL_STATE: IGlobalState = {
   countOfPageRace: 1,
-  countCarsInGarageRace: 0,
   countOfPageWinners: 1,
+  countCarsInGarageRace: 0,
+  countCarsInGarageWinners: 0,
 };

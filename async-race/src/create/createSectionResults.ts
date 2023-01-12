@@ -1,7 +1,6 @@
 import { createElement, addChildren, createContainerResultWin } from './createElement';
-// import { renderContainerResultWin, a } from './render';
 
-const sectionResults = createElement('section', { className: 'results' });
+export const sectionResults = createElement('section', { className: 'results' });
 
 export const resultsWinners = createElement('div', { className: 'results__winners', textContent: 'winners (1)' });
 export const resultsPage = createElement('div', { className: 'results__page', textContent: 'Page #1' });
@@ -45,13 +44,11 @@ addChildren(resultsTableTitleRow, [resultsTableTitleNumber, resultsTableTitleCar
 // }, 0);
 
 const resultsPagination = createElement('div', { className: 'race__pagination pagination_results' });
-const buttonResultsPaginationPrev = createElement('button', { className: 'button button_results__pagination-prev', textContent: 'PREV' }) as HTMLButtonElement;
-const buttonResultsPaginationNext = createElement('button', { className: 'button button_results__pagination-next', textContent: 'NEXT' }) as HTMLButtonElement;
+export const buttonResultsPaginationPrev = createElement('button', { className: 'button button_results__pagination-prev', textContent: 'PREV' }) as HTMLButtonElement;
+export const buttonResultsPaginationNext = createElement('button', { className: 'button button_results__pagination-next', textContent: 'NEXT' }) as HTMLButtonElement;
 addChildren(resultsPagination, [buttonResultsPaginationPrev, buttonResultsPaginationNext]);
 
 addChildren(sectionResults, [resultsWinners, resultsPage, resultsTable, resultsPagination]);
 
-
-export { sectionResults };
 
 // renderContainerResultWin();
