@@ -1,27 +1,35 @@
+import { EngineDriveEnum } from './../types/_enum';
 import { GLOBAL_STATE } from '../constants/constants';
-import { startEngineCarApi } from '../api/api';
+import { startEngineCarApi, stopEngineCarApi } from '../api/api';
 
 // получение ширины экрана
 function getOffsetWidth() {
   return Math.floor(document.body.offsetWidth - 220);
 }
-
-// функция движения машины
-function drive(time: number, id: string, endWidth = getOffsetWidth()) {
-
-  let curentWidth = 0;
-  const frame = (time / 1000) * 60;
-  const step = (endWidth - 0) / frame;
+// функция возвращения дива с картинкой машины
+function getImageSVGDivCar(id: string): HTMLElement | null {
   const div = GLOBAL_STATE.arraytrackCarSvg.find(
     (track) => track.getAttribute('data-trackCarSvg') === id,
   );
+  console.log('DIV DRIVE', div);
+  if (div) return div;
+  return null;
+}
 
+// функция движения машины
+function driveCar(time: number, id: string, endWidth = getOffsetWidth()) {
+  console.log('GLOBAL_STATE из драйва', GLOBAL_STATE);
+  let curentWidth = 0;
+  const frame = (time / 1000) * 60;
+  const step = (endWidth - 0) / frame;
+  const div = getImageSVGDivCar(id);
   const moveCar = () => {
+    const status = GLOBAL_STATE.engineCarsStatusMap.get(id);
     curentWidth += step;
-    if (div) {
-      div.style.transform = `translateX(${curentWidth}px)`;
-    }
-    if (curentWidth < endWidth) {
+    if (curentWidth < endWidth && status === EngineDriveEnum.started) {
+      if (div) {
+        div.style.transform = `translateX(${curentWidth}px)`;
+      }
       requestAnimationFrame(moveCar);
     }
   };
@@ -29,15 +37,36 @@ function drive(time: number, id: string, endWidth = getOffsetWidth()) {
 }
 
 // функция анимации движения
-export async function animate(id: string) {
+export async function startAnimateCar(id: string) {
   const engineCarData = await startEngineCarApi(id);
+  GLOBAL_STATE.engineCarsStatusMap.set(id, EngineDriveEnum.started);
   // console.log('engineCarData ID 1', engineCarData);
   const time = engineCarData.distance / engineCarData.velocity;
   // console.log('time ID 1', time);
-  drive(time, id);
+  driveCar(time, id);
 }
 
 // animate('1');
+
+// функция остановки движения по кнопке В
+export async function stopAnimateCar(id: string) {
+  await stopEngineCarApi(id);
+  GLOBAL_STATE.engineCarsStatusMap.set(id, EngineDriveEnum.stopped);
+  const div = getImageSVGDivCar(id);
+  console.log('DIV DRIVE STOP', div);
+  if (div) {
+    div.style.transform = 'translateX(0px)';
+    console.log('GLOBAL_STATE из стопа', GLOBAL_STATE);
+  }
+
+}
+
+
+
+
+
+
+
 
 
 

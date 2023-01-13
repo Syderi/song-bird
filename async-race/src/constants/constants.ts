@@ -1,5 +1,5 @@
 import { ICarData } from '../types/_interfaces';
-import { WinnersSortEnum, WinnersSortOrderEnum } from '../types/_enum';
+import { EngineDriveEnum, WinnersSortEnum, WinnersSortOrderEnum } from '../types/_enum';
 
 const urlBase: string = 'http://localhost:3000';
 
@@ -47,6 +47,7 @@ interface IGlobalState {
   idSelectedCar: number | string;
   arrayButtonSelect: HTMLButtonElement[];
   arraytrackCarSvg: HTMLElement[];
+  engineCarsStatusMap: Map<string, EngineDriveEnum>;
 }
 
 export const GLOBAL_STATE: IGlobalState = {
@@ -59,4 +60,5 @@ export const GLOBAL_STATE: IGlobalState = {
   idSelectedCar: GLOBAL_DEFAULT_MINUS_ONE,
   arrayButtonSelect: [],
   arraytrackCarSvg: [],
+  engineCarsStatusMap: new Map(),
 };

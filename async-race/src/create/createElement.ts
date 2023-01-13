@@ -4,7 +4,7 @@ import { svgCar } from '../constants/car';
 import flag from '../assets/img/png/flag.png';
 import { deleteCarFromGarge, deleteCarFromWinners } from '../logic/logicDeleteCar';
 import { buttonsSelectetIsTrue, updateInputsValues } from '../logic/logicUpdateCar';
-import { animate } from '../logic/logicDriveCar';
+import { startAnimateCar, stopAnimateCar } from '../logic/logicDriveCar';
 
 function createElement(tagName: string = 'div', options?: StringObject) {
   const element = document.createElement(tagName);
@@ -65,12 +65,20 @@ function createContainerCar(id: number, nameCar: string = 'Audi', color: string 
   buttonStartA.addEventListener('click', () => {
     const startA = buttonRemove.getAttribute('data-startA');
     if (startA) {
-      console.log('НАЖАЛ');
-      animate(startA);
+      console.log('НАЖАЛ startA');
+      startAnimateCar(startA);
     }
   });
 
   const buttonStopB = createElement('button', { className: 'button button_stop', textContent: 'B' }) as HTMLButtonElement;
+  buttonStopB.setAttribute('data-StopB', `${id}`);
+  buttonStopB.addEventListener('click', () => {
+    const stopB = buttonRemove.getAttribute('data-startA');
+    if (stopB) {
+      console.log('НАЖАЛ stopB');
+      stopAnimateCar(stopB);
+    }
+  });
   const trackCarSvg = createElement('div', { className: 'container__track__car-svg' });
   trackCarSvg.setAttribute('data-trackCarSvg', `${id}`);
 

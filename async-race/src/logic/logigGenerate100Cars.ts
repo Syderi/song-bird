@@ -6,11 +6,6 @@ import { renderContainerCARS } from '../create/render';
 import { checkbuttonRacePagination } from './LogicPaginationRace';
 
 
-// Функция случайного числа
-// function getRandomNum(start: number, end: number): number {
-//   return Math.floor(Math.random() * (end - start)) + end;
-// }
-
 function getRandomNum(min: number, max: number): number {
   // случайное число от min до (max+1)
   const rand = min + Math.random() * (max + 1 - min);

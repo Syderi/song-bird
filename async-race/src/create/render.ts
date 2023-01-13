@@ -35,6 +35,7 @@ export async function renderContainerCARS(page: number = GLOBAL_STATE.countOfPag
   GLOBAL_STATE.arrayButtonSelect = [];
   GLOBAL_STATE.arraytrackCarSvg = [];
   GLOBAL_STATE.idSelectedCar = GLOBAL_DEFAULT_MINUS_ONE;
+  GLOBAL_STATE.engineCarsStatusMap.clear();
   carsArray.forEach(car => {
     if (car.id) {
       const tempCar = createContainerCar(car.id, car.name, car.color);

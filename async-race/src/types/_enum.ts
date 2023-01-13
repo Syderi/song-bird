@@ -8,3 +8,9 @@ export enum WinnersSortEnum {
   wins = 'wins',
   time = 'time',
 }
+
+export enum EngineDriveEnum {
+  started = 'started',
+  stopped = 'stopped',
+  drive = 'drive',
+}
