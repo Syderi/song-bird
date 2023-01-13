@@ -1,3 +1,10 @@
+import { ICheckEngine,
+  ICarApi,
+  IResponseGetCarsApi,
+  IGeneralWinnersResponse,
+  IWinnerCarApi,
+  IStartStop,
+} from './../types/_interfaces';
 import {
   urlEngine, urlGarage,
   urlWinners, MAX_CARS_IN_PAGE,
@@ -6,7 +13,7 @@ import {
 } from '../constants/constants';
 
 import { WinnersSortOrderEnum, WinnersSortEnum } from '../types/_enum';
-import { ICarApi, IResponseGetCarsApi, IGeneralWinnersResponse, IWinnerCarApi } from '../types/_interfaces';
+
 // import { checkbuttonRacePagination } from '../logic/LogicPaginationRace';
 
 
@@ -109,4 +116,31 @@ export async function getWinnersApi(
     countWinnerCars: countWinnerCars,
     winnersCarsArray: winnersCarsArray,
   };
+}
+
+// метод СТАР переводит двигаетель в старт
+export async function startEngineCarApi(id: string | number): Promise<IStartStop> {
+  return (await fetch(`${urlEngine}?id=${id}&status=started`, {
+    method: 'PATCH',
+  })
+  ).json();
+}
+
+// метод СТОП переводит двигаетель в стоп
+export async function stopEngineCarApi(id: string | number): Promise<IStartStop> {
+  return (await fetch(`${urlEngine}?id=${id}&status=stopped`, {
+    method: 'PATCH',
+  })
+  ).json();
+}
+
+// метод проверки состояния двигателя
+export async function checkEngineDriveCar(id: string): Promise<ICheckEngine> {
+  const data = await fetch(`${urlEngine}?id=${id}&status=drive`, {
+    method: 'PATCH',
+  }).catch();
+  if (data.status === 200) {
+    return { success: true };
+  }
+  return { success: false };
 }

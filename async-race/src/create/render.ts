@@ -33,11 +33,13 @@ export async function renderContainerCARS(page: number = GLOBAL_STATE.countOfPag
   const carsArray: ICarApi[] = res.carsArray;
   const countCars = res.countCars;
   GLOBAL_STATE.arrayButtonSelect = [];
+  GLOBAL_STATE.arraytrackCarSvg = [];
   GLOBAL_STATE.idSelectedCar = GLOBAL_DEFAULT_MINUS_ONE;
   carsArray.forEach(car => {
     if (car.id) {
       const tempCar = createContainerCar(car.id, car.name, car.color);
       GLOBAL_STATE.arrayButtonSelect.push(tempCar.buttonSelect);
+      GLOBAL_STATE.arraytrackCarSvg.push(tempCar.trackCarSvg);
       addChildren(containerCARS, [tempCar.containerCar]);
     }
   });

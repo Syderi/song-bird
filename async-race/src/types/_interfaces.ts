@@ -1,4 +1,3 @@
-// import { extends, WinnerCarApi } from './_interfaces';
 
 export interface ICarApi {
   name: string;
@@ -16,7 +15,6 @@ export interface IWinnerCarApi {
   id: number;
   wins: number;
   time: number;
-  // car?: ICarApi;
 }
 
 
@@ -28,4 +26,16 @@ export interface IGeneralWinnersResponse {
 export interface ICarData {
   [x: string]: Array<string>
 }
+
+export interface IStartStop {
+  velocity: number;
+  distance: number;
+}
+
+export interface ICheckEngine {
+  success: boolean;
+
+}
+
+
 

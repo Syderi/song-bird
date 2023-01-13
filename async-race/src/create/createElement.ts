@@ -4,6 +4,7 @@ import { svgCar } from '../constants/car';
 import flag from '../assets/img/png/flag.png';
 import { deleteCarFromGarge, deleteCarFromWinners } from '../logic/logicDeleteCar';
 import { buttonsSelectetIsTrue, updateInputsValues } from '../logic/logicUpdateCar';
+import { animate } from '../logic/logicDriveCar';
 
 function createElement(tagName: string = 'div', options?: StringObject) {
   const element = document.createElement(tagName);
@@ -60,8 +61,18 @@ function createContainerCar(id: number, nameCar: string = 'Audi', color: string 
 
   const trackCar = createElement('div', { className: 'race__wrapper track__car' });
   const buttonStartA = createElement('button', { className: 'button button_start', textContent: 'A' }) as HTMLButtonElement;
+  buttonRemove.setAttribute('data-startA', `${id}`);
+  buttonStartA.addEventListener('click', () => {
+    const startA = buttonRemove.getAttribute('data-startA');
+    if (startA) {
+      console.log('НАЖАЛ');
+      animate(startA);
+    }
+  });
+
   const buttonStopB = createElement('button', { className: 'button button_stop', textContent: 'B' }) as HTMLButtonElement;
   const trackCarSvg = createElement('div', { className: 'container__track__car-svg' });
+  trackCarSvg.setAttribute('data-trackCarSvg', `${id}`);
 
   const car = createElementfromString(svgCar);
   car.style.fill = `${color}`;
@@ -74,15 +85,13 @@ function createContainerCar(id: number, nameCar: string = 'Audi', color: string 
   addChildren(trackCar, [buttonStartA, buttonStopB, trackCarSvg, trackFinish]);
   addChildren(containerCar, [raceWrapper, trackCar]);
 
-  buttonStartA.addEventListener('click', () => {
-    buttonStartA.textContent = 'НАЖАЛ';
-  });
 
   return {
     containerCar: containerCar,
     buttonStartA: buttonStartA,
     buttonStopB: buttonStopB,
     buttonSelect: buttonSelect,
+    trackCarSvg: trackCarSvg,
   };
 }
 // Конец функции создания одиночной гонки

@@ -46,6 +46,7 @@ interface IGlobalState {
   winnersSortOrder: WinnersSortOrderEnum;
   idSelectedCar: number | string;
   arrayButtonSelect: HTMLButtonElement[];
+  arraytrackCarSvg: HTMLElement[];
 }
 
 export const GLOBAL_STATE: IGlobalState = {
@@ -57,4 +58,5 @@ export const GLOBAL_STATE: IGlobalState = {
   winnersSortOrder: WinnersSortOrderEnum.DESC,
   idSelectedCar: GLOBAL_DEFAULT_MINUS_ONE,
   arrayButtonSelect: [],
+  arraytrackCarSvg: [],
 };
