@@ -14,34 +14,10 @@ const resultsTableTitleNumber = createElement('th', { className: 'title-row-item
 const resultsTableTitleCar = createElement('th', { className: 'title-row-item', textContent: 'Car' }) as HTMLTableElement;
 const resultsTableTitleName = createElement('th', { className: 'title-row-item', textContent: 'Name' }) as HTMLTableElement;
 // СОРТИРОВКИ ЭЛЕМЕНТЫ РЕЗУЛЬТАТОВ
-const clickResultsTableSortWins = createElement('th', { className: 'title-row-item wins-sort', textContent: 'Wins ⮃' }) as HTMLTableElement;
-const clickResultsTableSortTime = createElement('th', { className: 'title-row-item time-sort', textContent: 'Best time ⮃ (seconds)' }) as HTMLTableElement;
+export const clickResultsTableSortWins = createElement('th', { className: 'title-row-item wins-sort', textContent: 'Wins ⮃' }) as HTMLTableElement;
+export const clickResultsTableSortTime = createElement('th', { className: 'title-row-item time-sort', textContent: 'Best time ⮃ (seconds)' }) as HTMLTableElement;
 
 addChildren(resultsTableTitleRow, [resultsTableTitleNumber, resultsTableTitleCar, resultsTableTitleName, clickResultsTableSortWins, clickResultsTableSortTime]);
-
-// // функция создания одиночного результата победы
-// function createContainerResultWin(count: number = 1, color: string = 'red', nameCar: string = 'Audi', wins: number = 1,  time: number = 0,): HTMLTableElement{
-
-//   const resultsTableWinnerRow = createElement('tr', { className: 'results__table__winner-row' }) as HTMLTableElement
-//   const rowItemCount = createElement('td', { className: 'title-row-item', textContent: `${count}` }) as HTMLTableElement
-//   const rowItemSVG = createElement('td', { className: 'title-row-item' }) as HTMLTableElement
-//   const carSmall = createElementfromString(svgCar) as HTMLOrSVGImageElement
-//   carSmall.style.fill = `${color}`
-//   rowItemSVG.append(carSmall)
-//   const rowItemName = createElement('td', { className: 'title-row-item', textContent: `${nameCar}` }) as HTMLTableElement
-//   const rowItemWins = createElement('td', { className: 'title-row-item', textContent: `${wins}` }) as HTMLTableElement
-//   const rowItemTime = createElement('td', { className: 'title-row-item', textContent: `${time} sec` }) as HTMLTableElement
-
-//   addChildren(resultsTableWinnerRow, [rowItemCount, rowItemSVG, rowItemName, rowItemWins, rowItemTime])
-//   return resultsTableWinnerRow
-// }
-
-// addChildren(resultsTbody, [resultsTableTitleRow]);
-// addChildren(resultsTbody, [createContainerResultWin()]);
-// setTimeout(() => {
-  
-//   a();
-// }, 0);
 
 const resultsPagination = createElement('div', { className: 'race__pagination pagination_results' });
 export const buttonResultsPaginationPrev = createElement('button', { className: 'button button_results__pagination-prev', textContent: 'PREV' }) as HTMLButtonElement;

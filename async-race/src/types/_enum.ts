@@ -1,5 +1,5 @@
 export enum WinnersSortOrderEnum {
-  DES = 'DESC',
+  DESC = 'DESC', // больше значение
   ASC = 'ASC',
 }
 

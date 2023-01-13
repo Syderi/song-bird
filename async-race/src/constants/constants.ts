@@ -1,4 +1,5 @@
 import { ICarData } from '../types/_interfaces';
+import { WinnersSortEnum, WinnersSortOrderEnum } from '../types/_enum';
 
 const urlBase: string = 'http://localhost:3000';
 
@@ -36,6 +37,8 @@ interface IGlobalState {
   countOfPageWinners: number;
   countCarsInGarageRace: number;
   countCarsInGarageWinners: number;
+  winnersSort: WinnersSortEnum;
+  WinnersSortOrder: WinnersSortOrderEnum;
 }
 
 export const GLOBAL_STATE: IGlobalState = {
@@ -43,4 +46,6 @@ export const GLOBAL_STATE: IGlobalState = {
   countOfPageWinners: 1,
   countCarsInGarageRace: 0,
   countCarsInGarageWinners: 0,
+  winnersSort: WinnersSortEnum.time,
+  WinnersSortOrder: WinnersSortOrderEnum.DESC,
 };

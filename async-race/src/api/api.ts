@@ -2,7 +2,8 @@ import {
   urlEngine, urlGarage,
   urlWinners, MAX_CARS_IN_PAGE,
   MAX_WINNERS_CARS_IN_PAGE,
-  GLOBAL_STATE } from '../constants/constants';
+  GLOBAL_STATE,
+} from '../constants/constants';
 
 import { WinnersSortOrderEnum, WinnersSortEnum } from '../types/_enum';
 import { ICarApi, IResponseGetCarsApi, IGeneralWinnersResponse, IWinnerCarApi } from '../types/_interfaces';
@@ -66,26 +67,27 @@ export async function getWinnerCarAPi(id: number | string): Promise<ICarApi> {
   const res = await fetch(`${urlWinners}/${id}`, {
     method: 'GET',
   });
-  return res.json(); 
+  return res.json();
 }
 
 // Возвращает json данные о победителях.
 export async function getWinnersApi(
   page: number = 1,
-  sort: WinnersSortEnum = WinnersSortEnum.wins,
-  order: WinnersSortOrderEnum = WinnersSortOrderEnum.ASC,
+  sort: WinnersSortEnum = GLOBAL_STATE.winnersSort,
+  order: WinnersSortOrderEnum = GLOBAL_STATE.WinnersSortOrder,
   limit = MAX_WINNERS_CARS_IN_PAGE,
 ): Promise<IGeneralWinnersResponse> {
   let res: Response;
   if (page === -1) {
-    console.log('ПОЛУЧИЛ -1');
+    // console.log('ПОЛУЧИЛ -1');
     res = await fetch(`${urlWinners}`, {
       method: 'GET',
     });
   } else {
-    res = await fetch(`${urlWinners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`, {
-      method: 'GET',
-    });
+    res = await fetch(`${urlWinners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`,
+      {
+        method: 'GET',
+      });
   }
   const winnersCarsArray: IWinnerCarApi[] = await res.json();
   const countWinnerCars = res.headers.get('X-Total-Count') || '0';
