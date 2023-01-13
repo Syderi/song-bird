@@ -1,4 +1,4 @@
-import { deleteCarAPi, deleteWinnerApi, getWinnerCarAPi, getWinnersApi } from '../api/api';
+import { deleteCarAPi, deleteWinnerApi, getWinnersApi } from '../api/api';
 import { renderContainerCARS, renderContainerResultWin } from '../create/render';
 import { checkbuttonRacePagination } from './LogicPaginationRace';
 import { checkbuttonWinnerPagination } from './LogicPaginationWinner';

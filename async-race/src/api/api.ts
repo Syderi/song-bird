@@ -9,7 +9,7 @@ import {
   urlEngine, urlGarage,
   urlWinners, MAX_CARS_IN_PAGE,
   MAX_WINNERS_CARS_IN_PAGE,
-  GLOBAL_STATE,
+  GLOBAL_STATE, GLOBAL_DEFAULT_MINUS_ONE,
 } from '../constants/constants';
 
 import { WinnersSortOrderEnum, WinnersSortEnum } from '../types/_enum';
@@ -80,12 +80,32 @@ export async function deleteWinnerApi(id: string): Promise<void> {
 }
 
 
-// Возвращает данные об указанном автомобиле ПОБЕДИТЕЛЯ
-export async function getWinnerCarAPi(id: number | string): Promise<ICarApi> {
-  const res = await fetch(`${urlWinners}/${id}`, {
-    method: 'GET',
-  });
-  return res.json();
+
+// метод СТАР переводит двигаетель в старт
+export async function startEngineCarApi(id: string | number): Promise<IStartStop> {
+  return (await fetch(`${urlEngine}?id=${id}&status=started`, {
+    method: 'PATCH',
+  })
+  ).json();
+}
+
+// метод СТОП переводит двигаетель в стоп
+export async function stopEngineCarApi(id: string): Promise<IStartStop> {
+  return (await fetch(`${urlEngine}?id=${id}&status=stopped`, {
+    method: 'PATCH',
+  })
+  ).json();
+}
+
+// метод проверки состояния двигателя
+export async function checkEngineDriveCar(id: string): Promise<ICheckEngine> {
+  const data = await fetch(`${urlEngine}?id=${id}&status=drive`, {
+    method: 'PATCH',
+  }).catch();
+  if (data.status === 200) {
+    return { success: true };
+  }
+  return { success: false };
 }
 
 // Возвращает json данные о победителях.
@@ -96,7 +116,7 @@ export async function getWinnersApi(
   limit = MAX_WINNERS_CARS_IN_PAGE,
 ): Promise<IGeneralWinnersResponse> {
   let res: Response;
-  if (page === -1) {
+  if (page === GLOBAL_DEFAULT_MINUS_ONE) {
     // console.log('ПОЛУЧИЛ -1');
     res = await fetch(`${urlWinners}`, {
       method: 'GET',
@@ -118,29 +138,32 @@ export async function getWinnersApi(
   };
 }
 
-// метод СТАР переводит двигаетель в старт
-export async function startEngineCarApi(id: string | number): Promise<IStartStop> {
-  return (await fetch(`${urlEngine}?id=${id}&status=started`, {
-    method: 'PATCH',
-  })
-  ).json();
+// Возвращает данные об указанном автомобиле ПОБЕДИТЕЛЯ
+export async function getWinnerCarAPi(id: string): Promise<IWinnerCarApi> {
+  const res = await fetch(`${urlWinners}/${id}`, {
+    method: 'GET',
+  });
+  return res.json();
 }
 
-// метод СТОП переводит двигаетель в стоп
-export async function stopEngineCarApi(id: string | number): Promise<IStartStop> {
-  return (await fetch(`${urlEngine}?id=${id}&status=stopped`, {
-    method: 'PATCH',
-  })
-  ).json();
+// Метод создания победителя гонки
+export async function сreateWinnerCarAPi(winCar: IWinnerCarApi): Promise<IWinnerCarApi> {
+  return (await fetch(urlWinners, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(winCar),
+  })).json();
 }
 
-// метод проверки состояния двигателя
-export async function checkEngineDriveCar(id: string): Promise<ICheckEngine> {
-  const data = await fetch(`${urlEngine}?id=${id}&status=drive`, {
-    method: 'PATCH',
-  }).catch();
-  if (data.status === 200) {
-    return { success: true };
-  }
-  return { success: false };
+// обновляем Машину победителя 
+export async function updateWinnerCarAPi(id: string, winCar: IWinnerCarApi): Promise<void> {
+  await fetch(`${urlWinners}/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(winCar),
+  });
 }

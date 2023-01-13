@@ -37,6 +37,8 @@ export async function renderContainerCARS(page: number = GLOBAL_STATE.countOfPag
   GLOBAL_STATE.arraybuttonStopB = [];
   GLOBAL_STATE.arrayButtonSelect = [];
   GLOBAL_STATE.arraytrackCarSvg = [];
+  GLOBAL_STATE.isRace = false;
+  GLOBAL_STATE.isWinnerCarinRace = false;
   GLOBAL_STATE.engineCarsStatusMap.clear();
   carsArray.forEach(car => {
     if (car.id) {
@@ -64,16 +66,18 @@ export async function renderContainerResultWin(page: number = GLOBAL_STATE.count
 
   for (let index = 0; index < WinnerCars.winnersCarsArray.length; index++) {
     const winCar = WinnerCars.winnersCarsArray[index];
-    const car = await getCarAPi(winCar.id);
-    // if (winCar.car) {
-    addChildren(resultsTbody,
-      [createContainerResultWin(
-        (page * 10 + index - 9),
-        car.color,
-        car.name,
-        winCar.wins,
-        winCar.time)]);
-    // }
+    if (winCar.id) {
+      const car = await getCarAPi(winCar.id);
+      // if (winCar.car) {
+      addChildren(resultsTbody,
+        [createContainerResultWin(
+          (page * 10 + index - 9),
+          car.color,
+          car.name,
+          winCar.wins,
+          winCar.time)]);
+      // }
+    }
   }
   checkbuttonWinnerPagination();
   renrderWinnersItemsAndNumberPage(WinnerCars.countWinnerCars, page);

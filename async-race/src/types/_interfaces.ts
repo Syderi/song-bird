@@ -12,7 +12,7 @@ export interface IResponseGetCarsApi {
 
 
 export interface IWinnerCarApi {
-  id: number;
+  id?: number;
   wins: number;
   time: number;
 }
