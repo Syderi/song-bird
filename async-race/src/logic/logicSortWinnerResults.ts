@@ -26,4 +26,7 @@ clickResultsTableSortWins.addEventListener('click', () => {
 // слушатель на кнопке сортировки побед
 clickResultsTableSortTime.addEventListener('click', () => {
   console.log('КЛИКНУЛ ПО СОРТИРОВКЕ ВРЕМЕНИ');
+  GLOBAL_STATE.winnersSort = WinnersSortEnum.time;
+  changeOrderSort();
+  renderContainerResultWin();
 });

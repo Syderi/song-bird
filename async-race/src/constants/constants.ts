@@ -24,12 +24,15 @@ export const CAR_DATA: ICarData = {
   'Austin': ['Allegro', 'Ambassador', 'FL2', 'FX4', 'Maestro', 'Maxi', 'Metro', 'Mini', 'Montego', 'Princess', 'Sprite'],
   'Bentley': ['Arnage', 'Azure', 'Bentayga', 'Brooklands', 'Continental', 'Continental Flying Spur', 'Continental GT', 'Eight', 'Flying Spur', 'Mark VI'],
   'Buick': ['Cascada', 'Century', 'Electra', 'Enclave', 'Encore', 'Encore GX', 'Envision', 'Estate Wagon', 'Excelle', 'GL8'],
+  'Cadillac': ['Allante', 'ATS', 'ATS-V', 'BLS', 'Brougham', 'Catera', 'CT4', 'CT4-V', 'CT5', 'CT5-V'],
   'Changan': ['Alsvin V7', 'Auchan A600 EV', 'Benni', 'Benni EC/EV', 'CM-8', 'CS15', 'CS35', 'CS35PLUS', 'CS55', 'CS75'],
   'Dacia': ['1300', '1310', '1410', 'Dokker', 'Duster', 'Jogger', 'Lodgy', 'Logan', 'Nova', 'Pick-Up'],
   'Infiniti': ['EX', 'FX', 'G', 'I', 'J', 'JX', 'M', 'Q', 'Q30', 'Q40'],
   'Jaguar': ['E-Pace', 'E-type', 'F-Pace', 'F-Type', 'I-Pace', 'Mark 2', 'Mark IX', 'S-Type', 'X-Type', 'XE'],
   'LADA (ВАЗ)': ['1111 Ока', '2101', '2102', '2103', '2104', '2105', '2106', '2107', '2108', '2109'],
   'Lamborghini': ['350/400 GT', 'Aventador', 'Centenario', 'Countach', 'Countach LPI 800-4', 'Diablo', 'Egoista', 'Espada', 'Gallardo', 'Huracán'],
+  'Москвич': ['2136', '2137', '2138', '2140', '2141', '2142', '400', '408', 'Князь Владимир', 'Святогор', 'Юрий Долгорукий'],
+  'УАЗ': ['3151', '3153', '3159', '3160', '3162 Simbir', '469', 'Hunter', 'Patriot', 'Pickup', 'Астеро'],
 };
 
 interface IGlobalState {
@@ -46,6 +49,6 @@ export const GLOBAL_STATE: IGlobalState = {
   countOfPageWinners: 1,
   countCarsInGarageRace: 0,
   countCarsInGarageWinners: 0,
-  winnersSort: WinnersSortEnum.time,
+  winnersSort: WinnersSortEnum.wins,
   WinnersSortOrder: WinnersSortOrderEnum.DESC,
 };
