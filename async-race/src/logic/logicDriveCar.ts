@@ -1,11 +1,14 @@
 import { EngineDriveEnum } from './../types/_enum';
 import { GLOBAL_STATE } from '../constants/constants';
-import { startEngineCarApi, stopEngineCarApi } from '../api/api';
+import { checkEngineDriveCar, startEngineCarApi, stopEngineCarApi } from '../api/api';
 
 // получение ширины экрана
 function getOffsetWidth() {
   return Math.floor(document.body.offsetWidth - 220);
 }
+
+
+
 // функция возвращения дива с картинкой машины
 function getImageSVGDivCar(id: string): HTMLElement | null {
   const div = GLOBAL_STATE.arraytrackCarSvg.find(
@@ -14,6 +17,14 @@ function getImageSVGDivCar(id: string): HTMLElement | null {
   console.log('DIV DRIVE', div);
   if (div) return div;
   return null;
+}
+
+// функция ловли поломки двигателя
+async function getEngineDriveCarStatus(id: string): Promise<void> {
+  const res = await checkEngineDriveCar(id);
+  if (res.success) return;
+  // console.log('res', res);
+  GLOBAL_STATE.engineCarsStatusMap.set(id, EngineDriveEnum.drive);
 }
 
 // функция движения машины
@@ -44,6 +55,7 @@ export async function startAnimateCar(id: string) {
   const time = engineCarData.distance / engineCarData.velocity;
   // console.log('time ID 1', time);
   driveCar(time, id);
+  getEngineDriveCarStatus(id);
 }
 
 // animate('1');
@@ -58,8 +70,9 @@ export async function stopAnimateCar(id: string) {
     div.style.transform = 'translateX(0px)';
     console.log('GLOBAL_STATE из стопа', GLOBAL_STATE);
   }
-
 }
+
+
 
 
 
