@@ -4,4 +4,5 @@ import './LogicPaginationRace';
 import './LogicPaginationWinner';
 import './logigGenerate100Cars';
 import './logicSortWinnerResults';
+import './logicUpdateCar';
 

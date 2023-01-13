@@ -1,11 +1,11 @@
-import { addChildren, createContainerCar, createElementfromString, createContainerResultWin } from './createElement';
-// import { svgCar } from '../constants/car'
-// import flag from '../assets/img/png/flag.png'
+import { updateInputsValues } from '../logic/logicUpdateCar';
+import { addChildren, createContainerCar, createContainerResultWin } from './createElement';
+
 import { getCarsApi, getWinnersApi, getCarAPi } from '../api/api';
 import { ICarApi } from '../types/_interfaces';
 import { containerCARS, trackItems, trackNumberPage } from './createSectionRace';
 import { resultsTbody, resultsTableTitleRow, resultsWinners, resultsPage } from './createSectionResults';
-import { GLOBAL_STATE } from '../constants/constants';
+import { GLOBAL_STATE, GLOBAL_DEFAULT_MINUS_ONE } from '../constants/constants';
 import { checkbuttonWinnerPagination } from '../logic/LogicPaginationWinner';
 
 // функция заполнения номера страницы и количества машин в гараже
@@ -32,14 +32,18 @@ export async function renderContainerCARS(page: number = GLOBAL_STATE.countOfPag
   const res = await getCarsApi(page);
   const carsArray: ICarApi[] = res.carsArray;
   const countCars = res.countCars;
-
+  GLOBAL_STATE.arrayButtonSelect = [];
+  GLOBAL_STATE.idSelectedCar = GLOBAL_DEFAULT_MINUS_ONE;
   carsArray.forEach(car => {
     if (car.id) {
       const tempCar = createContainerCar(car.id, car.name, car.color);
+      GLOBAL_STATE.arrayButtonSelect.push(tempCar.buttonSelect);
       addChildren(containerCARS, [tempCar.containerCar]);
     }
   });
   renrderTrackItemsAndNumberPage(countCars, page);
+  updateInputsValues();
+  console.log('РЕНДЕР КОНТ КАРС ГЛОБАЛЬНЫЙ СТЕЙТ', GLOBAL_STATE);
 }
 
 // функция заполнения контейнера РЕЗУЛЬТАТА ПОБЕДИТЕЛЕЙ гонок
@@ -67,7 +71,6 @@ export async function renderContainerResultWin(page: number = GLOBAL_STATE.count
   checkbuttonWinnerPagination();
   renrderWinnersItemsAndNumberPage(WinnerCars.countWinnerCars, page);
 }
-
 
 renderContainerCARS(GLOBAL_STATE.countOfPageRace);
 renderContainerResultWin(GLOBAL_STATE.countOfPageWinners);

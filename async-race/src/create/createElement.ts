@@ -1,7 +1,9 @@
+import { GLOBAL_STATE } from '../constants/constants';
 import { StringObject } from '../types/_type';
 import { svgCar } from '../constants/car';
 import flag from '../assets/img/png/flag.png';
 import { deleteCarFromGarge, deleteCarFromWinners } from '../logic/logicDeleteCar';
+import { buttonsSelectetIsTrue, updateInputsValues } from '../logic/logicUpdateCar';
 
 function createElement(tagName: string = 'div', options?: StringObject) {
   const element = document.createElement(tagName);
@@ -23,12 +25,27 @@ function createElementfromString(textString: string): HTMLElement {
 }
 
 // функция создания одиночной гонки
-function createContainerCar(id: number, nameCar: string = 'Audi', color: string = 'red' ) {
+function createContainerCar(id: number, nameCar: string = 'Audi', color: string = 'red') {
   const containerCar = createElement('div', { className: 'container-car' });
   const raceWrapper = createElement('div', { className: 'race__wrapper' });
   const buttonSelect = createElement('button', { className: 'button button_select', textContent: 'SELECT' }) as HTMLButtonElement;
+  buttonSelect.setAttribute('data-select', `${id}`);
+  // внутренний слушатель на кнопке селект
+  buttonSelect.addEventListener('click', () => {
+    const idSelect = buttonSelect.getAttribute('data-select');
+    if (idSelect) {
+      console.log('ИЗ КРЕАТЕ ЭЛЕМЕНТ АЙДИ СЕЛЕКТА', idSelect);
+      GLOBAL_STATE.idSelectedCar = idSelect;
+      console.log('ИЗ КРЕАТЕ ЭGLOBAL_STATE.idSelectedCar', GLOBAL_STATE);
+      updateInputsValues();
+      buttonsSelectetIsTrue();
+      buttonSelect.disabled = true;
+    }
+  });
+
   const buttonRemove = createElement('button', { className: 'button button_remove', textContent: 'REMOVE' }) as HTMLButtonElement;
   buttonRemove.setAttribute('data-remove', `${id}`);
+  // внутренний слушатель на кнопке ремув
   buttonRemove.addEventListener('click', () => {
     const idRemove = buttonRemove.getAttribute('data-remove');
     if (idRemove) {
@@ -36,8 +53,6 @@ function createContainerCar(id: number, nameCar: string = 'Audi', color: string 
       deleteCarFromWinners(idRemove);
     }
   });
-    
-  
   // .onclick = deleteCarFromGarge(buttonRemove.getAttribute('data-remove'));
 
   const carName = createElement('p', { className: 'car-name', textContent: `${nameCar}` });
@@ -67,8 +82,10 @@ function createContainerCar(id: number, nameCar: string = 'Audi', color: string 
     containerCar: containerCar,
     buttonStartA: buttonStartA,
     buttonStopB: buttonStopB,
+    buttonSelect: buttonSelect,
   };
 }
+// Конец функции создания одиночной гонки
 
 // функция создания одиночного результата победы
 function createContainerResultWin(count: number = 1, color: string = 'red', nameCar: string = 'Audi', wins: number = 1, time: number = 0): HTMLElement {

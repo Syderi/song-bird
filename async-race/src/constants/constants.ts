@@ -14,6 +14,8 @@ export const GENERATE_CARS_LENGTH = 100;
 export const GENERATE_COLOR_LENGTH = 6;
 export const GENERATE_COLOR_16FORMAT_LENGTH = 15;
 export const ZERO = 0;
+export const GLOBAL_DEFAULT_MINUS_ONE = -1;
+export const COLOR_BLACK = '#000000';
 
 
 
@@ -41,7 +43,9 @@ interface IGlobalState {
   countCarsInGarageRace: number;
   countCarsInGarageWinners: number;
   winnersSort: WinnersSortEnum;
-  WinnersSortOrder: WinnersSortOrderEnum;
+  winnersSortOrder: WinnersSortOrderEnum;
+  idSelectedCar: number | string;
+  arrayButtonSelect: HTMLButtonElement[];
 }
 
 export const GLOBAL_STATE: IGlobalState = {
@@ -50,5 +54,7 @@ export const GLOBAL_STATE: IGlobalState = {
   countCarsInGarageRace: 0,
   countCarsInGarageWinners: 0,
   winnersSort: WinnersSortEnum.wins,
-  WinnersSortOrder: WinnersSortOrderEnum.DESC,
+  winnersSortOrder: WinnersSortOrderEnum.DESC,
+  idSelectedCar: GLOBAL_DEFAULT_MINUS_ONE,
+  arrayButtonSelect: [],
 };

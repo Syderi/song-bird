@@ -46,7 +46,18 @@ export async function сreateCarAPi(car: ICarApi): Promise<ICarApi> {
   })).json();
 }
 
-// удаляет машину из гаража
+// обновляем машину в ГАРАЖЕ
+export async function updateCarAPi(id: string, car: ICarApi): Promise<void> {
+  await fetch(`${urlGarage}/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(car),
+  });
+}
+
+//  удаляет машину из гаража
 export async function deleteCarAPi(id: string): Promise<void> {
   await fetch(`${urlGarage}/${id}`, {
     method: 'DELETE',
@@ -74,7 +85,7 @@ export async function getWinnerCarAPi(id: number | string): Promise<ICarApi> {
 export async function getWinnersApi(
   page: number = 1,
   sort: WinnersSortEnum = GLOBAL_STATE.winnersSort,
-  order: WinnersSortOrderEnum = GLOBAL_STATE.WinnersSortOrder,
+  order: WinnersSortOrderEnum = GLOBAL_STATE.winnersSortOrder,
   limit = MAX_WINNERS_CARS_IN_PAGE,
 ): Promise<IGeneralWinnersResponse> {
   let res: Response;

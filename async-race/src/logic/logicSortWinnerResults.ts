@@ -7,12 +7,12 @@ import { renderContainerResultWin } from '../create/render';
 
 // фунция переключения сортировки по возрастанию и убыванию
 function changeOrderSort(): void {
-  if (GLOBAL_STATE.WinnersSortOrder === WinnersSortOrderEnum.DESC) {
-    GLOBAL_STATE.WinnersSortOrder = WinnersSortOrderEnum.ASC;
+  if (GLOBAL_STATE.winnersSortOrder === WinnersSortOrderEnum.DESC) {
+    GLOBAL_STATE.winnersSortOrder = WinnersSortOrderEnum.ASC;
   } else {
-    GLOBAL_STATE.WinnersSortOrder = WinnersSortOrderEnum.DESC;
+    GLOBAL_STATE.winnersSortOrder = WinnersSortOrderEnum.DESC;
   }
-  console.log('GLOBAL_STATE.WinnersSortOrder', GLOBAL_STATE.WinnersSortOrder);
+  console.log('GLOBAL_STATE.WinnersSortOrder', GLOBAL_STATE.winnersSortOrder);
 }
 
 // слушатель на кнопке сортировки побед
