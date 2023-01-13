@@ -45,6 +45,8 @@ interface IGlobalState {
   winnersSort: WinnersSortEnum;
   winnersSortOrder: WinnersSortOrderEnum;
   idSelectedCar: number | string;
+  arraybuttonStartA: HTMLButtonElement[];
+  arraybuttonStopB: HTMLButtonElement[];
   arrayButtonSelect: HTMLButtonElement[];
   arraytrackCarSvg: HTMLElement[];
   engineCarsStatusMap: Map<string, EngineDriveEnum>;
@@ -58,6 +60,8 @@ export const GLOBAL_STATE: IGlobalState = {
   winnersSort: WinnersSortEnum.wins,
   winnersSortOrder: WinnersSortOrderEnum.DESC,
   idSelectedCar: GLOBAL_DEFAULT_MINUS_ONE,
+  arraybuttonStartA: [],
+  arraybuttonStopB: [],
   arrayButtonSelect: [],
   arraytrackCarSvg: [],
   engineCarsStatusMap: new Map(),

@@ -1,13 +1,12 @@
 import { EngineDriveEnum } from './../types/_enum';
 import { GLOBAL_STATE } from '../constants/constants';
 import { checkEngineDriveCar, startEngineCarApi, stopEngineCarApi } from '../api/api';
+import { buttonRaceStart, buttonRaceReset } from '../create/createSectionRace';
 
 // получение ширины экрана
 function getOffsetWidth() {
   return Math.floor(document.body.offsetWidth - 220);
 }
-
-
 
 // функция возвращения дива с картинкой машины
 function getImageSVGDivCar(id: string): HTMLElement | null {
@@ -58,8 +57,6 @@ export async function startAnimateCar(id: string) {
   getEngineDriveCarStatus(id);
 }
 
-// animate('1');
-
 // функция остановки движения по кнопке В
 export async function stopAnimateCar(id: string) {
   await stopEngineCarApi(id);
@@ -72,44 +69,17 @@ export async function stopAnimateCar(id: string) {
   }
 }
 
+// слушатель старта ГОНКИ
+buttonRaceStart.addEventListener('click', () => {
+  GLOBAL_STATE.arraybuttonStartA.forEach((btnA) => btnA.click());
+});
+
+// слушатель возрата  ГОНКИ к начал
+buttonRaceReset.addEventListener('click', () => {
+  GLOBAL_STATE.arraybuttonStopB.forEach((btnB) => btnB.click());
+});
 
 
-
-
-
-
-
-
-
-
-
-
-
-// class Car {
-//   satatus = null
-
-
-//   async drive() {
-//     this.move()
-//     this.status = 'move'
-//     const response = await fetch('/drive')
-//     if (response.status === 500) this.status = 'broken'
-//   }
-
-//   move() {
-//     // animation
-
-//     settimeout(() => {
-//       if (this.status === 'move') this.move()
-//       if (this.status === 'broken') this.broken()
-//     }, 50)
-//   }
-
-//   broken() {
-//     // broken
-//     fetch('/stopped')
-//   }
-// }
 
 
 
