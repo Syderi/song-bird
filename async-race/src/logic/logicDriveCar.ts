@@ -2,18 +2,17 @@ import { GLOBAL_STATE, GLOBAL_DEFAULT_MINUS_ONE } from './../constants/constants
 import { EngineDriveEnum } from './../types/_enum';
 
 import {
-  checkEngineDriveCar,
-  getWinnersApi,
-  startEngineCarApi,
-  stopEngineCarApi,
-  сreateWinnerCarAPi,
-  updateWinnerCarAPi,
-  getWinnerCarAPi,
-  getCarAPi,
+  checkEngineDriveCar, getWinnersApi, startEngineCarApi, stopEngineCarApi,
+  сreateWinnerCarAPi, updateWinnerCarAPi, getWinnerCarAPi, getCarAPi,
 } from '../api/api';
-import { buttonRaceStart, buttonRaceReset, inputNameCreate, inputColorCreate, buttonCreate, inputNameUpdate, buttonUpdate, inputColorUpdate, buttonRaceGenerateCars, buttonRacePaginationPrev, buttonRacePaginationNext } from '../create/createSectionRace';
+import {
+  buttonRaceStart, buttonRaceReset, inputNameCreate, inputColorCreate,
+  buttonCreate, inputNameUpdate, buttonUpdate, inputColorUpdate,
+  buttonRaceGenerateCars, buttonRacePaginationPrev, buttonRacePaginationNext,
+} from '../create/createSectionRace';
 import { renderContainerResultWin } from '../create/render';
 import { messageHeaderWinner } from '../create/createHeader';
+import { checkbuttonRacePagination } from './LogicPaginationRace';
 
 // получение ширины экрана
 function getOffsetWidth() {
@@ -33,7 +32,7 @@ function disableButtonsInRace(status: boolean) {
     buttonRacePaginationPrev,
     buttonRacePaginationNext].forEach(btn => btn.disabled = status);
   GLOBAL_STATE.arrayButtonRemove.forEach(btn => btn.disabled = status);
-
+  if (!status) checkbuttonRacePagination();
 }
 
 // функция возвращения дива с картинкой машины

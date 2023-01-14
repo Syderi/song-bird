@@ -9,12 +9,17 @@ import { GLOBAL_STATE, GLOBAL_DEFAULT_MINUS_ONE, MAX_WINNERS_CARS_IN_PAGE } from
 import { checkbuttonWinnerPagination } from '../logic/LogicPaginationWinner';
 
 // функция заполнения номера страницы и количества машин в гараже
-function renrderTrackItemsAndNumberPage(
-  countCars: string = '1',
+async function renrderTrackItemsAndNumberPage(
   page: number = GLOBAL_STATE.countOfPageRace,
+  // countCars: string = GLOBAL_STATE.countCarsInGarageRace.toString(),
 ) {
+  const cars = await getCarsApi(GLOBAL_DEFAULT_MINUS_ONE);
+  console.log('КОЛИЧЕСТВО МАШИН В ГАРАЖЕ cars', cars);
+  console.log('КОЛИЧЕСТВО МАШИН В ГАРАЖЕ', GLOBAL_STATE.countCarsInGarageRace);
+  GLOBAL_STATE.countCarsInGarageRace = +cars.countCars;
   trackItems.textContent = `Page #${page}`;
-  trackNumberPage.textContent = `garage (${countCars})`;
+  // trackNumberPage.textContent = `garage (${countCars})`;
+  trackNumberPage.textContent = `garage (${cars.countCars})`;
 }
 
 // функция заполнения номера страницы и количества машин в ПОБЕДИТЕЛЯХ
@@ -31,7 +36,7 @@ export async function renderContainerCARS(page: number = GLOBAL_STATE.countOfPag
   containerCARS.innerHTML = '';
   const res = await getCarsApi(page);
   const carsArray: ICarApi[] = res.carsArray;
-  const countCars = res.countCars;
+  // const countCars = res.countCars;
   GLOBAL_STATE.idSelectedCar = GLOBAL_DEFAULT_MINUS_ONE;
   GLOBAL_STATE.arraybuttonStartA = [];
   GLOBAL_STATE.arraybuttonStopB = [];
@@ -52,7 +57,7 @@ export async function renderContainerCARS(page: number = GLOBAL_STATE.countOfPag
       addChildren(containerCARS, [tempCar.containerCar]);
     }
   });
-  renrderTrackItemsAndNumberPage(countCars, page);
+  renrderTrackItemsAndNumberPage(page);
   updateInputsValues();
   console.log('РЕНДЕР КОНТуйнер КАРС ГЛОБАЛЬНЫЙ СТЕЙТ', GLOBAL_STATE);
 }

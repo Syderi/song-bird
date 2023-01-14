@@ -1,5 +1,5 @@
 import { buttonRacePaginationPrev, buttonRacePaginationNext } from '../create/createSectionRace';
-import { GLOBAL_STATE, MAX_CARS_IN_PAGE } from '../constants/constants';
+import { GLOBAL_DEFAULT_MINUS_ONE, GLOBAL_STATE, MAX_CARS_IN_PAGE } from '../constants/constants';
 import { renderContainerCARS } from '../create/render';
 import { getCarsApi } from '../api/api';
 
@@ -13,7 +13,7 @@ export async function checkbuttonRacePagination(numberOfPage: number = GLOBAL_ST
   } else {
     buttonRacePaginationPrev.disabled = false;
   }
-  const maxCars = await getCarsApi();
+  const maxCars = await getCarsApi(GLOBAL_DEFAULT_MINUS_ONE);
   GLOBAL_STATE.countCarsInGarageRace = +maxCars.countCars;
   const maxPage = Math.ceil(GLOBAL_STATE.countCarsInGarageRace / MAX_CARS_IN_PAGE);
   // console.log('maxPage', maxPage);

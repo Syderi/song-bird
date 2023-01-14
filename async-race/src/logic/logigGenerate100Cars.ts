@@ -12,7 +12,6 @@ function getRandomNum(min: number, max: number): number {
   return Math.floor(rand);
 }
 
-
 // Функция генерации случайного цвета
 function generateRandomColor(): string {
   const arr: string[] = [];
@@ -23,7 +22,7 @@ function generateRandomColor(): string {
 }
 
 // Функция генерации случайного имени
-function generateRandomName(): string {
+export function generateRandomName(): string {
 
   const brandKeys = Object.keys(CAR_DATA);
   const brand = brandKeys[getRandomNum(ZERO, brandKeys.length - 1)];
