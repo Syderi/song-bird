@@ -1,7 +1,7 @@
 import { createElement, addChildren, createContainerResultWin } from './createElement';
 
 export const sectionResults = createElement('section', { className: 'results' });
-
+sectionResults.style.display = 'none';
 export const resultsWinners = createElement('div', { className: 'results__winners', textContent: 'winners (1)' });
 export const resultsPage = createElement('div', { className: 'results__page', textContent: 'Page #1' });
 

@@ -5,7 +5,7 @@ import { getCarsApi, getWinnersApi, getCarAPi } from '../api/api';
 import { ICarApi } from '../types/_interfaces';
 import { containerCARS, trackItems, trackNumberPage } from './createSectionRace';
 import { resultsTbody, resultsTableTitleRow, resultsWinners, resultsPage } from './createSectionResults';
-import { GLOBAL_STATE, GLOBAL_DEFAULT_MINUS_ONE } from '../constants/constants';
+import { GLOBAL_STATE, GLOBAL_DEFAULT_MINUS_ONE, MAX_WINNERS_CARS_IN_PAGE } from '../constants/constants';
 import { checkbuttonWinnerPagination } from '../logic/LogicPaginationWinner';
 
 // функция заполнения номера страницы и количества машин в гараже
@@ -52,20 +52,20 @@ export async function renderContainerCARS(page: number = GLOBAL_STATE.countOfPag
   });
   renrderTrackItemsAndNumberPage(countCars, page);
   updateInputsValues();
-  console.log('РЕНДЕР КОНТ КАРС ГЛОБАЛЬНЫЙ СТЕЙТ', GLOBAL_STATE);
+  console.log('РЕНДЕР КОНТуйнер КАРС ГЛОБАЛЬНЫЙ СТЕЙТ', GLOBAL_STATE);
 }
 
 // функция заполнения контейнера РЕЗУЛЬТАТА ПОБЕДИТЕЛЕЙ гонок
 export async function renderContainerResultWin(page: number = GLOBAL_STATE.countOfPageWinners) {
-  const WinnerCars = await getWinnersApi(page);
+  const winnerCars = await getWinnersApi(page);
   // console.log('WinnerCars RENDER TS', WinnerCars);
-  GLOBAL_STATE.countCarsInGarageWinners = +WinnerCars.countWinnerCars;
+  GLOBAL_STATE.countCarsInGarageWinners = +winnerCars.countWinnerCars;
   // console.log('GLOBAL_STATE.countCarsInGarageWinners RENDER TS', GLOBAL_STATE.countCarsInGarageWinners);
   resultsTbody.innerHTML = '';
   addChildren(resultsTbody, [resultsTableTitleRow]);
 
-  for (let index = 0; index < WinnerCars.winnersCarsArray.length; index++) {
-    const winCar = WinnerCars.winnersCarsArray[index];
+  for (let index = 0; index < winnerCars.winnersCarsArray.length; index++) {
+    const winCar = winnerCars.winnersCarsArray[index];
     if (winCar.id) {
       const car = await getCarAPi(winCar.id);
       // if (winCar.car) {
@@ -80,7 +80,7 @@ export async function renderContainerResultWin(page: number = GLOBAL_STATE.count
     }
   }
   checkbuttonWinnerPagination();
-  renrderWinnersItemsAndNumberPage(WinnerCars.countWinnerCars, page);
+  renrderWinnersItemsAndNumberPage(winnerCars.countWinnerCars, page);
 }
 
 renderContainerCARS(GLOBAL_STATE.countOfPageRace);

@@ -6,3 +6,4 @@ import './logigGenerate100Cars';
 import './logicSortWinnerResults';
 import './logicUpdateCar';
 import './logicDriveCar';
+import './logicChangePages';

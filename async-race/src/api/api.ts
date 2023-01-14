@@ -129,6 +129,7 @@ export async function getWinnersApi(
   }
   const winnersCarsArray: IWinnerCarApi[] = await res.json();
   const countWinnerCars = res.headers.get('X-Total-Count') || '0';
+  console.log('countWinnerCars', countWinnerCars);
   // if (!countWinnerCars) countWinnerCars = '0';
   // await Promise.all(winnersCarsArray.map(async (el) => el.car = await getCarAPi(el.id)));
   // GLOBAL_STATE.countCarsInGarageWinners = +countWinnerCars;
