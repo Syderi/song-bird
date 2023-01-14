@@ -96,37 +96,53 @@ function driveCar(time: number, id: string, endWidth = getOffsetWidth()) {
 
 // функция анимации движения
 export async function startAnimateCar(id: string) {
+  const btnStartA = GLOBAL_STATE.arraybuttonStartA.find((btn) => btn.getAttribute('data-startA') === id);
+  if (btnStartA) btnStartA.disabled = true;
   const engineCarData = await startEngineCarApi(id);
   GLOBAL_STATE.engineCarsStatusMap.set(id, EngineDriveEnum.started);
-  // console.log('engineCarData ID 1', engineCarData);
+  const btnStopB = GLOBAL_STATE.arraybuttonStopB.find((btn) => btn.getAttribute('data-StopB') === id);
+  if (btnStopB) btnStopB.disabled = false;
   const time = engineCarData.distance / engineCarData.velocity;
-  // console.log('time ID 1', time);
   driveCar(time, id);
   getEngineDriveCarStatus(id);
 }
 
 // функция остановки движения по кнопке В
 export async function stopAnimateCar(id: string) {
+  const btnStopB = GLOBAL_STATE.arraybuttonStopB.find((btn) => btn.getAttribute('data-StopB') === id);
+  if (btnStopB) btnStopB.disabled = true;
   await stopEngineCarApi(id);
   GLOBAL_STATE.engineCarsStatusMap.set(id, EngineDriveEnum.stopped);
   const div = getImageSVGDivCar(id);
-  console.log('DIGLOBAL_STATE.arraybuttonStartA', GLOBAL_STATE.arraybuttonStartA);
   const btnStartA = GLOBAL_STATE.arraybuttonStartA.find((btn) => btn.getAttribute('data-startA') === id);
-  console.log('btnStartA=', btnStartA);
   if (btnStartA) btnStartA.disabled = false;
   if (div) {
     div.style.transform = 'translateX(0px)';
-    // console.log('GLOBAL_STATE из стопа', GLOBAL_STATE);
   }
+}
+
+// функция Старта всех гонок
+async function startAnimateAllCar() {
+  await Promise.all(GLOBAL_STATE.arraytrackCarSvg.map(async (el) => {
+    const id = el.getAttribute('data-trackCarSvg');
+    if (id) {
+      return startAnimateCar(id);
+    }
+  },
+  ));
+  buttonRaceReset.disabled = false;
+  // messageHeaderWinner.textContent = '';
 }
 
 // слушатель старта ГОНКИ
 buttonRaceStart.addEventListener('click', () => {
+  buttonRaceStart.disabled = true;
   GLOBAL_STATE.isRace = true;
-  GLOBAL_STATE.arraybuttonStartA.forEach((btnA) => btnA.click());
+  startAnimateAllCar();
+  // GLOBAL_STATE.arraybuttonStartA.forEach((btnA) => btnA.click());
 });
 
-// // 
+// функция остановки всех гонок
 async function stopAnimateAllCar() {
   await Promise.all(GLOBAL_STATE.arraytrackCarSvg.map(async (el) => {
     const id = el.getAttribute('data-trackCarSvg');
@@ -136,11 +152,13 @@ async function stopAnimateAllCar() {
   },
   ));
   messageHeaderWinner.textContent = '';
+
+  buttonRaceStart.disabled = false;
 }
 
-// слушатель возрата  ГОНКИ к начал
+// слушатель остановки  ГОНКИ
 buttonRaceReset.addEventListener('click', () => {
-  // GLOBAL_STATE.arraybuttonStopB.forEach((btnB) => btnB.click());
+  buttonRaceReset.disabled = true;
   stopAnimateAllCar();
   GLOBAL_STATE.isRace = false;
   GLOBAL_STATE.isWinnerCarinRace = false;

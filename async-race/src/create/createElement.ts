@@ -70,11 +70,11 @@ function createContainerCar(id: number, nameCar: string = 'Audi', color: string 
   buttonStartA.addEventListener('click', () => {
     const startA = buttonStartA.getAttribute('data-startA');
     if (startA) {
-      buttonStartA.disabled = true;
+      // buttonStartA.disabled = true;
       console.log('НАЖАЛ startA');
       startAnimateCar(startA);
     }
-    buttonStopB.disabled = false;
+    // buttonStopB.disabled = false;
   });
 
   buttonStopB.addEventListener('click', () => {
