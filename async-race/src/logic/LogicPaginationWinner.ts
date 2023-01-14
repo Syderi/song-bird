@@ -12,7 +12,7 @@ export async function checkbuttonWinnerPagination(numberOfPage: number = GLOBAL_
     buttonResultsPaginationPrev.disabled = false;
   }
 
-  console.log('GLOBAL_STATE.countCarsInGarageWinners CHECK', GLOBAL_STATE.countCarsInGarageWinners);
+  // console.log('GLOBAL_STATE.countCarsInGarageWinners CHECK', GLOBAL_STATE.countCarsInGarageWinners);
   
   // const winners = await getWinnersApi();
 
@@ -22,7 +22,7 @@ export async function checkbuttonWinnerPagination(numberOfPage: number = GLOBAL_
 
   // GLOBAL_STATE.countCarsInGarageWinners = +winners.countWinnerCars;
   const maxPage = Math.ceil(GLOBAL_STATE.countCarsInGarageWinners / MAX_WINNERS_CARS_IN_PAGE);
-  console.log('maxPage', maxPage);
+  // console.log('maxPage', maxPage);
   if (GLOBAL_STATE.countOfPageWinners >= maxPage) {
     buttonResultsPaginationNext.disabled = true;
   } else {

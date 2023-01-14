@@ -1,5 +1,6 @@
+import { GLOBAL_STATE, GLOBAL_DEFAULT_MINUS_ONE } from './../constants/constants';
 import { EngineDriveEnum } from './../types/_enum';
-import { GLOBAL_DEFAULT_MINUS_ONE, GLOBAL_STATE } from '../constants/constants';
+
 import {
   checkEngineDriveCar,
   getWinnersApi,
@@ -8,9 +9,11 @@ import {
   сreateWinnerCarAPi,
   updateWinnerCarAPi,
   getWinnerCarAPi,
+  getCarAPi,
 } from '../api/api';
 import { buttonRaceStart, buttonRaceReset } from '../create/createSectionRace';
 import { renderContainerResultWin } from '../create/render';
+import { messageHeaderWinner } from '../create/createHeader';
 
 // получение ширины экрана
 function getOffsetWidth() {
@@ -58,6 +61,9 @@ async function createWinnersCar(id: string, time: string) {
     });
     console.log('НЕ было в базе победителей');
   }
+  console.log('перестраиваю победителей');
+  const car = await getCarAPi(+id);
+  messageHeaderWinner.textContent = `Win car ${car.name} with time: ${time} sec`;
   renderContainerResultWin();
 }
 
@@ -104,7 +110,10 @@ export async function stopAnimateCar(id: string) {
   await stopEngineCarApi(id);
   GLOBAL_STATE.engineCarsStatusMap.set(id, EngineDriveEnum.stopped);
   const div = getImageSVGDivCar(id);
-  // console.log('DIV DRIVE STOP', div);
+  console.log('DIGLOBAL_STATE.arraybuttonStartA', GLOBAL_STATE.arraybuttonStartA);
+  const btnStartA = GLOBAL_STATE.arraybuttonStartA.find((btn) => btn.getAttribute('data-startA') === id);
+  console.log('btnStartA=', btnStartA);
+  if (btnStartA) btnStartA.disabled = false;
   if (div) {
     div.style.transform = 'translateX(0px)';
     // console.log('GLOBAL_STATE из стопа', GLOBAL_STATE);
@@ -117,11 +126,25 @@ buttonRaceStart.addEventListener('click', () => {
   GLOBAL_STATE.arraybuttonStartA.forEach((btnA) => btnA.click());
 });
 
+// // 
+async function stopAnimateAllCar() {
+  await Promise.all(GLOBAL_STATE.arraytrackCarSvg.map(async (el) => {
+    const id = el.getAttribute('data-trackCarSvg');
+    if (id) {
+      return stopAnimateCar(id);
+    }
+  },
+  ));
+  messageHeaderWinner.textContent = '';
+}
+
 // слушатель возрата  ГОНКИ к начал
 buttonRaceReset.addEventListener('click', () => {
-  GLOBAL_STATE.arraybuttonStopB.forEach((btnB) => btnB.click());
+  // GLOBAL_STATE.arraybuttonStopB.forEach((btnB) => btnB.click());
+  stopAnimateAllCar();
   GLOBAL_STATE.isRace = false;
   GLOBAL_STATE.isWinnerCarinRace = false;
+
 });
 
 

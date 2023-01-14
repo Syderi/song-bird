@@ -61,23 +61,30 @@ function createContainerCar(id: number, nameCar: string = 'Audi', color: string 
 
   const trackCar = createElement('div', { className: 'race__wrapper track__car' });
   const buttonStartA = createElement('button', { className: 'button button_start', textContent: 'A' }) as HTMLButtonElement;
-  buttonRemove.setAttribute('data-startA', `${id}`);
+  buttonStartA.setAttribute('data-startA', `${id}`);
+  
+  const buttonStopB = createElement('button', { className: 'button button_stop', textContent: 'B' }) as HTMLButtonElement;
+  buttonStopB.setAttribute('data-StopB', `${id}`);
+  buttonStopB.disabled = true;
+  
   buttonStartA.addEventListener('click', () => {
-    const startA = buttonRemove.getAttribute('data-startA');
+    const startA = buttonStartA.getAttribute('data-startA');
     if (startA) {
+      buttonStartA.disabled = true;
       console.log('НАЖАЛ startA');
       startAnimateCar(startA);
     }
+    buttonStopB.disabled = false;
   });
 
-  const buttonStopB = createElement('button', { className: 'button button_stop', textContent: 'B' }) as HTMLButtonElement;
-  buttonStopB.setAttribute('data-StopB', `${id}`);
   buttonStopB.addEventListener('click', () => {
-    const stopB = buttonRemove.getAttribute('data-startA');
+    buttonStopB.disabled = true;
+    const stopB = buttonStopB.getAttribute('data-StopB');
     if (stopB) {
       console.log('НАЖАЛ stopB');
       stopAnimateCar(stopB);
     }
+    // buttonStartA.disabled = false;
   });
   const trackCarSvg = createElement('div', { className: 'container__track__car-svg' });
   trackCarSvg.setAttribute('data-trackCarSvg', `${id}`);
