@@ -78,7 +78,7 @@ function createContainerCar(id: number, nameCar: string = 'Audi', color: string 
   });
 
   buttonStopB.addEventListener('click', () => {
-    buttonStopB.disabled = true;
+    // buttonStopB.disabled = true;
     const stopB = buttonStopB.getAttribute('data-StopB');
     if (stopB) {
       console.log('НАЖАЛ stopB');
@@ -106,6 +106,7 @@ function createContainerCar(id: number, nameCar: string = 'Audi', color: string 
     buttonStartA: buttonStartA,
     buttonStopB: buttonStopB,
     buttonSelect: buttonSelect,
+    buttonRemove: buttonRemove,
     trackCarSvg: trackCarSvg,
   };
 }

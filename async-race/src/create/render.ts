@@ -36,6 +36,7 @@ export async function renderContainerCARS(page: number = GLOBAL_STATE.countOfPag
   GLOBAL_STATE.arraybuttonStartA = [];
   GLOBAL_STATE.arraybuttonStopB = [];
   GLOBAL_STATE.arrayButtonSelect = [];
+  GLOBAL_STATE.arrayButtonRemove = [];
   GLOBAL_STATE.arraytrackCarSvg = [];
   GLOBAL_STATE.isRace = false;
   GLOBAL_STATE.isWinnerCarinRace = false;
@@ -46,6 +47,7 @@ export async function renderContainerCARS(page: number = GLOBAL_STATE.countOfPag
       GLOBAL_STATE.arraybuttonStartA.push(tempCar.buttonStartA);
       GLOBAL_STATE.arraybuttonStopB.push(tempCar.buttonStopB);
       GLOBAL_STATE.arrayButtonSelect.push(tempCar.buttonSelect);
+      GLOBAL_STATE.arrayButtonRemove.push(tempCar.buttonRemove);
       GLOBAL_STATE.arraytrackCarSvg.push(tempCar.trackCarSvg);
       addChildren(containerCARS, [tempCar.containerCar]);
     }

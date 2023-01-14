@@ -11,13 +11,29 @@ import {
   getWinnerCarAPi,
   getCarAPi,
 } from '../api/api';
-import { buttonRaceStart, buttonRaceReset } from '../create/createSectionRace';
+import { buttonRaceStart, buttonRaceReset, inputNameCreate, inputColorCreate, buttonCreate, inputNameUpdate, buttonUpdate, inputColorUpdate, buttonRaceGenerateCars, buttonRacePaginationPrev, buttonRacePaginationNext } from '../create/createSectionRace';
 import { renderContainerResultWin } from '../create/render';
 import { messageHeaderWinner } from '../create/createHeader';
 
 // получение ширины экрана
 function getOffsetWidth() {
   return Math.floor(document.body.offsetWidth - 220);
+}
+
+// функция заморозки кнопок
+function disableButtonsInRace(status: boolean) {
+  [inputNameCreate,
+    inputColorCreate,
+    buttonCreate,
+    inputNameUpdate,
+    inputColorUpdate,
+    inputColorCreate,
+    buttonUpdate,
+    buttonRaceGenerateCars,
+    buttonRacePaginationPrev,
+    buttonRacePaginationNext].forEach(btn => btn.disabled = status);
+  GLOBAL_STATE.arrayButtonRemove.forEach(btn => btn.disabled = status);
+
 }
 
 // функция возвращения дива с картинкой машины
@@ -139,6 +155,7 @@ buttonRaceStart.addEventListener('click', () => {
   buttonRaceStart.disabled = true;
   GLOBAL_STATE.isRace = true;
   startAnimateAllCar();
+  disableButtonsInRace(true);
   // GLOBAL_STATE.arraybuttonStartA.forEach((btnA) => btnA.click());
 });
 
@@ -152,7 +169,7 @@ async function stopAnimateAllCar() {
   },
   ));
   messageHeaderWinner.textContent = '';
-
+  disableButtonsInRace(false);
   buttonRaceStart.disabled = false;
 }
 
@@ -160,6 +177,7 @@ async function stopAnimateAllCar() {
 buttonRaceReset.addEventListener('click', () => {
   buttonRaceReset.disabled = true;
   stopAnimateAllCar();
+
   GLOBAL_STATE.isRace = false;
   GLOBAL_STATE.isWinnerCarinRace = false;
 

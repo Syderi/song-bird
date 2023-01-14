@@ -47,6 +47,7 @@ interface IGlobalState {
   idSelectedCar: number | string;
   arraybuttonStartA: HTMLButtonElement[];
   arraybuttonStopB: HTMLButtonElement[];
+  arrayButtonRemove: HTMLButtonElement[];
   arrayButtonSelect: HTMLButtonElement[];
   arraytrackCarSvg: HTMLElement[];
   engineCarsStatusMap: Map<string, EngineDriveEnum>;
@@ -65,6 +66,7 @@ export const GLOBAL_STATE: IGlobalState = {
   arraybuttonStartA: [],
   arraybuttonStopB: [],
   arrayButtonSelect: [],
+  arrayButtonRemove: [],
   arraytrackCarSvg: [],
   engineCarsStatusMap: new Map(),
   isRace: false,
