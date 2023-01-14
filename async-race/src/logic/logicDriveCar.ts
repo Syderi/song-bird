@@ -84,7 +84,7 @@ async function createWinnersCar(id: string, time: string) {
 
 
 // функция движения машины
-function driveCar(time: number, id: string, endWidth = getOffsetWidth()) {
+function driveCar(time: number, id: string, key: boolean, endWidth = getOffsetWidth()) {
   // console.log('GLOBAL_STATE из драйва', GLOBAL_STATE);
   let curentWidth = 0;
   const frame = (time / 1000) * 60;
@@ -95,7 +95,11 @@ function driveCar(time: number, id: string, endWidth = getOffsetWidth()) {
     curentWidth += step;
     if (curentWidth < endWidth && status === EngineDriveEnum.started) {
       if (div) {
-        div.style.transform = `translateX(${curentWidth}px)`;
+        if (!GLOBAL_STATE.isAllCarsReady && key) {
+          curentWidth = 0;
+        } else {
+          div.style.transform = `translateX(${curentWidth}px)`;
+        }
       }
       requestAnimationFrame(moveCar);
     } else if (GLOBAL_STATE.isRace
@@ -110,7 +114,7 @@ function driveCar(time: number, id: string, endWidth = getOffsetWidth()) {
 }
 
 // функция анимации движения
-export async function startAnimateCar(id: string) {
+export async function startAnimateCar(id: string, key: boolean = false) {
   const btnStartA = GLOBAL_STATE.arraybuttonStartA.find((btn) => btn.getAttribute('data-startA') === id);
   if (btnStartA) btnStartA.disabled = true;
   const engineCarData = await startEngineCarApi(id);
@@ -118,7 +122,7 @@ export async function startAnimateCar(id: string) {
   const btnStopB = GLOBAL_STATE.arraybuttonStopB.find((btn) => btn.getAttribute('data-StopB') === id);
   if (btnStopB) btnStopB.disabled = false;
   const time = engineCarData.distance / engineCarData.velocity;
-  driveCar(time, id);
+  driveCar(time, id, key);
   getEngineDriveCarStatus(id);
 }
 
@@ -138,14 +142,16 @@ export async function stopAnimateCar(id: string) {
 
 // функция Старта всех гонок
 async function startAnimateAllCar() {
+  GLOBAL_STATE.arraybuttonStopB.forEach(btnB => btnB.click());
   await Promise.all(GLOBAL_STATE.arraytrackCarSvg.map(async (el) => {
     const id = el.getAttribute('data-trackCarSvg');
     if (id) {
-      return startAnimateCar(id);
+      return startAnimateCar(id, true);
     }
   },
   ));
   buttonRaceReset.disabled = false;
+  GLOBAL_STATE.isAllCarsReady = true;
   // messageHeaderWinner.textContent = '';
 }
 
@@ -168,6 +174,7 @@ async function stopAnimateAllCar() {
   },
   ));
   messageHeaderWinner.textContent = '';
+  GLOBAL_STATE.isAllCarsReady = false;
   disableButtonsInRace(false);
   buttonRaceStart.disabled = false;
 }

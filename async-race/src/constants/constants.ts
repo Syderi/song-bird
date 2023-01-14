@@ -52,6 +52,7 @@ interface IGlobalState {
   arraytrackCarSvg: HTMLElement[];
   engineCarsStatusMap: Map<string, EngineDriveEnum>;
   isRace: boolean;
+  isAllCarsReady: boolean,
   isWinnerCarinRace: boolean;
 }
 
@@ -70,5 +71,6 @@ export const GLOBAL_STATE: IGlobalState = {
   arraytrackCarSvg: [],
   engineCarsStatusMap: new Map(),
   isRace: false,
+  isAllCarsReady: false,
   isWinnerCarinRace: false,
 };

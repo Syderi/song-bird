@@ -5,6 +5,7 @@ import flag from '../assets/img/png/flag.png';
 import { deleteCarFromGarge, deleteCarFromWinners } from '../logic/logicDeleteCar';
 import { buttonsSelectetIsTrue, updateInputsValues } from '../logic/logicUpdateCar';
 import { startAnimateCar, stopAnimateCar } from '../logic/logicDriveCar';
+import { buttonRaceStart } from './createSectionRace';
 
 function createElement(tagName: string = 'div', options?: StringObject) {
   const element = document.createElement(tagName);
@@ -72,6 +73,7 @@ function createContainerCar(id: number, nameCar: string = 'Audi', color: string 
     if (startA) {
       // buttonStartA.disabled = true;
       console.log('НАЖАЛ startA');
+      // buttonRaceStart.disabled = true;
       startAnimateCar(startA);
     }
     // buttonStopB.disabled = false;
@@ -82,6 +84,7 @@ function createContainerCar(id: number, nameCar: string = 'Audi', color: string 
     const stopB = buttonStopB.getAttribute('data-StopB');
     if (stopB) {
       console.log('НАЖАЛ stopB');
+      // buttonRaceStart.disabled = false;
       stopAnimateCar(stopB);
     }
     // buttonStartA.disabled = false;
