@@ -1,28 +1,23 @@
 import { buttonResultsPaginationPrev, buttonResultsPaginationNext } from '../create/createSectionResults';
-import { GLOBAL_STATE, MAX_WINNERS_CARS_IN_PAGE } from '../constants/constants';
+import {
+  GLOBAL_STATE,
+  MAX_WINNERS_CARS_IN_PAGE,
+  DEFAULT_PAGE_IN_CARS_API,
+} from '../constants/constants';
 import { renderContainerResultWin } from '../create/render';
-import { getWinnersApi } from '../api/api';
+
 
 // функция проверки активации кнопок переключения страниц
-
-export async function checkbuttonWinnerPagination(numberOfPage: number = GLOBAL_STATE.countOfPageWinners) {
-  if (numberOfPage <= 1) {
+export async function checkbuttonWinnerPagination(
+  numberOfPage: number = GLOBAL_STATE.countOfPageWinners,
+): Promise<void> {
+  if (numberOfPage <= DEFAULT_PAGE_IN_CARS_API) {
     buttonResultsPaginationPrev.disabled = true;
   } else {
     buttonResultsPaginationPrev.disabled = false;
   }
 
-  // console.log('GLOBAL_STATE.countCarsInGarageWinners CHECK', GLOBAL_STATE.countCarsInGarageWinners);
-  
-  // const winners = await getWinnersApi();
-
-  // //// В ЛОГИКЕ УДАЛЕНИЯ МАШИНЫ НАДО ПОДУМАТЬ КАК СДЕЛАТЬ
-
-  // // const key: boolean = winners.winnersCarsArray.some((car) => car.id === +id);
-
-  // GLOBAL_STATE.countCarsInGarageWinners = +winners.countWinnerCars;
   const maxPage = Math.ceil(GLOBAL_STATE.countCarsInGarageWinners / MAX_WINNERS_CARS_IN_PAGE);
-  // console.log('maxPage', maxPage);
   if (GLOBAL_STATE.countOfPageWinners >= maxPage) {
     buttonResultsPaginationNext.disabled = true;
   } else {
@@ -30,9 +25,8 @@ export async function checkbuttonWinnerPagination(numberOfPage: number = GLOBAL_
   }
 }
 
-// checkbuttonWinnerPagination();
-
-async function undateCarsPageWinners() {
+// функция обновления страницы победителей
+async function undateCarsPageWinners(): Promise<void> {
   await renderContainerResultWin();
   checkbuttonWinnerPagination();
 }
@@ -40,14 +34,12 @@ async function undateCarsPageWinners() {
 // слушатель на кнопке следующей страницы
 buttonResultsPaginationNext.addEventListener('click', () => {
   GLOBAL_STATE.countOfPageWinners += 1;
-  console.log('next');
   undateCarsPageWinners();
 });
 
 // слушатель на кнопке предыдущей страницы
 buttonResultsPaginationPrev.addEventListener('click', () => {
   GLOBAL_STATE.countOfPageWinners -= 1;
-  console.log('prev');
   undateCarsPageWinners();
 });
 

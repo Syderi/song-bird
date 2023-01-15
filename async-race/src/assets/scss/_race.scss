@@ -1,9 +1,12 @@
-.race, .results{
+.race,
+.results {
   font-size: 1.6rem;
 }
 
 .race__inputs,
-.wrapper-track, .race__pagination, .results {
+.wrapper-track,
+.race__pagination,
+.results {
   padding-top: 20px;
 }
 
@@ -14,35 +17,34 @@
   padding: 0.3rem;
 }
 
-.wrapper-track, .results{
-display: flex;
-flex-direction: column;
-gap: 0.5rem;
+.wrapper-track,
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.results{
+.results {
   max-width: 480px;
   margin: 0 auto;
 }
 
-
-.track__car{
+.track__car {
   position: relative;
   height: fit-content;
   border-bottom: dotted 2px black;
 }
 
-.container__track__car-svg{
+.container__track__car-svg {
   position: relative;
 }
 
-.track__car-image{
+.track__car-image {
   position: absolute;
   top: -20px;
   left: 15px;
   width: 50px;
   height: 50px;
-  // fill:blue;
 }
 
 .track__finish {
@@ -58,17 +60,18 @@ gap: 0.5rem;
   gap: 10px;
 }
 
-.results__winners{
-text-align: center;
-font-weight: 600;
+.results__winners {
+  text-align: center;
+  font-weight: 600;
 }
 
-.wins-sort, .time-sort{
+.wins-sort,
+.time-sort {
   user-select: none;
   cursor: pointer;
-color: rgb(41, 163, 4);
+  color: rgb(41, 163, 4);
 
-&:active{
-  color: aqua;
-}
+  &:active {
+    color: aqua;
+  }
 }

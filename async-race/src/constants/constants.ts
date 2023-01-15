@@ -1,23 +1,28 @@
-import { ICarData } from '../types/_interfaces';
-import { EngineDriveEnum, WinnersSortEnum, WinnersSortOrderEnum } from '../types/_enum';
+import { ICarData, IGlobalState } from '../types/_interfaces';
+import { WinnersSortEnum, WinnersSortOrderEnum } from '../types/_enum';
 
 const urlBase: string = 'http://localhost:3000';
-
 export const urlGarage = `${urlBase}/garage`;
 export const urlWinners = `${urlBase}/winners`;
 export const urlEngine = `${urlBase}/engine`;
 
 export const MAX_CARS_IN_PAGE = 7;
-export const MAX_WINNERS_CARS_IN_PAGE = 10; // временно изменил
-// export const MAX_WINNERS_CARS_IN_PAGE = 2;
+export const MAX_WINNERS_CARS_IN_PAGE = 10;
 export const GENERATE_CARS_LENGTH = 100;
 export const GENERATE_COLOR_LENGTH = 6;
 export const GENERATE_COLOR_16FORMAT_LENGTH = 15;
 export const ZERO = 0;
 export const GLOBAL_DEFAULT_MINUS_ONE = -1;
 export const COLOR_BLACK = '#000000';
-
-
+export const DEFAULT_HTML_ELEMENT = 'div';
+export const DEFAULT_PAGE_IN_CARS_API = 1;
+export const DEFAULT_CARS_API = '0';
+export const ENGINE_STATUS_SUCCSES = 200;
+export const BIG_SIZE_SVG = '50px';
+export const DISTANCE_TAKEN_RACE_DIV = 220;
+export const MILISECOND_IN_SECOND = 1000;
+export const FRAME_IN_SECOND = 60;
+export const DECALS = 3;
 
 
 export const CAR_DATA: ICarData = {
@@ -36,25 +41,6 @@ export const CAR_DATA: ICarData = {
   'Москвич': ['2136', '2137', '2138', '2140', '2141', '2142', '400', '408', 'Князь Владимир', 'Святогор', 'Юрий Долгорукий'],
   'УАЗ': ['3151', '3153', '3159', '3160', '3162 Simbir', '469', 'Hunter', 'Patriot', 'Pickup', 'Астеро'],
 };
-
-interface IGlobalState {
-  countOfPageRace: number;
-  countOfPageWinners: number;
-  countCarsInGarageRace: number;
-  countCarsInGarageWinners: number;
-  winnersSort: WinnersSortEnum;
-  winnersSortOrder: WinnersSortOrderEnum;
-  idSelectedCar: number | string;
-  arraybuttonStartA: HTMLButtonElement[];
-  arraybuttonStopB: HTMLButtonElement[];
-  arrayButtonRemove: HTMLButtonElement[];
-  arrayButtonSelect: HTMLButtonElement[];
-  arraytrackCarSvg: HTMLElement[];
-  engineCarsStatusMap: Map<string, EngineDriveEnum>;
-  isRace: boolean;
-  isAllCarsReady: boolean,
-  isWinnerCarinRace: boolean;
-}
 
 export const GLOBAL_STATE: IGlobalState = {
   countOfPageRace: 1,

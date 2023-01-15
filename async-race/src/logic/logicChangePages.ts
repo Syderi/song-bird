@@ -1,7 +1,6 @@
 import { sectionRace } from '../create/createSectionRace';
 import { sectionResults } from '../create/createSectionResults';
 import { buttonHeaderGarage, buttonHeaderWinner } from '../create/createHeader';
-import { renderContainerResultWin } from '../create/render';
 
 buttonHeaderGarage.addEventListener('click', () => {
   buttonHeaderWinner.disabled = false;
@@ -15,5 +14,4 @@ buttonHeaderWinner.addEventListener('click', () => {
   buttonHeaderWinner.disabled = true;
   sectionRace.style.display = 'none';
   sectionResults.style.display = 'flex';
-  // renderContainerResultWin();
 });

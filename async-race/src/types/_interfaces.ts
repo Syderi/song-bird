@@ -1,3 +1,4 @@
+import { EngineDriveEnum, WinnersSortEnum, WinnersSortOrderEnum } from './_enum';
 
 export interface ICarApi {
   name: string;
@@ -10,13 +11,11 @@ export interface IResponseGetCarsApi {
   carsArray: ICarApi[];
 }
 
-
 export interface IWinnerCarApi {
   id?: number;
   wins: number;
   time: number;
 }
-
 
 export interface IGeneralWinnersResponse {
   countWinnerCars: string;
@@ -34,7 +33,34 @@ export interface IStartStop {
 
 export interface ICheckEngine {
   success: boolean;
+}
 
+export interface IGlobalState {
+  countOfPageRace: number;
+  countOfPageWinners: number;
+  countCarsInGarageRace: number;
+  countCarsInGarageWinners: number;
+  winnersSort: WinnersSortEnum;
+  winnersSortOrder: WinnersSortOrderEnum;
+  idSelectedCar: number | string;
+  arraybuttonStartA: HTMLButtonElement[];
+  arraybuttonStopB: HTMLButtonElement[];
+  arrayButtonRemove: HTMLButtonElement[];
+  arrayButtonSelect: HTMLButtonElement[];
+  arraytrackCarSvg: HTMLElement[];
+  engineCarsStatusMap: Map<string, EngineDriveEnum>;
+  isRace: boolean;
+  isAllCarsReady: boolean,
+  isWinnerCarinRace: boolean;
+}
+
+export interface IContainerCar {
+  containerCar: HTMLElement;
+  buttonStartA: HTMLButtonElement;
+  buttonStopB: HTMLButtonElement;
+  buttonSelect: HTMLButtonElement;
+  buttonRemove: HTMLButtonElement;
+  trackCarSvg: HTMLElement;
 }
 
 

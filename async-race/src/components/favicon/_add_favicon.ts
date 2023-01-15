@@ -1,6 +1,7 @@
 import favicon from '../../assets/img/png/bmw-mini-icon.png';
 
-export default function addFavicon() {
+// функция добавления фавиконки на проект
+export default function addFavicon(): void {
   const link: HTMLLinkElement = document.createElement('link');
   link.rel = 'icon';
   link.href = favicon;

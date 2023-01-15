@@ -1,13 +1,15 @@
-import { GLOBAL_STATE } from '../constants/constants';
+import { buttonRaceReset, buttonRaceStart } from './createSectionRace';
+import { BIG_SIZE_SVG, DEFAULT_HTML_ELEMENT, GLOBAL_STATE } from '../constants/constants';
 import { StringObject } from '../types/_type';
 import { svgCar } from '../constants/car';
 import flag from '../assets/img/png/flag.png';
 import { deleteCarFromGarge, deleteCarFromWinners } from '../logic/logicDeleteCar';
 import { buttonsSelectetIsTrue, updateInputsValues } from '../logic/logicUpdateCar';
 import { startAnimateCar, stopAnimateCar } from '../logic/logicDriveCar';
-import { buttonRaceStart } from './createSectionRace';
+import { IContainerCar } from '../types/_interfaces';
 
-function createElement(tagName: string = 'div', options?: StringObject) {
+// функция создания НТМЛ Елементов
+function createElement(tagName: string = DEFAULT_HTML_ELEMENT, options?: StringObject): HTMLElement {
   const element = document.createElement(tagName);
   if (options) {
     Object.assign(element, options);
@@ -15,95 +17,93 @@ function createElement(tagName: string = 'div', options?: StringObject) {
   return element;
 }
 
+// Функция добавления детей в HTML элемент
 function addChildren(Father: HTMLElement, children: (HTMLElement | string)[]): void {
   Father.append(...children);
 }
 
-// Функция получения HTML элемента из строки
+// Функция получения HTML дива элемента из строки
 function createElementfromString(textString: string): HTMLElement {
-  const div = document.createElement('div');
+  const div = document.createElement(DEFAULT_HTML_ELEMENT);
   div.innerHTML = textString;
   return div.firstElementChild as HTMLElement;
 }
 
-// функция создания одиночной гонки
-function createContainerCar(id: number, nameCar: string = 'Audi', color: string = 'red') {
-  const containerCar = createElement('div', { className: 'container-car' });
-  const raceWrapper = createElement('div', { className: 'race__wrapper' });
-  const buttonSelect = createElement('button', { className: 'button button_select', textContent: 'SELECT' }) as HTMLButtonElement;
-  buttonSelect.setAttribute('data-select', `${id}`);
-  // внутренний слушатель на кнопке селект
-  buttonSelect.addEventListener('click', () => {
-    const idSelect = buttonSelect.getAttribute('data-select');
+
+// функция создания слушателя на кнопке селект
+function addListenerOnSelectButton(element: HTMLButtonElement): void {
+  element.addEventListener('click', () => {
+    const idSelect = element.getAttribute('data-select');
     if (idSelect) {
-      console.log('ИЗ КРЕАТЕ ЭЛЕМЕНТ АЙДИ СЕЛЕКТА', idSelect);
       GLOBAL_STATE.idSelectedCar = idSelect;
-      console.log('ИЗ КРЕАТЕ ЭGLOBAL_STATE.idSelectedCar', GLOBAL_STATE);
       updateInputsValues();
       buttonsSelectetIsTrue();
-      buttonSelect.disabled = true;
+      element.disabled = true;
     }
   });
+}
 
-  const buttonRemove = createElement('button', { className: 'button button_remove', textContent: 'REMOVE' }) as HTMLButtonElement;
-  buttonRemove.setAttribute('data-remove', `${id}`);
-  // внутренний слушатель на кнопке ремув
-  buttonRemove.addEventListener('click', () => {
-    const idRemove = buttonRemove.getAttribute('data-remove');
+// функция создания слушателя на кнопке ремув
+function addListenerOnRemoveButton(element: HTMLButtonElement): void {
+  element.addEventListener('click', () => {
+    const idRemove = element.getAttribute('data-remove');
     if (idRemove) {
       deleteCarFromGarge(idRemove);
       deleteCarFromWinners(idRemove);
     }
   });
-  // .onclick = deleteCarFromGarge(buttonRemove.getAttribute('data-remove'));
+}
 
+// функция создания слушателя на кнопке Старт А
+function addListenerOnStartAButton(element: HTMLButtonElement): void {
+  element.addEventListener('click', () => {
+    const startA = element.getAttribute('data-startA');
+    if (startA) startAnimateCar(startA);
+    buttonRaceStart.disabled = true;
+    buttonRaceReset.disabled = false;
+  });
+}
+
+// функция создания слушателя на кнопке Старт В
+function addListenerOnStopBButton(element: HTMLButtonElement): void {
+  element.addEventListener('click', () => {
+    const stopB = element.getAttribute('data-StopB');
+    if (stopB) stopAnimateCar(stopB);
+    // buttonRaceReset.disabled = false;
+  });
+}
+
+// функция создания одиночной гонки
+function createContainerCar(id: number, nameCar: string, color: string): IContainerCar {
+  const containerCar = createElement('div', { className: 'container-car' });
+  const raceWrapper = createElement('div', { className: 'race__wrapper' });
+  const buttonSelect = createElement('button', { className: 'button button_select', textContent: 'SELECT' }) as HTMLButtonElement;
+  buttonSelect.setAttribute('data-select', `${id}`);
+  addListenerOnSelectButton(buttonSelect);
+  const buttonRemove = createElement('button', { className: 'button button_remove', textContent: 'REMOVE' }) as HTMLButtonElement;
+  buttonRemove.setAttribute('data-remove', `${id}`);
+  addListenerOnRemoveButton(buttonRemove);
   const carName = createElement('p', { className: 'car-name', textContent: `${nameCar}` });
   addChildren(raceWrapper, [buttonSelect, buttonRemove, carName]);
-
   const trackCar = createElement('div', { className: 'race__wrapper track__car' });
   const buttonStartA = createElement('button', { className: 'button button_start', textContent: 'A' }) as HTMLButtonElement;
   buttonStartA.setAttribute('data-startA', `${id}`);
-  
   const buttonStopB = createElement('button', { className: 'button button_stop', textContent: 'B' }) as HTMLButtonElement;
   buttonStopB.setAttribute('data-StopB', `${id}`);
   buttonStopB.disabled = true;
-  
-  buttonStartA.addEventListener('click', () => {
-    const startA = buttonStartA.getAttribute('data-startA');
-    if (startA) {
-      // buttonStartA.disabled = true;
-      console.log('НАЖАЛ startA');
-      // buttonRaceStart.disabled = true;
-      startAnimateCar(startA);
-    }
-    // buttonStopB.disabled = false;
-  });
-
-  buttonStopB.addEventListener('click', () => {
-    // buttonStopB.disabled = true;
-    const stopB = buttonStopB.getAttribute('data-StopB');
-    if (stopB) {
-      console.log('НАЖАЛ stopB');
-      // buttonRaceStart.disabled = false;
-      stopAnimateCar(stopB);
-    }
-    // buttonStartA.disabled = false;
-  });
+  addListenerOnStartAButton(buttonStartA);
+  addListenerOnStopBButton(buttonStopB);
   const trackCarSvg = createElement('div', { className: 'container__track__car-svg' });
   trackCarSvg.setAttribute('data-trackCarSvg', `${id}`);
-
   const car = createElementfromString(svgCar);
   car.style.fill = `${color}`;
-  car.style.width = '50px';
-  car.style.height = '50px';
+  car.style.width = BIG_SIZE_SVG;
+  car.style.height = BIG_SIZE_SVG;
   car.setAttribute('class', 'track__car-image');
   addChildren(trackCarSvg, [car]);
-
   const trackFinish = createElement('img', { className: 'track__finish', src: flag, alt: 'finish flag' }) as HTMLImageElement;
   addChildren(trackCar, [buttonStartA, buttonStopB, trackCarSvg, trackFinish]);
   addChildren(containerCar, [raceWrapper, trackCar]);
-
-
   return {
     containerCar: containerCar,
     buttonStartA: buttonStartA,
@@ -116,13 +116,19 @@ function createContainerCar(id: number, nameCar: string = 'Audi', color: string 
 // Конец функции создания одиночной гонки
 
 // функция создания одиночного результата победы
-function createContainerResultWin(count: number = 1, color: string = 'red', nameCar: string = 'Audi', wins: number = 1, time: number = 0): HTMLElement {
-
+function createContainerResultWin(
+  count: number,
+  color: string,
+  nameCar: string,
+  wins: number,
+  time: number,
+): HTMLElement {
   const resultsTableWinnerRow = createElement('tr', { className: 'results__table__winner-row' }) as HTMLElement;
   const rowItemCount = createElement('td', { className: 'title-row-item', textContent: `${count}` }) as HTMLTableElement;
   const rowItemSVG = createElement('td', { className: 'title-row-item' }) as HTMLTableElement;
   const carSmall = createElementfromString(svgCar);
   carSmall.style.fill = `${color}`;
+
   addChildren(rowItemSVG, [carSmall]);
 
   const rowItemName = createElement('td', { className: 'title-row-item', textContent: `${nameCar}` }) as HTMLTableElement;
@@ -130,6 +136,7 @@ function createContainerResultWin(count: number = 1, color: string = 'red', name
   const rowItemTime = createElement('td', { className: 'title-row-item', textContent: `${time} sec` }) as HTMLTableElement;
 
   addChildren(resultsTableWinnerRow, [rowItemCount, rowItemSVG, rowItemName, rowItemWins, rowItemTime]);
+
   return resultsTableWinnerRow;
 }
 

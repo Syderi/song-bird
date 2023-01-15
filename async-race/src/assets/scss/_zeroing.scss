@@ -4,9 +4,6 @@
 ::before,
 ::after {
   box-sizing: border-box;
-  // margin: 0;
-  // padding: 0;
-  // border: 0;
 }
 
 a {
@@ -35,7 +32,8 @@ h6 {
   font-family: inherit;
 }
 
-td, th {
+td,
+th {
   text-align: center;
 }
 
@@ -47,16 +45,6 @@ body {
   font-size: 10px;
 }
 
-// body {
-//   display: flex;
-//   min-height: 100vh;
-//   flex-direction: column;
-// }
-
-// main {
-//   flex: 1 1 auto;
-// }
-
 .button {
   margin: 0 2px;
   font-size: 1.6rem;
@@ -65,12 +53,12 @@ body {
   border-radius: 5px;
   background-color: rgb(105, 231, 55);
   font-size: 1.4rem;
-  &:active{
+  &:active {
     color: red;
   }
 }
 
-.input{
+.input {
   height: 25px;
   padding: 5px;
   border-radius: 5px;

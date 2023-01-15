@@ -1,33 +1,33 @@
-import { ICheckEngine,
+import {
+  ICheckEngine,
   ICarApi,
   IResponseGetCarsApi,
   IGeneralWinnersResponse,
   IWinnerCarApi,
   IStartStop,
 } from './../types/_interfaces';
+
 import {
   urlEngine, urlGarage,
   urlWinners, MAX_CARS_IN_PAGE,
   MAX_WINNERS_CARS_IN_PAGE,
   GLOBAL_STATE, GLOBAL_DEFAULT_MINUS_ONE,
+  DEFAULT_PAGE_IN_CARS_API,
+  DEFAULT_CARS_API,
+  ENGINE_STATUS_SUCCSES,
 } from '../constants/constants';
 
 import { WinnersSortOrderEnum, WinnersSortEnum } from '../types/_enum';
 
-// import { checkbuttonRacePagination } from '../logic/LogicPaginationRace';
-
-
 // Возвращает данные об автомобилях в гараже.
-export async function getCarsApi(page: number = 1, limit: number = MAX_CARS_IN_PAGE): Promise<IResponseGetCarsApi> {
+export async function getCarsApi(page: number = DEFAULT_PAGE_IN_CARS_API,
+  limit: number = MAX_CARS_IN_PAGE): Promise<IResponseGetCarsApi> {
   const res: Response = await fetch(`${urlGarage}?_page=${page}&_limit=${limit}`, {
     method: 'GET',
   });
   const carsArray: ICarApi[] = await res.json();
-  let countCars = res.headers.get('X-Total-Count') ?? '0';
-  if (!countCars) countCars = '0';
+  const countCars = res.headers.get('X-Total-Count') || DEFAULT_CARS_API;
   GLOBAL_STATE.countCarsInGarageRace = +countCars;
-  // console.log('GLOBAL_STATE.countCarsInGarageRace', GLOBAL_STATE.countCarsInGarageRace);
-  // checkbuttonRacePagination();
   return {
     countCars: countCars,
     carsArray: carsArray,
@@ -71,15 +71,12 @@ export async function deleteCarAPi(id: string): Promise<void> {
   });
 }
 
-
 // удаляет машину из победителей
 export async function deleteWinnerApi(id: string): Promise<void> {
   return (await fetch(`${urlWinners}/${id}`, {
     method: 'DELETE',
   })).json();
 }
-
-
 
 // метод СТАР переводит двигаетель в старт
 export async function startEngineCarApi(id: string | number): Promise<IStartStop> {
@@ -102,7 +99,7 @@ export async function checkEngineDriveCar(id: string): Promise<ICheckEngine> {
   const data = await fetch(`${urlEngine}?id=${id}&status=drive`, {
     method: 'PATCH',
   }).catch();
-  if (data.status === 200) {
+  if (data.status === ENGINE_STATUS_SUCCSES) {
     return { success: true };
   }
   return { success: false };
@@ -110,14 +107,13 @@ export async function checkEngineDriveCar(id: string): Promise<ICheckEngine> {
 
 // Возвращает json данные о победителях.
 export async function getWinnersApi(
-  page: number = 1,
+  page: number = DEFAULT_PAGE_IN_CARS_API,
   sort: WinnersSortEnum = GLOBAL_STATE.winnersSort,
   order: WinnersSortOrderEnum = GLOBAL_STATE.winnersSortOrder,
   limit = MAX_WINNERS_CARS_IN_PAGE,
 ): Promise<IGeneralWinnersResponse> {
   let res: Response;
   if (page === GLOBAL_DEFAULT_MINUS_ONE) {
-    // console.log('ПОЛУЧИЛ -1');
     res = await fetch(`${urlWinners}`, {
       method: 'GET',
     });
@@ -128,11 +124,7 @@ export async function getWinnersApi(
       });
   }
   const winnersCarsArray: IWinnerCarApi[] = await res.json();
-  const countWinnerCars = res.headers.get('X-Total-Count') || '0';
-  console.log('countWinnerCars', countWinnerCars);
-  // if (!countWinnerCars) countWinnerCars = '0';
-  // await Promise.all(winnersCarsArray.map(async (el) => el.car = await getCarAPi(el.id)));
-  // GLOBAL_STATE.countCarsInGarageWinners = +countWinnerCars;
+  const countWinnerCars = res.headers.get('X-Total-Count') || DEFAULT_CARS_API;
   return {
     countWinnerCars: countWinnerCars,
     winnersCarsArray: winnersCarsArray,

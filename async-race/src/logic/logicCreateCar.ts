@@ -8,11 +8,10 @@ import { generateRandomName } from './logigGenerate100Cars';
 export async function createCar(
   name: string = inputNameCreate.value,
   color: string = inputColorCreate.value,
-) {
-
+): Promise<void> {
   if (!name.trim()) name = generateRandomName();
   await сreateCarAPi({
-    name: name || 'unknown',
+    name: name,
     color: color,
   });
   await renderContainerCARS();

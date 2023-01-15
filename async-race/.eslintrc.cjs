@@ -16,7 +16,6 @@ module.exports = {
   "ignorePatterns": ["**/*.js"],
   "rules": {
     "@typescript-eslint/no-inferrable-types": "off",
-    "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "error"
   }
 };

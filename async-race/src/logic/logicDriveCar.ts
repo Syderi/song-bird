@@ -1,4 +1,12 @@
-import { GLOBAL_STATE, GLOBAL_DEFAULT_MINUS_ONE } from './../constants/constants';
+import {
+  GLOBAL_STATE,
+  GLOBAL_DEFAULT_MINUS_ONE,
+  DISTANCE_TAKEN_RACE_DIV,
+  ZERO,
+  MILISECOND_IN_SECOND,
+  FRAME_IN_SECOND,
+  DECALS,
+} from './../constants/constants';
 import { EngineDriveEnum } from './../types/_enum';
 
 import {
@@ -15,12 +23,12 @@ import { messageHeaderWinner } from '../create/createHeader';
 import { checkbuttonRacePagination } from './LogicPaginationRace';
 
 // получение ширины экрана
-function getOffsetWidth() {
-  return Math.floor(document.body.offsetWidth - 220);
+function getOffsetWidth(): number {
+  return Math.floor(document.body.offsetWidth - DISTANCE_TAKEN_RACE_DIV);
 }
 
 // функция заморозки кнопок
-function disableButtonsInRace(status: boolean) {
+function disableButtonsInRace(status: boolean): void {
   [inputNameCreate,
     inputColorCreate,
     buttonCreate,
@@ -40,7 +48,6 @@ function getImageSVGDivCar(id: string): HTMLElement | null {
   const div = GLOBAL_STATE.arraytrackCarSvg.find(
     (track) => track.getAttribute('data-trackCarSvg') === id,
   );
-  // console.log('DIV DRIVE', div);
   if (div) return div;
   return null;
 }
@@ -49,15 +56,13 @@ function getImageSVGDivCar(id: string): HTMLElement | null {
 async function getEngineDriveCarStatus(id: string): Promise<void> {
   const res = await checkEngineDriveCar(id);
   if (res.success) return;
-  // console.log('res', res);
   GLOBAL_STATE.engineCarsStatusMap.set(id, EngineDriveEnum.drive);
 }
 
 
 // функция обновления или добавления победителя
-async function createWinnersCar(id: string, time: string) {
+async function createWinnersCar(id: string, time: string): Promise<void> {
   const winners = await getWinnersApi(GLOBAL_DEFAULT_MINUS_ONE);
-  console.log(winners);
   const key: boolean = winners.winnersCarsArray.some((car) => car.id === +id);
   if (key) {
     const winCar = await getWinnerCarAPi(id);
@@ -67,28 +72,28 @@ async function createWinnersCar(id: string, time: string) {
       wins: wins,
       time: newTime,
     });
-    console.log('ЕСТЬ В БАЗЕ победителей');
   } else {
     await сreateWinnerCarAPi({
       id: +id,
       wins: 1,
       time: +time,
     });
-    console.log('НЕ было в базе победителей');
   }
-  console.log('перестраиваю победителей');
   const car = await getCarAPi(+id);
   messageHeaderWinner.textContent = `Win car ${car.name} with time: ${time} sec`;
   renderContainerResultWin();
 }
 
-
 // функция движения машины
-function driveCar(time: number, id: string, key: boolean, endWidth = getOffsetWidth()) {
-  // console.log('GLOBAL_STATE из драйва', GLOBAL_STATE);
-  let curentWidth = 0;
-  const frame = (time / 1000) * 60;
-  const step = (endWidth - 0) / frame;
+function driveCar(
+  time: number,
+  id: string,
+  key: boolean,
+  endWidth = getOffsetWidth(),
+): void {
+  let curentWidth = ZERO;
+  const frame = (time / MILISECOND_IN_SECOND) * FRAME_IN_SECOND;
+  const step = (endWidth - ZERO) / frame;
   const div = getImageSVGDivCar(id);
   const moveCar = () => {
     const status = GLOBAL_STATE.engineCarsStatusMap.get(id);
@@ -96,7 +101,7 @@ function driveCar(time: number, id: string, key: boolean, endWidth = getOffsetWi
     if (curentWidth < endWidth && status === EngineDriveEnum.started) {
       if (div) {
         if (!GLOBAL_STATE.isAllCarsReady && key) {
-          curentWidth = 0;
+          curentWidth = ZERO;
         } else {
           div.style.transform = `translateX(${curentWidth}px)`;
         }
@@ -106,15 +111,15 @@ function driveCar(time: number, id: string, key: boolean, endWidth = getOffsetWi
       && status === EngineDriveEnum.started
       && !GLOBAL_STATE.isWinnerCarinRace) {
       GLOBAL_STATE.isWinnerCarinRace = !GLOBAL_STATE.isWinnerCarinRace;
-      console.log('id ПОБЕДИТЕЛЯ УРА =', id, 'время = ', time.toFixed(3));
-      createWinnersCar(id, (time / 1000).toFixed(3));
+      createWinnersCar(id, (time / MILISECOND_IN_SECOND).toFixed(DECALS));
     }
   };
   moveCar();
 }
 
-// функция анимации движения
-export async function startAnimateCar(id: string, key: boolean = false) {
+// функция анимации движения  по кнопке A
+export async function startAnimateCar(id: string, key: boolean = false): Promise<void> {
+  disableButtonsInRace(true);
   const btnStartA = GLOBAL_STATE.arraybuttonStartA.find((btn) => btn.getAttribute('data-startA') === id);
   if (btnStartA) btnStartA.disabled = true;
   const engineCarData = await startEngineCarApi(id);
@@ -127,7 +132,7 @@ export async function startAnimateCar(id: string, key: boolean = false) {
 }
 
 // функция остановки движения по кнопке В
-export async function stopAnimateCar(id: string) {
+export async function stopAnimateCar(id: string): Promise<void> {
   const btnStopB = GLOBAL_STATE.arraybuttonStopB.find((btn) => btn.getAttribute('data-StopB') === id);
   if (btnStopB) btnStopB.disabled = true;
   await stopEngineCarApi(id);
@@ -136,12 +141,12 @@ export async function stopAnimateCar(id: string) {
   const btnStartA = GLOBAL_STATE.arraybuttonStartA.find((btn) => btn.getAttribute('data-startA') === id);
   if (btnStartA) btnStartA.disabled = false;
   if (div) {
-    div.style.transform = 'translateX(0px)';
+    div.style.transform = `translateX(${ZERO}px)`;
   }
 }
 
 // функция Старта всех гонок
-async function startAnimateAllCar() {
+async function startAnimateAllCar(): Promise<void> {
   GLOBAL_STATE.arraybuttonStopB.forEach(btnB => btnB.click());
   await Promise.all(GLOBAL_STATE.arraytrackCarSvg.map(async (el) => {
     const id = el.getAttribute('data-trackCarSvg');
@@ -152,7 +157,6 @@ async function startAnimateAllCar() {
   ));
   buttonRaceReset.disabled = false;
   GLOBAL_STATE.isAllCarsReady = true;
-  // messageHeaderWinner.textContent = '';
 }
 
 // слушатель старта ГОНКИ
@@ -160,12 +164,10 @@ buttonRaceStart.addEventListener('click', () => {
   buttonRaceStart.disabled = true;
   GLOBAL_STATE.isRace = true;
   startAnimateAllCar();
-  disableButtonsInRace(true);
-  // GLOBAL_STATE.arraybuttonStartA.forEach((btnA) => btnA.click());
 });
 
 // функция остановки всех гонок
-async function stopAnimateAllCar() {
+async function stopAnimateAllCar(): Promise<void> {
   await Promise.all(GLOBAL_STATE.arraytrackCarSvg.map(async (el) => {
     const id = el.getAttribute('data-trackCarSvg');
     if (id) {
@@ -183,10 +185,8 @@ async function stopAnimateAllCar() {
 buttonRaceReset.addEventListener('click', () => {
   buttonRaceReset.disabled = true;
   stopAnimateAllCar();
-
   GLOBAL_STATE.isRace = false;
   GLOBAL_STATE.isWinnerCarinRace = false;
-
 });
 
 

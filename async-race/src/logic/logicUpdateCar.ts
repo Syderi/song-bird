@@ -1,11 +1,10 @@
 import { GLOBAL_STATE, GLOBAL_DEFAULT_MINUS_ONE, COLOR_BLACK } from './../constants/constants';
 import { getCarAPi, updateCarAPi } from '../api/api';
-
 import { inputNameUpdate, inputColorUpdate, buttonUpdate } from '../create/createSectionRace';
 import { renderContainerCARS, renderContainerResultWin } from '../create/render';
 
 // функция обновления инпутов изменения машины
-export async function updateInputsValues() {
+export async function updateInputsValues(): Promise<void> {
   const id = GLOBAL_STATE.idSelectedCar;
   if (id && id !== GLOBAL_DEFAULT_MINUS_ONE) {
     const car = await getCarAPi(+id);
@@ -18,19 +17,16 @@ export async function updateInputsValues() {
 }
 
 // функция обновления селектов Дизайбл
-
-export function buttonsSelectetIsTrue() {
-  GLOBAL_STATE.arrayButtonSelect.forEach(selectButton =>{
+export function buttonsSelectetIsTrue(): void {
+  GLOBAL_STATE.arrayButtonSelect.forEach(selectButton => {
     selectButton.disabled = false;
   });
 }
 
 // функция обновления машины
-async function updateCar(id: string) {
-  
+async function updateCar(id: string): Promise<void> {
   const name = inputNameUpdate.value;
   const color = inputColorUpdate.value;
-
   await updateCarAPi(id, {
     name,
     color,
@@ -40,9 +36,7 @@ async function updateCar(id: string) {
 }
 
 // слушатель на кнопке обновления машины
-
 buttonUpdate.addEventListener('click', () => {
-  console.log('GLOBAL_STATE слушательб Апдайт', GLOBAL_STATE);
   const id = GLOBAL_STATE.idSelectedCar;
   if (id && id !== GLOBAL_DEFAULT_MINUS_ONE) {
     updateCar(id.toString());
