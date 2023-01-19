@@ -62,6 +62,3 @@ export interface IContainerCar {
   buttonRemove: HTMLButtonElement;
   trackCarSvg: HTMLElement;
 }
-
-
-

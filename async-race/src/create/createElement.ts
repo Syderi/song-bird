@@ -29,7 +29,6 @@ function createElementfromString(textString: string): HTMLElement {
   return div.firstElementChild as HTMLElement;
 }
 
-
 // функция создания слушателя на кнопке селект
 function addListenerOnSelectButton(element: HTMLButtonElement): void {
   element.addEventListener('click', () => {

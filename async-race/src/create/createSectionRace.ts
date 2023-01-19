@@ -54,4 +54,3 @@ export const buttonRacePaginationNext = createElement('button',
 addChildren(racePagination, [buttonRacePaginationPrev, buttonRacePaginationNext]);
 
 addChildren(sectionRace, [raceInputs, wrapperTrack, racePagination]);
-

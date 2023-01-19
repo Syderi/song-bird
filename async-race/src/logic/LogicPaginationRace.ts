@@ -50,5 +50,3 @@ buttonRacePaginationPrev.addEventListener('click', () => {
   GLOBAL_STATE.countOfPageRace -= 1;
   undateCarsPage();
 });
-
-

@@ -42,5 +42,3 @@ buttonResultsPaginationPrev.addEventListener('click', () => {
   GLOBAL_STATE.countOfPageWinners -= 1;
   undateCarsPageWinners();
 });
-
-

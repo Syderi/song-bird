@@ -24,7 +24,6 @@ export const MILISECOND_IN_SECOND = 1000;
 export const FRAME_IN_SECOND = 60;
 export const DECALS = 3;
 
-
 export const CAR_DATA: ICarData = {
   'Alfa Romeo': ['105/115', '145', '146', '147', '155', '156', '159', '164', '166', '1900'],
   'Audi': ['100', '200', '50', '80', '90', '920', 'A1', 'A2', 'A3', 'A4'],

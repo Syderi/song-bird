@@ -41,4 +41,3 @@ export const buttonResultsPaginationNext = createElement('button',
 addChildren(resultsPagination, [buttonResultsPaginationPrev, buttonResultsPaginationNext]);
 
 addChildren(sectionResults, [resultsWinners, resultsPage, resultsTable, resultsPagination]);
-

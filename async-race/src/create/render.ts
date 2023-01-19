@@ -87,5 +87,3 @@ export async function renderContainerResultWin(
 
 renderContainerCARS(GLOBAL_STATE.countOfPageRace);
 renderContainerResultWin(GLOBAL_STATE.countOfPageWinners);
-
-

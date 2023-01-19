@@ -24,4 +24,3 @@ export async function deleteCarFromWinners(id: string): Promise<void> {
   checkbuttonWinnerPagination();
   await renderContainerResultWin();
 }
-

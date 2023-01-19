@@ -188,9 +188,3 @@ buttonRaceReset.addEventListener('click', () => {
   GLOBAL_STATE.isRace = false;
   GLOBAL_STATE.isWinnerCarinRace = false;
 });
-
-
-
-
-
-
