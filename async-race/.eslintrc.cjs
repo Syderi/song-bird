@@ -17,7 +17,6 @@ module.exports = {
   "ignorePatterns": ["**/*.js"],
   "rules": {
     "import/no-cycle": 'off',
-    "no-console": "off",
     "@typescript-eslint/no-explicit-any": "error"
   }
 };
