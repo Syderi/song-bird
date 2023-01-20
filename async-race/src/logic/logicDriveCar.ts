@@ -153,7 +153,7 @@ export async function stopAnimateCar(id: string): Promise<void> {
 // функция Старта всех гонок
 async function startAnimateAllCar(): Promise<void> {
   GLOBAL_STATE.arraybuttonStopB.forEach((btnB) => btnB.click());
-  await Promise.all(GLOBAL_STATE.arraytrackCarSvg.map(async (el) => {
+  await Promise.all(GLOBAL_STATE.arraytrackCarSvg.map((el) => {
     const id = el.getAttribute('data-trackCarSvg');
     if (id) {
       return startAnimateCar(id, true);
