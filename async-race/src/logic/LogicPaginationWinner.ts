@@ -6,9 +6,8 @@ import {
 } from '../constants/constants';
 import { renderContainerResultWin } from '../create/render';
 
-
 // функция проверки активации кнопок переключения страниц
-export async function checkbuttonWinnerPagination(
+export default async function checkbuttonWinnerPagination(
   numberOfPage: number = GLOBAL_STATE.countOfPageWinners,
 ): Promise<void> {
   if (numberOfPage <= DEFAULT_PAGE_IN_CARS_API) {

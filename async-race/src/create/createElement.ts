@@ -1,7 +1,7 @@
 import { buttonRaceReset, buttonRaceStart } from './createSectionRace';
 import { BIG_SIZE_SVG, DEFAULT_HTML_ELEMENT, GLOBAL_STATE } from '../constants/constants';
 import { StringObject } from '../types/_type';
-import { svgCar } from '../constants/car';
+import svgCar from '../constants/car';
 import flag from '../assets/img/png/flag.png';
 import { deleteCarFromGarge, deleteCarFromWinners } from '../logic/logicDeleteCar';
 import { buttonsSelectetIsTrue, updateInputsValues } from '../logic/logicUpdateCar';
@@ -9,7 +9,10 @@ import { startAnimateCar, stopAnimateCar } from '../logic/logicDriveCar';
 import { IContainerCar } from '../types/_interfaces';
 
 // функция создания НТМЛ Елементов
-function createElement(tagName: string = DEFAULT_HTML_ELEMENT, options?: StringObject): HTMLElement {
+function createElement(
+  tagName: string = DEFAULT_HTML_ELEMENT,
+  options?: StringObject,
+): HTMLElement {
   const element = document.createElement(tagName);
   if (options) {
     Object.assign(element, options);
@@ -37,7 +40,8 @@ function addListenerOnSelectButton(element: HTMLButtonElement): void {
       GLOBAL_STATE.idSelectedCar = idSelect;
       updateInputsValues();
       buttonsSelectetIsTrue();
-      element.disabled = true;
+      const newElement = element;
+      newElement.disabled = true;
     }
   });
 }
@@ -104,12 +108,12 @@ function createContainerCar(id: number, nameCar: string, color: string): IContai
   addChildren(trackCar, [buttonStartA, buttonStopB, trackCarSvg, trackFinish]);
   addChildren(containerCar, [raceWrapper, trackCar]);
   return {
-    containerCar: containerCar,
-    buttonStartA: buttonStartA,
-    buttonStopB: buttonStopB,
-    buttonSelect: buttonSelect,
-    buttonRemove: buttonRemove,
-    trackCarSvg: trackCarSvg,
+    containerCar,
+    buttonStartA,
+    buttonStopB,
+    buttonSelect,
+    buttonRemove,
+    trackCarSvg,
   };
 }
 // Конец функции создания одиночной гонки
@@ -134,9 +138,14 @@ function createContainerResultWin(
   const rowItemWins = createElement('td', { className: 'title-row-item', textContent: `${wins}` }) as HTMLTableElement;
   const rowItemTime = createElement('td', { className: 'title-row-item', textContent: `${time} sec` }) as HTMLTableElement;
 
-  addChildren(resultsTableWinnerRow, [rowItemCount, rowItemSVG, rowItemName, rowItemWins, rowItemTime]);
+  addChildren(
+    resultsTableWinnerRow,
+    [rowItemCount, rowItemSVG, rowItemName, rowItemWins, rowItemTime],
+  );
 
   return resultsTableWinnerRow;
 }
 
-export { createElement, addChildren, createElementfromString, createContainerCar, createContainerResultWin };
+export {
+  createElement, addChildren, createElementfromString, createContainerCar, createContainerResultWin,
+};

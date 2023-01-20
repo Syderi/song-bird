@@ -2,11 +2,13 @@ import { updateInputsValues } from '../logic/logicUpdateCar';
 import { addChildren, createContainerCar, createContainerResultWin } from './createElement';
 
 import { getCarsApi, getWinnersApi, getCarAPi } from '../api/api';
-import { ICarApi } from '../types/_interfaces';
+
 import { containerCARS, trackItems, trackNumberPage } from './createSectionRace';
-import { resultsTbody, resultsTableTitleRow, resultsWinners, resultsPage } from './createSectionResults';
+import {
+  resultsTbody, resultsTableTitleRow, resultsWinners, resultsPage,
+} from './createSectionResults';
 import { GLOBAL_STATE, GLOBAL_DEFAULT_MINUS_ONE } from '../constants/constants';
-import { checkbuttonWinnerPagination } from '../logic/LogicPaginationWinner';
+import checkbuttonWinnerPagination from '../logic/LogicPaginationWinner';
 
 // функция заполнения номера страницы и количества машин в гараже
 async function renrderTrackItemsAndNumberPage(
@@ -20,7 +22,7 @@ async function renrderTrackItemsAndNumberPage(
 
 // функция заполнения номера страницы и количества машин в ПОБЕДИТЕЛЯХ
 function renrderWinnersItemsAndNumberPage(
-  countWinners: string = '1',
+  countWinners: string,
   page: number = GLOBAL_STATE.countOfPageWinners,
 ): void {
   resultsWinners.textContent = `winners ${countWinners}`;
@@ -33,7 +35,7 @@ export async function renderContainerCARS(
 ): Promise<void> {
   containerCARS.innerHTML = '';
   const res = await getCarsApi(page);
-  const carsArray: ICarApi[] = res.carsArray;
+  const { carsArray } = res;
   GLOBAL_STATE.idSelectedCar = GLOBAL_DEFAULT_MINUS_ONE;
   GLOBAL_STATE.arraybuttonStartA = [];
   GLOBAL_STATE.arraybuttonStopB = [];
@@ -43,7 +45,7 @@ export async function renderContainerCARS(
   GLOBAL_STATE.isRace = false;
   GLOBAL_STATE.isWinnerCarinRace = false;
   GLOBAL_STATE.engineCarsStatusMap.clear();
-  carsArray.forEach(car => {
+  carsArray.forEach((car) => {
     if (car.id) {
       const tempCar = createContainerCar(car.id, car.name, car.color);
       GLOBAL_STATE.arraybuttonStartA.push(tempCar.buttonStartA);
@@ -68,19 +70,22 @@ export async function renderContainerResultWin(
   resultsTbody.innerHTML = '';
   addChildren(resultsTbody, [resultsTableTitleRow]);
 
-  for (let index = 0; index < winnerCars.winnersCarsArray.length; index++) {
-    const winCar = winnerCars.winnersCarsArray[index];
+  await Promise.all(winnerCars.winnersCarsArray.map(async (winCar, index) => {
     if (winCar.id) {
       const car = await getCarAPi(winCar.id);
-      addChildren(resultsTbody,
+      addChildren(
+        resultsTbody,
         [createContainerResultWin(
           (page * 10 + index - 9),
           car.color,
           car.name,
           winCar.wins,
-          winCar.time)]);
+          winCar.time,
+        )],
+      );
     }
-  }
+  }));
+
   checkbuttonWinnerPagination();
   renrderWinnersItemsAndNumberPage(winnerCars.countWinnerCars, page);
 }

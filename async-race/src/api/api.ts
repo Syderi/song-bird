@@ -5,7 +5,7 @@ import {
   IGeneralWinnersResponse,
   IWinnerCarApi,
   IStartStop,
-} from './../types/_interfaces';
+} from '../types/_interfaces';
 
 import {
   urlEngine, urlGarage,
@@ -20,8 +20,10 @@ import {
 import { WinnersSortOrderEnum, WinnersSortEnum } from '../types/_enum';
 
 // Возвращает данные об автомобилях в гараже.
-export async function getCarsApi(page: number = DEFAULT_PAGE_IN_CARS_API,
-  limit: number = MAX_CARS_IN_PAGE): Promise<IResponseGetCarsApi> {
+export async function getCarsApi(
+  page: number = DEFAULT_PAGE_IN_CARS_API,
+  limit: number = MAX_CARS_IN_PAGE,
+): Promise<IResponseGetCarsApi> {
   const res: Response = await fetch(`${urlGarage}?_page=${page}&_limit=${limit}`, {
     method: 'GET',
   });
@@ -29,8 +31,8 @@ export async function getCarsApi(page: number = DEFAULT_PAGE_IN_CARS_API,
   const countCars = res.headers.get('X-Total-Count') || DEFAULT_CARS_API;
   GLOBAL_STATE.countCarsInGarageRace = +countCars;
   return {
-    countCars: countCars,
-    carsArray: carsArray,
+    countCars,
+    carsArray,
   };
 }
 
@@ -118,16 +120,18 @@ export async function getWinnersApi(
       method: 'GET',
     });
   } else {
-    res = await fetch(`${urlWinners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`,
+    res = await fetch(
+      `${urlWinners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`,
       {
         method: 'GET',
-      });
+      },
+    );
   }
   const winnersCarsArray: IWinnerCarApi[] = await res.json();
   const countWinnerCars = res.headers.get('X-Total-Count') || DEFAULT_CARS_API;
   return {
-    countWinnerCars: countWinnerCars,
-    winnersCarsArray: winnersCarsArray,
+    countWinnerCars,
+    winnersCarsArray,
   };
 }
 
@@ -150,7 +154,7 @@ export async function сreateWinnerCarAPi(winCar: IWinnerCarApi): Promise<IWinne
   })).json();
 }
 
-// обновляем Машину победителя 
+// обновляем Машину победителя
 export async function updateWinnerCarAPi(id: string, winCar: IWinnerCarApi): Promise<void> {
   await fetch(`${urlWinners}/${id}`, {
     method: 'PUT',

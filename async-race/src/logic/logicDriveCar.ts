@@ -6,8 +6,8 @@ import {
   MILISECOND_IN_SECOND,
   FRAME_IN_SECOND,
   DECALS,
-} from './../constants/constants';
-import { EngineDriveEnum } from './../types/_enum';
+} from '../constants/constants';
+import { EngineDriveEnum } from '../types/_enum';
 
 import {
   checkEngineDriveCar, getWinnersApi, startEngineCarApi, stopEngineCarApi,
@@ -20,7 +20,7 @@ import {
 } from '../create/createSectionRace';
 import { renderContainerResultWin } from '../create/render';
 import { messageHeaderWinner } from '../create/createHeader';
-import { checkbuttonRacePagination } from './LogicPaginationRace';
+import checkbuttonRacePagination from './LogicPaginationRace';
 
 // получение ширины экрана
 function getOffsetWidth(): number {
@@ -38,8 +38,14 @@ function disableButtonsInRace(status: boolean): void {
     buttonUpdate,
     buttonRaceGenerateCars,
     buttonRacePaginationPrev,
-    buttonRacePaginationNext].forEach(btn => btn.disabled = status);
-  GLOBAL_STATE.arrayButtonRemove.forEach(btn => btn.disabled = status);
+    buttonRacePaginationNext].forEach((btn) => {
+    const newBtn = btn;
+    newBtn.disabled = status;
+  });
+  GLOBAL_STATE.arrayButtonRemove.forEach((btn) => {
+    const newBtn = btn;
+    newBtn.disabled = status;
+  });
   if (!status) checkbuttonRacePagination();
 }
 
@@ -59,7 +65,6 @@ async function getEngineDriveCarStatus(id: string): Promise<void> {
   GLOBAL_STATE.engineCarsStatusMap.set(id, EngineDriveEnum.drive);
 }
 
-
 // функция обновления или добавления победителя
 async function createWinnersCar(id: string, time: string): Promise<void> {
   const winners = await getWinnersApi(GLOBAL_DEFAULT_MINUS_ONE);
@@ -69,7 +74,7 @@ async function createWinnersCar(id: string, time: string): Promise<void> {
     const wins = winCar.wins + 1;
     const newTime = winCar.time < +time ? winCar.time : +time;
     updateWinnerCarAPi(id, {
-      wins: wins,
+      wins,
       time: newTime,
     });
   } else {
@@ -118,7 +123,7 @@ function driveCar(
 }
 
 // функция анимации движения  по кнопке A
-export async function startAnimateCar(id: string, key: boolean = false): Promise<void> {
+export async function startAnimateCar(id: string, key = false): Promise<void> {
   disableButtonsInRace(true);
   const btnStartA = GLOBAL_STATE.arraybuttonStartA.find((btn) => btn.getAttribute('data-startA') === id);
   if (btnStartA) btnStartA.disabled = true;
@@ -147,14 +152,14 @@ export async function stopAnimateCar(id: string): Promise<void> {
 
 // функция Старта всех гонок
 async function startAnimateAllCar(): Promise<void> {
-  GLOBAL_STATE.arraybuttonStopB.forEach(btnB => btnB.click());
+  GLOBAL_STATE.arraybuttonStopB.forEach((btnB) => btnB.click());
   await Promise.all(GLOBAL_STATE.arraytrackCarSvg.map(async (el) => {
     const id = el.getAttribute('data-trackCarSvg');
     if (id) {
       return startAnimateCar(id, true);
     }
-  },
-  ));
+    return null;
+  }));
   buttonRaceReset.disabled = false;
   GLOBAL_STATE.isAllCarsReady = true;
 }
@@ -173,8 +178,8 @@ async function stopAnimateAllCar(): Promise<void> {
     if (id) {
       return stopAnimateCar(id);
     }
-  },
-  ));
+    return null;
+  }));
   messageHeaderWinner.textContent = '';
   GLOBAL_STATE.isAllCarsReady = false;
   disableButtonsInRace(false);

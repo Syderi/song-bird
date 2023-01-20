@@ -13,7 +13,7 @@ import { renderContainerCARS } from '../create/render';
 import { getCarsApi } from '../api/api';
 
 // функция проверки активации кнопок переключения страниц
-export async function checkbuttonRacePagination(
+export default async function checkbuttonRacePagination(
   numberOfPage: number = GLOBAL_STATE.countOfPageRace,
 ): Promise<void> {
   if (numberOfPage <= DEFAULT_PAGE_IN_CARS_API) {

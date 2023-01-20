@@ -1,4 +1,4 @@
-import { GLOBAL_STATE, GLOBAL_DEFAULT_MINUS_ONE, COLOR_BLACK } from './../constants/constants';
+import { GLOBAL_STATE, GLOBAL_DEFAULT_MINUS_ONE, COLOR_BLACK } from '../constants/constants';
 import { getCarAPi, updateCarAPi } from '../api/api';
 import { inputNameUpdate, inputColorUpdate, buttonUpdate } from '../create/createSectionRace';
 import { renderContainerCARS, renderContainerResultWin } from '../create/render';
@@ -18,8 +18,9 @@ export async function updateInputsValues(): Promise<void> {
 
 // функция обновления селектов Дизайбл
 export function buttonsSelectetIsTrue(): void {
-  GLOBAL_STATE.arrayButtonSelect.forEach(selectButton => {
-    selectButton.disabled = false;
+  GLOBAL_STATE.arrayButtonSelect.forEach((selectButton) => {
+    const newButton = selectButton;
+    newButton.disabled = false;
   });
 }
 
@@ -40,7 +41,5 @@ buttonUpdate.addEventListener('click', () => {
   const id = GLOBAL_STATE.idSelectedCar;
   if (id && id !== GLOBAL_DEFAULT_MINUS_ONE) {
     updateCar(id.toString());
-  } else {
-    return;
   }
 });

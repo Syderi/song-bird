@@ -11,11 +11,13 @@ module.exports = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     "plugin:import/recommended",
+    "airbnb-base",
     "airbnb-typescript/base"
   ],
   "ignorePatterns": ["**/*.js"],
   "rules": {
-    "@typescript-eslint/no-inferrable-types": "off",
+    "import/no-cycle": 'off',
+    "no-console": "off",
     "@typescript-eslint/no-explicit-any": "error"
   }
 };

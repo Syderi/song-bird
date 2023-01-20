@@ -1,11 +1,10 @@
-import { WinnersSortOrderEnum, WinnersSortEnum } from './../types/_enum';
-import { GLOBAL_STATE } from './../constants/constants';
+import { WinnersSortOrderEnum, WinnersSortEnum } from '../types/_enum';
+import { GLOBAL_STATE } from '../constants/constants';
 import {
   clickResultsTableSortWins,
   clickResultsTableSortTime,
 } from '../create/createSectionResults';
 import { renderContainerResultWin } from '../create/render';
-
 
 // фунция переключения сортировки по возрастанию и убыванию
 function changeOrderSort(): void {
