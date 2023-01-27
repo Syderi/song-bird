@@ -72,7 +72,6 @@ function addListenerOnStopBButton(element: HTMLButtonElement): void {
   element.addEventListener('click', () => {
     const stopB = element.getAttribute('data-StopB');
     if (stopB) stopAnimateCar(stopB);
-    // buttonRaceReset.disabled = false;
   });
 }
 

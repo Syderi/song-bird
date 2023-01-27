@@ -10,13 +10,27 @@ import {
 import { EngineDriveEnum } from '../types/_enum';
 
 import {
-  checkEngineDriveCar, getWinnersApi, startEngineCarApi, stopEngineCarApi,
-  сreateWinnerCarAPi, updateWinnerCarAPi, getWinnerCarAPi, getCarAPi,
+  checkEngineDriveCar,
+  getWinnersApi,
+  startEngineCarApi,
+  stopEngineCarApi,
+  сreateWinnerCarAPi,
+  updateWinnerCarAPi,
+  getWinnerCarAPi,
+  getCarAPi,
 } from '../api/api';
 import {
-  buttonRaceStart, buttonRaceReset, inputNameCreate, inputColorCreate,
-  buttonCreate, inputNameUpdate, buttonUpdate, inputColorUpdate,
-  buttonRaceGenerateCars, buttonRacePaginationPrev, buttonRacePaginationNext,
+  buttonRaceStart,
+  buttonRaceReset,
+  inputNameCreate,
+  inputColorCreate,
+  buttonCreate,
+  inputNameUpdate,
+  buttonUpdate,
+  inputColorUpdate,
+  buttonRaceGenerateCars,
+  buttonRacePaginationPrev,
+  buttonRacePaginationNext,
 } from '../create/createSectionRace';
 import { renderContainerResultWin } from '../create/render';
 import { messageHeaderWinner } from '../create/createHeader';

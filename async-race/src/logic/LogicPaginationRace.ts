@@ -6,7 +6,8 @@ import {
 import {
   DEFAULT_PAGE_IN_CARS_API,
   GLOBAL_DEFAULT_MINUS_ONE,
-  GLOBAL_STATE, MAX_CARS_IN_PAGE,
+  GLOBAL_STATE,
+  MAX_CARS_IN_PAGE,
 } from '../constants/constants';
 
 import { renderContainerCARS } from '../create/render';

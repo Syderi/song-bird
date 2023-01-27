@@ -1,4 +1,8 @@
-import { GLOBAL_STATE, GLOBAL_DEFAULT_MINUS_ONE, COLOR_BLACK } from '../constants/constants';
+import {
+  GLOBAL_STATE,
+  GLOBAL_DEFAULT_MINUS_ONE,
+  COLOR_BLACK,
+} from '../constants/constants';
 import { getCarAPi, updateCarAPi } from '../api/api';
 import { inputNameUpdate, inputColorUpdate, buttonUpdate } from '../create/createSectionRace';
 import { renderContainerCARS, renderContainerResultWin } from '../create/render';

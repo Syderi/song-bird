@@ -1,4 +1,8 @@
-import { EngineDriveEnum, WinnersSortEnum, WinnersSortOrderEnum } from './_enum';
+import {
+  EngineDriveEnum,
+  WinnersSortEnum,
+  WinnersSortOrderEnum,
+} from './_enum';
 
 export interface ICarApi {
   name: string;

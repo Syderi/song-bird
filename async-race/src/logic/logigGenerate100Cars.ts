@@ -1,5 +1,9 @@
 import {
-  ZERO, GENERATE_CARS_LENGTH, CAR_DATA, GENERATE_COLOR_LENGTH, GENERATE_COLOR_16FORMAT_LENGTH,
+  ZERO,
+  GENERATE_CARS_LENGTH,
+  CAR_DATA,
+  GENERATE_COLOR_LENGTH,
+  GENERATE_COLOR_16FORMAT_LENGTH,
 } from '../constants/constants';
 import { buttonRaceGenerateCars } from '../create/createSectionRace';
 import { сreateCarAPi } from '../api/api';
