@@ -8,10 +8,13 @@ import {
 } from '../types/_interfaces';
 
 import {
-  urlEngine, urlGarage,
-  urlWinners, MAX_CARS_IN_PAGE,
+  urlEngine,
+  urlGarage,
+  urlWinners,
+  MAX_CARS_IN_PAGE,
   MAX_WINNERS_CARS_IN_PAGE,
-  GLOBAL_STATE, GLOBAL_DEFAULT_MINUS_ONE,
+  GLOBAL_STATE,
+  GLOBAL_DEFAULT_MINUS_ONE,
   DEFAULT_PAGE_IN_CARS_API,
   DEFAULT_CARS_API,
   ENGINE_STATUS_SUCCSES,
